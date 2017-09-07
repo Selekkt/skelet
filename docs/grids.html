@@ -1,0 +1,623 @@
+<h1><a href="#grids">#</a> Grids</h1>
+
+<p>Skēlet. features a 12-column grid system. It’s flexible, easy to use, and fully responsive.</p>
+
+<style>
+    .col-cont {
+        max-width: 920px;
+    }
+    .box,
+    .box-first,
+    .box-large,
+    .box-nested,
+    .box-row {
+        background: #007fff;
+        border-radius: 2px;
+        box-sizing: border-box;
+        color: #fff;
+        margin-bottom: 0;
+        min-height: 1.5rem;
+        overflow: hidden;
+        padding: 2rem;
+        position: relative;
+        text-align: center;
+    }
+    .box-row {
+        margin-bottom: 1rem;
+    }
+    .box-first {
+        background: #06c;
+        border-color: #007fff;
+    }
+    .box-nested {
+        background: #036;
+        border-color: #007fff;
+    }
+    .box-large {
+        height: 8rem;
+    }
+    .box-container {
+        box-sizing: border-box;
+        padding: 2rem;
+    }
+</style>
+
+<br>
+<br>
+
+<div class="col-cont">
+    <section class="page-section">
+        <h4>Fluid</h4>
+        <p>Percent based widths allow fluid resizing of columns and rows.</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <div class="box-row"></div>
+            </div>
+            <div class="col-11">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <div class="box-row"></div>
+            </div>
+            <div class="col-10">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="box-row"></div>
+            </div>
+            <div class="col-9">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="box-row"></div>
+            </div>
+            <div class="col-8">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <div class="box-row"></div>
+            </div>
+            <div class="col-7">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="box-row"></div>
+            </div>
+            <div class="col-6">
+                <div class="box-row"></div>
+            </div>
+        </div><pre><code>.col-6 {
+  flex-basis: 50%;
+}</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Simple Syntax</h4>
+        <p>All you need to remember is row, column, content.</p>
+        <p>Containers can be used to wrap sections of your page. Use the <code>.col-cont</code> class to create a responsive, fixed-width container or the <code>.col-cont-fluid</code> class to create a fluid container.</p>
+
+<pre><code>&lt;div class="row">
+    &lt;div class="col-12">
+        &lt;div>12&lt;/div>
+    &lt;/div>
+&lt;/div></code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Offsets</h4>
+        <p>Offset a column</p>
+        <div class="row">
+            <div class="col-3">
+                <div class="box-row"></div>
+            </div>
+            <div class="offset-3 col-6">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-4 col-6">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-2 col-4">
+                <div class="box-row"></div>
+            </div>
+        </div><pre><code>&lt;div class="row"&gt;
+    &lt;div class="offset-3 col-9"&gt;
+        &lt;div&gt;offset&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Auto Width</h4>
+        <p>Add any number of auto sizing columns to a row. Let the grid figure it out.</p>
+        <div class="row">
+            <div class="col">
+                <div class="box-row"></div>
+            </div>
+            <div class="col">
+                <div class="box-row"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="box-row"></div>
+            </div>
+            <div class="col">
+                <div class="box-row"></div>
+            </div>
+            <div class="col">
+                <div class="box-row"></div>
+            </div>
+        </div><pre><code>&lt;div class="row"&gt;
+    &lt;div class="col"&gt;
+        &lt;div>auto&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Nested Grids</h4>
+        <p>Nest grids inside grids inside grids.</p>
+        <div class="row">
+            <div class="col-7">
+                <div class="box box-container">
+                    <div class="row">
+                        <div class="col-9">
+                            <div class="box-first box-container">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="box-nested"></div>
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="box-nested"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="box-first box-container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="box-nested"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="box box-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="box-first box-container">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="box-nested"></div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="box-nested"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row"&gt;
+    &lt;div class="col"&gt;
+        &lt;div&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col"&gt;
+                    &lt;div>auto&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Alignment</h4>
+        <p>Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column</p>
+        <h3><code>.row-start-</code></h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row row-start">
+                        <div class="col-6">
+                            <div class="box-nested"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row row-start"&gt;
+    &lt;div class="col-6"&gt;
+        &lt;div&gt;
+            row-start
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        <h3><code>.row-center</code></h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row row-center">
+                        <div class="col-6">
+                            <div class="box-nested"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row row-center"&gt;
+    &lt;div class="col-6"&gt;
+        &lt;div&gt;
+            row-start
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        <h3><code>.row-end</code></h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row row-end">
+                        <div class="col-6">
+                            <div class="box-nested"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row row-end"&gt;
+    &lt;div class="col-6"&gt;
+        &lt;div&gt;
+            row-end
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+        <h3><code>.row-top</code></h3>
+        <div class="row row-top">
+            <div class="col-6">
+                <div class="box-large"></div>
+            </div>
+            <div class="col-6">
+                <div class="box"></div>
+            </div>
+        </div><pre><code>&lt;div class="row row-top"&gt;
+    &lt;div class="col-6"&gt;
+        &lt;div&gt;
+            row-top
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        <h3><code>.row-middle</code></h3>
+        <div class="row row-middle">
+            <div class="col-6">
+                <div class="box-large"></div>
+            </div>
+            <div class="col-6">
+                <div class="box"></div>
+            </div>
+        </div><pre><code>&lt;div class="row row-middle"&gt;
+    &lt;div class="col-6"&gt;
+        &lt;div&gt;
+            row-center
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        <h3><code>.row-bottom</code></h3>
+        <div class="row row-bottom">
+            <div class="col-6">
+                <div class="box-large"></div>
+            </div>
+            <div class="col-6">
+                <div class="box"></div>
+            </div>
+        </div><pre><code>&lt;div class="row row-bottom"&gt;
+    &lt;div class="col-6"&gt;
+        &lt;div&gt;
+            row-bottom
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Distribution</h4>
+        <p>Add classes to distribute the contents of a row or column.</p>
+        <h3><code>.row-around</code></h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row row-around">
+                        <div class="col-2">
+                            <div class="box-nested"></div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested"></div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row row-around"&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            around
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            around
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            around
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        <h3><code>.row-between</code></h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row row-between">
+                        <div class="col-2">
+                            <div class="box-nested"></div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested"></div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row row-between"&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            between
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            between
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            between
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Reordering</h4>
+        <p>Add classes to reorder columns.</p>
+        <h3><code>.row-first</code></h3>
+        <p>Forces a column to appear first.</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box-first">1</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">2</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">3</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">4</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">5</div>
+                        </div>
+                        <div class="col-2 row-first">
+                            <div class="box-nested">6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row"&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            1
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            2
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2 row-first"&gt;
+        &lt;div&gt;
+            3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+        <h3><code>.row-last</code></h3>
+        <p>Forces a column to appear last.</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row">
+                        <div class="col-2 row-last">
+                            <div class="box-nested">1</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">2</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">3</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">4</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">5</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row"&gt;
+    &lt;div class="col-2 row-last"&gt;
+        &lt;div&gt;
+            1
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            2
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div>
+</code></pre>
+        <h3><code>.row-init</code></h3>
+        <p>Resets a column to its initial order.</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="box-first">1</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">2</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">3</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">4</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-first">5</div>
+                        </div>
+                        <div class="col-2 row-first row-init">
+                            <div class="box-nested">6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row"&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            1
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            2
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2 row-first row-init"&gt;
+        &lt;div&gt;
+            3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Reversing</h4>
+        <h3><code>.reverse</code></h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="box box-container">
+                    <div class="row reverse">
+                        <div class="col-2">
+                            <div class="box-nested">1</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested">2</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested">3</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested">4</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested">5</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="box-nested">6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><pre><code>&lt;div class="row reverse"&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            1
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            2
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-2"&gt;
+        &lt;div&gt;
+            3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div>
+</code></pre>
+    </section>
+    <section class="page-section">
+        <h4>Responsive Columns</h4>
+        <p>There are five responsive tiers in Shoelace: <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, and <code>xl</code>. You can use these tiers to change the way the grid responds at various breakpoints. The grid is mobile-first, so the default tier is <code>xs</code>.</p>
+        <br>
+        <p>Use the <code>col-[sm|md|lg|xl]-*</code> modifier to target a specific tier. Note that tiers are based on minimum widths, so using <code>col-sm-6</code> will target <code>sm</code>, <code>md</code>, <code>lg</code>, and <code>xl</code> screens. Of course, you can target multiple tiers on the same column as needed.</p>
+        <br>
+        <p>For example, the following columns will stack on <code>xs</code> screens, take up 50% each (6 out of 12 columns) on <code>sm</code> screens, and 75% and 25% respectively on <code>md</code>, <code>lg</code>, and <code>xl</code> screens.</p>
+        <br>
+        <div class="row row-between">
+            <div class="box col-12 col-sm-6 col-md-6">1st column</div>
+            <div class="box col-12 col-sm-5 col-md-5">2nd column</div>
+        </div>
+        <pre><code>&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-12 col-sm-5 col-md-6&quot;&gt;1st column&lt;/div&gt;
+&lt;div class=&quot;col-12 col-sm-6 col-md-5&quot;&gt;2nd column&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    
+
+    </section>
+
+</div>
+</div>

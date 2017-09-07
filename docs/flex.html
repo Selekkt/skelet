@@ -1,0 +1,261 @@
+<h1><a href="#flex">#</a> Flex</h1>
+
+<p>To apply this component, just add the <code>.flex-it</code> class to a <code>&lt;div&gt;</code> element. This will create the flex container. By default, all flex items will be aligned to the left and equally matched in height and width.</p>
+
+<p>By default, the flex container is displayed as a block element. To apply the behavior of an inline element while still laying out its content according to the flexbox model, use the <code>.flex-it-inline</code> class instead of <code>flex-it</code>.</p>
+
+<br>
+<br>
+
+<h4>Alignment</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>.flex-it-center</code>
+            </td>
+            <td>Add this class to center flex items horizontally.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-right</code>
+            </td>
+            <td>Add this class to align flex items to the right.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-top</code>
+            </td>
+            <td>Add this class to align flex items to the top.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-middle</code>
+            </td>
+            <td>Add this class to vertically center flex items.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-bottom</code>
+            </td>
+            <td>Add this class to align flex items to the bottom.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-space-between</code>
+            </td>
+            <td>Add this class to distribute items evenly, with the first item at the beginning and last item at the end of the main axis.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-space-around</code>
+            </td>
+            <td>Add this class to distribute items evenly with equal space on both sides of each item.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+
+<div class="flex-it flex-it-middle flex-it-space-between">
+    <div class="box-row">Box</div>
+    <div class="box-row">Box</div>
+    <div class="box-row">Box</div>
+</div>
+
+<pre><code>&lt;div class="flex-it flex-it-middle flex-it-space-between"&gt;...&lt;/div&gt;</span></code></pre>
+
+<br>
+<br>
+
+<h4>Direction</h4>
+
+<p>These classes define the axis flex items placed on and their direction. By default, items run horizontally from left to right.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>.flex-it-row-reverse</code>
+            </td>
+            <td>Add this class to lay out flex items from right to left.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-column</code>
+            </td>
+            <td>Add this class to lay out flex items as vertical columns.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-column-reverse</code>
+            </td>
+            <td>Add this class to lay out flex items from bottom to top.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+
+<div class="flex-it flex-it-column flex-it-column-reverse">
+    <div class="box-row">1</div>
+    <div class="box-row">2</div>
+    <div class="box-row">3</div>
+</div>
+
+<pre><code>&lt;div class=&quot;flex-it flex-it-column flex-it-column-reverse&quot;&gt;...&lt;/div&gt;</code></pre>
+
+<br>
+<br>
+
+<h4>Wrap</h4>
+
+<p>By default, flex items fit themselves into one row. Add the <code>.flex-it-wrap</code> class, so that the items wrap into another row when they no longer fit the viewport. To change the items' direction so that they run from right to left, add the <code>.flex-it-wrap-reverse</code> class. The following classes modify the alignment of wrapping flex items. To force the flex items into one row, just add the <code>.flex-it-nowrap</code> class.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>.flex-it-wrap-top</code>
+            </td>
+            <td>Add this class to align multirow flex items to the top.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-wrap-middle</code>
+            </td>
+            <td>Add this class to vertically center multirow flex items.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-wrap-bottom</code>
+            </td>
+            <td>Add this class to align multiline flex items to the bottom.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-wrap-space-between </code>
+            </td>
+            <td>Add this class to distribute item rows evenly, with the first row at the top and last row at the bottom of the container.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-wrap-space-around</code>
+            </td>
+            <td>Add this class to distribute rows evenly with equal space at the top and bottom of each row.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+
+<div class="flex-it flex-it-wrap flex-it-wrap-reverse flex-it-wrap-space-around">
+    <div class="box-row col-8" style="margin: 5px;">1</div>
+    <div class="box-row col-3" style="margin: 5px;">2</div>
+    <div class="box-row col-9" style="margin: 5px;">3</div>
+    <div class="box-row col-2" style="margin: 5px;">4</div>
+    <div class="box-row col-1" style="margin: 5px;">5</div>
+    <div class="box-row col-10" style="margin: 5px;">6</div>
+</div>
+
+<pre><code>&lt;div class=&quot;flex-it flex-it-wrap flex-it-wrap-reverse flex-it-wrap-space-around&quot;&gt;
+    &lt;div class=&quot;box-row col-8&quot; style=&quot;margin: 5px;&quot;&gt;1&lt;/div&gt;
+    &lt;div class=&quot;box-row col-3&quot; style=&quot;margin: 5px;&quot;&gt;2&lt;/div&gt;
+    &lt;div class=&quot;box-row col-9&quot; style=&quot;margin: 5px;&quot;&gt;3&lt;/div&gt;
+    &lt;div class=&quot;box-row col-2&quot; style=&quot;margin: 5px;&quot;&gt;4&lt;/div&gt;
+    &lt;div class=&quot;box-row col-1&quot; style=&quot;margin: 5px;&quot;&gt;5&lt;/div&gt;
+    &lt;div class=&quot;box-row col-10&quot; style=&quot;margin: 5px;&quot;&gt;6&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<br>
+<br>
+
+<h4>Item order</h4>
+
+<p>By default, flex items are laid out according to the source order. To display a certain item as the first or last one, just add one of these classes.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>.flex-it-order-first</code>
+            </td>
+            <td>Displays the item as the first one.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-order-last</code>
+            </td>
+            <td>Displays the item as the last one.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-order-first-small</code>
+                <br><code>.flex-it-order-last-small</code>
+            </td>
+            <td>Affects device widths of <em>480px</em> and higher.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-order-first-medium</code>
+                <br><code>.flex-it-order-last-medium</code>
+            </td>
+            <td>Affects device widths of <em>768px</em> and higher.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-order-first-large</code>
+                <br><code>.flex-it-order-last-large</code>
+            </td>
+            <td>Affects device widths of <em>960px</em> and higher.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-order-first-xlarge</code>
+                <br><code>.flex-it-order-last-xlarge</code>
+            </td>
+            <td>Affects device widths of <em>1220px</em> and higher.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+
+<h4>Item dimensions</h4>
+
+<p>To determine how much space a flex item should take up, add one of the following classes to the item.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>.flex-it-item-none</code>
+            </td>
+            <td>The box's size is determined by its content.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-item-auto</code>
+            </td>
+            <td>The space is allocated considering the item's content.</td>
+        </tr>
+        <tr>
+            <td><code>.flex-it-item-1</code>
+            </td>
+            <td>The space is allocated solely based on flex.</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,376 @@
+<h1><a href="#animations">#</a> Animations</h1>
+<div>
+
+    <p>
+        In orderd to start an animation you need to add:
+        <br>
+        <br>
+        <code>ANIMATION | DURATION | ANIMATION TYPE</code>
+        <br>
+        <br> Example: <code>&lt;h1 class="animate d1s fadein"&gt;example&lt;/h1&gt;</code>
+    </p>
+
+    <br>
+    <br>
+
+    <h4>Other Classes</h4>
+    <table class="full-width">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Alternative Class</th>
+                <th>Purpose</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><code>.animate</code>
+                </td>
+                <td></td>
+                <td>Required to start the animation</td>
+            </tr>
+
+            <tr>
+                <td><code>.invisible</code>
+                </td>
+                <td><code>.hide</code>
+                </td>
+                <td>Setting element's opacity to 0, good for hiding elements when animation starts</td>
+            </tr>
+
+            <tr>
+                <td><code>.infinite</code>
+                </td>
+                <td><code>.loop</code>
+                </td>
+                <td>Runs the animation forever</td>
+            </tr>
+
+            <tr>
+                <td><code>.reverse</code>
+                </td>
+                <td></td>
+                <td>Specifies whether an animation should play in reverse direction</td>
+            </tr>
+
+            <tr>
+                <td><code>.alternate</code>
+                </td>
+                <td></td>
+                <td>The animation will be played as normal every odd time (1,3,5,etc..) and in reverse direction every even time (2,4,6,etc...)</td>
+            </tr>
+
+            <tr>
+                <td><code>.alternate-reverse</code>
+                </td>
+                <td></td>
+                <td>The animation will be played in reverse direction every odd time (1,3,5,etc..) and in a normal direction every even time (2,4,6,etc...)</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <h4>Animation Duration</h4>
+    <table class="full-width">
+        <thead>
+            <tr>
+                <th>From class</th>
+                <th>To class</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tfoot>now you can use also halfs: <code>.d4s5</code> by adding a <code>5</code> after the <code>s</code>
+        </tfoot>
+
+        <tbody>
+            <tr>
+                <td>from <code>.d1ms</code>
+                </td>
+                <td>to <code>.d9ms</code>
+                </td>
+                <td>animations play in milliseconds</td>
+            </tr>
+
+            <tr>
+                <td>from <code>.d1s</code>
+                </td>
+                <td>to <code>.d9s</code>
+                </td>
+                <td>animations play in seconds</td>
+            </tr>
+
+            <tr>
+                <td>half <code>.d9s5</code>
+                </td>
+                <td>&nbsp;</td>
+                <td>To use half seconds, add a <code>5</code> at the end of <code>s</code>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <h4>Animation Delay</h4>
+    <table class="full-width">
+        <thead>
+            <tr>
+                <th>From class</th>
+                <th>To class</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tfoot>now you can use also halfs: <code>.lag-4s5</code> by adding a <code>5</code> after the <code>s</code>
+        </tfoot>
+
+        <tbody>
+            <tr>
+                <td>from <code>.lag-1ms</code>
+                </td>
+                <td>to <code>.lag-9ms</code>
+                </td>
+                <td>animations play in milliseconds</td>
+            </tr>
+
+            <tr>
+                <td>from <code>.lag-1s</code>
+                </td>
+                <td>to <code>.lag-9s</code>
+                </td>
+                <td>animations play in seconds</td>
+            </tr>
+
+            <tr>
+                <td>half <code>.lag-9s5</code>
+                </td>
+                <td>&nbsp;</td>
+                <td>To use half seconds, add a <code>5</code> at the end of <code>s</code>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <style>
+        td div {
+            cursor: pointer;
+        }
+    </style>
+    <h4>Animation Types</h4>
+    <h6>click on descriptions to see some action</h6>
+    <br>
+    <table class="full-width">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><code>.fadein</code>
+                </td>
+                <td>
+                    <div data-animation="fadein">Fade in</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.fadein-up</code>
+                </td>
+                <td>
+                    <div data-animation="fadein-up">Slide in from bottom to top</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.fadein-down</code>
+                </td>
+                <td>
+                    <div data-animation="fadein-down">Slide in from top to bottom</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.fadein-right</code>
+                </td>
+                <td>
+                    <div data-animation="fadein-right">Slide in from right</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.fadein-left</code>
+                </td>
+                <td>
+                    <div data-animation="fadein-left">Slide in from left</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.fadeout</code>
+                </td>
+                <td>
+                    <div data-animation="fadeout">Fade out</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.fadeout-down</code>
+                </td>
+                <td>
+                    <div data-animation="fadeout-down">Fade out from top to bottom</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.flash</code>
+                </td>
+                <td>
+                    <div data-animation="flash">Flash</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.pulse</code>
+                </td>
+                <td>
+                    <div data-animation="pulse">Pulse</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.shake</code>
+                </td>
+                <td>
+                    <div data-animation="shake">Shake</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.wobble</code>
+                </td>
+                <td>
+                    <div data-animation="wobble">Wobble</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.rollin</code>
+                </td>
+                <td>
+                    <div data-animation="rollin">Rotate in</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.rollout</code>
+                </td>
+                <td>
+                    <div data-animation="rollout">Rotate out</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.zoomin</code>
+                </td>
+                <td>
+                    <div data-animation="zoomin">Zoom in</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.zoomout</code>
+                </td>
+                <td>
+                    <div data-animation="zoomout">Zoom out</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.zoomin-down</code>
+                </td>
+                <td>
+                    <div data-animation="zoomin-down">Zoom from bottom</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.bounce</code>
+                </td>
+                <td>
+                    <div data-animation="bounce">Bounce</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.bouncein</code>
+                </td>
+                <td>
+                    <div data-animation="bouncein">Bounce In</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.scalein</code>
+                </td>
+                <td>
+                    <div data-animation="scalein">Scale In</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.flip</code>
+                </td>
+                <td>
+                    <div data-animation="flip">Flip</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.flipin-x</code>
+                </td>
+                <td>
+                    <div data-animation="flipin-x">Flip in left</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.flipout-x</code>
+                </td>
+                <td>
+                    <div data-animation="flipout-x">flip out left</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.flipin-y</code>
+                </td>
+                <td>
+                    <div data-animation="flipin-y">Flip in down</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>.flipout-y</code>
+                </td>
+                <td>
+                    <div data-animation="flipout-y">Flip out down</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

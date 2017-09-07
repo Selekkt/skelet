@@ -1,0 +1,182 @@
+<h1><a href="#forms">#</a> Forms</h1>
+<style>
+    form {
+        margin: 0 15%
+    }
+</style>
+
+<form>
+    <div class="row">
+        <div class="col-6">
+            <label for="exampleEmailInput">Your email</label>
+            <input class="full-width" placeholder="example@example.com" id="exampleEmailInput" type="email">
+        </div>
+
+        <div class="col-6">
+            <label for="exampleRecipientInput">Reply to</label>
+            <select class="full-width" id="exampleRecipientInput">
+                <option selected disabled value="Option 1">-- Select --</option>
+                <option value="Option 2">Sarude</option>
+                <option value="Option 3">Dancestorm</option>
+            </select>
+        </div>
+    </div>
+
+    <label for="exampleMessage">Comment</label>
+    <textarea class="full-width" placeholder="Comment..." id="exampleMessage"></textarea>
+
+    <label class="agree-with-terms">
+        <input type="checkbox">
+        <span class="label-body">I agree with the term of use</span>
+    </label>
+
+    <input class="button-primary" value="Comment" type="submit">
+</form>
+
+<pre><code>
+  &lt;form&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-6&quot;&gt;
+      &lt;label for=&quot;exampleEmailInput&quot;&gt;Your email&lt;/label&gt;
+      &lt;input class=&quot;full-width&quot; placeholder=&quot;example@example.com&quot; id=&quot;exampleEmailInput&quot; type=&quot;email&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;col-6&quot;&gt;
+      &lt;label for=&quot;exampleRecipientInput&quot;&gt;Reply to&lt;/label&gt;
+      &lt;select class=&quot;full-width&quot; id=&quot;exampleRecipientInput&quot;&gt;
+        &lt;option selected disabled value=&quot;Option 1&quot;&gt;-- Select --&lt;/option&gt;
+        &lt;option value=&quot;Option 2&quot;&gt;Sarude&lt;/option&gt;
+        &lt;option value=&quot;Option 3&quot;&gt;Dancestorm&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;label for=&quot;exampleMessage&quot;&gt;Comment&lt;/label&gt;
+  &lt;textarea class=&quot;full-width&quot; placeholder=&quot;Comment...&quot; id=&quot;exampleMessage&quot;&gt;&lt;/textarea&gt;
+  
+  &lt;label class=&quot;agree-with-terms&quot;&gt;
+    &lt;input type=&quot;checkbox&quot;&gt;
+    &lt;span class=&quot;label-body&quot;&gt;I agree with the term of use&lt;/span&gt;
+  &lt;/label&gt;
+
+  &lt;input class=&quot;button-primary&quot; value=&quot;Comment&quot; type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+
+<hr>
+
+<h4 id="buttons"><a href="#buttons">#</a> Buttons</h4>
+
+<table class="full-width">
+    <thead>
+        <tr>
+            <th>Button</th>
+            <th>Code</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <button>Send</button>
+            </td>
+            <td><code>&lt;button&gt;Send&lt;/button&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="button-x">Send</button>
+            </td>
+            <td><code>&lt;button class="button-x"&gt;Send&lt;/button&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="#" class="button">Link</a>
+            </td>
+            <td><code>&lt;a href="#" class="button"&gt;Link&lt;/a&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td><a class="button is-primary" title="Disabled button" disabled>Disabled</a>
+            </td>
+            <td><code>&lt;a href="#" class="button is-primary"&gt;Disabled&lt;/a&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a class="button is-white">White</a>
+                <a class="button is-light">Light</a>
+                <br>
+                <a class="button is-dark">Dark</a>
+                <a class="button is-black">Black</a>
+                <br>
+                <a class="button is-link">Link</a>
+            </td>
+            <td>
+                <pre><code>
+&lt;a class=&quot;button is-white&quot;&gt;White&lt;/a&gt;
+&lt;a class=&quot;button is-light&quot;&gt;Light&lt;/a&gt;
+&lt;a class=&quot;button is-dark&quot;&gt;Dark&lt;/a&gt;
+&lt;a class=&quot;button is-black&quot;&gt;Black&lt;/a&gt;
+&lt;a class=&quot;button is-link&quot;&gt;Link&lt;/a&gt;
+            </code></pre>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a class="button is-primary">Primary</a>
+                <a class="button is-success">Success</a>
+                <br>
+                <a class="button is-warning">Warning</a>
+                <a class="button is-danger">Danger</a>
+            </td>
+            <td>
+                <pre><code>
+&lt;a class=&quot;button is-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a class=&quot;button is-success&quot;&gt;Success&lt;/a&gt;
+&lt;a class=&quot;button is-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a class=&quot;button is-danger&quot;&gt;Danger&lt;/a&gt;
+            </code></pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<br>
+<hr class="gradient">
+<br>
+
+<h4 id="alerts"><a href="#alerts">#</a> Alerts</h4>
+<table class="full-width">
+    <thead>
+        <tr>
+            <th width="60%">Alert Box</th>
+            <th>Code</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <div class="alert">Primary</div>
+                <div class="alert alert-success">Success</div>
+                <div class="alert alert-info">Info</div>
+                <div class="alert alert-warning">Warning</div>
+                <div class="alert alert-danger">Danger</div>
+                <div class="alert alert-light">Light</div>
+                <div class="alert alert-dark">Dark</div>
+                <div class="alert alert-black">Black</div>
+            </td>
+            <td>
+<pre><code>&lt;div class=&quot;alert&quot;&gt;Primary&lt;/div&gt;
+&lt;div class=&quot;alert alert-success&quot;&gt;Success&lt;/div&gt;
+&lt;div class=&quot;alert alert-info&quot;&gt;Info&lt;/div&gt;
+&lt;div class=&quot;alert alert-warning&quot;&gt;Warning&lt;/div&gt;
+&lt;div class=&quot;alert alert-danger&quot;&gt;Danger&lt;/div&gt;
+&lt;div class=&quot;alert alert-light&quot;&gt;Light&lt;/div&gt;
+&lt;div class=&quot;alert alert-dark&quot;&gt;Dark&lt;/div&gt;
+&lt;div class=&quot;alert alert-black&quot;&gt;Black&lt;/div&gt;</code></pre> 
+            </td>
+        </tr>
+    </tbody>

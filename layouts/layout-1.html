@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta data-framework="Skēlet." data-ver="2.0.0" data-dev="Sēlekkt. Studio">
+
+    <title>Welcome to Skēlet.</title>
+    <meta name="description" content="Welcome to Skēlet.">
+    <meta name="author" content="Sēlekkt. Studio">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/skelet.css"> <!-- include Skelet -->
+    <link rel="stylesheet" href="../css/app.css"> 	<!-- Write all of your CSS styles here -->
+
+    <style>
+    :root {
+        --head-footer-bg: #181818;
+    }
+
+        body {
+            background-color: #333;
+            color: #efefef;
+            letter-spacing: .05rem
+        }
+
+        a { color: #efefef; display: inline-block; position: relative; }
+        a:hover { color: #fff; }
+
+        a::before {
+            background-color: currentColor;
+            bottom: 0;
+            content: "";
+            height: 1px;
+            left: 0;
+            opacity: 0.25;
+            position: absolute;
+            right: 0;
+            transform: scaleX(0.85) translateY(0.085rem);
+            transition: all 0.2s ease 0s;
+        }
+
+        a:focus::before, a:hover::before { opacity: 0.75; transform: scaleX(1); }
+
+        header {
+            background-color: var(--head-footer-bg);
+            padding: 10px 0;
+        }
+
+            nav li a {
+                padding: 20px;
+            }
+
+        #hero {
+            height: 80vh;
+            background-color: #232323;
+            color: #fe6058;
+        }
+            
+            #heart {
+                margin: 0 auto;
+                height: auto;
+                max-width: 300px;
+            }
+        
+            #heart path {
+                fill: #333;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .dude:hover {
+                animation-name: wobble;
+            }
+
+        main {
+
+            }
+
+            main a::before,
+            main a:hover::before { opacity: 0; } 
+
+            .contblock {
+                padding: 50px 20px;
+            }
+
+            .two-blocks { 
+                margin: 100px auto;
+            }
+
+            .two-blocks img {
+                text-align: center;
+                display: block; 
+                margin: 0 auto;
+                transition: all .2s ease-in-out;
+                transform: scale(0.8);
+            }
+
+            .two-blocks img:hover {
+                transform: scale(1);
+            }
+
+        footer {
+            background-color: var(--head-footer-bg);
+            padding: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <header class="row header row-center row-middle row-around">
+        <div class="logo col-1">
+            <a href="#"><img src="../img/logo.png" alt="Skēlet." width="300" ></a>
+        </div>
+
+        <nav class="nav col-10 row-end" role="navigation">
+            <ul class="inline">
+                <li><a href="#">Big</a></li>
+                <li><a href="#">Thick</a></li>
+                <li><a href="#">Vette</a></li>
+                <li><a href="https://selekkt.dk/">Sēlekkt.</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section id="hero" class="flex-it flex-it-column flex-it-centered">
+            <svg class="animate d1s bouncein" id="heart" x="0px" y="0px" viewBox="0 0 514 514">
+            <path style="fill:#FFAB91;" d="M330.8,92c-26.8,0-52,8.4-74,23.6l0,0v2.4v-0.8c-0.4,0-0.4,0-0.8,0c0.4,0,0.4-0.4,0.8-0.4v-1.2v-1.2
+                C232.8,100,209.6,92,183.6,92C95.2,92,22.8,185.2,22.8,300s71.6,208,160,208c25.6,0,49.6-7.6,70.8-21.6c1.2,0.8,2,1.6,3.2,2.4l0,0
+                v-4.4l0,0c22,15.2,47.2,23.6,74,23.6c88.4,0,160-93.2,160-208C490.8,185.2,419.2,92,330.8,92z M252.4,119.2c-8,5.6-15.2,12.8-22,20
+                v-0.4C237.2,131.6,243.2,124.8,252.4,119.2z"/>
+            <path style="fill:#7CB342;" d="M328.8,4c-1.2,18-8.4,36-22,50c-14,14-31.6,21.2-50,22.4c1.2-18,8.4-36,22-50
+                C292.8,12.4,310.8,4.8,328.8,4z"/>
+            <path d="M256.8,116.8c-2.4,0-4-1.6-4-4V40.4c0-11.6-6-19.6-17.2-22.4c-2-0.4-3.6-2.8-2.8-4.8c0.4-2,2.8-3.6,4.8-2.8
+                c14.8,3.6,23.2,14.8,23.2,30v72.4C260.8,115.2,259.2,116.8,256.8,116.8z"/>
+            <path d="M256.8,80c-1.2,0-2-0.4-2.8-1.2c-0.8-0.8-1.2-2-1.2-3.2c1.2-20,9.2-38.4,23.2-52.4S308.8,0.8,328.4,0c1.2,0,2.4,0.4,3.2,1.2
+                c0.8,0.8,1.2,2,1.2,3.2c-1.2,20-9.2,38.4-23.2,52.4C295.6,70.8,276.8,78.8,256.8,80L256.8,80z M324.4,8.4c-16,2-31.2,9.2-42.8,20.8
+                C270,40.8,262.8,55.6,260.8,72c16-2,31.2-9.2,42.8-20.8C315.2,39.6,322.4,24.4,324.4,8.4z"/>
+            <path d="M182.8,512c-90.4,0-164-95.2-164-212s73.6-212,164-212c26.4,0,51.2,7.6,74.4,23.2c0.4,0.4,1.2,0.8,2,1.2
+                c2,1.2,2.4,3.6,1.2,5.6s-3.6,2.4-5.6,1.2c-0.4-0.4-1.2-0.8-1.6-1.2c-22-14.4-45.6-22-70.4-22c-86,0-156,91.6-156,204s70,204,156,204
+                c26.4,0,47.6-6.4,68.8-20.8c2-1.2,4.4-0.8,5.6,1.2c1.2,2,0.8,4.4-1.2,5.6C233.6,504.8,210.8,512,182.8,512z"/>
+            <path d="M201.6,181.6c-0.8,0-1.2,0-2-0.4c-2-1.2-2.8-3.6-1.6-5.6c4.4-7.6,9.2-15.2,14-22c1.2-1.6,4-2,5.6-0.8s2,4,0.8,5.6
+                c-4.8,6.4-9.2,13.6-13.6,21.2C204.4,180.8,202.8,181.6,201.6,181.6z"/>
+            <path d="M206.4,434.4c-1.2,0-2.8-0.8-3.2-2c-12-19.2-21.2-40.8-27.2-64.4c-5.6-22-8.8-44.8-8.8-68.4c0-26,3.6-51.6,10.8-75.6
+                c0.8-2,2.8-3.2,4.8-2.8c2,0.8,3.2,2.8,2.8,4.8c-6.8,23.6-10.4,48-10.4,73.6c0,22.8,2.8,44.8,8.4,66.4c6,22.8,14.8,43.6,26.4,62
+                c1.2,2,0.4,4.4-1.2,5.6C208,434.4,207.2,434.4,206.4,434.4z"/>
+            <path d="M330.8,514c-24,0-48.8-7.2-75.6-21.6c-0.4,0-0.8-0.4-0.8-0.4c-9.2-7.6-18.4-16.4-27.6-26.4c-1.6-1.6-1.6-4,0-5.6
+                s4-1.6,5.6,0c8.8,9.6,18,18,26.4,25.2c26,14,49.2,20.8,72,20.8c86,0,156-92.4,156-206.4c0-112.4-70-204-156-204
+                c-25.2,0-49.6,7.6-72,22.8c-0.4,0.4-1.2,0.8-1.6,1.2c-8.8,6-17.2,13.2-24.8,21.6c-1.6,1.6-4,1.6-5.6,0s-1.6-4,0-5.6
+                c8-8.8,16.8-16.4,26-22.8c0.4-0.4,1.2-0.8,2-1.2c23.2-16,49.6-24.4,76.4-24.4c90.4,0,164,95.2,164,212
+                C494.8,418,421.2,514,330.8,514z"/>
+            </svg>
+
+            <br>
+            <h1>thick booty lovers.</h1>
+        </section>
+
+        <section class="contblock col-8 row-center row-middle row-around align-center">
+
+            <article>
+                <h1>Hallo <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/96/raised-hand_270b.png" width="50" class="dude inline animate d1s" alt=""> Daar</h1>
+                <p>
+                    Peep the code to see how easy it is to build a page like this, literally took 2 mins.<br>
+                    <br>
+                    <a href="https://selekkt.dk/help/skelet/docs" class="button is-primary">Skēlet. documentation</a>
+                </p>
+            </article>
+
+            <div class="two-blocks row row-center row-middle row-around">
+                <div class="col-4">
+                  <img src="https://media.giphy.com/media/xUPJUF7FlEtvfZihWg/giphy.gif" alt="">
+                  <h4>Being</h4>
+                </div>
+                <div class="col-4">
+                    <img src="https://media.giphy.com/media/xUPJUy8oyPB94uY32U/giphy.gif" alt="">
+                    <h4><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/96/eyes_1f440.png" width="45" alt=""></h4>
+                </div>
+                <div class="col-4">
+                    <img src="https://media.giphy.com/media/xUPJUByIgcvlMcwPrG/giphy.gif" alt="">
+                    <h4>Looking</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer txt-right">
+        wOW! Lekker, man!
+    </footer>
+</div>
+
+</body>
+</html>

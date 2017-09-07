@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta data-framework="Skēlet." data-ver="2.0.0" data-dev="Sēlekkt. Studio">
+
+    <title>Welcome to Skēlet.</title>
+    <meta name="description" content="Welcome to Skēlet.">
+    <meta name="author" content="Sēlekkt. Studio">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/skelet.css"> <!-- include Skelet -->
+    <link rel="stylesheet" href="../css/app.css">  <!-- Write all of your CSS styles here -->
+
+    <style>
+        html{ height: 100%; }
+        body {
+            background-color: #282828;
+            color: #efefef;
+        }
+
+            a { color: #efefef; }
+            a:hover { color: #ffffff; }
+
+        header {
+            background-color: #181818;
+            padding: 30px 0;
+        }
+
+            li a {
+                margin: 0 10px;
+            }
+
+        main {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+            input[type="search"] { 
+                background-color: #181818; 
+                color: #666; 
+                border-color: #333; 
+                height: auto; 
+                padding: 1.2rem;
+                height: auto;
+                font-size: 2rem;
+                letter-spacing: .1rem;
+                text-align: center
+            }
+
+            section h1 { margin: 0; font-size: 3rem; }
+
+            section article {
+                border-radius: 0.25rem;
+                padding: 5px;
+                text-align: center;
+
+                margin: 30px 0;
+                flex-grow: 1;
+                width: calc(100% * (1/4) - 10px - 1px);
+            }
+
+            section article:nth-of-type(3n+1) { background-color: #181818; }
+            section article:nth-of-type(3n+2) { margin-right: 30px; margin-left: 30px; background-color: #191919; }
+            section article:nth-of-type(3n+3) { background-color: #202020; }
+
+            section article img {
+                display: initial;
+                text-align: center;
+                padding-bottom: 20px; 
+            }
+
+
+        footer {
+            background-color: #181818;
+            padding: 30px 0;
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <header class="row header row-center row-middle row-around">
+        <div class="logo col-1">
+            <a href="#"><img src="../img/logo.png" alt="Skēlet." width="300" ></a>
+        </div>
+
+        <nav class="nav col-10 row-end" role="navigation">
+            <ul class="inline">
+                <li><a href="#"><i class="fa fa-fire-extinguisher fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-globe fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="https://selekkt.dk/"><i class="fa fa-rocket fa-2x" aria-hidden="true"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="stick-footer">
+    
+        <div>
+            <input type="search" placeholder="Search for..." value="Search for some random but also a bit nasty things" class="full-width">
+        </div>
+
+        <section class="flex-it flex-it-wrap flex-it-wrap-space-around">
+
+            <article>
+                <img src="https://media.giphy.com/media/xVLEi3JwgKUo0/giphy.gif" alt="">
+                <h1>Esketit</h1>
+                <p>Skkrrr etc.</p>
+            </article>
+
+
+            <article>
+                <img src="https://media.giphy.com/media/3ohzATIAd0p4Slv6jS/giphy.gif" alt="">
+                <h1>This is a title</h1>
+                <p>and this is something like a sub-title.</p>
+            </article>
+
+            <article>
+                <img src="https://media.giphy.com/media/3o7WTqZqJNyoCLnqJW/giphy.gif" alt="">
+                <h1>Yes, today is Friday!</h1>
+                <p>and this pages was created on fri, YAY!</p>
+            </article>
+
+            <article>
+                <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/96/smirking-face_1f60f.png" alt="">
+                <h1>It is what you think it is.</h1>
+                <p>you can't go wrong on this one!</p>
+            </article>
+
+            <article>
+                <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/96/white-right-pointing-backhand-index_1f449.png" alt="">
+                <h1>Skkrrr</h1>
+                <p>swerve swerve</p>
+            </article>
+
+            <article>
+                <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/96/doughnut_1f369.png" alt="">
+                <h1>Bang!</h1>
+                <p>bang! bang!</p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="footer row txt-center">
+        <div class="col-8 row-center row-middle align-center">wOW! Lekker, man!</div>
+    </footer>
+</div>
+
+</body>
+</html>
