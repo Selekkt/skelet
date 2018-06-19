@@ -549,7 +549,7 @@ To align objects vertically, you need to create a parent container to which the 
 .row-hidden     { display: none; }
 
 /* Columns */
-.col, [class*="col-"] { box-sizing: border-box; flex: 0 0 auto; padding: 0; }
+.col, [class*="col-"] { box-sizing: border-box; flex: 0 1 auto; padding: 0; }
 
 .col { flex-basis: 0; flex-grow: 1; max-width: 100%; }
 .col-auto { flex: 0 0 auto; width: auto; max-width: none; }
