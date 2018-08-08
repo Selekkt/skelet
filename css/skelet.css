@@ -1,55 +1,45 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.0.0 | WTFPL License | (c) 2017 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.0.5 | WTFPL License | (c) 2018 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
-/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
-html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+button,hr,input{overflow:visible}
+progress,sub,sup{vertical-align:baseline}
+[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}
+html{line-height:1.15;-webkit-text-size-adjust:100%}
 body{margin:0}
-article,aside,footer,header,nav,section{display:block}
 h1{font-size:2em;margin:.67em 0}
-figcaption,figure,main{display:block}
-figure{margin:1em 40px}
-hr{box-sizing:content-box;height:0;overflow:visible}
-pre{font-family:monospace,monospace;font-size:1em}
-a{background-color:transparent;-webkit-text-decoration-skip:objects}
-abbr[title]{border-bottom:0;text-decoration:underline;text-decoration:underline dotted}
-b,strong{font-weight:inherit}
+hr{box-sizing:content-box;height:0}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
+a{background-color:transparent}
+abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
 b,strong{font-weight:bolder}
-code,kbd,samp{font-family:monospace,monospace;font-size:1em}
-dfn{font-style:italic}
-mark{background-color:#ff0;color:#000}
 small{font-size:80%}
-sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
-sub{bottom:-0.25em}sup{top:-0.5em}
-audio,video{display:inline-block}
-audio:not([controls]){display:none;height:0}
+sub,sup{font-size:75%;line-height:0;position:relative}
+sub{bottom:-.25em}
+sup{top:-.5em}
 img{border-style:none}
-svg:not(:root){overflow:hidden}
-button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}
-button,input{overflow:visible}
+button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}
 button,select{text-transform:none}
-button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}
-button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}
-button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}
+[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}
+[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}
+[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}
 fieldset{padding:.35em .75em .625em}
-legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}
-progress{display:inline-block;vertical-align:baseline}
+legend{color:inherit;display:table;max-width:100%;white-space:normal}
 textarea{overflow:auto}
-[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
-[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}
-[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}
-[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}
+[type=search]{-webkit-appearance:textfield;outline-offset:-2px}
+[type=search]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
-details,menu{display:block}
+details{display:block}
 summary{display:list-item}
-canvas{display:inline-block}
-template{display:none}[hidden]{display:none}
+[hidden],template{display:none}
 
 /* -------------------
-	R E S E T S
-	more resets
-	--------------------- */
+  R E S E T S
+  more resets
+  --------------------- */
 html { height: 100% }
 :not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 12px; font-family: Consolas, monospace, serif; color: #D05; white-space: nowrap; }
 audio, canvas, img, svg, video { vertical-align: middle; max-width: 100%; height: auto; box-sizing: border-box; }
@@ -59,9 +49,9 @@ dd { margin-left: 0; }
 img { display: block; max-width: 100%; height: auto; }
 
 /* -------------------
-	B A S I C S
-	basics
-	--------------------- */
+  B A S I C S
+  basics
+  --------------------- */
 /* NOTE
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px */
@@ -91,9 +81,9 @@ hr.gradient { border: 0 none; height: 1px; background-image: linear-gradient(to 
 .stick-footer, main { flex: 1; }
 
 /* -------------------
-	T Y P O G R A P H Y
-	typography
-	--------------------- */
+  T Y P O G R A P H Y
+  typography
+  --------------------- */
 h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 2rem; font-weight: 300; }
 
 h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;  }
@@ -140,17 +130,17 @@ blockquote {
 .msg.its-danger   { border-color: #FC615D; }
 
 /* -------------------
-	L I N K S
-	links
-	--------------------- */
+  L I N K S
+  links
+  --------------------- */
 a { color: #007FFF; cursor: pointer; text-decoration: none; background: transparent; }
 a:hover { color: #0066CC; }
 a:active, a:hover { outline: 0; }
 
 /* -------------------
-	B U T T O N S
-	buttons
-	--------------------- */
+  B U T T O N S
+  buttons
+  --------------------- */
 .button, .button-x, button, 
 input[type="submit"], 
 input[type="reset"], 
@@ -222,16 +212,16 @@ button, .button { margin-bottom: 1rem; }
 [class*="is-"] { border-color: transparent; }
 [class*="is-"]:hover { border-color: transparent; opacity: 0.85; } 
 
-.button.is-white 	{ background-color: white; color: #0a0a0a; }
-.button.is-light 	{ background-color: whitesmoke; color: #0a0a0a; }
-.button.is-dark 	{ background-color: #282828; color: whitesmoke; }
-.button.is-black 	{ background-color: #0a0a0a; color: white; }
-.button.is-link 	{ background-color: transparent; color: #282828; text-decoration: underline; }
+.button.is-white  { background-color: white; color: #0a0a0a; }
+.button.is-light  { background-color: whitesmoke; color: #0a0a0a; }
+.button.is-dark   { background-color: #282828; color: whitesmoke; }
+.button.is-black  { background-color: #0a0a0a; color: white; }
+.button.is-link   { background-color: transparent; color: #282828; text-decoration: underline; }
 
-.button.is-primary 	{ background-color: #007FFF; color: white; }
-.button.is-success 	{ background-color: #34C84A; color: white; }
-.button.is-warning 	{ background-color: #FDBC40; color: black; }
-.button.is-danger 	{ background-color: #FC615D; color: white; }
+.button.is-primary  { background-color: #007FFF; color: white; }
+.button.is-success  { background-color: #34C84A; color: white; }
+.button.is-warning  { background-color: #FDBC40; color: black; }
+.button.is-danger   { background-color: #FC615D; color: white; }
 
 /** Radio & Checkbox */
 input[type="checkbox"]:focus, 
@@ -262,9 +252,9 @@ input[type="radio"]:checked {
 .alert.alert-black      { background-color: #0a0a0a; color: whitesmoke; }
 
 /* -------------------
-	F O R M S
-	forms
-	--------------------- */
+  F O R M S
+  forms
+  --------------------- */
 
 
 
@@ -353,9 +343,9 @@ select:-moz-focusring { color: transparent; text-shadow: 0 0 0 #000; }
 
 
 /* -------------------
-	L I S T S
-	lists
-	--------------------- */
+  L I S T S
+  lists
+  --------------------- */
 ul { list-style: circle inside; }
 ol { list-style: decimal inside; }
 ul, ol { padding-left: 0; margin-top: 0; }
@@ -366,9 +356,9 @@ li { margin-bottom: 1rem; }
 ul.no-style, ol.no-style { list-style: none; margin: 0; padding: 0; }
 
 /* -------------------
-	T A B L E S
-	tables
-	--------------------- */
+  T A B L E S
+  tables
+  --------------------- */
 table { width: 100%; }
 th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #E1E1E1; }
 th:first-child, td:first-child { padding-left: 0; }
@@ -401,9 +391,9 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
 .dTab.is-striped .dTabBody .dTabRow:nth-child(odd) { background-color: #F5F5F5; }
 
 /* -------------------
-	F L E X 
-	flex
-	--------------------- */
+  F L E X 
+  flex
+  --------------------- */
 .flex-it{ display: flex; }
 .flex-it-inline { display: inline-flex; }
 .flex-it-inline > *, .flex-it> * { }
@@ -433,23 +423,23 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
 .flex-it-order-last { order: 99; }
 
 @media (min-width: 480px) {
-	.flex-it-order-first-small { order: -1; }
-	.flex-it-order-last-small { order: 99; }
+  .flex-it-order-first-small { order: -1; }
+  .flex-it-order-last-small { order: 99; }
 }
 
 @media (min-width: 768px) {
-	.flex-it-order-first-medium { order: -1; }
-	.flex-it-order-last-medium { order: 99; }
+  .flex-it-order-first-medium { order: -1; }
+  .flex-it-order-last-medium { order: 99; }
 }
 
 @media (min-width: 960px) {
-	.flex-it-order-first-large { order: -1; }
-	.flex-it-order-last-large { order: 99; }
+  .flex-it-order-first-large { order: -1; }
+  .flex-it-order-last-large { order: 99; }
 }
 
 @media (min-width: 1220px) {
-	.flex-it-order-first-xlarge { order: -1; }
-	.flex-it-order-last-xlarge { order: 99; }
+  .flex-it-order-first-xlarge { order: -1; }
+  .flex-it-order-last-xlarge { order: 99; }
 }
 
 .flex-it-item-none { flex: 0 0 auto; }
@@ -457,32 +447,32 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
 .flex-it-item-1 { flex: 1 1 0; }
 
 .flex-it-centered {
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /* -------------------
-	C O D E S
-	codes
-	--------------------- */
+  C O D E S
+  codes
+  --------------------- */
 code {
-	padding: .2rem .5rem;
-	margin: 0 .2rem;
-	font-size: 90%;
-	white-space: nowrap;
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
     background-color: #F5F5F5;
     border: 1px solid #E3EAED;
-	border-radius: 0.35rem;
-	overflow: auto;
+  border-radius: 0.35rem;
+  overflow: auto;
 }
 
 pre > code { display: block; padding: 1rem 1.5rem; white-space: pre; }
 
 /* -------------------
-	U T I L I T I E S
-	utilities
+  U T I L I T I E S
+  utilities
     misc
-	--------------------- */
+  --------------------- */
 .full-width, .fullwidth { width: 100%; box-sizing: border-box; }
 .full-width-max, .fullwidth-max { max-width: 100%; box-sizing: border-box; }
 .float-right { float: right; }
@@ -507,9 +497,9 @@ To align objects vertically, you need to create a parent container to which the 
 .align-vertical.full { height: 100vh; width: 100%; }
 
 /* -------------------
-	G R I D S
-	grids
-	--------------------- */
+  G R I D S
+  grids
+  --------------------- */
 /* Containers */
 .col-cont { margin: 0 auto; padding: 0 .5rem; box-sizing: border-box; width: 100%; position: relative; }
 .col-cont-fluid { padding-right: 1rem; padding-left: 1rem; }
@@ -517,8 +507,8 @@ To align objects vertically, you need to create a parent container to which the 
 .row.reverse { flex-direction: row-reverse; }
 .col.reverse { flex-direction: column-reverse; }
 
-.row.flex { direction: row; flex: 0 0 0; width 100% } 
-.col.flex { direction: column; flex: 0 0 0; width 100% }
+.row.flex { flex-direction: row; flex: 0 0 0; width: 100%; } 
+.col.flex { flex-direction: column; flex: 0 0 0; width: 100% }
 
 .col-no-grow { flex-grow: 0; }
 
@@ -1009,10 +999,10 @@ button[data-tooltip] { overflow: visible; }
 [data-tooltip][data-tooltip-length='fit']:after { white-space: normal; width: 100%; }
 
 /* -------------------
-	M E D I A
-		Q U E R Y
-			media query
-	--------------------- */
+  M E D I A
+    Q U E R Y
+      media query
+  --------------------- */
 /* Larger than mobile */
 @media (min-width: 400px) {}
 
@@ -1033,9 +1023,9 @@ button[data-tooltip] { overflow: visible; }
 
 
 /* -------------------
-	A N I M A T I O N
-	animations
-	--------------------- */
+  A N I M A T I O N
+  animations
+  --------------------- */
 
 /*
  * To make it work you need: ANIMATION | DURATION | ANIMATION TYPE
@@ -1056,24 +1046,24 @@ button[data-tooltip] { overflow: visible; }
 .d8ms { animation-duration: 0.8s; }
 .d9ms { animation-duration: 0.9s; }
 
-.d1s  	{ animation-duration: 1s; }
-.d1s5  	{ animation-duration: 1.5s; }
-.d2s  	{ animation-duration: 2s; }
-.d2s5  	{ animation-duration: 2.5s; }
-.d3s  	{ animation-duration: 3s; }
-.d3s5  	{ animation-duration: 3.5s; }
-.d4s  	{ animation-duration: 4s; }
-.d4s5  	{ animation-duration: 4.5s; }
-.d5s  	{ animation-duration: 5s; }
-.d5s5  	{ animation-duration: 5.5s; }
-.d6s  	{ animation-duration: 6s; }
-.d6s5  	{ animation-duration: 6.5s; }
-.d7s  	{ animation-duration: 7s; }
-.d7s5  	{ animation-duration: 7.5s; }
-.d8s  	{ animation-duration: 8s; }
-.d8s5  	{ animation-duration: 8.5s; }
-.d9s  	{ animation-duration: 9s; }
-.d9s5  	{ animation-duration: 9.5s; }
+.d1s    { animation-duration: 1s; }
+.d1s5   { animation-duration: 1.5s; }
+.d2s    { animation-duration: 2s; }
+.d2s5   { animation-duration: 2.5s; }
+.d3s    { animation-duration: 3s; }
+.d3s5   { animation-duration: 3.5s; }
+.d4s    { animation-duration: 4s; }
+.d4s5   { animation-duration: 4.5s; }
+.d5s    { animation-duration: 5s; }
+.d5s5   { animation-duration: 5.5s; }
+.d6s    { animation-duration: 6s; }
+.d6s5   { animation-duration: 6.5s; }
+.d7s    { animation-duration: 7s; }
+.d7s5   { animation-duration: 7.5s; }
+.d8s    { animation-duration: 8s; }
+.d8s5   { animation-duration: 8.5s; }
+.d9s    { animation-duration: 9s; }
+.d9s5   { animation-duration: 9.5s; }
 
 /** DELAY animations  */
 .lag-1ms { animation-delay: 0.1s; }
@@ -1086,24 +1076,24 @@ button[data-tooltip] { overflow: visible; }
 .lag-8ms { animation-delay: 0.8s; }
 .lag-9ms { animation-delay: 0.9s; }
 
-.lag-1s  	  { animation-delay: 1s; }
-.lag-1s5  	{ animation-delay: 1.5s; }
-.lag-2s  	  { animation-delay: 2s; }
-.lag-2s5  	{ animation-delay: 2.5s; }
-.lag-3s  	  { animation-delay: 3s; }
-.lag-3s5  	{ animation-delay: 3.5s; }
-.lag-4s  	  { animation-delay: 4s; }
-.lag-4s5  	{ animation-delay: 4.5s; }
-.lag-5s  	  { animation-delay: 5s; }
-.lag-5s5  	{ animation-delay: 5.5s; }
-.lag-6s  	  { animation-delay: 6s; }
-.lag-6s5  	{ animation-delay: 6.5s; }
-.lag-7s  	  { animation-delay: 7s; }
-.lag-7s5  	{ animation-delay: 7.5s; }
-.lag-8s  	  { animation-delay: 8s; }
-.lag-8s5  	{ animation-delay: 8.5s; }
-.lag-9s  	  { animation-delay: 9s; }
-.lag-9s5  	{ animation-delay: 9.5s; }
+.lag-1s     { animation-delay: 1s; }
+.lag-1s5    { animation-delay: 1.5s; }
+.lag-2s     { animation-delay: 2s; }
+.lag-2s5    { animation-delay: 2.5s; }
+.lag-3s     { animation-delay: 3s; }
+.lag-3s5    { animation-delay: 3.5s; }
+.lag-4s     { animation-delay: 4s; }
+.lag-4s5    { animation-delay: 4.5s; }
+.lag-5s     { animation-delay: 5s; }
+.lag-5s5    { animation-delay: 5.5s; }
+.lag-6s     { animation-delay: 6s; }
+.lag-6s5    { animation-delay: 6.5s; }
+.lag-7s     { animation-delay: 7s; }
+.lag-7s5    { animation-delay: 7.5s; }
+.lag-8s     { animation-delay: 8s; }
+.lag-8s5    { animation-delay: 8.5s; }
+.lag-9s     { animation-delay: 9s; }
+.lag-9s5    { animation-delay: 9.5s; }
 
 /* Invisible */
 .invisible, .hide { opacity: 0; }
