@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.0.5 | WTFPL License | (c) 2018 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.0.6 | WTFPL License | (c) 2018 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -1020,6 +1020,21 @@ button[data-tooltip] { overflow: visible; }
 
 /* Larger than 0 smaller than Desktop */
 @media only screen and (min-width: 1px) and (max-width: 1000px) { }
+
+/* -------------------
+  M O B I L E
+  mobile
+  --------------------- */
+.mob-scroller {
+    display: flex; 
+    flex-wrap: nowrap;
+    justify-content: center; 
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mob-scroller::-webkit-scrollbar { display: none; }
 
 
 /* -------------------
