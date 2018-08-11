@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.0.6 | WTFPL License | (c) 2018 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.1.0 | WTFPL License | (c) 2018 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -1198,6 +1198,20 @@ button[data-tooltip] { overflow: visible; }
 /* flip out down */
 .flipout-y { backface-visibility: visible!important; animation-name: flipOutY; }
 
+
+/* Move Up */
+.move-up { animation-name: moveUp; }
+
+/* Move Down */
+.move-down { animation-name: moveDown; }
+
+/* Move Left */
+.move-left { animation-name: moveLeft; }
+
+/* Move Right */
+.move-right { animation-name: moveRight; }
+
+
 /**** Keyframes x Animations */
 
 /* fade in */
@@ -1329,4 +1343,36 @@ button[data-tooltip] { overflow: visible; }
   60% { opacity: 1; -webkit-transform: scale3d(1.03, 1.03, 1.03); transform: scale3d(1.03, 1.03, 1.03); }
   80% { -webkit-transform: scale3d(.97, .97, .97); transform: scale3d(.97, .97, .97); }
   to { opacity: 1; -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+}
+
+/* Move Up */
+@keyframes moveUp {
+    0%      { -webkit-transform: translate(0, 20%); transform: translate(0, 20%); }
+    20%     { -webkit-transform: translate(0, 22%); transform: translate(0, 22%); }
+    80%     { -webkit-transform: translate(0, -5%); transform: translate(0, -5%);  }
+    100%    { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
+}
+
+/* Move Down */
+@keyframes moveDown {
+    0%      { -webkit-transform: translate(0, -15%); transform: translate(0, -15%); }
+    20%     { -webkit-transform: translate(0, -17%); transform: translate(0, -17%); }
+    80%     { -webkit-transform: translate(0, 5%); transform: translate(0, 5%);  }
+    100%    { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
+}
+
+/* Move Left */
+@keyframes moveLeft {
+    0%      { -webkit-transform: translate(15%, 0); transform: translate(15%, 0); }
+    20%     { -webkit-transform: translate(17%, 0); transform: translate(17%, 0); }
+    80%     { -webkit-transform: translate(-5%, 0); transform: translate(-5%, 0);  }
+    100%    { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
+}
+
+/* Move Right */
+@keyframes moveRight {
+    0%      { -webkit-transform: translate(-15%, 0); transform: translate(-15%, 0); }
+    20%     { -webkit-transform: translate(-17%, 0); transform: translate(-17%, 0); }
+    80%     { -webkit-transform: translate(5%, 0); transform: translate(5%, 0);  }
+    100%    { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
 }
