@@ -9,4 +9,10 @@ Except that you don't have to write the initial HTML5 structure, and most import
 🍉 [docs & examples](https://selekkt.dk/help/skelet/docs)
 
 ---
+#### CDN on skelet.css
+
+`https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css`
+
+
+---
 [Skēlet.](https://selekkt.dk/git/wp-skelet) is also available as a WordPress theme.
