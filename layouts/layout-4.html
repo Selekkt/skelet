@@ -47,6 +47,11 @@
         .box-info { text-align: center }
         .box-info span, .box-info h1 { font-size: 5rem; font-weight: bold; text-transform: uppercase; letter-spacing: .5rem; padding: 0; display: inline-block; }  
         .socials li { padding: .5rem; }
+        
+        @media screen and (max-width: 900px) {
+            .full { display: block!important; width: 100%; height: 0; padding: 0!important; }
+            .box-info { transform: translate(0, -8rem); }
+        }
     </style>
 
 </head>
@@ -66,7 +71,7 @@
             <span class="animate d3ms lag-2ms move-up">i</span>
             <span class="animate d3ms lag-2ms5 move-up">n</span>
             <span class="animate d3ms lag-3ms move-up">g</span>
-            <span>&nbsp;</span>
+            <span class="full">&nbsp;</span>
             <span class="animate d3ms lag-3ms5 move-up">s</span>
             <span class="animate d3ms lag-4ms move-up">o</span>
             <span class="animate d3ms lag-4ms5 move-up">o</span>
