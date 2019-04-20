@@ -2,7 +2,7 @@
 jQuery(document).ready(function($) {
 
     // start animations
-    $("[data-animation]").live( "click", function () {
+    $('body').on('click', '[data-animation]', function)
         var animationName = $(this).data("animation");
         $(this).addClass('animate d1s' + ' ' + animationName);
     });
