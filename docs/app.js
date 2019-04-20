@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
     $('#wp-skelet').load('docs/wp-ad.html');
 
     // start animations
-    $('td div').click(function() {
+    $( "[data-animation]" ).live( "click", function () {
         var animationName = $(this).data("animation");
         $(this).addClass('animate d1s' + ' ' + animationName);
     });
