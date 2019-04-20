@@ -1,6 +1,6 @@
 <script>
 jQuery(document).ready(function($) {
-    $('body').on('click', '[data-animation]', function)
+    $('body').on('click', '[data-animation]', function(event) {
         var animationName = $(this).data("animation");
         $(this).addClass('animate d1s' + ' ' + animationName);
     });
