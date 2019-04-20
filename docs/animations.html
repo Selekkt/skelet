@@ -1,3 +1,15 @@
+<script>
+jQuery(document).ready(function($) {
+
+    // start animations
+    $("[data-animation]").live( "click", function () {
+        var animationName = $(this).data("animation");
+        $(this).addClass('animate d1s' + ' ' + animationName);
+    });
+
+});
+</script>
+
 <h1><a href="#animations">#</a> Animations</h1>
 <div>
 
