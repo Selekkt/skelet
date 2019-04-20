@@ -1,12 +1,9 @@
 <script>
 jQuery(document).ready(function($) {
-
-    // start animations
     $('body').on('click', '[data-animation]', function)
         var animationName = $(this).data("animation");
         $(this).addClass('animate d1s' + ' ' + animationName);
     });
-
 });
 </script>
 
