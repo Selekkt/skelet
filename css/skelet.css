@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.2.0 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.2.1 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -394,15 +394,17 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
   F L E X 
   flex
   --------------------- */
-.flex-it{ display: flex; }
+.flex-it { display: flex; }
 .flex-it-inline { display: inline-flex; }
 .flex-it-inline > *, .flex-it> * { }
 
 .flex-it-top { align-items: flex-start; }
 .flex-it-middle { align-items: center; }
 .flex-it-bottom { align-items: flex-end; }
-.flex-it-center { justify-content: center; }
 .flex-it-right { justify-content: flex-end; }
+.flex-it-left { justify-content: flex-start; }
+.flex-it-center { justify-content: center; }
+.flex-it-centered { justify-content: center; align-items: center; }
 
 .flex-it-space-between { justify-content: space-between; }
 .flex-it-space-around { justify-content: space-around; }
@@ -445,11 +447,6 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
 .flex-it-item-none { flex: 0 0 auto; }
 .flex-it-item-auto { flex: 1 1 auto; }
 .flex-it-item-1 { flex: 1 1 0; }
-
-.flex-it-centered {
-  justify-content: center;
-  align-items: center;
-}
 
 /* -------------------
   C O D E S
