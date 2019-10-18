@@ -15,4 +15,4 @@ Except that you don't have to write the initial HTML5 structure, and most import
 
 
 ---
-[Skēlet.](https://selekkt.dk/git/wp-skelet) is also available as a WordPress theme.
+Skēlet. is also available as a [WordPress](https://selekkt.dk/git/wp-skelet) & [Grav](https://selekkt.dk/git/grav-skelet) themes.
