@@ -1,1 +1,41 @@
 /* app.css */
+
+
+
+
+
+
+
+
+/* -------------------
+  M E D I A
+    Q U E R Y
+      media query
+  --------------------- */
+
+/* Detect OS Dark/Light mode */
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {}
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+
+/* Larger than 0 smaller than Desktop */
+@media only screen and (min-width: 1px) and (max-width: 1000px) { }
