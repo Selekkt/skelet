@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.2.1 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.2.2 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -995,28 +995,37 @@ button[data-tooltip] { overflow: visible; }
     }
 [data-tooltip][data-tooltip-length='fit']:after { white-space: normal; width: 100%; }
 
+
 /* -------------------
   M E D I A
     Q U E R Y
       media query
   --------------------- */
-/* Larger than mobile */
-@media (min-width: 400px) {}
 
-/* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {}
+/*** Detect OS Dark/Light mode */
+    /* if OS in DARK mode */
+    @media (prefers-color-scheme: dark) {}
+    /* if OS in LIGHT mode */
+    @media (prefers-color-scheme: light) {}
 
-/* Larger than tablet */
-@media (min-width: 750px) {}
+/*** Responsive */
+    /* Larger than mobile */
+    @media (min-width: 400px) {}
 
-/* Larger than desktop */
-@media (min-width: 1000px) {}
+    /* Larger than phablet (also point when grid becomes active) */
+    @media (min-width: 550px) {}
 
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {}
+    /* Larger than tablet */
+    @media (min-width: 750px) {}
 
-/* Larger than 0 smaller than Desktop */
-@media only screen and (min-width: 1px) and (max-width: 1000px) { }
+    /* Larger than desktop */
+    @media (min-width: 1000px) {}
+
+    /* Larger than Desktop HD */
+    @media (min-width: 1200px) {}
+
+    /* Larger than 0 smaller than Desktop */
+    @media only screen and (min-width: 1px) and (max-width: 1000px) { }
 
 /* -------------------
   M O B I L E
