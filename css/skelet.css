@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.2.2 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.2.3 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -389,6 +389,9 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
 
 /** adding tripes */
 .dTab.is-striped .dTabBody .dTabRow:nth-child(odd) { background-color: #F5F5F5; }
+
+/** make table head fix */
+.is-fixed .dTabHead { position: sticky; top: 0; padding: 10px 0 20px; background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); }
 
 /* -------------------
   F L E X 
