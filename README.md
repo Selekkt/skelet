@@ -11,7 +11,10 @@ Except that you don't have to write the initial HTML5 structure, and most import
 ---
 #### CDN on skelet.css
 
-`https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css`
+`
+https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css
+https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css
+`
 
 
 ---
