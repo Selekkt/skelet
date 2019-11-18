@@ -655,7 +655,15 @@
         </tr>
         <tr>
             <td class="txt-left">Larger than 0 smaller than Desktop</td>
-            <td><code>@media only screen and (min-width: 1px) and (max-width: 999px) { }</code></td>
+            <td><code>@media only screen and (min-width: 1px) and (max-width: 999px) { /* code here */ }</code></td>
+        </tr>
+        <tr>
+            <td class="txt-left">If OS in DARK mode</td>
+            <td><code>@media (prefers-color-scheme: dark) { /* code here */ }</code></td>
+        </tr>
+        <tr>
+            <td class="txt-left">If OS in LIGHT mode</td>
+            <td><code>@media (prefers-color-scheme: light) { /* code here */ }</code></td>
         </tr>
     </tbody>
 </table>
