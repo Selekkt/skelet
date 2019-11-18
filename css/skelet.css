@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.5.0 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.2.3 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -215,8 +215,8 @@ button, .button { margin-bottom: 1rem; }
 [class*="is-"] { border-color: transparent; }
 [class*="is-"]:hover { border-color: transparent; opacity: 0.85; } 
 
-.button.is-white  { background-color: white; color: #0a0a0a; }
-.button.is-light  { background-color: whitesmoke; color: #0a0a0a; }
+.button.is-white  { background-color: white; color: #0a0a0a!important; }
+.button.is-light  { background-color: whitesmoke; color: #0a0a0a!important; }
 .button.is-dark   { background-color: #282828; color: whitesmoke; }
 .button.is-black  { background-color: #0a0a0a; color: white; }
 .button.is-link   { background-color: transparent; color: #282828; text-decoration: underline; }
@@ -1035,7 +1035,10 @@ button[data-tooltip] { overflow: visible; }
   .dark-mode input[type="reset"]:focus, .dark-mode input[type="button"]:focus {
     color: #FFFFFF;
     border-color: #DEDEDE;
-}
+  }
+
+  .dark-mode [class*="is-"] { border-color: transparent; }
+  .dark-mode [class*="is-"]:hover { border-color: transparent; opacity: 1; } 
 
   .dark-mode th, .dark-mode td { border-bottom-color: #232323 }
   .dark-mode .dTab.is-bordered { border-color: #333333; }
