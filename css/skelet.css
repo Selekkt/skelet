@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.2.3 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.5.0 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -460,8 +460,8 @@ code {
   margin: 0 .2rem;
   font-size: 90%;
   white-space: nowrap;
-    background-color: #F5F5F5;
-    border: 1px solid #E3EAED;
+  background-color: #F5F5F5;
+  border: 1px solid #E3EAED;
   border-radius: 0.35rem;
   overflow: auto;
 }
@@ -998,6 +998,50 @@ button[data-tooltip] { overflow: visible; }
     }
 [data-tooltip][data-tooltip-length='fit']:after { white-space: normal; width: 100%; }
 
+/* -------------------
+  D A R K
+    M O D E
+      dark mode
+  --------------------- */
+  body.dark-mode { background-color: #000000; color: #FFFFFF; }
+
+  .dark-mode hr { border-top-color: #232323; }
+  .dark-mode hr.gradient { background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #232323 50%, rgba(0, 0, 0, 0) 100%); }
+  
+  .dark-mode :not(pre) > code, .dark-mode :not(pre) > kbd, .dark-mode :not(pre) > samp { color: #00F900; }
+  .dark-mode code { background-color: #181818; border-color: #333333; }
+
+  .dark-mode input[type="color"], .dark-mode input[type="date"], .dark-mode input[type="datetime-local"], 
+  .dark-mode input[type="email"], .dark-mode input[type="month"], .dark-mode input[type="number"],
+  .dark-mode input[type="password"], .dark-mode input[type="search"], .dark-mode input[type="tel"], 
+  .dark-mode input[type="text"], .dark-mode input[type="time"], .dark-mode input[type="url"], 
+  .dark-mode input[type="week"], .dark-mode select, .dark-mode textarea {
+    background-color: #181818;
+    border-color: #333333;
+    color: #FFFFFF;
+  }
+
+  .dark-mode select, .dark-mode select:focus { background-image: linear-gradient(45deg, transparent 50%, #666 50%), linear-gradient(135deg, #666 50%, transparent 50%), linear-gradient(to right, #666, #666); }
+
+  .dark-mode .button, .dark-mode .button-x, .dark-mode button, .dark-mode input[type="submit"], 
+  .dark-mode input[type="reset"], .dark-mode input[type="button"] {
+    color: #FFFFFF;
+    border-color: #232323;
+  }
+
+  .dark-mode .button:hover, .dark-mode button:hover, .dark-mode input[type="submit"]:hover, 
+  .dark-mode input[type="reset"]:hover, .dark-mode input[type="button"]:hover, 
+  .dark-mode .button:focus, .dark-mode button:focus, .dark-mode input[type="submit"]:focus, 
+  .dark-mode input[type="reset"]:focus, .dark-mode input[type="button"]:focus {
+    color: #FFFFFF;
+    border-color: #DEDEDE;
+}
+
+  .dark-mode th, .dark-mode td { border-bottom-color: #232323 }
+  .dark-mode .dTab.is-bordered { border-color: #333333; }
+  .dark-mode .is-bordered .dTabCell, .dark-mode .is-bordered .dTabHead { border-color: #333333; }
+  .dark-mode .is-bordered .dTabHeading { background-color: #181818; }
+  .dark-mode .dTab.is-striped .dTabBody .dTabRow:nth-child(odd) { background-color: #232323; }
 
 /* -------------------
   M E D I A
