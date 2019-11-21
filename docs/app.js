@@ -1,19 +1,20 @@
 // app.js
 jQuery(document).ready(function($) {
-	// load content
-    $('#nav').load('docs/nav.html');
-    $('#install').load('docs/install.html');
-    $('#typography').load('docs/typography.html');
-    $('#forms').load('docs/forms.html');
-    $('#lists').load('docs/lists.html');
-    $('#tables').load('docs/tables.html');
-    $('#flex').load('docs/flex.html');
-    $('#misc').load('docs/misc.html');
-    $('#grids').load('docs/grids.html');
-    $('#animations').load('docs/animations.html');
-    $('#css-grid-layouts').load('docs/css-grid-layouts.html');
-    $('#layouts').load('docs/layouts.html');
-    $('#wp-skelet').load('docs/wp-ad.html');
+    // load content
+    $('#nav').load('nav.html');
+    $('#install').load('install.html');
+    $('#typography').load('typography.html');
+    $('#forms').load('forms.html');
+    $('#lists').load('lists.html');
+    $('#tables').load('tables.html');
+    $('#flex').load('flex.html');
+    $('#misc').load('misc.html');
+    $('#dark-mode').load('dark-mode.html');
+    $('#grids').load('grids.html');
+    $('#animations').load('animations.html');
+    $('#css-grid-layouts').load('css-grid-layouts.html');
+    $('#layouts').load('layouts.html');
+    $('#wp-skelet').load('wp-ad.html');
 
     // start animations
     $('body').on('click', '[data-animation]', function(event) {
@@ -26,6 +27,16 @@ jQuery(document).ready(function($) {
         $('html, body').animate({
             scrollTop: $( $.attr(this, 'href') ).offset().top
         }, 500);
+    });
+
+    // if OS is in Dark mode switch automatically.
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        $('body').addClass('dark-mode');
+    }
+
+    // Turn Dark Mode on/off
+    $('body').on('click', '.lightsoff', function(event) {
+        $('body').toggleClass('dark-mode');
     });
 
 });
