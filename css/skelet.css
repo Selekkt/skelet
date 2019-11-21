@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.5.1 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. 2.5.0 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -500,9 +500,10 @@ To align objects vertically, you need to create a parent container to which the 
 [class*=tag] {
     display: inline-block;
     padding: 0.6rem;
+    margin: 0.1rem;
     vertical-align: baseline;
     white-space: nowrap;
-    color: #fff;
+    color: #FFFFFF;
     border: none;
     border-radius: 0.5rem;
     line-height: 1;
@@ -1071,7 +1072,7 @@ button[data-tooltip] { overflow: visible; }
   .dark-mode .is-bordered .dTabHeading { background-color: #181818; }
   .dark-mode .dTab.is-striped .dTabBody .dTabRow:nth-child(odd) { background-color: #232323; }
 
-  .dark-mode .tag.is-outline, .tag.is-blank { color: #FFFFFF; }
+  .dark-mode .tag.is-outline, .dark-mode .tag.is-blank { color: #FFFFFF; }
 
 /* -------------------
   M E D I A
