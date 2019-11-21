@@ -1072,6 +1072,7 @@ button[data-tooltip] { overflow: visible; }
   .dark-mode .is-bordered .dTabHeading { background-color: #181818; }
   .dark-mode .dTab.is-striped .dTabBody .dTabRow:nth-child(odd) { background-color: #232323; }
 
+  .dark-mode .tag.is-outline { border-color: #FFFFFF; }
   .dark-mode .tag.is-outline, .dark-mode .tag.is-blank { color: #FFFFFF; }
 
 /* -------------------
