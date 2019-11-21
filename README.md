@@ -9,11 +9,31 @@ Except that you don't have to write the initial HTML5 structure, and most import
 🍉 [docs & examples](https://selekkt.dk/help/skelet/docs)
 
 ---
-#### CDN on skelet.css
 
-    https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css
-    https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css
+## Get started
+#### Getting started is super easy.
+All You've to do is [download](https://selekkt.dk/git/skelet/archive/master.zip) and unzip the file, et voilà. You can start doing your thing.
 
+
+You've 2 files to pay attention to:
+
+ - `skelet.html` = is the the HTML5 boilerplate.
+ - `css/skelet.css` = is the CSS that you must include into your project in order to make it look Fresh.
+
+---
+
+### skelet.css via CDN 
+If you only need `skelet.css`, just add this tags in the `<head>`.
+``` 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css">
+``` 
+
+or
+
+``` 
+https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css
+https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css
+``` 
 
 
 ---
