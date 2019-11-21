@@ -35,6 +35,25 @@ https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css
 https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css
 ``` 
 
+---
+
+### Folder structure
+This is the dir structure of Skēlet. `docs` & `layouts` could be deleted if not needed.
+``` 
+skelet/
+├── css/
+│   ├── skelet.css
+│   └── app.css
+├── js/
+│   ├── modules.js
+│   └── app.js
+├── img/
+│   ├── logo.png
+│   └── touch.png
+├── LICENSE
+├── README.md
+└── skelet.html
+``` 
 
 ---
 Skēlet. is also available as a [WordPress](https://selekkt.dk/git/wp-skelet) & [Grav](https://selekkt.dk/git/grav-skelet) themes.
