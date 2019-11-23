@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skēlet. 2.5.0 | WTFPL License | (c) 2019 Sēlekkt. | https://Selekkt.dk/git/skelet */
+/*! Skēlet. v2.5.3 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/git/skelet */
 *, html, body { box-sizing: border-box; } 
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -399,7 +399,7 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
   --------------------- */
 .flex-it { display: flex; }
 .flex-it-inline { display: inline-flex; }
-.flex-it-inline > *, .flex-it> * { }
+.flex-it-inline > *, .flex-it > * { }
 
 .flex-it-top { align-items: flex-start; }
 .flex-it-middle { align-items: center; }
@@ -427,6 +427,10 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
 .flex-it-order-first { order: -1; }
 .flex-it-order-last { order: 99; }
 
+.flex-it-item-none { flex: 0 0 auto; }
+.flex-it-item-auto { flex: 1 1 auto; }
+.flex-it-item-1 { flex: 1 1 0; }
+
 @media (min-width: 480px) {
   .flex-it-order-first-small { order: -1; }
   .flex-it-order-last-small { order: 99; }
@@ -446,10 +450,6 @@ table.is-striped tbody tr:nth-child(2n) { background-color: #F5F5F5; }
   .flex-it-order-first-xlarge { order: -1; }
   .flex-it-order-last-xlarge { order: 99; }
 }
-
-.flex-it-item-none { flex: 0 0 auto; }
-.flex-it-item-auto { flex: 1 1 auto; }
-.flex-it-item-1 { flex: 1 1 0; }
 
 /* -------------------
   C O D E S
@@ -521,6 +521,12 @@ To align objects vertically, you need to create a parent container to which the 
 
 .tag.is-small { padding: 0.5rem; font-size: 0.75em; }
 .tag.is-large { padding: 0.7rem; font-size: 1.125em; }
+
+/** Separator */
+.separator { display: flex; align-items: center; text-align: center; }
+.separator::before, .separator::after { content: ''; flex: 1; border-bottom: 1px solid #E1E1E1; }
+.separator::before { margin-right: .25em; }
+.separator::after { margin-left: .25em; }
 
 /* -------------------
   G R I D S
@@ -1037,31 +1043,14 @@ button[data-tooltip] { overflow: visible; }
   .dark-mode :not(pre) > code, .dark-mode :not(pre) > kbd, .dark-mode :not(pre) > samp { color: #00F900; }
   .dark-mode code { background-color: #181818; border-color: #333333; }
 
-  .dark-mode input[type="color"], .dark-mode input[type="date"], .dark-mode input[type="datetime-local"], 
-  .dark-mode input[type="email"], .dark-mode input[type="month"], .dark-mode input[type="number"],
-  .dark-mode input[type="password"], .dark-mode input[type="search"], .dark-mode input[type="tel"], 
-  .dark-mode input[type="text"], .dark-mode input[type="time"], .dark-mode input[type="url"], 
-  .dark-mode input[type="week"], .dark-mode select, .dark-mode textarea {
-    background-color: #181818;
-    border-color: #333333;
-    color: #FFFFFF;
-  }
+  .dark-mode input[type="color"], .dark-mode input[type="date"], .dark-mode input[type="datetime-local"], .dark-mode input[type="email"], .dark-mode input[type="month"], .dark-mode input[type="number"], .dark-mode input[type="password"], .dark-mode input[type="search"], .dark-mode input[type="tel"], .dark-mode input[type="text"], .dark-mode input[type="time"], .dark-mode input[type="url"], .dark-mode input[type="week"], .dark-mode select, .dark-mode textarea { background-color: #181818; border-color: #333333; color: #FFFFFF; }
 
-  .dark-mode select, .dark-mode select:focus { background-image: linear-gradient(45deg, transparent 50%, #666 50%), linear-gradient(135deg, #666 50%, transparent 50%), linear-gradient(to right, #666, #666); }
+  .dark-mode select { background-image: linear-gradient(45deg, transparent 50%, #666 50%), linear-gradient(135deg, #666 50%, transparent 50%), linear-gradient(to right, #666, #666); }
+  .dark-mode select:focus { background-image: linear-gradient(45deg, #666 50%, transparent 50%), linear-gradient(135deg, transparent 50%, #666 50%), linear-gradient(to right, #666, #666); }
 
-  .dark-mode .button, .dark-mode .button-x, .dark-mode button, .dark-mode input[type="submit"], 
-  .dark-mode input[type="reset"], .dark-mode input[type="button"] {
-    color: #FFFFFF;
-    border-color: #232323;
-  }
+  .dark-mode .button, .dark-mode .button-x, .dark-mode button, .dark-mode input[type="submit"], .dark-mode input[type="reset"], .dark-mode input[type="button"] { color: #FFFFFF; border-color: #232323; }
 
-  .dark-mode .button:hover, .dark-mode button:hover, .dark-mode input[type="submit"]:hover, 
-  .dark-mode input[type="reset"]:hover, .dark-mode input[type="button"]:hover, 
-  .dark-mode .button:focus, .dark-mode button:focus, .dark-mode input[type="submit"]:focus, 
-  .dark-mode input[type="reset"]:focus, .dark-mode input[type="button"]:focus {
-    color: #FFFFFF;
-    border-color: #DEDEDE;
-  }
+  .dark-mode .button:hover, .dark-mode button:hover, .dark-mode input[type="submit"]:hover, .dark-mode input[type="reset"]:hover, .dark-mode input[type="button"]:hover, .dark-mode .button:focus, .dark-mode button:focus, .dark-mode input[type="submit"]:focus, .dark-mode input[type="reset"]:focus, .dark-mode input[type="button"]:focus { color: #FFFFFF; border-color: #DEDEDE; }
 
   .dark-mode [class*="is-"] { border-color: transparent; }
   .dark-mode [class*="is-"]:hover { border-color: transparent; opacity: 1; } 
@@ -1074,6 +1063,8 @@ button[data-tooltip] { overflow: visible; }
 
   .dark-mode .tag.is-outline { border-color: #FFFFFF; }
   .dark-mode .tag.is-outline, .dark-mode .tag.is-blank { color: #FFFFFF; }
+
+  .dark-mode .separator::before, .dark-mode .separator::after { border-bottom-color: #232323; }
 
 /* -------------------
   M E D I A
