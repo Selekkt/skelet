@@ -3,16 +3,17 @@ jQuery(document).ready(function($) {
     // load content
     $('#nav').load('nav.html');
     $('#install').load('install.html');
+    $('#dark-mode').load('dark-mode.html');
     $('#typography').load('typography.html');
+    $('#misc').load('misc.html');
+    $('#icons').load('icons.html');
     $('#forms').load('forms.html');
     $('#lists').load('lists.html');
     $('#tables').load('tables.html');
     $('#flex').load('flex.html');
-    $('#misc').load('misc.html');
-    $('#dark-mode').load('dark-mode.html');
     $('#grids').load('grids.html');
-    $('#animations').load('animations.html');
     $('#css-grid-layouts').load('css-grid-layouts.html');
+    $('#animations').load('animations.html');
     $('#layouts').load('layouts.html');
     $('#wp-skelet').load('wp-ad.html');
 
