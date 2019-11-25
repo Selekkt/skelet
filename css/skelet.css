@@ -36,8 +36,10 @@ textarea{overflow:auto}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 details{display:block}
 summary{display:list-item}
-template{display:none}
-[hidden]{display:none}
+
+/** --- */
+template{display:none!important}
+[hidden]{display:none!important}
 
 /* -------------------
   R E S E T S
@@ -48,7 +50,6 @@ html { height: 100% }
 audio, canvas, img, svg, video { vertical-align: middle; max-width: 100%; height: auto; box-sizing: border-box; }
 dt { font-weight: bold; }
 dd { margin-left: 0; }
-
 img { display: block; max-width: 100%; height: auto; }
 
 /* -------------------
