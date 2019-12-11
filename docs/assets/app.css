@@ -33,7 +33,6 @@
     .skelet { font-size: var(--hSkelet); }
     .heading { font-size: var(--hHeading); letter-spacing: 0 }
     .title { font-size: var(--hTitle); letter-spacing: 0 }
-    li { padding: 4rem; }
     .margin20 { margin-top: 5rem; margin-bottom: 5rem; }
     #examples a { color: var(--color); }
     footer { margin: 5rem var(--percentage); }
