@@ -9,7 +9,7 @@ Get started quickly with the HTML5 template, or just include skelet.css in your 
 
 ### Getting started
 
-1. [DOWNLOAD ↓](https://selekkt.dk/help/skelet/docs) the file.
+1. [DOWNLOAD ↓](https://selekkt.dk/help/skelet/) the file.
 2. Unzip master.zip
 3. Two files to pay attenion to:
 	- `skelet.html` = is the the HTML5 boilerplate
@@ -52,8 +52,8 @@ skelet/
 
 ---
 
-### View the [Full Documentation →](https://selekkt.dk/skelet/v3/docs)
-### View [Examples →](https://selekkt.dk/skelet/v3/docs#examples)
+### View the [Full Documentation →](https://selekkt.dk/skelet/v3/)
+### View [Examples →](https://selekkt.dk/skelet/v3/#examples)
 
 ---
 
