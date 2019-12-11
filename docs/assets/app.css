@@ -1,0 +1,56 @@
+/* app.css */
+    :root { 
+        --percentage: 15%; 
+        --fontSize: calc(100vw / 80); 
+        --hSkelet: 4vw;
+        --hHeading: 3.5vw;
+        --hTitle: 2.5vw;
+    }
+
+    #app { margin: 0 auto 10rem; max-width: 1600px; }
+    #intro { margin: 0 var(--percentage); height: 100vh; }
+    .start { margin: 5rem var(--percentage); }
+    .loadsection { max-height: 280px; }
+    section { position: relative; padding-bottom: 5rem; border-bottom: 2px solid var(--color); overflow: hidden; }
+    section .meta { padding: 10rem var(--percentage) 12rem; cursor: s-resize; }
+    .desc { padding-bottom: 10rem; }
+    section grid { margin: 0 var(--percentage); }
+    section grid grid { margin: 0; }
+    #root-code code { overflow: scroll; max-height: 600px; }
+    nav { 
+        position: fixed;
+        bottom: 0;
+        z-index: 9999999;
+        backdrop-filter: blur(1.5rem);
+        margin: 0 auto; 
+        text-align: center; 
+        font-size: 3rem; 
+        width: 100%;
+    }
+    nav i { font-size: 3.2rem; vertical-align: bottom; }
+    nav li { padding: var(--padding) calc(var(--padding) * 2) 0; }
+    nav .button.is-large { padding: 0; }
+    .skelet { font-size: var(--hSkelet); }
+    .heading { font-size: var(--hHeading); letter-spacing: 0 }
+    .title { font-size: var(--hTitle); letter-spacing: 0 }
+    li { padding: 4rem; }
+    .margin20 { margin-top: 5rem; margin-bottom: 5rem; }
+    #examples a { color: var(--color); }
+    footer { margin: 5rem var(--percentage); }
+        footer a { color: var(--color); }
+        footer flex > c { padding-right: 5rem; }
+
+    @media (max-width: 600px) { 
+        :root { 
+            --percentage: 2rem; 
+            --fontSize: 1.3rem; 
+            --hSkelet: 3.5rem;
+            --hHeading: 3rem;
+            --hTitle: 2.5rem; 
+        } 
+
+        .closed { max-height: 360px; }
+    }
+    @media only screen and (max-device-width: 812px) and (orientation: landscape) { 
+        :root { --fontSize: 1.7vw; --percentage: 20%; --hHeading: 3vw; --hTitle: 2.5vw; }
+    }

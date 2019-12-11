@@ -1,0 +1,64 @@
+<grid columns="8">
+    <c span="4.." span-s="row">
+        <h3 class="title">Rows</h3>
+        <p>The number of columns a grid has is specified by the columns attribute. For instance, to define a grid with 8 columns, you'd write <code>&lt;grid columns=8&gt;</code></p>
+    </c>
+
+    <c span="4.." span-s="row">
+        <pre><code>&lt;grid columns=8&gt;
+  &lt;c span=3&gt;Skelet&lt;/c&gt;
+  &lt;c span=7-8&gt;by&lt;/c&gt;
+  &lt;c span=2+2&gt;Sēlekkt.&lt;/c&gt;
+&lt;/grid&gt;</code></pre>
+    </c>
+
+    <c span="4.." span-s="row">
+        <h3 class="title">Columns</h3>
+        <p>The span attribute is used to customize where a cell starts and how many columns it spans.</p>
+        <p>For example, <code>&lt;c span=2-5&gt;</code> starts in column 2 and ends in column 5. A cell with an empty or missing span attribute starts on the next available column and spans one column. Cells span a single column by default.</p>
+        
+        <c span="row"><span class="text-hr">span=value</span></c>
+
+        <grid columns="2" style="place-items: center;">
+            <c>2-5</c>
+            <c>start in column 2, end in column 5.</c>
+            <c>2+3</c>
+            <c>start in column 2, span 3 columns.</c>
+            <c>2..</c>
+            <c>start in column 2, span remainder of row.</c>
+            <c>2</c>
+            <c>start in next column, span 2 columns.</c>
+            <c>row</c>
+            <c>span a full row</c>
+        </grid>
+    </c>
+
+    <c span="4.." span-s="row">
+        <h3 class="title">Responsive</h3>
+        <p>Grids lend themselves really well to device-size responsive design. The <code>span-s</code> attribute defines alternate layout when your design is presented on a small screen. This makes designing for large and small screens really easy.</p>
+        <pre><code>&lt;grid columns=6&gt;
+  &lt;c span=2 span-s=row&gt;
+  &lt;c span=3-6 span-s=row&gt;
+  &lt;c span=1-2 span-s=1&gt;
+&lt;/grid&gt;</code></pre>
+    </c>
+
+    <c span="4.." span-s="row">
+        <h3 class="title">Alignments</h3>
+        <p>If you need to align your content you can use inline CSS to do so by doing <code>style="align-self: end;"</code></p>
+        <pre><code>/* for &lt;grid&gt; */
+justify-items: start | end | center | stretch;
+justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
+
+align-items: start | end | center | stretch;
+align-content: start | end | center | stretch | space-around | space-between | space-evenly;
+
+place-items: ;
+place-content: ;
+
+/* for &lt;c&gt; */
+justify-self: start | end | center | stretch;
+align-items: start | end | center | stretch;
+place-self: ;</code></pre>
+    </c>
+</grid>

@@ -1,0 +1,126 @@
+<grid columns="8">
+    <c span="1+4" span-s="row">
+        <p>To create a Flexbox, you need a <code>&lt;flex&gt;</code> container</p>
+    </c>
+    <c span="6.." class="large-only"><pre><code>&lt;flex direction=row wrap=wrap&gt;
+    &lt;c&gt;Skelet.&lt;/c&gt;
+    &lt;c&gt;by&lt;/c&gt;
+    &lt;c&gt;Sēlekkt.&lt;/c&gt;
+&lt;/flex&gt;</code></pre></c>
+
+    <c span="row"><hr></c>
+
+    <c span="1+4" span-s="row">
+        <h3 class="title">Flex direction</h3>
+        <p>You can decide the direction of your flexbox, if it's going to be a column or a row <code>&lt;flex direction=*&gt;</code></p>
+    </c>
+
+    <c span="6.." class="large-only">
+        <span class="text-hr">Available options</span>
+        <ul class="no-style">
+            <li><code>direction=column</code></li>
+            <li><code>direction=column-reverse</code></li>
+            <li><code>direction=row</code></li>
+            <li><code>direction=row-reverse</code></li>
+        </ul>
+    </c>
+
+    <c span="1+4" span-s="row">
+        <h3 class="title">Wrap</h3>
+        <p>Specifies whether flex items are forced into a single line or can be wrapped onto multiple lines. If wrapping is allowed, this property also enables you to control the direction in which lines are stacked. <code>wrap=*</code></p>
+    </c>
+
+    <c span="6.." class="large-only">
+        <span class="text-hr">Available options</span>
+        <ul class="no-style">
+            <li><code>wrap=wrap</code></li>
+            <li><code>wrap=nowrap</code></li>
+            <li><code>wrap=reverse</code></li>
+        </ul>
+    </c>
+
+    <c span="1+4" span-s="row">
+        <h3 class="title">Visual order</h3>
+        <p>Specifies the order used to lay out flex items in their flex container. Elements are laid out in the ascending order of the order value. Elements with the same order value are laid out in the order in which they appear in the source code. <code>order=*</code></p>
+    </c>
+
+    <c span="6.." class="large-only">
+        <span class="text-hr">Available options</span>
+        <ul class="no-style">
+            <li><code>order=first</code></li>
+            <li><code>order=last</code></li>
+            <li>&nbsp;</li>
+            <li><code>order-s=first</code></li>
+            <li><code>order-s=last</code></li>
+            <li>&nbsp;</li>
+            <li><code>order-l=first</code></li>
+            <li><code>order-l=last</code></li>
+        </ul>
+    </c>
+
+    <c span="1+4" span-s="row">
+        <h3 class="title">Justification</h3>
+        <p>Defines how the browser distributes space between and around flex items along the main-axis of their container. <code>content=*</code></p>
+    </c>
+
+    <c span="6.." class="large-only">
+        <span class="text-hr">Available options</span>
+        <ul class="no-style">
+            <li><code>content=start</code></li>
+            <li><code>content=center</code></li>
+            <li><code>content=end</code></li>
+            <li><code>content=between</code></li>
+            <li><code>content=around</code></li>
+        </ul>
+    </c>
+
+    <c span="1+4" span-s="row">
+        <h3 class="title">Align content</h3>
+        <p>Aligns a flex container's lines within the flex container when there is extra space on the cross-axis. <code>align-content=*</code></p>
+    </c>
+
+    <c span="6.." class="large-only">
+        <span class="text-hr">Available options</span>
+        <ul class="no-style">
+            <li><code>align-content=start</code></li>
+            <li><code>align-content=center</code></li>
+            <li><code>align-content=end</code></li>
+            <li><code>align-content=between</code></li>
+            <li><code>align-content=around</code></li>
+            <li><code>align-content=stretch</code></li>
+        </ul>
+    </c>
+
+    <c span="1+4" span-s="row">
+        <h3 class="title">Align items</h3>
+        <p>Aligns flex items of the current flex line the same way as justify-content but in the perpendicular direction. <code>align-items=*</code></p>
+    </c>
+
+    <c span="6.." class="large-only">
+        <span class="text-hr">Available options</span>
+        <ul class="no-style">
+            <li><code>align-items=start</code></li>
+            <li><code>align-items=center</code></li>
+            <li><code>align-items=end</code></li>
+            <li><code>align-items=baseline</code></li>
+            <li><code>align-items=stretch</code></li>
+        </ul>
+    </c>
+
+    <c span="1+4" span-s="row">
+        <h3 class="title">Align self</h3>
+        <p>To be used on <code>&lt;c&gt;</code> Aligns flex items of the current flex line overriding the align-items value. <code>align-self=*</code></p>
+    </c>
+
+    <c span="6.." class="large-only">
+        <span class="text-hr">Available options</span>
+        <ul class="no-style">
+            <li><code>align-self=auto</code></li>
+            <li><code>align-self=start</code></li>
+            <li><code>align-self=center</code></li>
+            <li><code>align-self=end</code></li>
+            <li><code>align-self=baseline</code></li>
+            <li><code>align-self=stretch</code></li>
+        </ul>
+    </c>
+</grid>

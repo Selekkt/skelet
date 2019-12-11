@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta data-framework="Skelet." data-ver="3.0.0" data-dev="Sēlekkt. Studio">
+
+    <title>Example 3</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content=""> <!-- e.g. @YourSiteUsername -->
+    <meta name="twitter:creator" content=""> <!-- e.g. @AuthorUsername -->
+
+    <!-- Facebook OG Tags -->
+    <meta property="og:url" content="">
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch.png">
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css">
+
+    <style>
+        :root { 
+            --fontSize: calc(100vw / 90); 
+            --hHeading: 9vw;
+            --margin: 2rem;
+            --siteMarg: 5rem;
+        }
+
+        #app { padding: var(--siteMarg); max-width: 1600px; margin: 0 auto; }
+        .logo { font-size: var(--hHeading); letter-spacing: 0; font-size: 5rem; line-height: 1; font-weight: 800 }
+
+        @media (max-width: 600px) { 
+            :root {
+                --fontSize: 1.3rem; 
+                --hHeading: 4.5rem;
+                --siteMarg: 2rem;
+            } 
+        }
+    </style>
+
+</head>
+<body class="dark-mode">
+<div id="app">
+    <main>
+        <grid columns="8" columns-s="4">
+            <c><h1>S3</h1></c>
+            <c span="2-3" span="2..">
+                <h6>Skelet. is a contemporary CSS framework</h6>
+                <p>Skelet. gives you the foundations to start building your next project right away.</p>
+            </c>
+        </grid>
+
+        <span class="space1"></span>
+
+        <grid columns="2">
+            <c span="2..">
+                <img src="https://images.unsplash.com/photo-1500239038240-9b3b8bac73c3" alt="" width="250" class="top">
+            </c>
+        </grid>
+
+        <span class="space1"></span>
+
+        <grid columns="4" columns-s="2">
+            <c span="1">We're currently working on something fantastic. We'll be here soon.</c>
+            <c span="1">We werken momenteel aan iets fantastisch. We zijn er zo.</c>
+            <c span="1">Vi arbejder i øjeblikket på noget fantastisk. Vi er her snart.</c>
+            <c span="1">В момента работим върху нещо фантастично. Ще бъдем тук скоро.</c>
+        </grid>
+    </main>
+    <span class="spacex1"></span>
+    <footer class="text-right"><a href="https://selekkt.dk/skelet/" class="button is-blank">built with Skelet.</a></footer>
+</div>
+</body>
+</html>

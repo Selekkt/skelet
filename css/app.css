@@ -1,0 +1,21 @@
+/* app.css */
+
+/* ------------------
+  css variables
+------------------ */
+:root {  }
+
+
+
+
+
+/* ------------------
+  media query
+------------------ */
+/*** Detect OS Dark/Light mode */
+@media (prefers-color-scheme: dark) {} /* if OS in DARK mode */
+@media (prefers-color-scheme: light) {} /* if OS in LIGHT mode */
+
+/*** Responsive */
+@media (min-width: 600px) {} /* Grid small becomes active */
+@media (min-width: 1600px) {} /* Grid large becomes active */

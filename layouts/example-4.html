@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta data-framework="Skelet." data-ver="3.0.0" data-dev="Sēlekkt. Studio">
+
+    <title>Example 4</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content=""> <!-- e.g. @YourSiteUsername -->
+    <meta name="twitter:creator" content=""> <!-- e.g. @AuthorUsername -->
+
+    <!-- Facebook OG Tags -->
+    <meta property="og:url" content="">
+    <meta property="og:type" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch.png">
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css">
+
+    <style>
+        :root { 
+            --fontSize: calc(100vw / 90); 
+            --hHeading: 9vw;
+            --margin: 2rem;
+            --siteMarg: 5rem;
+        }
+
+        #app { padding: var(--siteMarg); max-width: 1600px; margin: 0 auto; }
+        .logo { font-size: var(--hHeading); letter-spacing: 0; line-height: 1; font-weight: 800 }
+        flex > c { max-width: 30%; }
+
+        @media (max-width: 600px) { 
+            :root {
+                --fontSize: 1.3rem; 
+                --hHeading: 4.5rem;
+                --siteMarg: 2rem;
+            }
+            flex > c { max-width: 100%; }
+        }
+    </style>
+
+</head>
+<body data-mode="dark">
+
+<div id="app">
+    <main>
+        <flex direction="row" direction-s="column" wrap="wrap" content="around" align-items="safe-center">
+            <c align-self="center"><h1>Skelet.</h1></c>
+        </flex>
+
+        <flex direction="row" direction-s="column" wrap="wrap" content="around" align-items="safe-center">
+            <c><img src="https://images.unsplash.com/photo-1533003665028-324a81ae814b?&w=500&q=80" alt=""></c>
+            <c><img src="https://images.unsplash.com/photo-1558961166-9c584702dcb0?&w=500&q=80" alt="" clss="bottom"></c>
+            <c><img src="https://images.unsplash.com/photo-1527847934356-df5f91391ec8?&w=500&q=80" alt=""></c>
+            <c><img src="https://images.unsplash.com/photo-1548387834-7bf05019e89b?&w=500&q=80" alt=""></c>
+            <c><img src="https://images.unsplash.com/photo-1496284045406-d3e0b918d7ba?&w=500&q=80" alt=""></c>
+            <c align-self="end"><img src="https://images.unsplash.com/photo-1515886259846-9cc013b7fa72?&w=500&q=80" alt=""></c>
+        </flex>
+    </main>
+
+    <span class="space1"></span>
+
+    <footer class="text-right"><a href="https://selekkt.dk/skelet/" class="button is-blank">built with Skelet.</a></footer>
+</div>
+
+</body>
+</html>

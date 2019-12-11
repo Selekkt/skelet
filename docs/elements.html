@@ -1,0 +1,274 @@
+<grid columns="fill" style="--grid-mm: 300px;" columns-s="8">
+    <c span-s="1-4">
+        <fieldset>
+            <legend>Checkboxes</legend>
+            <label for="checkbox1">
+                <input id="checkbox1" name="checkbox" type="checkbox" checked> Choice A</label>
+            <label for="checkbox2">
+                <input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label>
+            <label for="checkbox3">
+                <input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label>
+        </fieldset>
+    </c>
+
+    <c span-s="5..">
+        <fieldset>
+            <legend>Radio buttons</legend>
+            <label for="radio1">
+                <input id="radio1" name="radio" type="radio" class="radio"> Option 1</label>
+            <label for="radio2">
+                <input id="radio2" name="radio" type="radio" class="radio"> Option 2</label>
+            <label for="radio3">
+                <input id="radio3" name="radio" type="radio" class="radio" checked> Option 3</label>
+        </fieldset>
+    </c>
+</grid>
+
+<grid columns="8">
+    <c span="row">
+        <fieldset>
+            <legend>Contact form</legend>
+            <form>
+                <grid columns="8" class="margin20">
+                    <c span="1-4" span-s="row">
+                        <label for="exampleEmailInput">Your email</label>
+                        <input class="fullwidth" placeholder="skelet@example.com" id="exampleEmailInput" type="email">
+                    </c>
+
+                    <c span="5.." span-s="row">
+                        <label for="exampleRecipientInput">Reply to</label>
+                        <select class="fullwidth" id="exampleRecipientInput">
+                            <option selected="" disabled="" value="Option 1">-- Select --</option>
+                            <option value="Option 2">Sarude</option>
+                            <option value="Option 3">Dancestorm</option>
+                        </select>
+                    </c>
+                </grid>
+                <grid>
+                    <c span="row">
+                        <label for="exampleMessage">Comment</label>
+                        <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
+                    </c>
+                </grid>
+                <grid columns="8" class="margin20">
+                    <c span="1-2" justify="self" style="place-self: center start;">
+                        <input class="button is-primary" value="Submit" type="submit">
+                    </c>
+                    <c span="3.." place="self" style="place-self: center end;">
+                        <label>
+                            <input type="checkbox"><span>I agree with the term of use</span>
+                        </label>
+                    </c>
+                </grid>
+            </form>
+        </fieldset>
+    </c>
+</grid>
+
+<grid columns="8" class="margin20">
+    <c span="row"><h3 class="title">Action buttons</h3></c>
+
+    <c span="1-4"><code>&lt;button&gt;</code></c>
+    <c span="6.."><button>Button</button></c>
+
+    <c span="1-4"><code>&lt;button disabled&gt;</code></c>
+    <c span="6.."><button disabled>Disabled</button></c>
+
+    <c span="1-4"><code>&lt;input type=button&gt;</code></c>
+    <c span="6.."><input type="button" value="Input button" class="is-primary"></c>
+
+    <c span="1-4"><code>&lt;button class="is-primary"&gt;</code></c>
+    <c span="6.."><button class="is-primary">Primary</button></c>
+
+    <c span="1-4"><code>&lt;a href="#" class="button"&gt;</code></c>
+    <c span="6.."><a href="#" class="button">Link</a></c>
+</grid>
+
+<grid columns="8" class="margin20">
+    <c span="1-4" span-s="6.." class="large-only">
+        <pre><code>&lt;a class="button is-white"&gt;White&lt;/a&gt;
+&lt;a class="button is-light"&gt;Light&lt;/a&gt;
+&lt;a class="button is-dark"&gt;Dark&lt;/a&gt;
+&lt;a class="button is-black"&gt;Black&lt;/a&gt;
+&lt;a class="button is-link"&gt;Link&lt;/a&gt;</code></pre>
+    </c>
+    <c span="6.." span-s="row" align="self" style="--align-self: center;">
+        <a class="button is-white">White</a>
+        <a class="button is-black">Black</a>
+        <a class="button is-light">Light</a>
+        <a class="button is-dark">Dark</a>
+        <a class="button is-link">Link</a>
+    </c>
+</grid>
+
+<grid columns="8" class="margin20">
+    <c span="1-4" span-s="6.." class="large-only">
+        <pre><code>&lt;a class="button is-primary"&gt;Primary&lt;/a&gt;
+&lt;a class="button is-green">Success&lt;/a&gt;
+&lt;a class="button is-yellow">Warning&lt;/a&gt;
+&lt;a class="button is-red">Danger&lt;/a&gt;
+&lt;a class="button is-outline">Outline&lt;/a&gt;
+&lt;a class="button is-blank">Blank&lt;/a&gt;
+&lt;a class="button is-outline is-large">Large&lt;/a&gt;
+&lt;a class="button is-outline is-small">Small&lt;/a&gt;</code></pre>
+    </c>
+    <c span="6.." span-s="row" align="self" style="--align-self: center;">
+        <a class="button is-primary">Primary</a>
+        <a class="button is-green">Success</a>
+        <a class="button is-yellow">Warning</a>
+        <a class="button is-red">Danger</a>
+        <a class="button is-outline">Outline</a>
+        <a class="button is-blank">Blank</a>
+
+        <a class="button is-outline is-large">Large</a>
+        <a class="button is-outline is-small">Small</a>
+    </c>
+</grid>
+
+<grid columns="8" class="margin20">
+    <c span="row">
+        <h3 class="title">Lists</h3></c>
+    <c span="1-4" span-s="row">
+        <span class="text-hr" style="margin-bottom:1rem">Unordered list</span>
+        <p>&nbsp;</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2
+                <ul>
+                    <li>Item 2.1</li>
+                    <li>Item 2.2</li>
+                </ul>
+            </li>
+            <li>Item 3</li>
+        </ul>
+
+        <span class="text-hr" style="margin-bottom:1rem">Ordered list</span>
+        <p>&nbsp;</p>
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2
+                <ul>
+                    <li>Item 2.1</li>
+                    <li>Item 2.2</li>
+                </ul>
+            </li>
+            <li>Item 3</li>
+        </ol>
+    </c>
+    <c span="5.." span-s="row">
+        <span class="text-hr" style="margin-bottom:1rem">No style list</span>
+        <p>Add<code>.no-style</code> to <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code></p>
+
+        <ul class="no-style">
+            <li>Item 1</li>
+            <li>
+                Item 2
+                <ul>
+                    <li>Item 2.1</li>
+                    <li>Item 2.2</li>
+                </ul>
+            </li>
+            <li>Item 3</li>
+        </ul>
+
+        <span class="text-hr" style="margin-bottom:1rem">Inline list</span>
+        <p>Add<code>.inline</code> to <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code></p>
+
+        <ul class="inline">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ul>
+    </c>
+</grid>
+
+<grid columns="8" class="margin20">
+    <c span="row">
+        <h3 class="title">Tabular data</h3></c>
+    <c span="1-4" span-s="row">
+        <table>
+            <caption>Default table</caption>
+            <thead>
+                <tr>
+                    <th>Artist</th>
+                    <th>Track ID</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Darude</td>
+                    <td>Sandstorm</td>
+                    <td>3:53</td>
+                </tr>
+                <tr>
+                    <td>Toto</td>
+                    <td>Africa</td>
+                    <td>3:20</td>
+                </tr>
+            </tbody>
+        </table>
+    </c>
+    <c span="5.." span-s="row">
+        <table class="is-bordered">
+            <caption>Bordedered table</caption>
+            <thead>
+                <tr>
+                    <th>Artist</th>
+                    <th>Track ID</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Darude</td>
+                    <td>Sandstorm</td>
+                    <td>3:53</td>
+                </tr>
+                <tr>
+                    <td>Toto</td>
+                    <td>Africa</td>
+                    <td>4:34</td>
+                </tr>
+            </tbody>
+        </table>
+    </c>
+    <c span="row" span-s="row">
+        <table class="is-striped">
+            <caption>Striped table</caption>
+            <thead>
+                <tr>
+                    <th>Artist</th>
+                    <th>Track ID</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Darude</td>
+                    <td>Sandstorm</td>
+                    <td>3:53</td>
+                </tr>
+                <tr>
+                    <td>Toto</td>
+                    <td>Africa</td>
+                    <td>4:34</td>
+                </tr>
+                <tr>
+                    <td>Rick Astley</td>
+                    <td>Never Gonna Give You Up</td>
+                    <td>3:20</td>
+                </tr>
+                <tr>
+                    <td>Smash Mouth</td>
+                    <td>All star</td>
+                    <td>3:56</td>
+                </tr>
+            </tbody>
+        </table>
+    </c>
+</grid>

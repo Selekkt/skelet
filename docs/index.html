@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta data-framework="Skelet." data-ver="3.0.0" data-dev="Sēlekkt. Studio">
+
+    <title>Skelet. &mdash; a contemporary CSS framework & HTML boilerplate</title>
+    <meta name="description" content="Skelet. is a contemporary CSS framework which gives you the foundations to start building your next project, right away.">
+    <meta name="author" content="Sēlekkt. Studio">
+
+    <!-- Facebook OG Tags -->
+    <meta property="og:url" content="https://selekkt.dk/skelet/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Skelet. a contemporary CSS framework">
+    <meta property="og:description" content="Skelet. is a contemporary CSS framework which gives you the foundations to start building your next project right away.">
+    <meta property="og:image" content="">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch.png">
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-awesome@1.3.0/dist/line-awesome/css/line-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/docs/assets/app.min.css">
+</head>
+<body>
+    <div id="app">  
+        <header id="intro" class="center-axys">
+            <div>
+                <span>Sēlekkt. presents</span>
+                <h1 class="skelet">Skelet.<sup><small>3</small></sup></h1>
+                <h2 class="heading" start animation="fadein-up" ease="easeInOutQuad" style="--duration: 1s; --delay:2s">Skelet. is a contemporary CSS framework which gives you the foundations to start building your next project right away.</h2>
+                <p start animation="fadein-up" ease="easeInOutQuad" style="--duration: 500ms; --delay:2.5s">
+                    Skelet. provides a simple, minimal yet solid starting point for websites. <br>
+                    Get started quickly with the <span data-tooltip="HTML5 boilerplate" data-tooltip-pos="down"><u>HTML5 template</u></span>, or just include <span data-tooltip="CSS framework" data-tooltip-pos="down"><u>skelet.css</u></span> in your own project.
+                </p>
+                <p start animation="fadein-up" ease="easeInOutQuad" style="--duration: 500ms; --delay:3s; margin-top: 4rem;">
+                    <a href="#" class="button is-large is-outline">Download ↓</a> 
+                    <a href="#start" class="button is-blank">Documentation</a> 
+                </p>
+            </div>
+        </header>
+
+        <nav>
+            <ul class="mob-scroller no-style">
+                <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NQRBUKWFJ57V4&source=url" class="button is-large is-blank" target="_blank" title="Make a small donation"><i class="la la-donate"></i> Donate</a></li>
+                <li><a href="#customization" class="button is-large is-blank"><i class="la la-pencil-ruler"></i> Customization</a></li>
+                <li><a href="#typography" class="button is-large is-blank"><i class="la la-heading"></i> Typography</a></li>
+                <li><a href="#miscellaneous" class="button is-large is-blank"><i class="la la-tools"></i> Misc</a></li>
+                <li><a href="#elements" class="button is-large is-blank"><i class="la la-stream"></i> Elements</a></li>
+                <li><a href="#grids" class="button is-large is-blank"><i class="la la-grip-horizontal"></i> Grids</a></li>
+                <li><a href="#flexbox" class="button is-large is-blank"><i class="la la-border-all"></i> Flexbox</a></li>
+                <li><a href="#animation" class="button is-large is-blank"><i class="la la-magic"></i> Animations</a></li>
+                <li><a href="#examples" class="button is-large is-blank"><i class="la la-images"></i> Examples</a></li>
+                <li><a href="#ads" class="button is-large is-blank"><i class="la la-wordpress"></i> WordPress</a></li>
+            </ul>
+        </nav>
+
+        <grid columns="8" justify-content="space-around" class="start" id="start">
+            <c span="row">
+                <h3>Getting started</h3>
+            </c>
+            <c span="1-4" span-s="row">
+                <ul class="no-style">
+                    <li><h6>1. <a href="#" class="button is-primary">Download ↓</a> the file.</h6></li>
+                    <li><h6>2. Unzip <u>master.zip</u></h6></li>
+                    <li><h6>3. Two files to pay attenion to:</h6></li>
+                    <ol>
+                        <li><code>skelet.html</code> = is the the HTML5 boilerplate</li>
+                        <li><code>css/skelet.css</code> = is the CSS framework</li>
+                    </ol>
+                </ul>
+                <p>&nbsp;</p>
+                <h6 id="via-cdn" class="center">or include via CDN</h6>
+                <span class="text-hr">with typeface</span>
+                <pre><code>&lt;link rel="stylesheet" href="https://rsms.me/inter/inter.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css"&gt;</code></pre>
+                <span class="text-hr">without typeface</span>
+                <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css"&gt;</code></pre>
+            </c>
+
+            <c span="5.." span-s="row">
+                <h6>Directory structure</h6>
+                <p>Skelet. comes with a directory structure that you can use for your project.</p>
+                <pre><code>skelet/
+├── css/
+│   ├── skelet.css (CSS framework)
+│   └── app.css (is where all of your other CSS goes)
+├── js/
+│   ├── modules.js (is for all of your JS frameworks)
+│   └── app.js (is where all of your other JS goes)
+├── img/
+│   ├── logo.png
+│   └── touch.png
+├── LICENSE
+├── README.md
+└── skelet.html (HTML boilerplate)</code></pre>
+            </c>
+        </grid>
+
+        <main>
+            <section id="customization" class="loadsection" data-docs="custom.html">
+                <div class="meta">
+                    <grid columns="fit" style="--grid-mm: 300px;" columns-s="8">
+                        <c span-s="row">
+                            <sup><a href="#customization">#</a></sup>
+                            <h2 class="heading">Custom</h2>
+                        </c>
+                        <c span-s="3..">
+                            <p>Find out how you can customize Skelet. for your needs. Easy customozation via CSS variables.</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <div class="dox"></div>
+            </section>
+
+            <section id="typography" class="loadsection" data-docs="typography.html">
+                <div class="meta">
+                    <grid columns="fit" style="--grid-mm: 300px;" columns-s="8">
+                        <c span-s="row">
+                            <sup><a href="#typography">#</a></sup>
+                            <h2 class="heading">Typography</h2>
+                        </c>
+                        <c span-s="3..">
+                            <p>HTML is set to 62.5% so that all the REM measurements throughout Skelet. are based on 10px sizing, over 1.6 line height (24px). So basically 1.5rem = 15px.</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <div class="dox"></div>
+            </section>
+
+            <section id="miscellaneous" class="loadsection" data-docs="misc.html">
+                <div class="meta">
+                    <grid columns="fit" style="--grid-mm: 300px;" columns-s="8">
+                        <c span-s="row">
+                            <sup><a href="#miscellaneous">#</a></sup>
+                            <h2 class="heading">Misc</h2>
+                        </c>
+                        <c span-s="3..">
+                            <p>A number of small utility classes that act as easy-to-use helpers. Sometimes it's better to use a utility class than create a whole new class just to float an element.</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <div class="dox"></div>
+            </section>
+
+            <section id="elements" class="loadsection" data-docs="elements.html">
+                <div class="meta">
+                    <grid columns="fit" style="--grid-mm: 300px;" columns-s="8">
+                        <c span-s="row">
+                            <sup><a href="#elements">#</a></sup>
+                            <h2 class="heading">Elements</h2>
+                        </c>
+                        <c span-s="3..">
+                            <p>Buttons, Input fields, Select menus, Checkboxes, Radio buttons, Textareas it's all here!</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <div class="dox"></div>
+            </section>
+
+            <section id="animation" class="loadsection" data-docs="animation.html">
+                <div class="meta">
+                    <grid columns="fit" style="--grid-mm: 300px;" columns-s="8">
+                        <c span-s="row">
+                            <sup><a href="#animation">#</a></sup>
+                            <h2 class="heading">Animation</h2>
+                        </c>
+                        <c span-s="3..">
+                            <p>Skelet. has some basic animations you can use right away.</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <div class="dox"></div>
+            </section>
+
+            <section id="grids" class="loadsection" data-docs="grids.html">
+                <div class="meta">
+                    <grid columns="fit" style="--grid-mm: 300px;" columns-s="8">
+                        <c span-s="row">
+                            <sup><a href="#grids">#</a></sup>
+                            <h2 class="heading">Grids</h2>
+                        </c>
+                        <c span-s="3..">
+                            <p>Minimal and straight-forward 16-column CSS grid system utilizing descriptive HTML rather than semantic CSS.</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <div class="dox"></div>
+            </section>
+
+            <section id="flexbox" class="loadsection" data-docs="flexbox.html">
+                <div class="meta">
+                    <grid columns="2" columns-s="8">
+                        <c span-s="row">
+                            <sup><a href="#flexbox">#</a></sup>
+                            <h2 class="heading">Flexbox</h2>
+                        </c>
+                        <c span-s="3..">
+                            <p>Minimal and straight-forward Flexbox utilizing descriptive HTML.</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <div class="dox"></div>
+            </section>
+
+            <section id="examples" class="loadsection" data-docs="examples.html">
+                <div class="meta">
+                    <grid columns="1-4">
+                        <c span="row">
+                            <sup><a href="#examples">#</a></sup>
+                            <h2 class="heading">Examples</h2>
+                            <p>A list of layout examples to see Skelet. in action.</p>
+                        </c>
+                        <div class="dox"></div>
+                    </grid>
+                </div>
+            </section>
+
+            <section id="ads">
+                <div class="meta">
+                    <grid columns="1">
+                        <c span="row"><h2 class="heading">Skelet. themes</h2></c>
+                        <c span="row">
+                            <p>Skelet. is also available as blank, barebone theme for WordPress, Grav. It's the perfect way to build your next website more quickly and efficiently using your favorite CMS.</p>
+                        </c>
+                    </grid>
+                </div>
+
+                <grid columns="2">
+                    <c span-s="row">
+                        <h3 class="title">WordPress</h3>
+                        <p>wp-Skelet. has no styles. It only has a HTML + <code>skelet.css</code> with a <code>functions.php</code> ready file, and all the other required WordPress pages and that's it. The rest is up to you.</p>
+                        <a href="https://selekkt.dk/git/wp-skelet" class="button is-primary">Get wp-Skelet</a>
+                    </c>
+                    <c span="row" class="small-only"><hr></c>
+                    <c span-s="row">
+                        <h3 class="title">Grav</h3>
+                        <p>grav-Skelet. has no styles. It only has a HTML + <code>skelet.css</code> and some demo files to make you start. The rest is up to you.<br><br></p>
+                        <a href="https://selekkt.dk/git/grav-skelet" class="button is-primary">Get grav-Skelet</a>
+                    </c>
+                </grid>
+            </section>
+        </main>
+
+        <footer>
+            <grid columns="2">
+                <c>
+                    <span>Sēlekkt. presents</span>
+                    <h1 class="skelet">Skelet.<sup><small>3</small></sup></h1>
+                </c>
+                <c>
+                    <flex direction="row" direction-s="column">
+                        <c>
+                            <ul class="no-style">
+                                <li><a href="https://selekkt.dk/git/wp-skelet">wp-Skelet.</a></li>
+                                <li><a href="https://selekkt.dk/git/grav-skelet">grav-Skelet.</a></li>
+                            </ul>
+                        </c>
+                        <c>
+                            <ul class="no-style">
+                                <li><a href="https://selekkt.dk/git">GitHub</a></li>
+                                <li><a href="https://selekkt.dk/git/skelet/blob/master/LICENSE">License</a></li>
+                                <li><a href="https://selekkt.dk/git/skelet/issues">Issues</a></li>
+                                <li><a href="https://selekkt.dk/skelet/v3/credits.txt">Credits</a></li>
+                            </ul>
+                        </c>
+                        <c>
+                            <ul class="no-style">
+                                <li><a href="https://selekkt.dk/skelet/v2/docs">Skēlet.<sup>v2</sup> docs</a></li>
+                            </ul>
+                        </c>
+                    </flex>
+                </c>
+                <c>
+                    <span class="button is-blank">&copy; <script>today = new Date().getFullYear(); document.write(today);</script></span> <a href="https://selekkt.dk/?ref=skelet" targer="_blank" class="button is-blank">Sēlekkt. Studio</a>
+                </c>
+                <c span="2..">
+                    <p>If you found <u><em>Skelet.</em></u> useful<br>and want to support its future</p>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NQRBUKWFJ57V4&source=url" class="button is-green" target="_blank">Donate</a>
+                </c>
+            </grid> 
+        </footer>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/docs/assets/app.js"></script>
+
+</body>
+</html>

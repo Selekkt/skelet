@@ -1,0 +1,200 @@
+<grid columns="8">
+    <c span="row">
+        <p>In orderd to start an animation you need to add to your element:</p>
+        <pre><code>START | ANIMATION TYPE | DURATION | DELAY (optional) | CUBIC BEZIER (optional)</code></pre>
+        <br>
+        <br>
+        <p>Example: <pre><code>&lt;h1 start animation=fadein ease=easeInOutQuad style="--duration: 1s; --delay: 1s;"&gt;Skelet.&lt;/h1&gt;</code></pre></p>
+    </c>
+
+    <c span="3.." span-s="row"><span class="text-hr">Animation var()</span></c>
+
+    <c span="3-4" span-s="1-3"><code>style="--duration: 1s"</code></c>
+    <c span="5.."><p>Define animation duration</p></c>
+
+    <c span="3-4" span-s="1-3"><code>style="--delay: 1s"</code></c>
+    <c span="5.."><p>Define animation delay <sup>[optional]</sup></p></c>
+
+    <c span="3-4" span-s="1-3"><code>style="--ease: ..."</code></c>
+    <c span="5.."><p>Define your own rate of change over time.<br> i.e. Cubic Bezier <sup>[optional]</sup></p></c>
+
+    <c span="3.." span-s="row"><small class="center">If you do not specify the duration of the animations, it <em>defaults to 1s</em>. <em>Delay is set to 0</em>.</small></c>
+
+    <c span="3.." span-s="row"><span class="text-hr">Utility classes</span></c>
+
+    <c span="3-4" span-s="1-3"><code>start</code>/<code>.animate</code></c>
+    <c span="5.." span-s="5..">
+        <p>To start an animation you need either one or the other.</p>
+    </c>
+
+    <c span="3-4" span-s="1-3"><code>.invisible</code>/<code>.hide</code></c>
+    <c span="5.." span-s="5.."><p>Setting element's opacity to 0, good for hiding elements when animation starts.</p></c>
+
+    <c span="3-4" span-s="1-3"><code>.infinite</code>/<code>.loop</code></c>
+    <c span="5.." span-s="5.."><p>Loops the animation forever</p></c>
+
+    <c span="3-4" span-s="1-3"><code>.reverse</code></c>
+    <c span="5.." span-s="5.."><p>Specifies whether an animation should play in reverse direction</p></c>
+
+    <c span="3-4" span-s="1-3"><code>.alternate</code></c>
+    <c span="5.." span-s="5.."><p>The animation will be played as normal every odd time (1,3,5,etc..) and in reverse direction every even time (2,4,6...)</p></c>
+
+    <c span="3-4" span-s="1-3"><code>.alternate-reverse</code></c>
+    <c span="5.." span-s="5.."><p>The animation will be played in reverse direction every odd time (1,3,5,etc..) and in a normal direction every even time (2,4,6,etc...)</p></c>
+
+    <c span="3.." span-s="row" class="margin20">
+        <h3 class="title">Cubic Bezier</h3>
+        <h6>specify the rate of change of a parameter over time.</h6>
+        <p>Objects in real life don’t just start and stop instantly, and almost never move at a constant speed. This is why now we offer you Cubic Bezier to spiece up your aminations and bring them to that new new next next level</p>
+        <p>Cubic Bezier is set by adding <code>ease=easeInSine</code> to your element.</p>
+    </c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInSine</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInSine" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutSine</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutSine" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutSine</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutSine" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInQuad</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInQuad" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutQuad</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutQuad" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutQuad</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutQuad" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInCubic</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInCubic" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutCubic</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutCubic" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutCubic</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutCubic" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInQuart</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInQuart" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutQuart</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutQuart" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutQuart</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutQuart" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInQuint</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInQuint" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutQuint</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutQuint" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutQuint</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutQuint" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInExpo</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInExpo" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutExpo</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutExpo" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutExpo</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutExpo" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInCirc</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutCirc</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutCirc" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutCirc</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutCirc" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInBack</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInBack" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeOutBack</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeOutBack" target="_blank">Demo</a></p></c>
+
+    <c span="3-4" span-s="1-4"><code>ease=easeInOutBack</code></c>
+    <c span="5.." span-s="6.."><p><a href="https://easings.net/en#easeInOutBack" target="_blank">Demo</a></p></c>
+
+    <c span="3.." span-s="row" class="margin20">
+        <h3 class="title">Animation types</h3>
+        <p>Example: <code>&lt;h1 animation=fadein ... &gt;</code></p>
+    </c>
+
+    <c span="3-4" span-s="1-3"><code>animation=fadein</code></c>
+    <c span="5.." span-s="6..">Fade in</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=fadein-up</code></c>
+    <c span="5.." span-s="6..">Slide in from bottom to top</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=fadein-down</code></c>
+    <c span="5.." span-s="6..">Slide in from top to bottom</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=fadein-right</code></c>
+    <c span="5.." span-s="6..">Slide in from right</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=fadein-left</code></c>
+    <c span="5.." span-s="6..">Slide in from left</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=fadeout</code></c>
+    <c span="5.." span-s="6..">Fade out</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=fadeout-down</code></c>
+    <c span="5.." span-s="6..">Fade out down</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=flash</code></c>
+    <c span="5.." span-s="6..">Flashes</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=pulse</code></c>
+    <c span="5.." span-s="6..">Pulse</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=shake</code></c>
+    <c span="5.." span-s="6..">Shake</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=wobble</code></c>
+    <c span="5.." span-s="6..">Wobble</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=rollin</code></c>
+    <c span="5.." span-s="6..">Roll in</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=rollout</code></c>
+    <c span="5.." span-s="6..">Roll out</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=zoomin</code></c>
+    <c span="5.." span-s="6..">Zoom in</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=zoomout</code></c>
+    <c span="5.." span-s="6..">Zoom out</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=zoomin-down</code></c>
+    <c span="5.." span-s="6..">Zoom from bottom</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=bounce</code></c>
+    <c span="5.." span-s="6..">Bounce</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=bouncein</code></c>
+    <c span="5.." span-s="6..">Bounce in</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=scalein</code></c>
+    <c span="5.." span-s="6..">Scale in</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=flip</code></c>
+    <c span="5.." span-s="6..">Flip</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=flipin-x</code></c>
+    <c span="5.." span-s="6..">Flip in left</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=flipout-x</code></c>
+    <c span="5.." span-s="6..">Flip out left</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=flipin-y</code></c>
+    <c span="5.." span-s="6..">Flip in down</c>
+
+    <c span="3-4" span-s="1-3"><code>animation=flipout-y</code></c>
+    <c span="5.." span-s="6..">Flip out down</c>
+</grid>

@@ -1,0 +1,139 @@
+<grid columns="8">
+    <c span="row"><span class="text-hr">Dark mode</span></c>
+    <c span="3.." span-s="row">
+        <p>In case you're building a Dark website, you can set Skelet. automatically in dark mode, doing so you'll have everything set in darker shades instead of light.</p>
+        <p>To activate "<em>Dark mode</em>" you need to add one of the options below to <code>&lt;body&gt;</code> tag</p>
+        <button class="is-primary lightsoff">Try it</button>
+    </c>
+
+    <c span="row"><span class="margin20"></span></c>
+
+    <c span="3-4" span-s="1-3"><code>data-mode="dark"</code></c>
+    <c span="5.."><p>This is one way of activating the Dark mode</p></c>
+
+    <c span="3-4" span-s="1-3"><code>.dark-mode</code></c>
+    <c span="5.."><p>This way two of activating the Dark mode</p></c>
+
+    <c span="3-4" span-s="1-3"><code>#dark-mode</code></c>
+    <c span="5.."><p>This way three of activating the Dark mode</p></c>
+
+    <c span="row"><span class="text-hr">Elements</span></c>
+
+    <c span="3-4" span-s="1-3"><code>.center-axys</code></c>
+    <c span="5.."><p>Center your elements both horizontally and vertically</p> <small>you need to create a parent container to which the objects will be aligned.</small></c>
+
+    <c span="3-4" span-s="1-3"><code>.center-axys.full</code></c>
+    <c span="5..">Same as above, but full</c>
+
+    <c span="3-4" span-s="1-3"><code>.fullwidth</code></c>
+    <c span="5..">Make element full width</c>
+
+    <c span="3-4" span-s="1-3"><code>.fullwidth-max</code></c>
+    <c span="5..">Make all elements fit their container</c>
+
+    <c span="3-4" span-s="1-3"><code>.float-left</code></c>
+    <c span="5..">Float elements left</c>
+
+    <c span="3-4" span-s="1-3"><code>.float-right</code></c>
+    <c span="5..">Float elements right</c>
+
+    <c span="3-4" span-s="1-3"><code>.block</code></c>
+    <c span="5..">Display element block</c>
+
+    <c span="3-4" span-s="1-3"><code>.inline</code></c>
+    <c span="5..">Display elements inline</c>
+
+    <c span="3-4" span-s="1-3"><code>.center</code></c>
+    <c span="5..">Center the elements</c>
+
+    <c span="3-4" span-s="1-3"><code>.sticky</code></c>
+    <c span="5..">Make element sticky</c>
+
+    <c span="3-4" span-s="1-3"><code>.large-only</code></c>
+    <c span="5..">Element only visible on above: 600px</c>
+
+    <c span="3-4" span-s="1-3"><code>.small-only</code></c>
+    <c span="5..">Element only visible below: 600px</c>
+
+    <c span="3-4" span-s="1-3"><code>.mob-scroller</code></c>
+    <c span="5..">This creates an element with horizontal scrollers and has all child elements inline</c>
+
+    <c span="3-4" span-s="1-3">from <code>.space1</code>
+        <br>to <code>.space5</code></c>
+    <c span="5..">To be used on a <code>&lt;span&gt;</code>. Basically creates a block with different paddings, up/down.</c>
+
+    <c span="row"><span class="text-hr">Text</span></c>
+
+    <c span="3-4" span-s="1-3"><code>.no-wrap</code></c>
+    <c span="5..">Prevent text from wrapping</c>
+
+    <c span="3-4" span-s="1-3"><code>.text-left</code></c>
+    <c span="5..">Align text on left</c>
+
+    <c span="3-4" span-s="1-3"><code>.text-right</code></c>
+    <c span="5..">Align text on right</c>
+
+    <c span="3-4" span-s="1-3"><code>.text-center</code></c>
+    <c span="5..">Align text on center</c>
+
+    <c span="3-4" span-s="1-3"><code>.align-left</code></c>
+    <c span="5..">Align left an element</c>
+
+    <c span="3-4" span-s="1-3"><code>.align-right</code></c>
+    <c span="5..">Align right an element</c>
+
+    <c span="3-4" span-s="1-3"><code>.align-center</code></c>
+    <c span="5..">Align center an element</c>
+</grid>
+
+<grid columns="8" class="margin20">
+    <c span="3.." span-s="row">
+        <h3 class="title">Media query</h3>
+        <p>Few Media Queries you can use. Just showing, not forcing anybody.</p>
+    </c>
+
+    <c span="3-4" span-s="row">
+        <ul class="no-style">
+            <li><code>@media (min-width: 600px){}</code></li>
+            <li><code>@media (min-width: 1600px){}</code></li>
+            <li><code>@media (prefers-color-scheme: dark){}</code></li>
+            <li><code>@media (prefers-color-scheme: light) {}</code></li>
+        </ul>
+    </c>
+
+    <c span="6.." class="large-only">
+        <ul class="no-style">
+            <li>Grid <em>small</em> becomes active</li>
+            <li>Grid <em>large</em> becomes active</li>
+            <li>If OS in <em>dark</em> mode</li>
+            <li>If OS in <em>light</em> mode</li>
+        </ul>
+    </c>
+
+</grid>
+
+<grid columns="8" class="margin20 large-only">
+    <c span="3.." span-s="row">
+        <h3 class="title">Tooltips</h3>
+        <p>To use Tooltips simply insert your text inside <code>data-tooltip</code> and use one of the <code>data-tooltip-pos</code> from the list below to position the tooltip.</p>
+    </c>
+
+    <c span="3-4" span-s="1-2">
+        <ul class="no-style">
+            <li><code>data-tooltip-pos="up"</code></li>
+            <li><code>data-tooltip-pos="down"</code></li>
+            <li><code>data-tooltip-pos="left"</code></li>
+            <li><code>data-tooltip-pos="right"</code></li>
+        </ul>
+    </c>
+
+    <c span="6.." class="only-large">
+        <ul class="no-style">
+            <li><span data-tooltip="This is a link with a tooltip" data-tooltip-pos="up">Tooltip Up</span></li>
+            <li><span data-tooltip="This is a link with a tooltip" data-tooltip-pos="down">Tooltip Down</span></li>
+            <li><span data-tooltip="This is a link with a tooltip" data-tooltip-pos="left">Tooltip Left</span></li>
+            <li><span data-tooltip="This is a link with a tooltip" data-tooltip-pos="right">Tooltip Right</span></li>
+        </ul>
+    </c>
+
+</grid>

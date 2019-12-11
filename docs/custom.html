@@ -1,0 +1,89 @@
+<grid columns="8" class="desc">
+    <c span="4.." span-s="1..">We're trying to make Skelet. as customizable as possible. You can already change the feel of almost all elements through CSS var(). Skelet comes also with a <u>Dark mode</u>, <u>animations</u>, and a <u>GRID system</u> all built in.</c>
+</grid>
+
+<grid columns="8" class="margin20" style="--columnGap: 4rem;">
+    <c span="1-3" span-s="row" class="large-only">
+        <pre id="root-code"><code>:root {
+    --fontSize:
+    --h1Size:
+    --h2Size:
+    --h3Size:
+    --h4Size:
+    --h5Size:
+    --h6Size:
+
+    --padding:
+    --margin:
+    --radius:
+    --columnGap:
+    --rowGap:
+    --hrThic:
+
+/** grids */
+    --grid-tc: /* default */
+    --grid-cs: /* column start */
+    --grid-ce: /* column end */
+    --grid-mm: /* minMax */
+    --justify-items:
+    --justify-content:
+    --align-items:
+    --align-content:
+
+/** Colors */
+    /* This colors do not 
+        change in Dark mode */
+    --primary:
+    --green:
+    --yellow:
+    --red:
+    --white:
+    --black:
+    --light:
+    --dark:
+
+    --linkColor:
+    --linkHover:
+
+    --borderActive:
+    --borderShadow:
+    --borderShadowActive:
+
+    /* this colors do change
+        in dark mode */
+    --bgColor:
+    --color:
+    --colorInverse:
+
+    --borderColor:
+    --borderHover:
+    --boxBgColor:
+
+    --codeColor:
+    --codeBgColor:
+
+    --hrColor:
+}</code></pre>
+    </c>
+
+    <c span="4.." span-s="row">
+        <h3 class="title">CSS vars</h3>
+        <p>To simplify things A LOT and to keep consistency throughout Skelet., we're using CSS var(). If you're not familiar with CSS vars <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">learn more here</a>.</p>
+
+        <h3 class="title">Skelet. var()</h3>
+        <p class="large-only">On the left is a list with vars you can copy, in your CSS file, and change colors, font-size, paddings, margins etc. throughout Skelet.</p>
+
+        <span class="text-hr">Inline var()</span>
+
+        <p>You can also use these vars <em>inline</em> directly on your element so you can define styles per element.</p>
+        <p>
+            A good example are animations. Previously Skelet. used classes to define animation duration and delay, so you were limited to the defined classes.
+            <br>
+            <br> Now you can define animation duration and delay by yourself by doing so:
+            <br>
+            <br>
+            <div class="large-only"><code>&lt;h1 start animation=fadein ease=easeInOutQuad</code> <code>style="--duration: 1s"&gt;</code></div>
+            <pre class="small-only"><code>&lt;h1 start animation=fadein ease=easeInOutQuad style="--duration: 1s"&gt;</code></pre>
+        </p>
+    </c>
+</grid>
