@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.0.0 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
+/*! Skelet. v3.0.1 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -543,7 +543,7 @@ ul.no-style ul, ol.no-style ol { list-style: none; }
 ------------------ */
 hr { box-sizing: content-box; margin: var(--hrMargin) auto; border: var(--hrThic) solid var(--borderColor); height: 0; width: 95%; }
 hr.full { width: 100%; }
-hr.gradient { border: 0 none; height: var(--hrMargin); background-image: linear-gradient(to right, var(--hrColor) 0%, var(--borderColor) 50%, var(--hrColor) 100%); }
+hr.gradient { border: 0 none; height: 1px; background-image: linear-gradient(to right, var(--hrColor) 0%, var(--borderColor) 50%, var(--hrColor) 100%); }
 
 /* Line w/ text: --- text --- */
 .text-hr { display: flex; align-items: center; text-align: center; margin: calc(var(--margin) * 5) auto; }
