@@ -409,7 +409,7 @@ button.is-dark,.button.is-dark   { background-color: var(--dark); color: var(--l
 button.is-black,.button.is-black  { background-color: var(--black); color: var(--white); }
 button.is-blank,.button.is-blank  { background: none; border: none; color: var(--color); }
 button.is-outline,.button.is-outline { background: none; border: 1px solid var(--borderColor); }
-    button:hover.is-outline,.button:hover.is-outline { color: var(--color); border-color: var(--borderHover); }
+    button:hover.is-outline,.button:hover.is-outline,a.button:hover { color: var(--color); border-color: var(--borderHover); }
 
 button.is-primary,.button.is-primary  { background-color: var(--primary); color: var(--white); }
 button.is-green,.button.is-green  { background-color: var(--green); color: var(--white); }
@@ -793,13 +793,12 @@ grid.debug > :nth-child(6n+6) { --color: rgba(94, 204,211,0.3) }
 grid.debug > :nth-child(6n+7) { --color: rgba(248,110,91 ,0.3) }
 
 /* ------------------
-  flex
-
+  flexbox
 ------------------ */
 /*  FLEX CONTAINER */
 flex { display: flex; }
-flex > c { appearance: none; -webkit-appearance: none; margin: var(--rowGap) 0; }
-flex > c > img, flex > c > p > img { -o-object-fit: contain; object-fit: contain; max-width: 100% }
+flex > * { flex: 0 1 auto; appearance: none; -webkit-appearance: none; padding: var(--rowGap); }
+flex > * > img, flex > * > p > img { -o-object-fit: contain; object-fit: contain; max-width: 100% }
 
 /*  FLEX DIRECTION */
 flex[direction="column"] { flex-direction: column; }
