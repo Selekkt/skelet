@@ -18,16 +18,16 @@ Get started quickly with the HTML5 template, or just include skelet.css in your 
 ---
 
 ##### skelet.css via CDN 
-If you only need `skelet.css`, just add this tags in the `<head>`.
+If you need `skelet.css`, just add this tag in the `<head>`.
 ``` 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@latest/css/skelet.min.css">
 ``` 
 
 or
 
 ``` 
-https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css
-https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css
+https://cdn.jsdelivr.net/gh/Selekkt/skelet@latest/css/skelet.min.css
+https://cdn.jsdelivr.net/gh/Selekkt/skelet@latest/css/skelet.css
 ``` 
 
 ---
