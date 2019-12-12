@@ -23,7 +23,7 @@
                     url: docsurl,
                     type: 'GET',
                     success: function(data) { $(putdocs).append(data); },
-                    error: function() { alert('Couldn\'t load the requested section'); }
+                    //error: function() { alert('Couldn\'t load the requested section'); }
                 });
             }, 900);
         }
@@ -46,7 +46,7 @@
         }
 
         // Turn Dark Mode on/off
-        $('.lightsoff').on('click', function(event) {
+        $(document).on('click', '.lightsoff', function(event) {
             event.preventDefault();
             $('body').toggleClass('dark-mode');
         });
