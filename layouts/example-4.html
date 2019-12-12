@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon-precomposed" href="img/touch.png">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.0.0/css/skelet.min.css">
 
     <style>
         :root { 
@@ -36,11 +36,16 @@
             --hHeading: 9vw;
             --margin: 2rem;
             --siteMarg: 5rem;
+            --linkColor: var(--colorInverse);
         }
 
-        #app { padding: var(--siteMarg); max-width: 1600px; margin: 0 auto; }
+        #app { padding: 1rem var(--siteMarg) var(--siteMarg); max-width: 1600px; margin: 0 auto; }
         .logo { font-size: var(--hHeading); letter-spacing: 0; line-height: 1; font-weight: 800 }
         flex > c { max-width: 30%; }
+        header { width: 100%; max-width: 800px; margin: 0 auto; }
+            header flex > c:first-child { width: 250px; }
+        footer { width: 100%; }
+            footer flex > c { width: 50%; }
 
         @media (max-width: 600px) { 
             :root {
@@ -56,6 +61,13 @@
 <body data-mode="dark">
 
 <div id="app">
+    <header>
+        <flex direction="row" wrap="wrap" content="center" align-items="safe-center">
+            <c><a href="#">About</a></c>
+            <c><a href="#">Contact</a></c>
+            <c><a href="#">Shop</a></c>
+        </flex>
+    </header>
     <main>
         <flex direction="row" direction-s="column" wrap="wrap" content="around" align-items="safe-center">
             <c align-self="center"><h1>Skelet.</h1></c>
@@ -73,7 +85,14 @@
 
     <span class="space1"></span>
 
-    <footer class="text-right"><a href="https://selekkt.dk/skelet/" class="button is-blank">built with Skelet.</a></footer>
+    <footer>
+        <flex direction="row" wrap="no-wrap" content="center" align-items="safe-center">
+            <c>Images by</c>
+            <c><a href="https://unsplash.com/" class="button is-white" ref="nofollow" target="_blank">Unsplash</a></c>
+            <c>Built with</c>
+            <c><a href="https://selekkt.dk/skelet/" class="button is-white">Skelet.</a></c>
+        </flex>
+    </footer>
 </div>
 
 </body>
