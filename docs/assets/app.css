@@ -19,6 +19,7 @@
     #root-code code { overflow: scroll; max-height: 600px; }
     nav { 
         position: fixed;
+        left: 0;
         bottom: 0;
         z-index: 9999999;
         backdrop-filter: blur(1.5rem);
@@ -39,6 +40,7 @@
         footer a { color: var(--color); }
         footer flex > c { padding-right: 5rem; }
 
+    /* Small screen */
     @media (max-width: 600px) { 
         :root { 
             --percentage: 2rem; 
@@ -50,6 +52,12 @@
 
         .closed { max-height: 360px; }
     }
+
     @media only screen and (max-device-width: 812px) and (orientation: landscape) { 
         :root { --fontSize: 1.7vw; --percentage: 20%; --hHeading: 3vw; --hTitle: 2.5vw; }
+    }
+
+    /* Large screen */
+    @media only screen and (min-width: 1599px) {
+        :root { --percentage: 15%; --fontSize: 1.8rem; --hSkelet: 5rem; --hHeading: 4rem; --hTitle: 3rem; }
     }
