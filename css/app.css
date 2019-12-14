@@ -17,5 +17,5 @@
 @media (prefers-color-scheme: light) {} /* if OS in LIGHT mode */
 
 /*** Responsive */
-@media (min-width: 600px) {} /* Grid small becomes active */
-@media (min-width: 1600px) {} /* Grid large becomes active */
+@media (max-width: 600px) {} /* Grid small becomes active */
+@media (min-width: 1599px) {} /* Grid large becomes active */
