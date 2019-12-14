@@ -178,13 +178,13 @@ main { flex: 1; }
 
 .sticky { position: sticky; top: 0; }
 
-span[class*="space"] { display: block; width: 100%; margin: var(--spacer, 0.5rem) auto; }
+span[class*="space"] { display: block; width: 100%; margin: var(--spacer, 3rem) auto; }
 .space  { --spacer: 3rem; }
-.space1 { --spacer: 5vw; }
-.space2 { --spacer: 10vw; }
-.space3 { --spacer: 20vw; }
-.space4 { --spacer: 25vw; }
-.space5 { --spacer: 30vw; }
+.space1 { --spacer: 5rem; }
+.space2 { --spacer: 7rem; }
+.space3 { --spacer: 9rem; }
+.space4 { --spacer: 11rem; }
+.space5 { --spacer: 13rem; }
 
 /* Vertical and Horizontal align :: you need to create a parent container to which the object itself will be aligned. */
 .center-axys { display: flex; align-items: center; justify-content: center; }
