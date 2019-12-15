@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.0.4 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
+/*! Skelet. v3.0.5 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -8,7 +8,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}
 body{margin:0}
 main{display:block}
 h1{font-size:2em;margin:.67em 0}
-hr{box-sizing:content-box;height:0;overflow:visible}
+hr{box-sizing:content-box;overflow:visible} /* chrome has problems with <hr size=""> if height:0; (so it was removd) */
 pre{font-family:monospace,monospace;font-size:1em}
 a{background-color:transparent}
 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
@@ -55,7 +55,6 @@ summary{display:list-item}
 	--radius: 0.5rem;
     --columnGap: 1rem;
     --rowGap: 2rem;
-    --hrThic: 0.5px;
     --hrMargin: calc(var(--margin) * 5);
 
     /* grids */
@@ -122,7 +121,7 @@ summary{display:list-item}
   more resets
 ------------------ */
 *:focus { outline: none; }
-:not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 12px; font-family: Consolas, monospace, serif; white-space: nowrap; }
+:not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 1.2rem; font-family: Consolas, monospace, serif; white-space: nowrap; }
 canvas, img, svg, video { vertical-align: middle; max-width: 100%; box-sizing: border-box; }
 dt { font-weight: bold; }
 dd { display: block; margin-inline-start: 4rem; }
@@ -235,7 +234,6 @@ button[data-tooltip] { overflow: visible; }
 [data-tooltip][data-tooltip-pos='right']:after { left: 100%; margin-left: 11px; top: 50%; transform: translate(-10px, -50%);    }
 [data-tooltip][data-tooltip-pos='right']:hover:after, [data-tooltip][data-tooltip-pos='right'][data-tooltip-visible]:after { transform: translate(0, -50%); }
 
-
 /* ------------------
   typography
 ------------------ */
@@ -250,7 +248,7 @@ h6 { font-size: var(--h6Size); line-height: 1.6;  letter-spacing: 0; }
 
 /* Larger than phablet */
 @media (min-width: 600px) {
-	h1 { font-size: 5.0rem; }
+    h1 { font-size: 5.0rem; }
 	h2 { font-size: 4.2rem; }
 	h3 { font-size: 3.6rem; }
 	h4 { font-size: 3.0rem; }
@@ -327,34 +325,6 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 ------------------ */
 .is-green { border-color: var(--green)!important; }
 .is-red { border-color: var(--red)!important; } 
-/* ------------------
-  tags
------------------- */
-[class*=tag] {
-    padding: calc(var(--padding) - 0.5rem);
-    margin: var(--margin);
-    font-size: 90%;
-    white-space: nowrap;
-    vertical-align: middle;
-    background-color: var(--codeBgColor);
-    border: 1px solid var(--borderColor);
-    color: var(--color);
-    border-radius: var(--radius);
-}
-
-.tag.is-outline, .tag.is-inverse { color: var(--color); }
-.tag.is-primary { background-color: var(--primary); color: var(--white) }
-.tag.is-green { background-color: var(--green); }
-.tag.is-yellow { background-color: var(--yellow); color: var(--black); }
-.tag.is-red { background-color: var(--red); }
-.tag.is-inverse { background-color: var(--colorInverse); }
-.tag.is-code { color: var(--codeColor); }
-
-.tag.is-blank { background: none; border: none; color: var(--color); }
-.tag.is-outline { background: none; border: 1px solid currentcolor; }
-
-.tag.is-small { padding: calc(var(--padding) - 0.5rem); font-size: 1rem; }
-.tag.is-large { padding: calc(var(--padding) * 1); font-size: 2rem; }
 
 /* ------------------
   buttons
@@ -528,8 +498,8 @@ select:-moz-focusring { outline: 0; color:transparent; text-shadow: 0 0 0 var(--
 /* ------------------
   lists
 ------------------ */
-ul { list-style: square inside; }
-ol { list-style: decimal inside; }
+ul { list-style: circle outside; }
+ol { list-style: decimal outside; }
 ul, ol { padding-left: 0; margin-top: 0; }
 ul ul, ul ol, ol ol, ol ul { margin: 1.5rem 0 1.5rem 3rem; font-size: 100%; }
 li { margin-bottom: var(--margin); }
@@ -541,9 +511,10 @@ ul.no-style ul, ol.no-style ol { list-style: none; }
 /* ------------------
   hr
 ------------------ */
-hr { box-sizing: content-box; margin: var(--hrMargin) auto; border: var(--hrThic) solid var(--borderColor); height: 0; width: 95%; }
+hr { margin: var(--hrMargin) auto; background-color: var(--hrColor); border: 0 none; width: 95%; }
+hr:not([size]) { height: 1px; }
 hr.full { width: 100%; }
-hr.gradient { border: 0 none; height: 1px; background-image: linear-gradient(to right, var(--hrColor) 0%, var(--borderColor) 50%, var(--hrColor) 100%); }
+hr.gradient { background-image: linear-gradient(to right, var(--hrColor) 0%, var(--borderColor) 50%, var(--hrColor) 100%); }
 
 /* Line w/ text: --- text --- */
 .text-hr { display: flex; align-items: center; text-align: center; margin: calc(var(--margin) * 5) auto; }
@@ -575,7 +546,7 @@ grid {
     grid-template-columns: var(--grid-tc);
 }
 
-grid.compact { grid-row-gap: 0; }
+grid.compact { grid-row-gap: 0; }
 grid > c > img, grid > c > p > img { -o-object-fit: contain; object-fit: contain; max-width: 100% }
 
 /* fluid columns */
