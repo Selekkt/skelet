@@ -279,8 +279,8 @@ span[class*="space"] { display: block; width: 100%; margin: var(--spacer, 3rem) 
 .mob-scroller { display: flex; flex-wrap: nowrap; overflow-x: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
 .mob-scroller::-webkit-scrollbar { display: none; }
 
-@media only screen and (max-width: 600px) { .large-only { display: none; } }
-@media only screen and (min-width: 601px) { .small-only { display: none; } }
+@media only screen and (max-width: 600px) { .large-only, .only-large  { display: none!important; } }
+@media only screen and (min-width: 601px) { .small-only, .only-small  { display: none!important; } }
 
 /* ------------------
   tooltips
