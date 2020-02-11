@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.0.8 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
+/*! Skelet. v3.0.9 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -213,9 +213,9 @@ blockquote {
     margin: 2rem auto;
 }
 
-a { color: var(--linkColor); cursor: pointer; text-decoration: none; }
-a:hover { color: var(--linkHover); }
-a:active, a:hover { outline: 0; }
+a:not(.button) { color: var(--linkColor); cursor: pointer; text-decoration: none; }
+a:not(.button):hover { color: var(--linkHover); }
+a:not(.button):active, a:not(.button):hover { outline: 0; }
 
 code {
     padding: calc(var(--padding) - 0.5rem);
@@ -407,7 +407,7 @@ button.is-dark,.button.is-dark   { background-color: var(--dark); color: var(--l
 button.is-black,.button.is-black  { background-color: var(--black); color: var(--white); }
 button.is-blank,.button.is-blank  { background: none; border: none; color: var(--color); }
 button.is-outline,.button.is-outline { background: none; border: 1px solid var(--borderColor); }
-    button:hover.is-outline,.button:hover.is-outline,a.button:hover { color: var(--color); border-color: var(--borderHover); }
+    button:hover.is-outline,.button:hover.is-outline,a.button:hover.is-outline { color: var(--color); border-color: var(--borderHover); }
 
 button.is-primary,.button.is-primary  { background-color: var(--primary); color: var(--white); }
 button.is-green,.button.is-green  { background-color: var(--green); color: var(--white); }
