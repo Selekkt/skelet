@@ -43,32 +43,18 @@
 &lt;/grid&gt;</code></pre>
     </c>
 
-    <c span="1+4" span-s="row">
+    <c span="4.." span-s="row">
         <h3 class="title">Visual order</h3>
         <p>Specifies the order used to lay out GRID items in their GRID container. Elements are laid out in the ascending order of the order value. Elements with the same order value are laid out in the order in which they appear in the source code. <code>order=*</code></p>
         <p>Note: Since by default all CSS elements have an <code>order: 0;</code>, if you use <code>order=*</code> you need to spicify the order of every element (&lt;c order=2&gt;) otherwise the spicified element ends up last. [<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/order" target="_blank" rel="nofollow">read more</a>]</p>
-    </c>
-
-    <c span="6.." class="large-only">
+        
         <span class="text-hr">Available options</span>
+        
         <ul class="no-style">
-            <li><code>order=1</code></li>
-            <li><code>order=2</code></li>
-            <li><code>order=3</code></li>
-            <li><code>order=3</code></li>
-            <li><code>order=4</code></li>
-            <li><code>order=5</code></li>
-            <li><code>order=6</code></li>
-            <li><code>order=7</code></li>
-            <li><code>order=8</code></li>
-            <li><code>order=9</code></li>
-            <li><code>order=10</code></li>
-            <li><code>order=11</code></li>
-            <li><code>order=12</code></li>
-            <li><code>order=13</code></li>
-            <li><code>order=14</code></li>
-            <li><code>order=15</code></li>
-            <li><code>order=16</code></li>
+            <li><code>order=first</code></li>
+            <li>from <code>order=1</code></li>
+            <li>to <code>order=16</code></li>
+            <li><code>order=last</code></li>
             <li>&nbsp;</li>
             <li><code>order-s=first</code></li>
             <li><code>order-s=...</code></li>
@@ -162,7 +148,7 @@
     </c>
 
     <c span="1+4" span-s="row">
-        <h3 class="title">Align SELF</h3>
+        <h3 class="title">Justify SELF</h3>
         <p>Aligns a grid item inside a cell along the inline (row) axis. This value applies to a grid item inside a single cell. &mdash; for &lt;c&gt;</p>
     </c>
 
