@@ -35,8 +35,9 @@
         }
 
         // On Click load section content
-        $('.meta').click(function() {
+        $('.meta').one('click', function(e) {
             var loadsection = $(this).parent(); // get the parent of .meta
+            
             loadSection(loadsection); // load the section
         });
 
