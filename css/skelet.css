@@ -603,7 +603,7 @@ grid.compact { grid-row-gap: 0; }
 grid > c > img, grid > c > p > img { -o-object-fit: contain; object-fit: contain; max-width: 100% }
 
 /* c -- cell or column */
-grid > c { display: block; appearance: none; -webkit-appearance: none; min-width: 0; }
+grid > c { display: block; appearance: none; -webkit-appearance: none; }
 
 grid[columns="1"] { --grid-tc: repeat(1, 1fr) }
 grid[columns="2"] { --grid-tc: repeat(2, 1fr) }
