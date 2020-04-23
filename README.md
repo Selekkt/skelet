@@ -32,6 +32,13 @@ https://cdn.jsdelivr.net/gh/Selekkt/skelet@latest/css/skelet.css
 
 ---
 
+##### Skelet on npm 
+``` 
+npm i selekkt-skelet
+``` 
+
+---
+
 ### Directory structure
 This is the dir structure of Skelet. `docs` & `layouts` could be deleted if not needed.
 ``` 
