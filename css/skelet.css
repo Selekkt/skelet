@@ -59,6 +59,7 @@ summary{display:list-item}
     --hrMargin: calc(var(--margin) * 5);
     --borderWidth: 1px;
     --borderStyle: solid;
+    --buttonFontSize: 1.3rem;
 
     /* grids */
     --columnGap: 1rem;
@@ -387,6 +388,7 @@ input[type="button"] {
     display: inline-block;
     padding: var(--padding);
     color: var(--inputColor);
+    font-size: var(--buttonFontSize);
     white-space: nowrap;
     letter-spacing: .1rem;
     font-weight: 600;
@@ -428,7 +430,7 @@ button.is-light,.button.is-light  { background-color: var(--light); color: var(-
 button.is-dark,.button.is-dark   { background-color: var(--dark); color: var(--light); }
 button.is-black,.button.is-black  { background-color: var(--black); color: var(--white); }
 button.is-blank,.button.is-blank  { background: none; border: none; color: var(--color); }
-button.is-outline,.button.is-outline { background: none; border: 1px solid var(--borderColor); }
+button.is-outline,.button.is-outline { background: none; border: 1px solid var(--borderColor); color: var(--color); }
 button:hover.is-outline,.button:hover.is-outline,a.button:hover.is-outline { color: var(--color); border-color: var(--borderHover); }
 
 button.is-primary,.button.is-primary  { background-color: var(--primary); color: var(--white); }
