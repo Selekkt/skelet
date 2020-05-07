@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.1.4 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
+/*! Skelet. v3.1.5 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -52,6 +52,15 @@ summary{display:list-item}
     --h4Size: 3.0rem;
     --h5Size: 2.4rem;
     --h6Size: 1.8rem;
+    
+    --hLine: 1.5;
+    --h1Line: var(--hLine);
+    --h2Line: var(--hLine);
+    --h3Line: var(--hLine);
+    --h4Line: var(--hLine);
+    --h5Line: var(--hLine);
+    --h6Line: var(--hLine);
+
 
     --padding: 1rem;
     --margin: 0.5rem;
@@ -96,7 +105,7 @@ summary{display:list-item}
     --borderHover: #BABABA;
     --boxBgColor: #fefefe;
     --placeColor: var(--color); /* placeholder color */
-    --inputColor: var(--inverseColor);
+    --inputColor: var(--colorInverse);
 
     --codeColor: #0000ff;
     --codeBgColor: #f8f8f8;
@@ -157,14 +166,14 @@ main { flex: 1; }
 /* ------------------
   typography
 ------------------ */
-h1, h2, h3, h4, h5, h6 { color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem; font-weight: 600; line-height: 1.5; }
+h1, h2, h3, h4, h5, h6 { color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem; font-size: var(--hSize); font-weight: 600; line-height: var(--hLine); }
 
-h1 { font-size: var(--h1Size); }
-h2 { font-size: var(--h2Size); }
-h3 { font-size: var(--h3Size); }
-h4 { font-size: var(--h4Size); }
-h5 { font-size: var(--h5Size); }
-h6 { font-size: var(--h6Size); }
+h1 { --hSize: var(--h1Size); --hLine: var(--h1Line); }
+h2 { --hSize: var(--h2Size); --hLine: var(--h2Line); }
+h3 { --hSize: var(--h3Size); --hLine: var(--h3Line); }
+h4 { --hSize: var(--h4Size); --hLine: var(--h4Line); }
+h5 { --hSize: var(--h5Size); --hLine: var(--h5Line); }
+h6 { --hSize: var(--h6Size); --hLine: var(--h6Line); }
 
 @media (max-width: 600px) {
     :root {
@@ -174,6 +183,14 @@ h6 { font-size: var(--h6Size); }
         --h4Size: 2.4rem;
         --h5Size: 2.1rem;
         --h6Size: 1.8rem;
+
+        --hLine: 1.2;
+        --h1Line: var(--hLine);
+        --h2Line: var(--hLine);
+        --h3Line: var(--hLine);
+        --h4Line: var(--hLine);
+        --h5Line: var(--hLine);
+        --h6Line: var(--hLine);
     }
 }
 
@@ -313,7 +330,7 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
     .sticky-none-l { position: inherit; }
 }
 
-[class*="space"] { display: block; width: 100%; margin: var(--spacer, 3rem) auto; }
+[class^="space"] { display: block; width: 100%; margin: var(--spacer, 3rem) auto; }
 .space  { --spacer: 3rem; }
 .space1 { --spacer: 5rem; }
 .space2 { --spacer: 7rem; }
