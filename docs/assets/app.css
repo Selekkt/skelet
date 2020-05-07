@@ -5,6 +5,8 @@
         --hSkelet: 4vw;
         --hHeading: 3.5vw;
         --hTitle: 2.5vw;
+        --buttonFontSize: 1.3rem;
+        --backdropBlur: rgba(255,255,255,.5);
     }
 
     #app { margin: 0 auto 10rem; max-width: 1600px; }
@@ -17,21 +19,12 @@
     section grid { margin: 0 var(--percentage); }
     section grid grid { margin: 0; }
     #root-code code { overflow: scroll; max-height: 600px; }
-    nav { 
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        z-index: 9999999;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px)!important;
-        margin: 0 auto; 
-        text-align: center; 
-        font-size: 3rem; 
-        width: 100%;
-    }
+    nav { position: fixed; left: 0; bottom: 0; z-index: 9999999; margin: 0 auto; text-align: center; font-size: 3rem; width: 100%; border-top: 1px solid currentColor; }
     nav i { font-size: 3.2rem; vertical-align: bottom; }
     nav li { padding: var(--padding) calc(var(--padding) * 2) 0; }
     nav .button.is-large { padding: 0; }
+    .backdrop-blur { background-color: var(--backdropBlur); }
+    @supports ((-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px))) { .backdrop-blur { background-color: var(--backdropBlur); backdrop-filter: blur(5px); } }
     .skelet { font-size: var(--hSkelet); }
     .heading { font-size: var(--hHeading); letter-spacing: 0 }
     .title { font-size: var(--hTitle); letter-spacing: 0 }
@@ -43,6 +36,9 @@
         footer a { color: var(--color); }
         footer flex > c { padding-right: 5rem; }
 
+    /* Dark mode */
+    body.dark-mode { --backdropBlur: rgba(0,0,0,.5); }
+
     /* Small screen */
     @media (max-width: 600px) { 
         :root { 
@@ -51,6 +47,7 @@
             --hSkelet: 3.5rem;
             --hHeading: 3rem;
             --hTitle: 2.5rem; 
+            --buttonFontSize: 1rem;
         } 
 
         .closed { max-height: 360px; }
