@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.1.5 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
+/*! Skelet. v3.1.6 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -42,9 +42,13 @@ summary{display:list-item}
 ------------------ */
 /*** Defaults */
 :root {
+    /* Typography */
     --fontFamily: Inter, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, -system-ui, system-ui, sans-serif;
     --fontFamilyVar: Inter var, "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, -system-ui, system-ui, sans-serif;
+    
     --fontSize: 1.6rem;
+    --fontLine: 1.6;
+    --fontWeight: 400;
 
     --h1Size: 5.0rem;
     --h2Size: 4.2rem;
@@ -52,7 +56,10 @@ summary{display:list-item}
     --h4Size: 3.0rem;
     --h5Size: 2.4rem;
     --h6Size: 1.8rem;
+
+    --hWeight: 600;
     
+    /* Line height of Headins */
     --hLine: 1.5;
     --h1Line: var(--hLine);
     --h2Line: var(--hLine);
@@ -61,21 +68,34 @@ summary{display:list-item}
     --h5Line: var(--hLine);
     --h6Line: var(--hLine);
 
-
     --padding: 1rem;
     --margin: 0.5rem;
     --radius: 0.5rem;
-    --hrMargin: calc(var(--margin) * 5);
     --borderWidth: 1px;
     --borderStyle: solid;
-    --buttonFontSize: 1.6rem;
+    --hrMargin: calc(var(--margin) * 5);
+
+    --boxPadding: var(--padding);
+    --boxMargin: var(--margin);
+    --boxRadius: var(--radius);
+    --boxBorderWidth: var(--borderWidth);
+    --boxBorderStyle: var(--borderStyle);
+    --boxFontSize: var(--fontSize);
+
+    --buttonPadding: var(--padding);
+    --buttonMargin: var(--margin);
+    --buttonRadius: var(--radius);
+    --buttonBorderWidth: var(--borderWidth);
+    --buttonBorderStyle: var(--borderStyle);
+    --buttonFontSize: var(--fontSize);
 
     /* grids */
     --columnGap: 1rem;
     --rowGap: 2rem;
 
 /** Colors */
-    /* This colors do not change in Dark mode */
+    /* These colors DO NOT 
+        change in Dark mode */
     --primary: #007FFF;
     --green: #34C84A;
     --yellow: #FDBC40;
@@ -90,22 +110,26 @@ summary{display:list-item}
     --linkHover: #3298ff;
 
     /* @for input/textarea/tables etc. */
-    --borderActive: var(--primary); 
-    --borderShadowActive: rgba(0, 127, 255, 0.85);
+    --boxBorderActive: var(--primary);
 
-    /** 
-      Do change in dark mode */
+    /** These colors
+      DO change in dark mode */
     --bgColor: #FFFFFF;
     --color: #000000;
     --colorInverse: #FFFFFF;
     --colorHeadings: var(--color);
 
     /* @for input/textarea/tables etc. */
-    --borderColor: #E1E1E1;
-    --borderHover: #BABABA;
+    --boxColor: var(--color);
+    --boxBorderColor: #E1E1E1;
+    --boxBorderHover: #BABABA;
     --boxBgColor: #fefefe;
-    --placeColor: var(--color); /* placeholder color */
-    --inputColor: var(--colorInverse);
+    --boxPlaceholderColor: var(--color); /* placeholder color */
+
+    /* @for buttons */
+    --buttonColor: var(--color);
+    --buttonBorderColor: var(--boxBorderColor);
+    --buttonBorderHover: var(--boxBorderHover);
 
     --codeColor: #0000ff;
     --codeBgColor: #f8f8f8;
@@ -114,16 +138,23 @@ summary{display:list-item}
 }
 
 /*** Dark Mode */
-[data-mode="dark"], #dark-mode, .dark-mode {
+[dark-mode], [data-mode="dark"],
+#dark-mode, .dark-mode {
     --bgColor: #000000;
     --color: #FFFFFF;
     --colorInverse: #000000;
     --colorHeadings: var(--color);
-    --placeColor: var(--color);
+    --boxPlaceholderColor: var(--color);
 
-    --borderColor: #232323;
-    --borderHover: #444444;
+    --boxColor: var(--color);
+    --boxBorderColor: #232323;
+    --boxBorderHover: #444444;
     --boxBgColor: #111111;
+    --boxPlaceholderColor: var(--color);
+
+    --buttonColor: var(--color);
+    --buttonBorderColor: var(--boxBorderColor);
+    --buttonBorderHover: var(--boxBorderHover);
 
     --codeColor: #00F900;
     --codeBgColor: #111111;
@@ -140,8 +171,9 @@ canvas, img, svg, video { vertical-align: middle; max-width: 100%; box-sizing: b
 dt { font-weight: bold; }
 dd { display: block; margin-inline-start: 4rem; }
 img { display: block; max-width: 100%; height: auto; }
-template{display:none!important}
-[hidden]{display:none!important}
+figure { margin: 0; }
+template {display:none!important}
+[hidden] {display:none!important}
 iframe { border: none!important; }
 
 /* ------------------
@@ -153,12 +185,10 @@ body {
     background-color: var(--bgColor);
     color: var(--color);
     font-size: var(--fontSize);
-    line-height: 1.6;
-    font-weight: 400;
+    line-height: var(--fontLine);
+    font-weight: var(--fontWeight);
     font-family: var(--fontFamily);
 }
-
-@supports (font-variation-settings: normal) { body { font-family: var(--fontFamilyVar); } }
 
 #app { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1; }
@@ -166,7 +196,7 @@ main { flex: 1; }
 /* ------------------
   typography
 ------------------ */
-h1, h2, h3, h4, h5, h6 { color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem; font-size: var(--hSize); font-weight: 600; line-height: var(--hLine); }
+h1, h2, h3, h4, h5, h6 { color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem; font-size: var(--hSize); font-weight: var(--hWeight); line-height: var(--hLine); }
 
 h1 { --hSize: var(--h1Size); --hLine: var(--h1Line); }
 h2 { --hSize: var(--h2Size); --hLine: var(--h2Line); }
@@ -197,10 +227,9 @@ h6 { --hSize: var(--h6Size); --hLine: var(--h6Line); }
 p { margin-top: 0; margin-bottom: 0.5rem; }
 
 blockquote {
-    font-family: "Cormorant",serif;
-    font-size: 1.6rem;
-    font-style: italic;
-    line-height: 2rem;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2rem;
+    line-height: 1.7;
     padding: 2rem;
     max-width: 90%;
     margin: 2rem auto;
@@ -221,7 +250,7 @@ a:not(.button):active, a:not(.button):hover { outline: 0; }
 [flow-col="7"] { --column-count: 7 }
 [flow-col="8"] { --column-count: 8 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
     [flow-col-s="1"] { --column-count: 1 }
     [flow-col-s="2"] { --column-count: 2 }
     [flow-col-s="3"] { --column-count: 3 }
@@ -232,7 +261,7 @@ a:not(.button):active, a:not(.button):hover { outline: 0; }
     [flow-col-s="8"] { --column-count: 8 }
 }
 
-@media only screen and (min-width: 1599px) {
+@media (min-width: 1599px) {
     [flow-col-l="1"] { --column-count: 1 }
     [flow-col-l="2"] { --column-count: 2 }
     [flow-col-l="3"] { --column-count: 3 }
@@ -250,7 +279,7 @@ code {
     white-space: nowrap;
     vertical-align: middle;
     background-color: var(--codeBgColor);
-    border: 1px solid var(--borderColor);
+    border: 1px solid var(--boxBorderColor);
     color: var(--codeColor);
     border-radius: var(--radius);
     overflow: auto;
@@ -280,8 +309,8 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 .float-left { float: left; }
 .float-none { float: none; }
 
-.sticky { position: sticky; top: 0; }
-.sticky-bottom { position: sticky; bottom: 0 }
+.sticky { position: sticky; top: 1rem; }
+.sticky-bottom { position: sticky; bottom: 1rem; }
 .sticky-none { position: inherit; }
 
 @media only screen and (max-width: 600px) { 
@@ -403,8 +432,8 @@ input[type="submit"],
 input[type="reset"], 
 input[type="button"] {
     display: inline-block;
-    padding: var(--padding);
-    color: var(--inputColor);
+    padding: var(--buttonPadding);
+    color: var(--buttonColor);
     font-size: var(--buttonFontSize);
     white-space: nowrap;
     letter-spacing: .1rem;
@@ -414,11 +443,11 @@ input[type="button"] {
     text-transform: uppercase;
     text-decoration: none;
     background-color: transparent;
-    border-radius: var(--radius);
-    border: var(--borderWidth) var(--borderStyle) var(--borderColor);
+    border-radius: var(--buttonRadius);
+    border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
     cursor: pointer;
     box-sizing: border-box; 
-    transition: all 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out;
 }
 
 .button:hover, button:hover,
@@ -429,7 +458,7 @@ input[type="button"]:hover,
 input[type="submit"]:focus, 
 input[type="reset"]:focus, 
 input[type="button"]:focus {
-    border-color: var(--borderHover);
+    border-color: var(--buttonBorderHover);
     outline: 0; 
 }
 
@@ -444,11 +473,12 @@ button, .button { vertical-align: baseline; }
 
 button.is-white,.button.is-white  { background-color: var(--white); color: var(--black)!important; }
 button.is-light,.button.is-light  { background-color: var(--light); color: var(--dark)!important; }
-button.is-dark,.button.is-dark   { background-color: var(--dark); color: var(--light); }
+button.is-dark,.button.is-dark    { background-color: var(--dark); color: var(--light); }
 button.is-black,.button.is-black  { background-color: var(--black); color: var(--white); }
 button.is-blank,.button.is-blank  { background: none; border: none; color: var(--color); }
-button.is-outline,.button.is-outline { background: none; border: 1px solid var(--borderColor); color: var(--color); }
-button:hover.is-outline,.button:hover.is-outline,a.button:hover.is-outline { color: var(--color); border-color: var(--borderHover); }
+
+button.is-outline,.button.is-outline { transition: border 0; background: none; border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor); color: var(--buttonColor); }
+button:hover.is-outline,.button:hover.is-outline { color: var(--buttonColor); border-color: var(--buttonBorderHover); }
 
 button.is-primary,.button.is-primary  { background-color: var(--primary); color: var(--white); }
 button.is-green,.button.is-green  { background-color: var(--green); color: var(--white); }
@@ -469,10 +499,10 @@ input[type="radio"] {
     width: 15px;
     margin-right: var(--margin);
     background-color: var(--boxBgColor);
-    border: 1px solid var(--borderColor);
+    border: 1px solid var(--boxBorderColor);
     cursor: pointer;
     outline: none;
-    transition: all 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out;
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -480,16 +510,16 @@ input[type="radio"] {
     appearance: none;
 }
 
-input[type="checkbox"]:hover, input[type="radio"]:hover { border-color: var(--borderHover); }
+input[type="checkbox"]:hover, input[type="radio"]:hover { border-color: var(--boxBorderHover); }
 input[type="checkbox"]:checked, input[type="radio"]:checked { background: var(--primary); border-color: transparent; }
 
-input[type="checkbox"] { border-radius: calc(var(--radius) - 2px); }
+input[type="checkbox"] { border-radius: 0.3rem; }
 input[type="radio"] { border-radius: 100%; }
 
 /* ------------------
   forms
 ------------------ */
-::placeholder { color: var(--placeColor); }
+::placeholder { color: var(--boxPlaceholderColor); }
 
 input[type="color"], 
 input[type="date"],
@@ -508,13 +538,13 @@ input[type="week"],
 select, 
 textarea {
     padding: var(--padding);
-    color: var(--inputColor);
+    color: var(--boxColor);
     background-color: var(--boxBgColor);
-    border: 1px solid var(--borderColor);
+    border: 1px solid var(--boxBorderColor);
     border-radius: var(--radius);
     box-shadow: none;
     box-sizing: border-box;
-    transition: all 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out;
     /* Removes awkward default styles on some inputs for iOS */
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -537,7 +567,7 @@ input[type="url"]:hover,
 input[type="week"]:hover,
 select:hover,
 textarea:hover {
-    border: 1px solid var(--borderHover);
+    border: 1px solid var(--boxBorderHover);
     outline: 0;
 }
 
@@ -557,7 +587,7 @@ input[type="url"]:focus,
 input[type="week"]:focus, 
 select:focus, 
 textarea:focus {
-    border: 1px solid var(--borderActive);
+    border: 1px solid var(--boxBorderActive);
     outline: 0; 
 }
 
@@ -566,7 +596,7 @@ input[type="color"] { padding: 0; border: none; }
 
 textarea { min-height: 6.5rem; padding: var(--padding); }
 label, legend { display: block; margin-bottom: var(--margin); font-weight: 600; }
-fieldset { border: 1px solid var(--borderColor); border-radius: var(--radius); }
+fieldset { border: 1px solid var(--boxBorderColor); border-radius: var(--radius); }
 legend { padding: var(--padding); }
 label span { display: inline-block; color: var(--color); margin-left: var(--margin); font-weight: normal;  }
 
@@ -574,24 +604,23 @@ input, textarea, select, fieldset { margin-bottom: var(--margin);  }
 option { padding: 5px; }
 
 select {
-    background-image: linear-gradient(45deg, transparent 50%, var(--borderColor) 50%), linear-gradient(135deg, var(--borderColor) 50%, transparent 50%), linear-gradient(to right, var(--borderColor), var(--borderColor));
+    background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderColor) 50%), linear-gradient(135deg, var(--boxBorderColor) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderColor), var(--boxBorderColor));
     background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
     background-size: 5px 5px, 5px 5px, 1px 1.5em;
     background-repeat: no-repeat;
     color: var(--color);
     padding-right: 45px;
-    transition: all 0.15s ease-in-out;
 }
 
-select:hover { outline: 0; color: var(--color); background-image: linear-gradient(45deg, transparent 50%, var(--borderHover) 50%), linear-gradient(135deg, var(--borderHover) 50%, transparent 50%), linear-gradient(to right, var(--borderHover), var(--borderHover)); }
-select:focus { outline: 0; color: var(--color); background-image: linear-gradient(45deg, transparent 50%, var(--borderActive) 50%), linear-gradient(135deg, var(--borderActive) 50%, transparent 50%), linear-gradient(to right, var(--borderActive), var(--borderActive)); }
+select:hover { outline: 0; color: var(--color); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderHover) 50%), linear-gradient(135deg, var(--boxBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderHover), var(--boxBorderHover)); }
+select:focus { outline: 0; color: var(--color); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderActive) 50%), linear-gradient(135deg, var(--boxBorderActive) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderActive), var(--boxBorderActive)); }
 select:-moz-focusring { outline: 0; color:transparent; text-shadow: 0 0 0 var(--color); }
 
 /* ------------------
   lists
 ------------------ */
-ul { list-style: circle outside; }
-ol { list-style: decimal outside; }
+ul { list-style: circle inside; }
+ol { list-style: decimal inside; }
 ul, ol { padding-left: 0; margin-top: 0; }
 ul ul, ul ol, ol ol, ol ul { margin: 1.5rem 0 1.5rem 3rem; font-size: 100%; }
 li { margin-bottom: var(--margin); }
@@ -603,14 +632,14 @@ ul.no-style ul, ol.no-style ol { list-style: none; }
 /* ---------------------
   hr - horizontal rules
 --------------------- */
-hr { margin: var(--hrMargin) auto; background-color: var(--borderColor); border: 0 none; width: 95%; }
+hr { margin: var(--hrMargin) auto; background-color: var(--boxBorderColor); border: 0 none; width: 95%; }
 hr:not([size]) { height: 1px; }
 hr.full { width: 100%; }
-hr.gradient { background-image: linear-gradient(to right, var(--hrColor) 0%, var(--borderColor) 50%, var(--hrColor) 100%); }
+hr.gradient { background-image: linear-gradient(to right, var(--hrColor) 0%, var(--boxBorderColor) 50%, var(--hrColor) 100%); }
 
 /* Line w/ text: --- text --- */
 .text-hr { display: flex; align-items: center; text-align: center; margin: calc(var(--margin) * 5) auto; }
-.text-hr::before, .text-hr::after { content: ''; flex: 1; border-bottom: 1px solid var(--borderColor); }
+.text-hr::before, .text-hr::after { content: ''; flex: 1; border-bottom: 1px solid var(--boxBorderColor); }
 .text-hr::before { margin-right: var(--padding); }
 .text-hr::after { margin-left: var(--padding); }
 
@@ -618,13 +647,13 @@ hr.gradient { background-image: linear-gradient(to right, var(--hrColor) 0%, var
   tables
 ------------------ */
 table { width: 100%; }
-th, td { padding: var(--padding); text-align: left; border-bottom: 1px solid var(--borderColor); }
+th, td { padding: var(--padding); text-align: left; border-bottom: 1px solid var(--boxBorderColor); }
 
-table.is-bordered { border: 1px solid var(--borderColor); border-radius: var(--radius); }
-table.is-bordered th { background-color: var(--borderColor); }
-table.is-bordered th, table.is-bordered td { border-bottom: 1px solid var(--borderColor); }
+table.is-bordered { border: 1px solid var(--boxBorderColor); border-radius: var(--radius); }
+table.is-bordered th { background-color: var(--boxBorderColor); }
+table.is-bordered th, table.is-bordered td { border-bottom: 1px solid var(--boxBorderColor); }
 table.is-bordered > tbody > tr:last-child td { border-bottom: none; }
-table.is-striped tbody tr:nth-child(2n) { background-color: var(--borderColor); }
+table.is-striped tbody tr:nth-child(2n) { background-color: var(--boxBorderColor); }
 table.is-striped td { border:none; }
 
 /* ------------------
@@ -1187,11 +1216,52 @@ flex > c[align-self="stretch"] { align-self: stretch; }
 }
 
 /* ------------------
+  Cubic Beziers
+------------------ */
+/*
+ * Can be used both in transition:; & animation:;
+ * Example: transition: all 1s var(--easeInOutQuad);
+*/
+:root {
+    --easeInSine: cubic-bezier(0.12, 0, 0.39, 0);
+    --easeOutSine: cubic-bezier(0.61, 1, 0.88, 1);
+    --easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
+
+    --easeInQuad: cubic-bezier(0.11, 0, 0.5, 0);
+    --easeOutQuad: cubic-bezier(0.5, 1, 0.89, 1);
+    --easeInOutQuad: cubic-bezier(0.45, 0, 0.55, 1);
+
+    --easeInCubic: cubic-bezier(0.32, 0, 0.67, 0);
+    --easeOutCubic: cubic-bezier(0.33, 1, 0.68, 1);
+    --easeInOutCubic: cubic-bezier(0.65, 0, 0.35, 1);
+
+    --easeInQuart: cubic-bezier(0.5, 0, 0.75, 0);
+    --easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+    --easeInOutQuart: cubic-bezier(0.76, 0, 0.24, 1);
+
+    --easeInQuint: cubic-bezier(0.64, 0, 0.78, 0);
+    --easeOutQuint: cubic-bezier(0.22, 1, 0.36, 1);
+    --easeInOutQuint: cubic-bezier(0.83, 0, 0.17, 1);
+
+    --easeInExpo: cubic-bezier(0.7, 0, 0.84, 0);
+    --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
+    --easeInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
+
+    --easeInCirc: cubic-bezier(0.55, 0, 1, 0.45);
+    --easeOutCirc: cubic-bezier(0, 0.55, 0.45, 1);
+    --easeInOutCirc: cubic-bezier(0.85, 0, 0.15, 1);
+
+    --easeInBack: cubic-bezier(0.36, 0, 0.66, -0.56);
+    --easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --easeInOutBack: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+/* ------------------
   animations
 ------------------ */
 /*
  * To make it work you need: START | ANIMATION TYPE | DURATION | DELAY (optional) | CUBIC BEZIER (optional)
- * Example: <h1 start animation="fadein" ease="easeInOutQuad" style="--duration: 1s">example</h1>
+ * Example: <h1 start animation="fadein" ease="easeInOutCubic" style="--duration: 1s">example</h1>
 */
 
 /** ANIMATION */
@@ -1201,41 +1271,41 @@ flex > c[align-self="stretch"] { align-self: stretch; }
     animation-name: var(--animation-name, fadeIn); /* default animation: fadeIn */
     animation-duration: var(--duration, 1s);  /* default duration: 1s */
     animation-delay: var(--delay, 0s); /* default delay: 0s */
-    animation-timing-function: var(--ease, easeInOutSine); /* default ease: easeInOutSine */
+    animation-timing-function: var(--ease, easeInOutCubic); /* default ease: easeInOutCubic */
 }
 
 /*** Cubic Bezier for ANIMATIONS • examples at: https://easings.net/ */
-[ease="easeInSine"]     { --ease: cubic-bezier(0.47, 0, 0.745, 0.715); }
-[ease="easeOutSine"]    { --ease: cubic-bezier(0.39, 0.575, 0.565, 1); }
-[ease="easeInOutSine"]  { --ease: cubic-bezier(0.445, 0.05, 0.55, 0.95); }
+[ease="easeInSine"]     { --ease: var(--easeInSine); }
+[ease="easeOutSine"]    { --ease: var(--easeOutSine); }
+[ease="easeInOutSine"]  { --ease: var(--easeInOutSine); }
 
-[ease="easeInQuad"]     { --ease: cubic-bezier(0.55, 0.085, 0.68, 0.53); }
-[ease="easeOutQuad"]    { --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-[ease="easeInOutQuad"]  { --ease: cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+[ease="easeInQuad"]     { --ease: var(--easeInQuad); }
+[ease="easeOutQuad"]    { --ease: var(--easeOutQuad); }
+[ease="easeInOutQuad"]  { --ease: var(--easeInOutQuad); }
 
-[ease="easeInCubic"]    { --ease: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
-[ease="easeOutCubic"]   { --ease: cubic-bezier(0.215, 0.61, 0.355, 1); }
-[ease="easeInOutCubic"] { --ease: cubic-bezier(0.645, 0.045, 0.355, 1); }
+[ease="easeInCubic"]    { --ease: var(--easeInCubic); }
+[ease="easeOutCubic"]   { --ease: var(--easeOutCubic); }
+[ease="easeInOutCubic"] { --ease: var(--easeInOutCubic); }
 
-[ease="easeInQuart"]    { --ease: cubic-bezier(0.895, 0.03, 0.685, 0.22); }
-[ease="easeOutQuart"]   { --ease: cubic-bezier(0.165, 0.84, 0.44, 1); }
-[ease="easeInOutQuart"] { --ease: cubic-bezier(0.77, 0, 0.175, 1); }
+[ease="easeInQuart"]    { --ease: var(--easeInQuart); }
+[ease="easeOutQuart"]   { --ease: var(--easeOutQuart); }
+[ease="easeInOutQuart"] { --ease: var(--easeInOutQuart); }
 
-[ease="easeInQuint"]    { --ease: cubic-bezier(0.755, 0.05, 0.855, 0.06); }
-[ease="easeOutQuint"]   { --ease: cubic-bezier(0.23, 1, 0.32, 1); }
-[ease="easeInOutQuint"] { --ease: cubic-bezier(0.86, 0, 0.07, 1); }
+[ease="easeInQuint"]    { --ease: var(--easeInQuint); }
+[ease="easeOutQuint"]   { --ease: var(--easeOutQuint); }
+[ease="easeInOutQuint"] { --ease: var(--easeInOutQuint); }
 
-[ease="easeInExpo"]     { --ease: cubic-bezier(0.95, 0.05, 0.795, 0.035); }
-[ease="easeOutExpo"]    { --ease: cubic-bezier(0.19, 1, 0.22, 1); }
-[ease="easeInOutExpo"]  { --ease: cubic-bezier(1, 0, 0, 1); }
+[ease="easeInExpo"]     { --ease: var(--easeInExpo); }
+[ease="easeOutExpo"]    { --ease: var(--easeOutExpo); }
+[ease="easeInOutExpo"]  { --ease: var(--easeInOutExpo); }
 
-[ease="easeInCirc"]     { --ease: cubic-bezier(0.6, 0.04, 0.98, 0.335); }
-[ease="easeOutCirc"]    { --ease: cubic-bezier(0.075, 0.82, 0.165, 1); }
-[ease="easeInOutCirc"]  { --ease: cubic-bezier(0.785, 0.135, 0.15, 0.86); }
+[ease="easeInCirc"]     { --ease: var(--easeInCirc); }
+[ease="easeOutCirc"]    { --ease: var(--easeOutCirc); }
+[ease="easeInOutCirc"]  { --ease: var(--easeInOutCirc); }
 
-[ease="easeInBack"]     { --ease: cubic-bezier(0.6, -0.28, 0.735, 0.045); }
-[ease="easeOutBack"]    { --ease: cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-[ease="easeInOutBack"]  { --ease: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+[ease="easeInBack"]     { --ease: var(--easeInBack); }
+[ease="easeOutBack"]    { --ease: var(--easeOutBack); }
+[ease="easeInOutBack"]  { --ease: var(--easeInOutBack); }
 
 /* Invisible */
 .invisible, .hide { opacity: 0; }
