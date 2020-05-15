@@ -3,10 +3,12 @@
 /* ------------------
   css variables
 ------------------ */
-:root {  }
+:root { 
+	
+}
 
-
-
+/*** If Variable fonts are supported */
+@supports (font-variation-settings: normal) { :root { --fontFamily: var(--fontFamilyVar); } }
 
 
 /* ------------------
