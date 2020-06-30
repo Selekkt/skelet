@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.1.6 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
+/*! Skelet. v3.1.7 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -373,8 +373,8 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 @media only screen and (max-width: 600px) { .center-axyz-s, .center-axys-s { display: flex; align-items: center; justify-content: center; } .center-axyz-s.full-s, .center-axys-s.full-s  { height: 100vh; width: 100%; } }
 @media only screen and (min-width: 1599px) { .center-axyz-l, .center-axys-l { display: flex; align-items: center; justify-content: center; } .center-axyz-l.full-l, .center-axys-l.full-l { height: 100vh; width: 100%; } }
 
-.mob-scroller { display: flex; flex-wrap: nowrap; overflow-x: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-.mob-scroller::-webkit-scrollbar { display: none; }
+.mob-scroller { display: flex; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+@media only screen and (max-width: 600px) { .mob-scroller::-webkit-scrollbar { display: none; } }
 
 @media only screen and (max-width: 600px) { .large-only, .only-large  { display: none!important; } }
 @media only screen and (min-width: 601px) { .small-only, .only-small  { display: none!important; } }
@@ -595,10 +595,10 @@ input[type="range"] { height: 2.25rem; line-height: 2.25rem; vertical-align: mid
 input[type="color"] { padding: 0; border: none; }
 
 textarea { min-height: 6.5rem; padding: var(--padding); }
-label, legend { display: block; margin-bottom: var(--margin); font-weight: 600; }
+label, legend { display: inline-block; margin-bottom: var(--margin); font-weight: 600; }
 fieldset { border: 1px solid var(--boxBorderColor); border-radius: var(--radius); }
 legend { padding: var(--padding); }
-label span { display: inline-block; color: var(--color); margin-left: var(--margin); font-weight: normal;  }
+label span { display: inline; color: var(--color); margin-left: var(--margin); font-weight: normal;  }
 
 input, textarea, select, fieldset { margin-bottom: var(--margin);  }
 option { padding: 5px; }
@@ -778,6 +778,51 @@ grid > c[js="center"] { justify-self: center; }
 grid > c[js="end"] { justify-self: end; }
 grid > c[js="stretch"] { justify-self: stretch; }
 
+
+/* Place ITEMS - for <grid> – place-items: align-items justify-items; */
+grid[pi="start"] { place-items: start; }
+grid[pi="center"] { place-items: center; }
+grid[pi="end"] { place-items: end; }
+grid[pi="stretch"] { place-items: stretch; }
+
+grid[pi="start center"] { place-items: start center; }
+grid[pi="start end"] { place-items: start end; }
+grid[pi="start stretch"] { place-items: start stretch; }
+
+grid[pi="center start"] { place-items: center start; }
+grid[pi="center end"] { place-items: center end; }
+grid[pi="center stretch"] { place-items: center stretch; }
+
+grid[pi="end start"] { place-items: end start; }
+grid[pi="end center"] { place-items: end center; }
+grid[pi="end stretch"] { place-items: end stretch; }
+
+grid[pi="stretch start"] { place-items: stretch start; }
+grid[pi="stretch center"] { place-items: stretch center; }
+grid[pi="stretch end"] { place-items: stretch end; }
+
+/* Place SELF - for <c> – place-self: align-self justify-self; */
+grid > c[ps="start"] { place-self: start; }
+grid > c[ps="center"] { place-self: center; }
+grid > c[ps="end"] { place-self: end; }
+grid > c[ps="stretch"] { place-self: stretch; }
+
+grid > c[ps="start center"] { place-self: start center; }
+grid > c[ps="start end"] { place-self: start end; }
+grid > c[ps="start stretch"] { place-self: start stretch; }
+
+grid > c[ps="center start"] { place-self: center start; }
+grid > c[ps="center end"] { place-self: center end; }
+grid > c[ps="center stretch"] { place-self: center stretch; }
+
+grid > c[ps="end start"] { place-self: end start; }
+grid > c[ps="end center"] { place-self: end center; }
+grid > c[ps="end stretch"] { place-self: end stretch; }
+
+grid > c[ps="stretch start"] { place-self: stretch start; }
+grid > c[ps="stretch center"] { place-self: stretch center; }
+grid > c[ps="stretch end"] { place-self: stretch end; }
+
 /* VISUAL ORDER */
 [order="first"] { order: -1; }
 [order="1"] { order: 1; }
@@ -901,6 +946,51 @@ grid > c[js="stretch"] { justify-self: stretch; }
   grid > c[js-s="center"] { justify-self: center; }
   grid > c[js-s="end"] { justify-self: end; }
   grid > c[js-s="stretch"] { justify-self: stretch; }
+
+
+  /* Place ITEMS - for <grid> */
+  grid[pi-s="start"] { place-items: start; }
+  grid[pi-s="center"] { place-items: center; }
+  grid[pi-s="end"] { place-items: end; }
+  grid[pi-s="stretch"] { place-items: stretch; }
+
+  grid[pi-s="start center"] { place-items: start center; }
+  grid[pi-s="start end"] { place-items: start end; }
+  grid[pi-s="start stretch"] { place-items: start stretch; }
+
+  grid[pi-s="center start"] { place-items: center start; }
+  grid[pi-s="center end"] { place-items: center end; }
+  grid[pi-s="center stretch"] { place-items: center stretch; }
+
+  grid[pi-s="end start"] { place-items: end start; }
+  grid[pi-s="end center"] { place-items: end center; }
+  grid[pi-s="end stretch"] { place-items: end stretch; }
+
+  grid[pi-s="stretch start"] { place-items: stretch start; }
+  grid[pi-s="stretch center"] { place-items: stretch center; }
+  grid[pi-s="stretch end"] { place-items: stretch end; }
+
+  /* Place SELF - for <c> */
+  grid > c[ps-s="start"] { place-self: start; }
+  grid > c[ps-s="center"] { place-self: center; }
+  grid > c[ps-s="end"] { place-self: end; }
+  grid > c[ps-s="stretch"] { place-self: stretch; }
+
+  grid > c[ps-s="start center"] { place-self: start center; }
+  grid > c[ps-s="start end"] { place-self: start end; }
+  grid > c[ps-s="start stretch"] { place-self: start stretch; }
+
+  grid > c[ps-s="center start"] { place-self: center start; }
+  grid > c[ps-s="center end"] { place-self: center end; }
+  grid > c[ps-s="center stretch"] { place-self: center stretch; }
+
+  grid > c[ps-s="end start"] { place-self: end start; }
+  grid > c[ps-s="end center"] { place-self: end center; }
+  grid > c[ps-s="end stretch"] { place-self: end stretch; }
+
+  grid > c[ps-s="stretch start"] { place-self: stretch start; }
+  grid > c[ps-s="stretch center"] { place-self: stretch center; }
+  grid > c[ps-s="stretch end"] { place-self: stretch end; }
 
   /* VISUAL ORDER */
   [order-s="first"] { order: -1; }
@@ -1026,6 +1116,51 @@ grid > c[js="stretch"] { justify-self: stretch; }
   grid > c[js-l="center"] { justify-self: center; }
   grid > c[js-l="end"] { justify-self: end; }
   grid > c[js-l="stretch"] { justify-self: stretch; }
+
+
+  /* Place ITEMS - for <grid> */
+  grid[pi-l="start"] { place-items: start; }
+  grid[pi-l="center"] { place-items: center; }
+  grid[pi-l="end"] { place-items: end; }
+  grid[pi-l="stretch"] { place-items: stretch; }
+
+  grid[pi-l="start center"] { place-items: start center; }
+  grid[pi-l="start end"] { place-items: start end; }
+  grid[pi-l="start stretch"] { place-items: start stretch; }
+
+  grid[pi-l="center start"] { place-items: center start; }
+  grid[pi-l="center end"] { place-items: center end; }
+  grid[pi-l="center stretch"] { place-items: center stretch; }
+
+  grid[pi-l="end start"] { place-items: end start; }
+  grid[pi-l="end center"] { place-items: end center; }
+  grid[pi-l="end stretch"] { place-items: end stretch; }
+
+  grid[pi-l="stretch start"] { place-items: stretch start; }
+  grid[pi-l="stretch center"] { place-items: stretch center; }
+  grid[pi-l="stretch end"] { place-items: stretch end; }
+
+  /* Place SELF - for <c> */
+  grid > c[ps-l="start"] { place-self: start; }
+  grid > c[ps-l="center"] { place-self: center; }
+  grid > c[ps-l="end"] { place-self: end; }
+  grid > c[ps-l="stretch"] { place-self: stretch; }
+
+  grid > c[ps-l="start center"] { place-self: start center; }
+  grid > c[ps-l="start end"] { place-self: start end; }
+  grid > c[ps-l="start stretch"] { place-self: start stretch; }
+
+  grid > c[ps-l="center start"] { place-self: center start; }
+  grid > c[ps-l="center end"] { place-self: center end; }
+  grid > c[ps-l="center stretch"] { place-self: center stretch; }
+
+  grid > c[ps-l="end start"] { place-self: end start; }
+  grid > c[ps-l="end center"] { place-self: end center; }
+  grid > c[ps-l="end stretch"] { place-self: end stretch; }
+
+  grid > c[ps-l="stretch start"] { place-self: stretch start; }
+  grid > c[ps-l="stretch center"] { place-self: stretch center; }
+  grid > c[ps-l="stretch end"] { place-self: stretch end; }
 
   /* VISUAL ORDER */
   [order-l="first"] { order: -1; }
