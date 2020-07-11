@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.1.9 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
+/*! Skelet. v3.1.10 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -115,9 +115,6 @@ summary{display:list-item}
     --linkColor: var(--primary);
     --linkHover: #3298ff;
 
-    /* @for input/textarea/tables etc. */
-    --boxBorderActive: var(--primary);
-
     /* @for tooltip */
     --tooltipBgColor: var(--dark);
     --tooltipColor: var(--white);
@@ -133,13 +130,17 @@ summary{display:list-item}
     --boxColor: var(--color);
     --boxBorderColor: #E1E1E1;
     --boxBorderHover: #BABABA;
+    --boxBorderActive: var(--primary);
     --boxBgColor: #fefefe;
     --boxPlaceholderColor: var(--color); /* placeholder color */
 
     /* @for buttons */
     --buttonColor: var(--color);
-    --buttonBorderColor: var(--boxBorderColor);
-    --buttonBorderHover: var(--boxBorderHover);
+    --buttonBorderColor: currentColor;
+    --buttonBorderHover: currentColor;
+
+    --selectionBg: rgba(0,0,0,.99);
+    --selectionText: #FFFFFF;
 
     --codeColor: #0000ff;
     --codeBgColor: #f8f8f8;
@@ -163,8 +164,11 @@ summary{display:list-item}
     --boxPlaceholderColor: var(--color);
 
     --buttonColor: var(--color);
-    --buttonBorderColor: var(--boxBorderColor);
-    --buttonBorderHover: var(--boxBorderHover);
+    --buttonBorderColor: currentColor;
+    --buttonBorderHover: currentColor;
+
+    --selectionBg: rgba(255,255,255,.99);
+    --selectionText: #000;
 
     --codeColor: #00F900;
     --codeBgColor: #111111;
@@ -203,17 +207,21 @@ body {
 #app { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1; }
 
+::selection { background: var(--selectionBg); color: var(--selectionText); }
+::-moz-selection { background: var(--selectionBg); color: var(--selectionText); }
+
 /* ------------------
   typography
 ------------------ */
-h1, h2, h3, h4, h5, h6 { color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem; font-size: var(--hSize); font-weight: var(--hWeight); line-height: var(--hLine); }
+h1, h2, h3, h4, h5, h6, 
+.h1,.h2,.h3,.h4,.h5,.h6 { color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem; font-size: var(--hSize); font-weight: var(--hWeight); line-height: var(--hLine); }
 
-h1 { --hSize: var(--h1Size); --hLine: var(--h1Line); }
-h2 { --hSize: var(--h2Size); --hLine: var(--h2Line); }
-h3 { --hSize: var(--h3Size); --hLine: var(--h3Line); }
-h4 { --hSize: var(--h4Size); --hLine: var(--h4Line); }
-h5 { --hSize: var(--h5Size); --hLine: var(--h5Line); }
-h6 { --hSize: var(--h6Size); --hLine: var(--h6Line); }
+h1,.h1 { --hSize: var(--h1Size); --hLine: var(--h1Line); }
+h2,.h2 { --hSize: var(--h2Size); --hLine: var(--h2Line); }
+h3,.h3 { --hSize: var(--h3Size); --hLine: var(--h3Line); }
+h4,.h4 { --hSize: var(--h4Size); --hLine: var(--h4Line); }
+h5,.h5 { --hSize: var(--h5Size); --hLine: var(--h5Line); }
+h6,.h6 { --hSize: var(--h6Size); --hLine: var(--h6Line); }
 
 @media (max-width: 600px) {
     :root {
@@ -245,9 +253,10 @@ blockquote {
     margin: 2rem auto;
 }
 
-a:not(.button) { color: var(--linkColor); cursor: pointer; text-decoration: none; }
+a:not(.button) { color: var(--linkColor); cursor: pointer; }
 a:not(.button):hover { color: var(--linkHover); }
 a:not(.button):active, a:not(.button):hover { outline: 0; }
+a.no-style { text-decoration: none; }
 
 [flow-col], [flow-col-s], [flow-col-l] { column-count: var(--column-count); column-gap: var(--columnGap); column-fill: balance }
 
@@ -306,7 +315,8 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 .fullwidth-max { max-width: 100%; box-sizing: border-box; }
 
 .block { display: block; }
-.inline { display: inline-block; margin: 0; }
+.inline { display: inline; margin: 0; }
+.inline-block { display: inline-block; margin: 0; }
 .center { display: block; text-align: center; margin: 0 auto; }
 
 .nowrap { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -319,8 +329,8 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 .float-left { float: left; }
 .float-none { float: none; }
 
-.sticky { position: sticky; top: 1rem; }
-.sticky-bottom { position: sticky; bottom: 1rem; }
+.sticky { position: sticky; top: 0; }
+.sticky-bottom { position: sticky; bottom: 0; }
 .sticky-none { position: inherit; }
 
 @media only screen and (max-width: 600px) { 
@@ -328,7 +338,8 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
     .fullwidth-max-s { max-width: 100%; box-sizing: border-box; }
 
     .block-s { display: block; }
-    .inline-s { display: inline-block; margin: 0; }
+    .inline-s { display: inline; margin: 0; }
+    .inline-block-s { display: inline-block; margin: 0; }
     .center-s { display: block; text-align: center; margin: 0 auto; }
 
     .nowrap-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -351,7 +362,8 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
     .fullwidth-max-l { max-width: 100%; box-sizing: border-box; }
 
     .block-l { display: block; }
-    .inline-l { display: inline-block; margin: 0; }
+    .inline-l { display: inline; margin: 0; }
+    .inline-block-l { display: inline-block; margin: 0; }
     .center-l { display: block; text-align: center; margin: 0 auto; }
 
     .nowrap-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -496,7 +508,7 @@ input[type="button"] {
     border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
     cursor: pointer;
     box-sizing: border-box; 
-    transition: border 0.15s ease-in-out;
+    transition: border 150ms ease-in-out;
 }
 
 .button:hover, button:hover,
@@ -508,6 +520,7 @@ input[type="submit"]:focus,
 input[type="reset"]:focus, 
 input[type="button"]:focus {
     border-color: var(--buttonBorderHover);
+    opacity: 0.9;
     outline: 0; 
 }
 
