@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta data-framework="Skelet." data-ver="3.1.10" data-dev="Sēlekkt. Studio">
+
+    <title>Example 8</title>
+    <meta name="description" content="Skelet. Example 8">
+    <meta name="author" content="Skelet.">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:site" content=""> <!-- e.g. @YourSiteUsername -->
+    <meta name="twitter:creator" content=""> <!-- e.g. @AuthorUsername -->
+
+    <!-- Facebook OG Tags -->
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    
+    <link rel="canonical" href="">
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch.png">
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.1.10/css/skelet.css"> <!-- include Skelet -->
+
+    <style>
+    :root {
+        --bgColor: #005E69;
+        --color: #E68D81;
+        --linkColor: #eeafa7;
+        --linkHover: #e68d81;
+    }
+
+    header { background-color: var(--bgColor); border-bottom: 1px solid var(--color); z-index: 9 }
+    header a { text-decoration: none; }
+
+    footer { background-color: #004b54; }
+    footer input { --boxBgColor: var(--bgColor); --boxBorderColor: var(--color); --boxBorderHover: var(--color); --boxBorderActive: var(--linkColor); }
+    footer c { border: 0.5px solid currentColor; border-top: 1px solid currentColor; text-align: start; padding: 3rem; }
+    footer c:first-child { border-left: none; }
+    footer c:last-child { border-right: none; }
+
+    .boxPadding { padding: 4rem; }
+    .boxFontSize { font-size: clamp(2rem, 2vw, 4rem); }
+
+    @media (min-width: 1599px) {
+        #app { max-width: 1280px; }
+    }
+</style>
+</head>
+<body>
+<div id="app">
+    <header class="header">
+        <grid columns="8" pi="center">
+            <c><a href="https://selekkt.dk/skelet/">Shop</a></c>
+            <c><a href="https://selekkt.dk/skelet/">About</a></c>
+            <c span="3-6"><a href="https://selekkt.dk/skelet/"><h1 class="text-center">Skelet.</h1></a></c>
+            <c><a href="https://selekkt.dk/skelet/">Login</a></c>
+            <c><a href="https://selekkt.dk/skelet/">Cart</a></c>
+        </grid>
+    </header>
+
+    <main role="main">
+        <section>
+            <grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
+                <c order-s="2">
+                    <grid columns="2" style="--columnGap: 1px; --rowGap: 1px;">
+                        <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-hands_1024x1024.jpg?v=1568940423" alt=""></c>
+
+                        <c ps="center">
+                            <h2>Hands</h2>
+                            <div class="text-center"><a href="#" class="no-style">shop now &rarr;</a></div>
+                        </c>
+ 
+                        <c ps="center"><h2>Wash</h2></c>
+                        <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-wash_1024x1024.jpg?v=1568940452" alt=""></c>
+
+                        <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-hands_1024x1024.jpg?v=1568940423" alt=""></c>
+                        <c ps="center"><h2>Hands</h2></c>
+                    </grid>
+                </c>
+                <c class="sticky sticky-none-s" ps="start" order-s="1">
+                    <img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-hero-gumnut-bw_1800x1800.jpg?v=1571016790" alt="">
+                </c>
+            </grid>
+        </section>
+        <section>
+            <grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
+                <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-sq-shelf_1024x1024.jpg?v=1570584477" alt=""></c>
+                <c ps="center">
+                    <div class="boxPadding">
+                        <h3 class="space2">Our story</h3>
+                        <p class="boxFontSize">The salus range of home spa products has been developed to help you relax and enjoy experiences that calm the mind and nourish the body.</p>
+                        <a href="#" class="space2">read more &rarr;</a>
+                    </div>
+                </c>
+            </grid>
+        </section>
+
+        <section>
+            <grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
+                <c ps="center" order-s="2">
+                    <div class="boxPadding">
+                        <h3 class="space2">Gift cards</h3>
+                        <p class="boxFontSize">Salus gift cards are a gift of choice. Along with your personalised message they can be sent via mail or email.</p>
+                        <a href="#" class="space2">read more &rarr;</a>
+                    </div>
+                </c>
+                <c order-s="1"><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/collection-img-gift-cards_1024x1024.jpg?v=1571098077" alt=""></c>
+            </grid>
+        </section>
+    </main>
+
+    <footer class="text-center">
+       <grid columns="4" columns-s="2" style="--columnGap: 0; --rowGap: 0;" class="text-start">
+        <c>
+            <h4>Newsletter</h4>
+            <p>Enter your email address below and receive exclusive Salus offers, free delivery promotions, the latest spa treatment news, spa reviews.</p>
+            <form>
+                <input class="fullwidth" type="email" placeholder="Email address" required>
+            </form>
+        </c>
+        <c>
+            <h4>Contact Us</h4>
+            <p>Spa Pty Ltd<br>PO Box 0000<br>Upper Park, Vic 0000</p>
+        </c>
+        <c>
+            <h4>Shop</h4>
+            <ul class="no-style">
+                <li>All Products</li>
+                <li>Moisturise</li>
+                <li>Wash</li>
+                    <li>Scrub & Bathe</li>
+                    <li>Hands</li>
+                    <li>Face</li>
+                    <li>Haircare</li>
+                    <li>Heat Pillows</li>
+                    <li>Home</li>
+                    <li>Sets & Travel</li>
+                    <li>Care Packages</li>
+                    <li>Gift Cards</li>
+                </ul>
+            </c>
+            <c><h4>About us</h4></c>
+       </grid>
+    </footer>
+</div>
+
+</body>
+</html>
