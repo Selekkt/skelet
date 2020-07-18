@@ -1,25 +1,78 @@
-<grid columns="fill" style="--grid-mm: 300px;" columns-s="8">
-    <c span-s="1-4">
+<grid columns="3" columns-s="2">
+    <c>
         <fieldset>
             <legend>Checkboxes</legend>
-            <label for="checkbox1">
-                <input id="checkbox1" name="checkbox" type="checkbox" checked> Choice A</label>
-            <label for="checkbox2">
-                <input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label>
-            <label for="checkbox3">
-                <input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label>
+
+            <ul class="no-style">
+                <li>
+                    <input id="c1" type="checkbox">
+                    <label for="c1">Checkbox</label>
+                </li>
+                <li>           
+                    <input id="c2" type="checkbox" checked>
+                    <label for="c2">Checkbox</label>
+                </li>
+                <li>    
+                    <input id="c1d" type="checkbox" disabled>
+                    <label for="c1d">Checkbox</label>
+                </li>
+                <li> 
+                    <input id="c2d" type="checkbox" checked disabled>
+                    <label for="c2d">Checkbox</label>
+                </li>
+            </ul>
         </fieldset>
     </c>
 
-    <c span-s="5..">
+    <c>
         <fieldset>
             <legend>Radio buttons</legend>
-            <label for="radio1">
-                <input id="radio1" name="radio" type="radio" class="radio"> Option 1</label>
-            <label for="radio2">
-                <input id="radio2" name="radio" type="radio" class="radio"> Option 2</label>
-            <label for="radio3">
-                <input id="radio3" name="radio" type="radio" class="radio" checked> Option 3</label>
+
+            <ul class="no-style">
+                <li>
+                    <input id="r1" type="radio" name="radio" value="1">
+                    <label for="r1">Radio</label>
+                </li>
+                <li>
+                    <input id="r2" type="radio" name="radio" value="2" checked>
+                    <label for="r2">Radio</label>
+                </li>
+                <li>
+                    <input id="r1d" type="radio" name="radiod" value="1" disabled>
+                    <label for="r1d">Radio</label>
+                </li>
+                <li>
+                    <input id="r2d" type="radio" name="radiod" value="2" checked disabled>
+                    <label for="r2d">Radio</label>
+                </li>
+            </ul>
+        </fieldset>
+    </c>
+
+    <c>
+        <fieldset>
+            <legend>Switch</legend>
+
+            <ul class="no-style">
+                <li>
+                    <input id="s1" type="checkbox" class="switch">
+                    <label for="s1">Switch</label>
+                </li>
+                <li>
+                    <input id="s2" type="checkbox" class="switch" checked>
+                    <label for="s2">Switch</label>
+                </li>
+                <li>
+                    <input id="s1d" type="checkbox" class="switch" disabled>
+                    <label for="s1d">Switch</label>
+                </li>
+                <li>
+                    <input id="s2d" type="checkbox" class="switch" checked disabled>
+                    <label for="s2d">Switch</label>
+                </li>
+            </ul>
+            <span class="text-hr" style="margin-bottom:1rem">Turn checkbox into switch</span>
+            <p><code>&lt;input type="checkbox" class="switch"&gt;</code></p>
         </fieldset>
     </c>
 </grid>

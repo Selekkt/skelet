@@ -3,7 +3,7 @@
 </grid>
 
 <grid columns="8" class="margin20" style="--columnGap: 4rem;">
-    <c span="1-3" span-s="row" class="large-only">
+    <c span="1-3" span-s="row" class="large-only" style="min-width: 100%;">
         <pre id="root-code"><code>:root {
     /* Typography */
     --fontFamily:
@@ -13,7 +13,6 @@
     --fontLine:
     --fontWeight:
 
-    /* Headings */
     --h1Size:
     --h2Size:
     --h3Size:
@@ -45,17 +44,24 @@
     --boxBorderWidth:
     --boxBorderStyle:
     --boxFontSize:
+    --boxHeight:
 
     --buttonPadding:
     --buttonMargin:
     --buttonRadius:
     --buttonBorderWidth:
     --buttonBorderStyle:
-    --buttonFontSize:;
+    --buttonFontSize:
 
     /* grids */
     --columnGap:
     --rowGap:
+
+    /* tooltip */
+    --tooltipRadius:
+    --tooltipFontSize:
+    --tooltipMove:
+    --tooltipDuration:
 
 /** Colors */
     /* These colors DO NOT 
@@ -70,11 +76,15 @@
     --dark:
     --shadow:
 
-    --linkColor:
+    --linkColor: 
     --linkHover:
 
     /* @for input/textarea/tables etc. */
     --boxBorderActive:
+
+    /* @for tooltip */
+    --tooltipBgColor:
+    --tooltipColor:
 
     /** These colors
       DO change in dark mode */
@@ -84,11 +94,16 @@
     --colorHeadings:
 
     /* @for input/textarea/tables etc. */
-    --boxColor:
+    --boxColor: 
     --boxBorderColor:
     --boxBorderHover:
-    --boxBgColor:
+    --boxBgColor: 
     --boxPlaceholderColor:
+
+    /* @for checkbox/radio/.switch */
+    --boxActive: var(--primary);
+    --boxActiveInner: var(--white);
+    --boxFocus: 2px rgba(41, 145, 248, .3);
 
     /* @for buttons */
     --buttonColor:
