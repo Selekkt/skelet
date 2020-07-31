@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*! Skelet. v3.1.11 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.1.12 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -141,6 +141,7 @@ summary{display:list-item}
     --boxFocus: 2px rgba(41, 145, 248, .3);
 
     /* @for buttons */
+    --buttonBgColor: transparent;
     --buttonColor: var(--color);
     --buttonBorderColor: currentColor;
     --buttonBorderHover: currentColor;
@@ -509,7 +510,7 @@ input[type="button"] {
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
-    background-color: transparent;
+    background: var(--buttonBgColor);
     border-radius: var(--buttonRadius);
     border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
     cursor: pointer;
@@ -539,22 +540,22 @@ button, .button { vertical-align: baseline; }
 .button[class*="is-"] { border-color: transparent; }
 .button[class*="is-"]:hover { border-color: transparent; } 
 
-button.is-white,.button.is-white  { background-color: var(--white); color: var(--black)!important; }
-button.is-light,.button.is-light  { background-color: var(--light); color: var(--dark)!important; }
-button.is-dark,.button.is-dark    { background-color: var(--dark); color: var(--light); }
-button.is-black,.button.is-black  { background-color: var(--black); color: var(--white); }
-button.is-blank,.button.is-blank  { background: none; border: none; color: var(--color); }
+button.is-white,.button.is-white  { --buttonBgColor: var(--white); --buttonColor: var(--black); }
+button.is-light,.button.is-light  { --buttonBgColor: var(--light); --buttonColor: var(--dark); }
+button.is-dark,.button.is-dark    { --buttonBgColor: var(--dark); --buttonColor: var(--light); }
+button.is-black,.button.is-black  { --buttonBgColor: var(--black); --buttonColor: var(--white); }
+button.is-blank,.button.is-blank  { --buttonBgColor: none; --buttonColor: var(--color); --buttonBorderColor: none; }
 
 button.is-outline,.button.is-outline { transition: border 0; background: none; border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor); color: var(--buttonColor); }
 button:hover.is-outline,.button:hover.is-outline { color: var(--buttonColor); border-color: var(--buttonBorderHover); }
 
-button.is-primary,.button.is-primary  { background-color: var(--primary); color: var(--white); }
-button.is-green,.button.is-green  { background-color: var(--green); color: var(--white); }
-button.is-yellow,.button.is-yellow  { background-color: var(--yellow); color: var(--black); }
-button.is-red,.button.is-red   { background-color: var(--red); color: var(--white); }
+button.is-primary,.button.is-primary  { --buttonBgColor: var(--primary); --buttonColor: var(--white); }
+button.is-green,.button.is-green  { --buttonBgColor: var(--green); --buttonColor: var(--white); }
+button.is-yellow,.button.is-yellow  { --buttonBgColor: var(--yellow); --buttonColor: var(--black); }
+button.is-red,.button.is-red   { --buttonBgColor: var(--red); --buttonColor: var(--white); }
 
-button.is-small,.button.is-small { padding: var(--padding); font-size: 0.9rem; }
-button.is-large,.button.is-large { padding: calc(var(--padding) * 1); font-size: 2rem;  }
+button.is-small,.button.is-small { padding: var(--buttonPadding); font-size: 0.9rem; }
+button.is-large,.button.is-large { padding: calc(var(--buttonPadding) * 1); font-size: 2rem;  }
 
 /** Radio Checkbox Switch */
 input[type='checkbox'],
@@ -690,7 +691,7 @@ input[type="week"],
 input[inputmode],
 select, 
 textarea {
-    padding: var(--padding);
+    padding: var(--boxPadding);
     color: var(--boxColor);
     background-color: var(--boxBgColor);
     border: 1px solid var(--boxBorderColor);
@@ -763,12 +764,12 @@ select {
     background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
     background-size: 5px 5px, 5px 5px, 1px 1.5em;
     background-repeat: no-repeat;
-    color: var(--color);
+    color: var(--boxColor);
     padding-right: 45px;
 }
 
-select:hover { outline: 0; color: var(--color); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderHover) 50%), linear-gradient(135deg, var(--boxBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderHover), var(--boxBorderHover)); }
-select:focus { outline: 0; color: var(--color); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderActive) 50%), linear-gradient(135deg, var(--boxBorderActive) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderActive), var(--boxBorderActive)); }
+select:hover { outline: 0; color: var(--boxColor); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderHover) 50%), linear-gradient(135deg, var(--boxBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderHover), var(--boxBorderHover)); }
+select:focus { outline: 0; color: var(--boxColor); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderActive) 50%), linear-gradient(135deg, var(--boxBorderActive) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderActive), var(--boxBorderActive)); }
 select:-moz-focusring { outline: 0; color:transparent; text-shadow: 0 0 0 var(--color); }
 
 /* ------------------
