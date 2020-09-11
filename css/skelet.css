@@ -490,7 +490,7 @@ button[aria-label][data-tooltip-pos] { overflow: visible; }
   elements
 ------------------ */
 .is-green { border-color: var(--green)!important; }
-.is-red { border-color: var(--red)!important; } 
+.is-red, input:invalid { border-color: var(--red)!important; }
 
 /* ------------------
   buttons
@@ -750,7 +750,7 @@ textarea:focus {
 input[type="range"] { height: 2.25rem; line-height: 2.25rem; vertical-align: middle; width: 100%; }
 input[type="color"] { padding: 0; border: none; }
 
-textarea { min-height: 6.5rem; padding: var(--padding); }
+textarea { min-height: 6.5rem; padding: var(--boxPadding); }
 label, legend { display: inline-block; margin-bottom: var(--margin); font-weight: 600; }
 fieldset { border: 1px solid var(--boxBorderColor); border-radius: var(--radius); }
 legend { padding: var(--padding); }
