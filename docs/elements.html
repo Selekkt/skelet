@@ -89,7 +89,7 @@
                     </c>
 
                     <c span="5.." span-s="row">
-                        <label for="exampleRecipientInput">Reply to</label>
+                        <label for="exampleRecipientInput">Subject</label>
                         <select class="fullwidth" id="exampleRecipientInput">
                             <option selected="" disabled="" value="Option 1">-- Select --</option>
                             <option value="Option 2">Sarude</option>
@@ -99,8 +99,10 @@
                 </grid>
                 <grid>
                     <c span="row">
-                        <label for="exampleMessage">Comment</label>
-                        <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
+                        <label class="float" for="exampleMessage">
+                            <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
+                            <span>Comment</span>
+                        </label>
                     </c>
                 </grid>
                 <grid columns="8" class="margin20">
@@ -115,6 +117,36 @@
                 </grid>
             </form>
         </fieldset>
+    </c>
+</grid>
+
+<grid columns="8" class="margin20">
+    <c span="row"><h3 class="title">Labels</h3></c>
+
+    <c span="row"><span class="text-hr" style="margin-bottom:1rem">Floating label</span></c>
+    <c span="1-4" span-s="row">
+<pre><code>&lt;label class="float"&gt;
+&lt;input type="text" placeholder="Name"&gt;
+&lt;span>Name&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+    </c>
+    <c span="6.." span-s="row" js-s="center" as="center">
+        <label class="float">
+            <input type="text" placeholder="Name" >
+            <span>Name</span>
+        </label>
+    </c>
+
+    <c span="row"><span class="text-hr" style="margin-bottom:1rem">Inline label</span></c>
+    <c span="1-4" span-s="row">
+<pre><code>&lt;label&gt;&lt;span&gt;Left&lt;/span&gt;&lt;/label&gt;
+&lt;input type="text" placeholder="Name"&gt;
+&lt;label&gt;&lt;span&gt;Right&lt;/span&gt;&lt;/label&gt;</code></pre>
+    </c>
+    <c span="6.." span-s="row" js-s="center" as="center">
+        <label><span>Left</span></label>
+        <input type="text" placeholder="Name">
+        <label><span>Right</span></label>
     </c>
 </grid>
 
