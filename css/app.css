@@ -18,6 +18,8 @@ a, a:hover { text-decoration: none; }
 /* ------------------
   media query
 ------------------ */
+@media (prefers-reduced-motion: reduce) {} /* User prefers NO motion-based animation */
+
 /*** Detect OS Dark/Light mode */
 @media (prefers-color-scheme: dark) {} /* if OS in DARK mode */
 @media (prefers-color-scheme: light) {} /* if OS in LIGHT mode */
