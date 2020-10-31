@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! Skelet. v3.1.17 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.1.18 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -423,6 +423,7 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
     display: flex;
     flex: none;
     flex-flow: row nowrap;
+    column-gap: var(--scrollMargin);
     justify-content: var(--scrollJustify);
     align-items: var(--scrollAlign);
     white-space: nowrap;
@@ -873,13 +874,15 @@ grid {
     display: grid;
     grid-row-gap: var(--rowGap, 2rem);
     grid-column-gap: var(--columnGap, 1rem);
+    row-gap: var(--rowGap, 2rem);
+    column-gap: var(--columnGap, 1rem);
     grid-template-columns: var(--grid-tc); /* default columns */ 
     --grid-tc: repeat(4, 1fr);
     --grid-cs: 1; /* column start */
     --grid-ce: -1 /* column end */
 }
 
-grid.compact { grid-row-gap: 0; }
+grid.compact { grid-row-gap: 0; row-gap: 0; }
 grid > c > img, grid > c > p > img { -o-object-fit: contain; object-fit: contain; max-width: 100% }
 
 /* c -- cell or column */
