@@ -418,14 +418,14 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
     --scrollAlign: center;
     --scrollMargin: 1rem;
     --scrollStop: normal;
-    --scrollJustify: start;
-    --scrollAlign: center;
+    --scrollJustifyContent: start;
+    --scrollAlignItems: center;
     display: flex;
     flex: none;
     flex-flow: row nowrap;
     column-gap: var(--scrollMargin);
-    justify-content: var(--scrollJustify);
-    align-items: var(--scrollAlign);
+    justify-content: var(--scrollJustifyContent);
+    align-items: var(--scrollAlignItems);
     white-space: nowrap;
     font-size: 0;
     overflow: auto;
@@ -437,7 +437,7 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
     scroll-snap-stop: var(--scrollStop);
     scroll-snap-type: var(--scrollDirection) var(--scrollType);
 }
-.scroll-snap > * { width: 100%; flex: none; scroll-snap-align: var(--scrollAlign); }
+.scroll-snap > * { width: auto; flex: none; scroll-snap-align: var(--scrollAlign); }
 .scroll-snap.y { --scrollDirection: y; } /* default */
 .scroll-snap.x { --scrollDirection: x; }
 .scroll-snap.mandatory { --scrollType: mandatory; } /* default */
