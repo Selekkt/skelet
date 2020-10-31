@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! Skelet. v3.1.15 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.1.17 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -406,6 +406,45 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 
 @media only screen and (max-width: 600px) { .large-only, .only-large  { display: none!important; } }
 @media only screen and (min-width: 601px) { .small-only, .only-small  { display: none!important; } }
+
+.no-scrollbars { scrollbar-width: none; -ms-overflow-style: none; -moz-scrollbars-none; }
+.no-scrollbars::-webkit-scrollbar { display: none; }
+@media only screen and (max-width: 600px) { .no-scrollbars-s { scrollbar-width: none; -ms-overflow-style: none; -moz-scrollbars-none; } .no-scrollbars-s::-webkit-scrollbar { display: none; } }
+@media only screen and (min-width: 1599px) { .no-scrollbars-l { scrollbar-width: none; -ms-overflow-style: none; -moz-scrollbars-none; } .no-scrollbars-l::-webkit-scrollbar { display: none; } }
+
+.scroll-snap {
+    --scrollDirection: x;
+    --scrollType: mandatory;
+    --scrollAlign: center;
+    --scrollMargin: 1rem;
+    --scrollStop: normal;
+    --scrollJustify: start;
+    --scrollAlign: center;
+    display: flex;
+    flex: none;
+    flex-flow: row nowrap;
+    justify-content: var(--scrollJustify);
+    align-items: var(--scrollAlign);
+    white-space: nowrap;
+    font-size: 0;
+    overflow: auto;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-points-x: repeat(100%);
+    scroll-margin: var(--scrollMargin);
+    scroll-snap-align: start;
+    scroll-snap-stop: var(--scrollStop);
+    scroll-snap-type: var(--scrollDirection) var(--scrollType);
+}
+.scroll-snap > * { width: 100%; flex: none; scroll-snap-align: var(--scrollAlign); }
+.scroll-snap.y { --scrollDirection: y; } /* default */
+.scroll-snap.x { --scrollDirection: x; }
+.scroll-snap.mandatory { --scrollType: mandatory; } /* default */
+.scroll-snap.proximity { --scrollType: proximity; }
+.scroll-snap.align-center { --scrollAlign: center; } /* default */
+.scroll-snap.align-startEnd { --scrollAlign: start end; }
+.scroll-snap.stop-always { --scrollAlign: center; } /* default */
+.scroll-snap.stop-normal { --scrollAlign: start end; }
 
 /* ------------------
   tooltips
