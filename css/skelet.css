@@ -427,7 +427,6 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
     justify-content: var(--scrollJustifyContent);
     align-items: var(--scrollAlignItems);
     white-space: nowrap;
-    font-size: 0;
     overflow: auto;
     counter-reset: item;
     scroll-behavior: smooth;
