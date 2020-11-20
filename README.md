@@ -10,7 +10,7 @@ Get started quickly with the HTML5 template, or just include skelet.css in your 
 ### Getting started
 
 1. [DOWNLOAD ↓](https://selekkt.dk/help/skelet/) the file.
-2. Unzip master.zip
+2. Unzip skelet-master.zip
 3. Two files to pay attenion to:
 	- `skelet.html` = is the the HTML5 boilerplate
 	- `css/skelet.css` = is the CSS framework
