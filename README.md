@@ -67,4 +67,10 @@ skelet/
 #### Skelet. is also available as themes for [Grav →](https://selekkt.dk/git/grav-skelet) and [WordPress →](https://selekkt.dk/git/wp-skelet)
 
 ---
+
+### Built something you're proud of using Skelet.?
+[Submit →](https://selekkt.dk/git/skelet/issues)
+
+
+---
 [![](https://data.jsdelivr.com/v1/package/npm/selekkt-skelet/badge)](https://www.jsdelivr.com/package/npm/selekkt-skelet)
