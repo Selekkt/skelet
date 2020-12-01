@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! Skelet. v3.1.20 | MIT License | (c) 2020 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.2.0 | MIT License | (c) 2021 Sēlekkt. | https://Selekkt.dk/skelet/v3/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -44,7 +44,8 @@ summary{display:list-item}
     /* Typography */
     --fontFamily: "Inter", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
     --fontFamilyVar: "Inter var", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
-    
+    --fontFamilyHeadings: var(--fontFamily);
+
     --fontSize: 1.7rem;
     --fontLine: 1.6;
     --fontWeight: 400;
@@ -57,8 +58,7 @@ summary{display:list-item}
     --h6Size: 1.8rem;
 
     --hWeight: 600;
-    
-    /* Line height of Headins */
+
     --hLine: 1.5;
     --h1Line: var(--hLine);
     --h2Line: var(--hLine);
@@ -75,6 +75,7 @@ summary{display:list-item}
     --hrMargin: calc(var(--margin) * 5);
     --pMargin: var(--margin);
 
+    /* @for input/textarea/tables etc. */
     --boxPadding: var(--padding);
     --boxMargin: var(--margin);
     --boxRadius: var(--radius);
@@ -134,7 +135,7 @@ summary{display:list-item}
     --boxBorderHover: #BABABA;
     --boxBorderActive: var(--primary);
     --boxBgColor: #fefefe;
-    --boxPlaceholderColor: var(--color); /* placeholder color */
+    --boxPlaceholderColor: var(--color);
 
     /* @for checkbox/radio/.switch */
     --boxActive: var(--primary);
@@ -219,7 +220,7 @@ main { flex: 1; }
   typography
 ------------------ */
 h1, h2, h3, h4, h5, h6, 
-.h1,.h2,.h3,.h4,.h5,.h6 { color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem; font-size: var(--hSize); font-weight: var(--hWeight); line-height: var(--hLine); }
+.h1,.h2,.h3,.h4,.h5,.h6 { font-family: var(--fontFamilyHeadings); font-size: var(--hSize); font-weight: var(--hWeight); line-height: var(--hLine); color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem;  }
 
 h1,.h1 { --hSize: var(--h1Size); --hLine: var(--h1Line); }
 h2,.h2 { --hSize: var(--h2Size); --hLine: var(--h2Line); }
