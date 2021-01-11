@@ -1,4 +1,4 @@
-/*! Skelet. v3.2.1 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.2.2 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -121,6 +121,9 @@ summary{display:list-item}
     --tooltipBgColor: var(--dark);
     --tooltipColor: var(--white);
 
+    --scrollbarTrack: #232323;
+    --scrollbarThumb: #fff;
+
     /** These colors
       DO change in dark mode */
     --bgColor: #FFFFFF;
@@ -200,6 +203,11 @@ figure {margin:0}
 /* ------------------
   basics
 ------------------ */
+* { scrollbar-width: auto; scrollbar-color: var(--scrollbarThumb) var(--scrollbarTrakc); }
+::-webkit-scrollbar { width: var(--scrollbarWidth, 2rem); }
+::-webkit-scrollbar-track { background: var(--scrollbarTrack); }
+::-webkit-scrollbar-thumb { background-color: var(--scrollbarThumb); border-radius: 6px; border: 3px solid var(--scrollbarTrack) }
+
 html { height: 100%; font-size: 62.5%; scroll-behavior: smooth; }
 
 body {
@@ -768,6 +776,7 @@ input[type="week"],
 input[inputmode],
 select, 
 textarea {
+    width: 100%;
     padding: var(--boxPadding);
     color: var(--boxColor);
     background-color: var(--boxBgColor);
