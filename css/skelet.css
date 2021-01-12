@@ -121,7 +121,7 @@ summary{display:list-item}
     --tooltipBgColor: var(--dark);
     --tooltipColor: var(--white);
 
-    --scrollbarTrack: #232323;
+    --scrollbarTrack: #181818;
     --scrollbarThumb: #fff;
 
     /** These colors
@@ -203,7 +203,7 @@ figure {margin:0}
 /* ------------------
   basics
 ------------------ */
-* { scrollbar-width: auto; scrollbar-color: var(--scrollbarThumb) var(--scrollbarTrakc); }
+* { scrollbar-width: auto; scrollbar-color: var(--scrollbarThumb) var(--scrollbarTrack); }
 ::-webkit-scrollbar { width: var(--scrollbarWidth, 2rem); }
 ::-webkit-scrollbar-track { background: var(--scrollbarTrack); }
 ::-webkit-scrollbar-thumb { background-color: var(--scrollbarThumb); border-radius: 6px; border: 3px solid var(--scrollbarTrack) }
