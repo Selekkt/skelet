@@ -108,8 +108,8 @@ summary{display:list-item}
     --yellow: #FDBC40;
     --red: #FC615D;
     --blue: #007FFF;
-    --white: #FFFFFF;
-    --black: #000000;
+    --white: #FFF;
+    --black: #000;
     --light: #efefef;
     --dark: #181818;
     --shadow: rgba(10, 10, 10, 0.1);
@@ -122,13 +122,13 @@ summary{display:list-item}
     --tooltipColor: var(--white);
 
     --scrollbarTrack: #181818;
-    --scrollbarThumb: #fff;
+    --scrollbarThumb: #FFF;
 
     /** These colors
       DO change in dark mode */
-    --bgColor: #FFFFFF;
-    --color: #000000;
-    --colorInverse: #FFFFFF;
+    --bgColor: #FFF;
+    --color: #000;
+    --colorInverse: #FFF;
     --colorHeadings: var(--color);
 
     /* @for input/textarea/tables etc. */
@@ -151,8 +151,8 @@ summary{display:list-item}
     --buttonBorderColor: currentColor;
     --buttonBorderHover: currentColor;
 
-    --selectionBg: rgba(0,0,0,.99);
-    --selectionText: #FFFFFF;
+    --selectionBg: rgba(0,0,0,.98);
+    --selectionText: #FFF;
 
     --codeColor: #0000ff;
     --codeBgColor: #f8f8f8;
@@ -163,16 +163,16 @@ summary{display:list-item}
 /*** Dark Mode */
 [dark-mode], [data-mode="dark"],
 #dark-mode, .dark-mode {
-    --bgColor: #000000;
-    --color: #FFFFFF;
-    --colorInverse: #000000;
+    --bgColor: #000;
+    --color: #FFF;
+    --colorInverse: #000;
     --colorHeadings: var(--color);
     --boxPlaceholderColor: var(--color);
 
     --boxColor: var(--color);
     --boxBorderColor: #232323;
-    --boxBorderHover: #444444;
-    --boxBgColor: #111111;
+    --boxBorderHover: #444;
+    --boxBgColor: #111;
     --boxPlaceholderColor: var(--color);
 
     --buttonColor: var(--color);
@@ -184,7 +184,7 @@ summary{display:list-item}
     --selectionText: #000;
 
     --codeColor: #00F900;
-    --codeBgColor: #111111;
+    --codeBgColor: #111;
 
     --hrColor: rgba(0, 0, 0, 0);
 }
@@ -204,9 +204,9 @@ figure {margin:0}
   basics
 ------------------ */
 * { scrollbar-width: auto; scrollbar-color: var(--scrollbarThumb) var(--scrollbarTrack); }
-::-webkit-scrollbar { width: var(--scrollbarWidth, 2rem); }
+::-webkit-scrollbar { width: var(--scrollbarWidth, 1.7rem); }
 ::-webkit-scrollbar-track { background: var(--scrollbarTrack); }
-::-webkit-scrollbar-thumb { background-color: var(--scrollbarThumb); border-radius: 6px; border: 3px solid var(--scrollbarTrack) }
+::-webkit-scrollbar-thumb { background-color: var(--scrollbarThumb); border-radius: 100vw; border: 3px solid var(--scrollbarTrack); }
 
 html { height: 100%; font-size: 62.5%; scroll-behavior: smooth; }
 
