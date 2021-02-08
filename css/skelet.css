@@ -1,4 +1,4 @@
-/*! Skelet. v3.2.2 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.2.3 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *, html, body { box-sizing: border-box; }
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -43,10 +43,11 @@ summary{display:list-item}
     /* Typography */
     --fontFamily: "Inter", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
     --fontFamilyVar: "Inter var", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
-    --fontFamilyHeadings: var(--fontFamily);
+    --hFontFamily: var(--fontFamily);
 
     --fontSize: 1.7rem;
     --fontLine: 1.6;
+    --fontSpace: normal;
     --fontWeight: 400;
 
     --h1Size: 5.0rem;
@@ -56,6 +57,7 @@ summary{display:list-item}
     --h5Size: 2.4rem;
     --h6Size: 1.8rem;
 
+    --hSpace: normal;
     --hWeight: 600;
 
     --hLine: 1.5;
@@ -67,7 +69,7 @@ summary{display:list-item}
     --h6Line: var(--hLine);
 
     --padding: 1rem;
-    --margin: 0.5rem;
+    --margin: 1.5rem;
     --radius: 0.5rem;
     --borderWidth: 1px;
     --borderStyle: solid;
@@ -103,11 +105,11 @@ summary{display:list-item}
 /** Colors */
     /* These colors DO NOT 
         change in Dark mode */
-    --primary: #007FFF;
+    --primary: #000FFF;
     --green: #34C84A;
     --yellow: #FDBC40;
     --red: #FC615D;
-    --blue: #007FFF;
+    --blue: #000FFF;
     --white: #FFF;
     --black: #000;
     --light: #efefef;
@@ -129,15 +131,17 @@ summary{display:list-item}
     --bgColor: #FFF;
     --color: #000;
     --colorInverse: #FFF;
-    --colorHeadings: var(--color);
+    --hColor: var(--color);
 
     /* @for input/textarea/tables etc. */
-    --boxColor: var(--color);
+    --boxBgColor: #fefefe;
+    --boxBgColorHover: var(--boxBgColor);
+    --boxBgColorActive: var(--boxBgColor);
     --boxBorderColor: #E1E1E1;
     --boxBorderHover: #BABABA;
     --boxBorderActive: var(--primary);
-    --boxBgColor: #fefefe;
-    --boxPlaceholderColor: var(--color);
+    --boxColor: var(--color);
+    --boxPlaceholderColor: var(--boxColor);
 
     /* @for checkbox/radio/.switch */
     --boxActive: var(--primary);
@@ -146,6 +150,7 @@ summary{display:list-item}
 
     /* @for buttons */
     --buttonBgColor: transparent;
+    --buttonBgColorHover: transparent;
     --buttonColor: var(--color);
     --buttonColorHover: var(--color);
     --buttonBorderColor: currentColor;
@@ -157,7 +162,8 @@ summary{display:list-item}
     --codeColor: #0000ff;
     --codeBgColor: #f8f8f8;
 
-    --hrColor: rgba(255, 255, 255, 0);
+    --hrColor: var(--boxBorderColor);
+    --hrGradient: rgba(255, 255, 255, 0);
 }
 
 /*** Dark Mode */
@@ -166,14 +172,16 @@ summary{display:list-item}
     --bgColor: #000;
     --color: #FFF;
     --colorInverse: #000;
-    --colorHeadings: var(--color);
-    --boxPlaceholderColor: var(--color);
+    --hColor: var(--color);
 
-    --boxColor: var(--color);
+    --boxBgColor: #111;
+    --boxBgColorHover: var(--boxBgColor);
+    --boxBgColorActive: var(--boxBgColor);
     --boxBorderColor: #232323;
     --boxBorderHover: #444;
-    --boxBgColor: #111;
-    --boxPlaceholderColor: var(--color);
+    --boxBorderActive: var(--primary);
+    --boxColor: var(--color);
+    --boxPlaceholderColor: var(--boxColor);
 
     --buttonColor: var(--color);
     --buttonColorHover: var(--color);
@@ -186,7 +194,8 @@ summary{display:list-item}
     --codeColor: #00F900;
     --codeBgColor: #111;
 
-    --hrColor: rgba(0, 0, 0, 0);
+    --hrColor: var(--boxBorderColor);
+    --hrGradient: rgba(0, 0, 0, 0);
 }
 
 /* ------------------
@@ -208,13 +217,17 @@ figure {margin:0}
 ::-webkit-scrollbar-track { background: var(--scrollbarTrack); }
 ::-webkit-scrollbar-thumb { background-color: var(--scrollbarThumb); border-radius: 100vw; border: 3px solid var(--scrollbarTrack); }
 
+::selection { background: var(--selectionBg); color: var(--selectionText); }
+::-moz-selection { background: var(--selectionBg); color: var(--selectionText); }
+
 html { height: 100%; font-size: 62.5%; scroll-behavior: smooth; }
 
 body {
-    background-color: var(--bgColor);
+    background: var(--bgColor);
     color: var(--color);
     font-size: var(--fontSize);
     line-height: var(--fontLine);
+    letter-spacing: var(--fontSpace);
     font-weight: var(--fontWeight);
     font-family: var(--fontFamily);
 }
@@ -222,14 +235,19 @@ body {
 #app { display: flex; min-height: 100vh; flex-direction: column; }
 main { flex: 1; }
 
-::selection { background: var(--selectionBg); color: var(--selectionText); }
-::-moz-selection { background: var(--selectionBg); color: var(--selectionText); }
-
 /* ------------------
   typography
 ------------------ */
 h1, h2, h3, h4, h5, h6, 
-.h1,.h2,.h3,.h4,.h5,.h6 { font-family: var(--fontFamilyHeadings); font-size: var(--hSize); font-weight: var(--hWeight); line-height: var(--hLine); color: var(--colorHeadings); margin-top: 0; margin-bottom: 0.7rem;  }
+.h1,.h2,.h3,.h4,.h5,.h6 { 
+    font-family: var(--hFontFamily); 
+    font-size: var(--hSize); 
+    font-weight: var(--hWeight); 
+    line-height: var(--hLine); 
+    letter-spacing: var(--hSpace); 
+    color: var(--hColor); 
+    margin-top: 0; margin-bottom: 0.7rem; 
+}
 
 h1,.h1 { --hSize: var(--h1Size); --hLine: var(--h1Line); }
 h2,.h2 { --hSize: var(--h2Size); --hLine: var(--h2Line); }
@@ -258,15 +276,7 @@ h6,.h6 { --hSize: var(--h6Size); --hLine: var(--h6Line); }
 }
 
 p {margin:var(--pMargin)}
-
-blockquote {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 2rem;
-    line-height: 1.7;
-    padding: 2rem;
-    max-width: 90%;
-    margin: 2rem auto;
-}
+blockquote { max-width: 90%; margin: 2rem auto; font-style: italic; }
 
 a:not(.button) { color: var(--linkColor); cursor: pointer; }
 a:not(.button):hover { color: var(--linkHover); }
@@ -318,19 +328,19 @@ a.no-style { text-decoration: none; }
 }
 
 code {
-    padding: calc(var(--padding) - 0.5rem);
-    margin: var(--margin);
+    padding: calc(var(--boxPadding) - 0.5rem);
+    margin: var(--boxMargin);
     font-size: 90%;
     white-space: nowrap;
     vertical-align: middle;
     background-color: var(--codeBgColor);
     border: 1px solid var(--boxBorderColor);
     color: var(--codeColor);
-    border-radius: var(--radius);
+    border-radius: var(--boxRadius);
     overflow: auto;
 }
 
-pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre; }
+pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: pre; }
 
 /* ------------------
   utilities
@@ -350,6 +360,7 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 .text-center { text-align: center; }
 .text-end { text-align: end; }
 .text-justify { text-align: justify; }
+.text-normal { font-weight: 400; }
 
 .float-right { float: right; }
 .float-left { float: left; }
@@ -446,7 +457,7 @@ pre > code { display: block; padding: calc(var(--padding) * 1); white-space: pre
 @media (min-width: 1024px) { .center-axyz-m, .center-axys-m { display: flex; align-items: center; justify-content: center; } .center-axyz-m.full-m, .center-axys-m.full-m { height: 100vh; width: 100%; } }
 @media (min-width: 1599px) { .center-axyz-l, .center-axys-l { display: flex; align-items: center; justify-content: center; } .center-axyz-l.full-l, .center-axys-l.full-l { height: 100vh; width: 100%; } }
 
-.mob-scroller { display: flex; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+.mob-scroller { display: flex; flex-wrap: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
 @media (max-width: 1024px) { .mob-scroller::-webkit-scrollbar { display:none } }
 
 @media (max-width: 600px) { .large-only, .only-large  { display:none!important } }
@@ -612,6 +623,7 @@ input[type="reset"]:focus,
 input[type="button"]:focus {
     color: var(--buttonColorHover);
     border-color: var(--buttonBorderHover);
+    background: var(--buttonBgColorHover);
     opacity: 0.9;
     outline: 0; 
 }
@@ -780,8 +792,9 @@ textarea {
     padding: var(--boxPadding);
     color: var(--boxColor);
     background-color: var(--boxBgColor);
-    border: 1px solid var(--boxBorderColor);
-    border-radius: var(--radius);
+    border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxBorderColor);
+    border-radius: var(--boxRadius);
+    font-size: var(--boxFontSize);
     box-shadow: none;
     box-sizing: border-box;
     transition: border 0.15s ease-in-out;
@@ -805,9 +818,10 @@ input[type="text"]:hover,
 input[type="time"]:hover, 
 input[type="url"]:hover, 
 input[type="week"]:hover,
-input[inputmode],
+input[inputmode]:hover,
 select:hover,
 textarea:hover {
+    background-color: var(--boxBgColorHover);
     border: 1px solid var(--boxBorderHover);
     outline: 0;
 }
@@ -829,6 +843,7 @@ input[type="week"]:focus,
 input[inputmode]:focus,
 select:focus, 
 textarea:focus {
+    background-color: var(--boxBgColorActive);
     border: 1px solid var(--boxBorderActive);
     outline: 0; 
 }
@@ -891,10 +906,10 @@ ul.outside,ol.outside {list-style-position:outside}
 /* ---------------------
   hr - horizontal rules
 --------------------- */
-hr { margin: var(--hrMargin) auto; background-color: var(--boxBorderColor); border: 0 none; width: 95%; }
+hr { margin: var(--hrMargin) auto; background-color: var(--hrColor); border: 0 none; width: 95%; }
 hr:not([size]) { height: 1px; }
 hr.full { width: 100%; }
-hr.gradient { background-color: transparent; background-image: linear-gradient(to right, var(--hrColor) 0%, var(--boxBorderColor) 50%, var(--hrColor) 100%); }
+hr.gradient { background-color: transparent; background-image: linear-gradient(to right, var(--hrGradient) 0%, var(--hrColor) 50%, var(--hrGradient) 100%); }
 
 /* Line w/ text: --- text --- */
 .text-hr { display: flex; align-items: center; text-align: center; margin: calc(var(--margin) * 5) auto; }
