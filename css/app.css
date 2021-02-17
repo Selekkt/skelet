@@ -1,20 +1,13 @@
 /*** app.css */
 
-/* ------------------
-  CSS variables
------------------- */
+/*** CSS variables */
 :root { 
 	
 }
 
-/* ------------------
-  General styles
------------------- */
-/*** If Variable fonts are supported */
-@supports (font-variation-settings: normal) { :root { --fontFamily: var(--fontFamilyVar); } }
-
-/*** Links */
+@supports (font-variation-settings: normal) { :root { --fontFamily: var(--fontFamilyVar); } } /* If Variable fonts are supported */
 a, a:hover { text-decoration: none; } /* remove underline from links */
+
 
 /* ------------------
   media query
