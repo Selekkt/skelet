@@ -74,7 +74,7 @@ summary{display:list-item}
     --borderWidth: 1px;
     --borderStyle: solid;
     --hrMargin: calc(var(--margin) * 5);
-    --pMargin: var(--margin);
+    --pMargin: var(--margin) 0;
 
     /* @for input/textarea/tables etc. */
     --boxPadding: var(--padding);
@@ -146,12 +146,12 @@ summary{display:list-item}
     --boxFocus: 2px rgba(41, 145, 248, .3);
 
     /* @for buttons */
-    --buttonBgColor: transparent;
-    --buttonBgColorHover: transparent;
+    --buttonBgColor: var(--primary);
+    --buttonBgColorHover: var(--primary);
     --buttonColor: var(--color);
     --buttonColorHover: var(--color);
-    --buttonBorderColor: currentColor;
-    --buttonBorderHover: currentColor;
+    --buttonBorderColor: transparent;
+    --buttonBorderHover: transparent;
 
     --selectionBg: rgba(0,0,0,.98);
     --selectionText: #FFF;
@@ -182,8 +182,8 @@ summary{display:list-item}
 
     --buttonColor: var(--color);
     --buttonColorHover: var(--color);
-    --buttonBorderColor: currentColor;
-    --buttonBorderHover: currentColor;
+    --buttonBorderColor: transparent;
+    --buttonBorderHover: transparent;
 
     --selectionBg: rgba(255,255,255,.99);
     --selectionText: #000;
@@ -204,7 +204,7 @@ img,svg,video,canvas,audio,iframe,embed,object,dd { display: block; vertical-ali
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0}
-[hidden], template, iframe {display:none}
+[hidden], template, iframe {display:none!important}
 
 /* ------------------
   basics
