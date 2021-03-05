@@ -629,20 +629,20 @@ button, .button { vertical-align: baseline; }
 button[class*="is-"], .button[class*="is-"] { border-color: transparent; }
 button[class*="is-"]:hover, .button[class*="is-"]:hover { border-color: transparent; } 
 
-button.is-white,.button.is-white  { --buttonBgColor: var(--white); --buttonColor: var(--black); }
-button.is-light,.button.is-light  { --buttonBgColor: var(--light); --buttonColor: var(--dark); }
-button.is-dark,.button.is-dark    { --buttonBgColor: var(--dark); --buttonColor: var(--light); }
-button.is-black,.button.is-black  { --buttonBgColor: var(--black); --buttonColor: var(--white); }
-button.is-blank,.button.is-blank  { --buttonBgColor: none; --buttonColor: var(--color); --buttonBorderColor: none; }
+button.is-white,.button.is-white  { --buttonBgColor: var(--white); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--black); --buttonColorHover: var(--buttonColor); }
+button.is-light,.button.is-light  { --buttonBgColor: var(--light); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--dark); --buttonColorHover: var(--buttonColor); }
+button.is-dark,.button.is-dark    { --buttonBgColor: var(--dark); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--light);  }
+button.is-black,.button.is-black  { --buttonBgColor: var(--black); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--white); }
+button.is-blank,.button.is-blank  { --buttonBgColor: none; --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--color); --buttonBorderColor: none; }
 
 button.is-outline,.button.is-outline { transition: border 0; background: none; border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor); color: var(--buttonColor); }
 button:hover.is-outline,.button:hover.is-outline { color: var(--buttonColorHover); border-color: var(--buttonBorderHover); }
 
-button.is-primary,.button.is-primary  { --buttonBgColor: var(--primary); --buttonColor: var(--white); }
-button.is-green,.button.is-green  { --buttonBgColor: var(--green); --buttonColor: var(--white); }
-button.is-yellow,.button.is-yellow  { --buttonBgColor: var(--yellow); --buttonColor: var(--black); }
-button.is-red,.button.is-red   { --buttonBgColor: var(--red); --buttonColor: var(--white); }
-button.is-blue,.button.is-blue  { --buttonBgColor: var(--blue); --buttonColor: var(--white); }
+button.is-primary,.button.is-primary  { --buttonBgColor: var(--primary); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--white); }
+button.is-green,.button.is-green  { --buttonBgColor: var(--green); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--white); }
+button.is-yellow,.button.is-yellow  { --buttonBgColor: var(--yellow); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--black); --buttonColorHover: var(--buttonColor); }
+button.is-red,.button.is-red   { --buttonBgColor: var(--red); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--white); }
+button.is-blue,.button.is-blue  { --buttonBgColor: var(--blue); --buttonBgColorHover: var(--buttonBgColor); --buttonColor: var(--white); }
 
 button.is-small,.button.is-small { padding: var(--buttonPadding); font-size: 0.9rem; }
 button.is-large,.button.is-large { padding: calc(var(--buttonPadding) * 1); margin: var(--buttonMargin) auto; font-size: 2rem; }
