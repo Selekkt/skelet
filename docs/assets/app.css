@@ -5,26 +5,43 @@
         --hSkelet: 4vw;
         --hHeading: 3.5vw;
         --hTitle: 2.5vw;
-        --buttonFontSize: 1.3rem;
-        --backdropBlur: rgba(255,255,255,.5);
+        --backdropBlur: saturate(180%) blur(10px);
+        --backdropBg: rgba(255,255,255,.7);
+        --scrollbarTrack: #dedede;
+        --scrollbarThumb: #666;
+        --globalBorderColor: #dedede;
+        --globalBg: #eee;
     }
 
     #app { margin: 0 auto 10rem; max-width: 1600px; }
     #intro { margin: 0 var(--percentage); height: 100vh; }
+    #ads { padding-bottom:4rem; }
+    .frame { 
+        border: 1px solid var(--globalBorderColor); 
+        min-height: 350px;
+        height: 100%;
+        border-radius: 2rem; 
+        padding: var(--padding); 
+        margin: var(--padding) 0;
+        background: var(--globalBg);
+    }
+    .frame ul { display: flex; flex-direction: column; flex-grow: 1; height: 100%; }
+    .frame .foot { margin-top:auto; }
+    a:hover { border-bottom: 1px solid currentColor; }
     .start { margin: 5rem var(--percentage); }
-    .loadsection { max-height: 280px; }
-    section { position: relative; padding-bottom: 5rem; border-bottom: 2px solid var(--color); overflow: hidden; }
-    section .meta { padding: 10rem var(--percentage) 12rem; cursor: s-resize; }
+    .loadsection { max-height: 300; }
+    section { position: relative; border-bottom: 2px solid var(--globalBorderColor); overflow: hidden; }
+    section .meta { padding: 5rem var(--percentage); cursor: s-resize; }
     .desc { padding-bottom: 10rem; }
-    section grid { margin: 0 var(--percentage); }
-    section grid grid { margin: 0; }
-    #root-code code { overflow: scroll; max-height: 600px; }
-    nav { position: fixed; left: 0; bottom: 0; z-index: 9999999; margin: 0 auto; text-align: center; font-size: 3rem; width: 100%; border-top: 1px solid currentColor; }
-    nav i { font-size: 3.2rem; vertical-align: bottom; }
-    nav li { padding: var(--padding) calc(var(--padding) * 2) 0; }
-    nav .button.is-large { padding: 0; }
-    .backdrop-blur { background-color: var(--backdropBlur); }
-    @supports ((-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px))) { .backdrop-blur { background-color: var(--backdropBlur); backdrop-filter: blur(5px); } }
+    section x-grid { margin: 0 var(--percentage); }
+    section x-grid x-grid { margin: 0; }
+    x-col p(#ads) { padding: 0; margin:0 ; }
+    #ads p { margin: var(--margin) 0; }
+    .numbers { background: var(--color); display: inline-flex; justify-content: center; align-items: center; color: var(--bgColor); border-radius: 100vh; width: 30px; height: 30px; }
+    #root-code code { overflow:hidden; max-height:600px}
+    #root-code code:hover { overflow:scroll; }
+    nav { position: fixed; left: 0; bottom: 0; z-index: 9999999; margin: 0 auto; text-align: center; font-size: 2rem; width: 100%; border-top: 1px solid var(--globalBorderColor); }
+    .backdrop { background: var(--backdropBg); -webkit-backdrop-filter: var(--backdropBlur); backdrop-filter: var(--backdropBlur); }
     .skelet { font-size: var(--hSkelet); }
     .heading { font-size: var(--hHeading); letter-spacing: 0 }
     .title { font-size: var(--hTitle); letter-spacing: 0 }
@@ -32,12 +49,26 @@
     #examples a { color: var(--color); }
     .lightswitch { display: block; position: fixed; top: 1.5rem; right: 1.5rem; background-color: var(--color); border-radius: 100%; height: 30px; width: 30px; cursor: pointer; transition: transform 500ms cubic-bezier(0.76, 0, 0.24, 1); transform: scale(0.8); }
     .lightswitch:hover { transform: scale(1); }
-    footer { margin: 5rem var(--percentage); }
+    footer { margin: 5rem var(--percentage) 10rem; }
         footer a { color: var(--color); }
-        footer flex > c { padding-right: 5rem; }
+        footer x-flex > c { padding-right: 5rem; }
+
+    * { scrollbar-width: auto; scrollbar-color: var(--scrollbarThumb) var(--scrollbarTrack); }
+    ::-webkit-scrollbar { width: var(--scrollbarWidth, 1.7rem); }
+    ::-webkit-scrollbar-track { background: var(--scrollbarTrack); }
+    ::-webkit-scrollbar-thumb { background-color: var(--scrollbarThumb); border-radius: 100vw; border: 3px solid var(--scrollbarTrack); }
 
     /* Dark mode */
-    body.dark-mode { --backdropBlur: rgba(0,0,0,.5); }
+    body.dark-mode { 
+        --bgColor: #171B22; 
+        --backdropBg: rgba(23,27,34,.5); 
+        --globalBorderColor: #2C2C2C;
+        --scrollbarTrack: #2C2C2C; 
+        --scrollbarThumb: #6B6B6B;
+        --globalBg: #232323;
+        --tooltipBg: var(--white);
+        --tooltipColor: var(--dark);
+    }
 
     /* Small screen */
     @media (max-width: 600px) { 
@@ -47,7 +78,6 @@
             --hSkelet: 3.5rem;
             --hHeading: 3rem;
             --hTitle: 2.5rem; 
-            --buttonFontSize: 1rem;
         } 
 
         .closed { max-height: 360px; }

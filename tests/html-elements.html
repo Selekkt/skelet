@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HTML5 Test Page</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
     <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
   </head>
@@ -88,7 +89,7 @@
               <blockquote>
                 <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
                 <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-                <cite><a href="#!">Said no one, ever.</a></cite>
+                <x-colite><a href="#!">Said no one, ever.</a></cite>
               </blockquote>
             </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
@@ -227,7 +228,7 @@
               <p><small>This small text is small for for fine print, etc.</small></p>
               <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
               <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
-              <p><cite>This is a citation.</cite></p>
+              <p><x-colite>This is a citation.</cite></p>
               <p>The <dfn>dfn element</dfn> indicates a definition.</p>
               <p>The <mark>mark element</mark> indicates a highlight.</p>
               <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
@@ -276,7 +277,7 @@
           </article>
           <article id="embedded__canvas">
             <header><h2>Canvas</h2></header>
-            <div><canvas>canvas</canvas></div>
+            <div><x-colanvas>canvas</canvas></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__meter">
@@ -291,7 +292,7 @@
           </article>
           <article id="embedded__svg">
             <header><h2>Inline SVG</h2></header>
-            <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+            <div><svg width="100px" height="100px"><x-colircle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__iframe">
@@ -425,33 +426,33 @@
               <legend>Contact form</legend>
 
                 <form>
-                    <grid columns="8">
-                        <c span="1-4" span-s="row">
+                    <x-grid columns="8">
+                        <x-col span="1-4" span-s="row">
                             <label for="exampleEmailInput">Your email</label>
                             <input class="fullwidth" placeholder="example@example.com" id="exampleEmailInput" type="email">
-                        </c>
+                        </x-col>
 
-                        <c span="5.." span-s="row">
+                        <x-col span="5.." span-s="row">
                             <label for="exampleRecipientInput">Reply to</label>
                             <select class="fullwidth" id="exampleRecipientInput">
                                 <option selected="" disabled="" value="Option 1">-- Select --</option>
                                 <option value="Option 2">Sarude</option>
                                 <option value="Option 3">Dancestorm</option>
                             </select>
-                        </c>
-                    </grid>
-                    <grid columns="1">
-                        <c span="row">
+                        </x-col>
+                    </x-grid>
+                    <x-grid columns="1">
+                        <x-col span="row">
                             <label for="exampleMessage">Comment</label>
                             <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
                             <label class="agree-with-terms">
                                 <input type="checkbox"><span>I agree with the term of use</span>
                             </label>
-                        </c>
-                        <c span="row" justify="start">
+                        </x-col>
+                        <x-col span="row" justify="start">
                             <input class="button is-green" value="Comment" type="submit">
-                        </c>
-                    </grid>
+                        </x-col>
+                    </x-grid>
                 </form>
             </fieldset>
             <p><a href="#top">[Top]</a></p>
@@ -460,6 +461,10 @@
               <p>
                 <label for="ic">Color input</label>
                 <input type="color" id="ic" value="#000000">
+              </p>
+              <p>
+                <label for="fi">File input</label>
+                <input id="fi" type="file">
               </p>
               <p>
                 <label for="in">Number input</label>
@@ -494,32 +499,75 @@
             <fieldset id="forms__action">
               <legend>Action buttons</legend>
               <p>
-                <input type="submit" value="<input type=submit>">
-                <input type="button" value="<input type=button>">
-                <input type="reset" value="<input type=reset>">
-                <input type="submit" value="<input disabled>" disabled>
-              </p>
-              <p>
-                <button type="submit" class="is-small">.is-small</button>
-                <button type="submit" class="is-large">.is-large</button>
-                <button type="submit" class="button-x">.button-x</button>
+                  <button>Normal</button>
+                  <button disabled>Button disabled</button>
+                  <hr>
+                  <input type="button" value="input button">
+                  <input type="submit" value="input submit">
+                  <input type="reset" value="input reset">
+                  <input type="reset" value="input disabled" disabled>
+                  <hr>
+                  <button class="is-small">button small</button>
+                  <button class="is-large">button large</button>
+                  <hr>
+                  <button>default</button>
+                  <button class="text-capitalize">button text-capitalize</button>
+                  <button class="text-uppercase">button text-uppercase</button>
+                  <button class="text-lowercase">button text-lowercase</button>
+                  <hr>
+                  <button class="is-blank">button is-blank</button>
+                  <button class="is-outline">button is-outline</button>
+                  <button class="is-square">button is-square</button>
+                  <button class="is-pill">button is-pill</button>
+                  <button class="is-circle has-icon"><i class="fas fa-bomb"></i></button>
+                  <button class="is-outline is-pill">button is-outline is-pill</button>
+                  <hr>
+                  <button class="is-loading"></button>
+                  <button class="is-loading is-yellow"></button>
+                  <button class="is-loading">loading</button>
+                  <button class="is-loading is-outline is-small"></button>
+                  <hr>
+                  <button class="button has-icon">
+                      <i class="fas fa-bold"></i>
+                  </button>
 
-                <button type="submit">&lt;button type=submit&gt;</button>
-                <button type="button">&lt;button type=button&gt;</button>
-                <button type="reset">&lt;button type=reset&gt;</button>
-                <button type="button" disabled>&lt;button disabled&gt;</button>
+                  <button class="button has-icon">
+                      <i class="fab fa-github"></i>
+                      <span>icon + text</span>
+                  </button>
 
-                <a class="button is-white">White</a>
-                <a class="button is-light">Light</a>
-                <a class="button is-dark">Dark</a>
-                <a class="button is-black">Black</a>
-                <a class="button is-link">Link</a>
-                <a class="button is-primary">Primary</a>
-                <a class="button is-green">Success</a>
-                <a class="button is-yellow">Warning</a>
-                <a class="button is-red">Danger</a>
-                <a class="button is-outline">Outline</a>
-                <a class="button is-blank">Blank</a>
+                  <button class="button has-icon">
+                      <span>text + icon</span>
+                      <i class="fab fa-github"></i>
+                  </button>
+                  <hr>
+                  <button class="is-yellow has-shadow">button has-shadow</button>
+                  <button class="is-black is-pill has-shadow">button is-black has-shadow</button>
+                  <button class="is-green is-outline has-shadow">button is-outline has-shadow</button>
+                  <button class="is-circle is-large has-shadow"><i class="fas fa-bold"></i></button>
+                  <hr>
+                  <button class="is-white">button is-white</button>
+                  <button class="is-light">button is-light</button>
+                  <button class="is-black">button is-black</button>
+                  <button class="is-dark">button is-dark</button>
+                  <hr>
+                  <button class="is-primary">button primary</button>
+                  <button class="is-blue">button is-blue</button>
+                  <button class="is-green">button is-green</button>
+                  <button class="is-yellow">button is-yellow</button>
+                  <button class="is-red">button is-red</button>
+                  <hr>
+                  <button class="is-outline is-white">button is-outline is-white</button>
+                  <button class="is-outline is-black">button is-outline is-black</button>
+                  <button class="is-outline is-primary">button is-outline is-primary</button>
+                  <button class="is-outline is-blue">button is-outline is-blue</button>
+                  <button class="is-outline is-outline is-green">button is-outline is-green</button>
+                  <button class="is-outline is-yellow">button is-outline is-yellow</button>
+                  <button class="is-outline is-red">button is-outline is-red</button>
+                  <hr>
+                  <a href="" class="button">a.button</a>
+                  <a href="" class="button disabled">a.button.disabled</a>
+                  <a href="" class="button is-loading is-green">is-loading is-outline is-small</a>
               </p>
             </fieldset>
             <p><a href="#top">[Top]</a></p>
@@ -542,80 +590,80 @@
 
             <style>
                 .box-row { color: var(--white); background-color: var(--primary); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
-                c { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
+                x-col { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
             </style>
 
             <fieldset id="cssgrid">
                 <legend>CSS Grid</legend>
 
-                <grid columns="12" class="debug">
-                  <c span="1..">row</c>
+                <x-grid columns="12" class="debug">
+                  <x-col span="1..">row</x-col>
 
-                  <c span="1-2">1-2</c>
-                  <c span="3..">3..</c>
+                  <x-col span="1-2">1-2</x-col>
+                  <x-col span="3..">3..</x-col>
 
-                  <c span="1-4">1-4</c>
-                  <c span="5..">5..</c>
+                  <x-col span="1-4">1-4</x-col>
+                  <x-col span="5..">5..</x-col>
 
-                  <c span="1-5">1-5</c>
-                  <c span="6..">6..</c>
+                  <x-col span="1-5">1-5</x-col>
+                  <x-col span="6..">6..</x-col>
 
-                  <c span="1-6">1-6</c>
-                  <c span="7..">7..</c>
+                  <x-col span="1-6">1-6</x-col>
+                  <x-col span="7..">7..</x-col>
 
-                  <c span="1-7">1-7</c>
-                  <c span="8..">8..</c>
+                  <x-col span="1-7">1-7</x-col>
+                  <x-col span="8..">8..</x-col>
 
-                  <c span="1-8">1-8</c>
-                  <c span="9..">9..</c>
-                </grid>
+                  <x-col span="1-8">1-8</x-col>
+                  <x-col span="9..">9..</x-col>
+                </x-grid>
 
                 <span class="text-hr">8 columns</span>
 
-                <grid columns="8" class="debug">
-                  <c></c>
-                  <c span="3">3</c>
-                  <c></c>
-                  <c span="7-8">7-8</c>
-                  <c span="2+2">2+2</c>
-                  <c span="5-8">5-8</c>
-                  <c span="1-4">1-4</c>
-                  <c span="6..">6..</c>
-                  <c span="2..">2..</c>
-                  <c span="4..">4..</c>
-                  <c span="1-2">1-2</c>
-                  <c span="4-5">4-5</c>
-                </grid>
+                <x-grid columns="8" class="debug">
+                  <x-col></x-col>
+                  <x-col span="3">3</x-col>
+                  <x-col></x-col>
+                  <x-col span="7-8">7-8</x-col>
+                  <x-col span="2+2">2+2</x-col>
+                  <x-col span="5-8">5-8</x-col>
+                  <x-col span="1-4">1-4</x-col>
+                  <x-col span="6..">6..</x-col>
+                  <x-col span="2..">2..</x-col>
+                  <x-col span="4..">4..</x-col>
+                  <x-col span="1-2">1-2</x-col>
+                  <x-col span="4-5">4-5</x-col>
+                </x-grid>
 
                 <span class="text-hr">6 columns</span>
 
-                <grid columns="6" class="debug">
-                  <c span="2" span-s="row">span 2</c>
-                  <c span="3-6" span-s="row">span 3-6</c>
-                  <c span="1-2" span-s="1">span 1-2</c>
-                  <c span="3.." span-s="2..">span 3..</c>
-                </grid>
+                <x-grid columns="6" class="debug">
+                  <x-col span="2" span-s="row">span 2</x-col>
+                  <x-col span="3-6" span-s="row">span 3-6</x-col>
+                  <x-col span="1-2" span-s="1">span 1-2</x-col>
+                  <x-col span="3.." span-s="2..">span 3..</x-col>
+                </x-grid>
 
                 <span class="text-hr">Fluid grid</span>
                 
-                <grid columns="fill" min="300" class="debug">
-                  <c>Box 1</c>
-                  <c>Box 2</c>
-                  <c>Box 3</c>
-                  <c>Box 4</c>
-                  <c span="row">Box 5</c>
-                </grid>
+                <x-grid columns="fill" min="300" class="debug">
+                  <x-col>Box 1</x-col>
+                  <x-col>Box 2</x-col>
+                  <x-col>Box 3</x-col>
+                  <x-col>Box 4</x-col>
+                  <x-col span="row">Box 5</x-col>
+                </x-grid>
 
                 <span class="text-hr">Site layout</span>
 
-                <grid columns="8" class="debug">
-                  <c span="row">Head</c>
-                  <c span="1-5">Main</c>
-                  <c span="6..">Sidebar</c>
-                  <c span="row">Footer</c>
-                </grid>
+                <x-grid columns="8" class="debug">
+                  <x-col span="row">Head</x-col>
+                  <x-col span="1-5">Main</x-col>
+                  <x-col span="6..">Sidebar</x-col>
+                  <x-col span="row">Footer</x-col>
+                </x-grid>
 
-                <span class="text-hr">Grid not inside <grid></span>
+                <span class="text-hr">Grid not inside x-grid</span>
                 <style>
                     .grid {
                   display: grid;

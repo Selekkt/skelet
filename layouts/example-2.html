@@ -28,7 +28,8 @@
     <link rel="apple-touch-icon-precomposed" href="img/touch.png">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.0.0/css/skelet.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.3.0/css/skelet.min.css">
+
 
     <style>
         :root { 
@@ -40,6 +41,8 @@
 
         #app { padding: var(--siteMarg); max-width: 1600px; margin: 0 auto; }
         .logo { font-size: var(--hHeading); letter-spacing: 0 font-size: 5rem; line-height: 1; font-weight: 800 }
+
+        .space1 { display: block; width: 100%; margin: 5vw auto;}
 
         @media (max-width: 600px) { 
             :root {
@@ -54,23 +57,23 @@
 <body>
 <div id="app">
     <main>
-        <grid columns="1">
-            <c span="row">
+        <x-grid columns="1">
+            <x-col span="row">
                 <div class="logo">Coming Soon</div>
                 <div class="logo">Komt Binnenkort</div>
                 <div class="logo">Kommer Snart</div>
-            </c>
-        </grid>
+            </x-col>
+        </x-grid>
 
         <span class="space1"></span>
 
-        <grid columns="4" columns-s="3">
-            <c span="2+1" span-s="1">We're currently working on something fantastic. We'll be here soon.</c>
-            <c span="1">We werken momenteel aan iets fantastisch. We zijn er zo.</c>
-            <c span="1">Vi arbejder i øjeblikket på noget fantastisk. Vi er her snart.</c>
-        </grid>
+        <x-grid columns="4" columns-s="3">
+            <x-col span="2+1" span-s="1">We're currently working on something fantastic. We'll be here soon.</x-col>
+            <x-col span="1">We werken momenteel aan iets fantastisch. We zijn er zo.</x-col>
+            <x-col span="1">Vi arbejder i øjeblikket på noget fantastisk. Vi er her snart.</x-col>
+        </x-grid>
     </main>
-    <footer class="text-right"><a href="https://selekkt.dk/skelet/" class="button is-blank">built with Skelet.</a></footer>
+    <footer class="text-end"><a href="https://selekkt.dk/skelet/" class="button is-black">built with Skelet.</a></footer>
 </div>
 
 </body>

@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon-precomposed" href="img/touch.png">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.0.0/css/skelet.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.3.0/css/skelet.min.css">
 
     <style>
         :root { 
@@ -40,13 +40,15 @@
         #app { padding: 2rem var(--siteMarg); max-width: 1600px; margin: 0 auto; }
         .h1 { font-size: var(--hHeading); letter-spacing: 0 }
 
+        .space4 { display: block; width: 100%; margin: 2vw auto;}
+
         @media (max-width: 600px) { 
             :root {
                 --fontSize: 1.3rem; 
                 --hHeading: 2.8rem;
                 --siteMarg: 2rem;
             }
-            flex > c { max-width: 100%; }
+            x-flex > x-col { max-width: 100%; }
         }
     </style>
 
@@ -54,32 +56,32 @@
 <body data-mode="dark">
 <div id="app">
     <main>
-        <grid columns="3">
-            <c span="1">Skelet.</c>
-            <c span="1">Sēlekkt.</c>
-            <c span="1">2020</c>
+        <x-grid columns="3">
+            <x-col span="1">Skelet.</x-col>
+            <x-col span="1">Sēlekkt.</x-col>
+            <x-col span="1">2020</x-col>
 
-            <c span="1"><h2 class="h1">CSS</h2></c>
-            <c span="1"><h2 class="h1">HTML</h2></c>
-            <c span="1"><h2 class="h1">Framework</h2></c>
-        </grid>
+            <x-col span="1"><h2 class="h1">CSS</h2></x-col>
+            <x-col span="1"><h2 class="h1">HTML</h2></x-col>
+            <x-col span="1"><h2 class="h1">Framework</h2></x-col>
+        </x-grid>
 
-        <grid columns="3">
-            <c span="1"><p>Skelet. is a contemporary CSS framework which gives you the foundations to start building your next project right away.</p></c>
-            <c span="3+1"><p>Skelet. provides a simple, minimal yet solid starting point for websites. Get started quickly with the HTML5 template, or just include skelet.css in your own project.</p></c>
-        </grid>
+        <x-grid columns="3">
+            <x-col span="1"><p>Skelet. is a contemporary CSS framework which gives you the foundations to start building your next project right away.</p></x-col>
+            <x-col span="3+1"><p>Skelet. provides a simple, minimal yet solid starting point for websites. Get started quickly with the HTML5 template, or just include skelet.css in your own project.</p></x-col>
+        </x-grid>
 
         <span class="space4">&nbsp;</span>
 
-        <grid columns="3">
-            <c span="1"><h2 class="h1">Grav</h2></c>
-            <c span="3+1"><h2 class="h1">WordPress</h2></c>
-            <c span="1"><p>Skelet. is also available as blank, barebone theme for WordPress. It's the perfect way to build your next website more quickly and efficiently using your favorite CMS.</p></c>
-            <c span="3+1"><p>Skelet. is also available as blank, barebone theme for Grav. It's the perfect way to build your next website more quickly and efficiently using your favorite CMS.</p></c>
-        </grid>
+        <x-grid columns="3">
+            <x-col span="1"><h2 class="h1">Grav</h2></x-col>
+            <x-col span="3+1"><h2 class="h1">WordPress</h2></x-col>
+            <x-col span="1"><p>Skelet. is also available as blank, barebone theme for WordPress. It's the perfect way to build your next website more quickly and efficiently using your favorite CMS.</p></x-col>
+            <x-col span="3+1"><p>Skelet. is also available as blank, barebone theme for Grav. It's the perfect way to build your next website more quickly and efficiently using your favorite CMS.</p></x-col>
+        </x-grid>
     </main>
 
-    <footer class="text-right"><a href="https://selekkt.dk/skelet/" class="button is-blank">built with Skelet.</a></footer>
+    <footer class="text-end"><a href="https://selekkt.dk/skelet/" class="button is-white">built with Skelet.</a></footer>
 </div>
 
 </body>

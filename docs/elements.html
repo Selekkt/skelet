@@ -1,5 +1,5 @@
-<grid columns="3" columns-s="1">
-    <c>
+<x-grid columns="3" columns-s="1">
+    <x-col>
         <fieldset>
             <legend>Checkboxes</legend>
 
@@ -22,9 +22,9 @@
                 </li>
             </ul>
         </fieldset>
-    </c>
+    </x-col>
 
-    <c>
+    <x-col>
         <fieldset>
             <legend>Radio buttons</legend>
 
@@ -47,9 +47,9 @@
                 </li>
             </ul>
         </fieldset>
-    </c>
+    </x-col>
 
-    <c>
+    <x-col>
         <fieldset>
             <legend>Switch</legend>
 
@@ -74,146 +74,242 @@
             <span class="text-hr" style="margin-bottom:1rem">Turn checkbox into switch</span>
             <p><code>&lt;input type="checkbox" class="switch"&gt;</code></p>
         </fieldset>
-    </c>
-</grid>
+    </x-col>
+</x-grid>
 
-<grid columns="8">
-    <c span="row">
+<x-grid columns="8">
+    <x-col span="row">
         <fieldset>
             <legend>Contact form</legend>
             <form>
-                <grid columns="8" class="margin20">
-                    <c span="1-4" span-s="row">
+                <x-grid columns="8" class="margin20">
+                    <x-col span="1-4" span-s="row">
                         <label for="exampleEmailInput">Your email</label>
-                        <input class="fullwidth" placeholder="skelet@example.com" id="exampleEmailInput" type="email">
-                    </c>
+                        <input class="fullwidth" placeholder="your@email.address" id="exampleEmailInput" type="email">
+                    </x-col>
 
-                    <c span="5.." span-s="row">
+                    <x-col span="5.." span-s="row">
                         <label for="exampleRecipientInput">Subject</label>
                         <select class="fullwidth" id="exampleRecipientInput">
                             <option selected="" disabled="" value="Option 1">-- Select --</option>
                             <option value="Option 2">Sarude</option>
                             <option value="Option 3">Dancestorm</option>
                         </select>
-                    </c>
-                </grid>
-                <grid>
-                    <c span="row">
+                    </x-col>
+                </x-grid>
+                <x-grid>
+                    <x-col span="row">
                         <label class="float fullwidth" for="exampleMessage">
                             <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
                             <span>Comment</span>
                         </label>
-                    </c>
-                </grid>
-                <grid columns="8" class="margin20">
-                    <c span="1-2" justify="self" style="place-self: center start;">
+                    </x-col>
+                </x-grid>
+                <x-grid columns="8" class="margin20">
+                    <x-col span="1-2" ps="center start">
                         <input class="button is-primary" value="Submit" type="submit">
-                    </c>
-                    <c span="3.." place="self" style="place-self: center end;">
+                    </x-col>
+                    <x-col span="3.." ps="center end">
                         <label>
                             <input type="checkbox"><span>I agree with the term of use</span>
                         </label>
-                    </c>
-                </grid>
+                    </x-col>
+                </x-grid>
             </form>
         </fieldset>
-    </c>
-</grid>
+    </x-col>
+</x-grid>
 
-<grid columns="8" class="margin20">
-    <c span="row"><h3 class="title">Labels</h3></c>
+<x-grid columns="8" class="margin20">
+    <x-col span="row"><h3 class="title">Labels</h3></x-col>
 
-    <c span="row"><span class="text-hr" style="margin-bottom:1rem">Floating label</span></c>
-    <c span="1-4" span-s="row">
+    <x-col span="row"><span class="text-hr" style="margin-bottom:1rem">Floating label</span></x-col>
+    <x-col span="1-4" span-s="row">
 <pre><code>&lt;label class="float"&gt;
 &lt;input type="text" placeholder="Name"&gt;
 &lt;span>Name&lt;/span&gt;
 &lt;/label&gt;</code></pre>
-    </c>
-    <c span="6.." span-s="row" js-s="center" as="center">
+    </x-col>
+    <x-col span="6.." span-s="row" js-s="center" as="center">
         <label class="float">
             <input type="text" placeholder="Name" >
             <span>Name</span>
         </label>
-    </c>
+    </x-col>
 
-    <c span="row"><span class="text-hr" style="margin-bottom:1rem">Inline label</span></c>
-    <c span="1-4" span-s="row">
+    <x-col span="row"><span class="text-hr" style="margin-bottom:1rem">Inline label</span></x-col>
+    <x-col span="1-4" span-s="row">
 <pre><code>&lt;label&gt;&lt;span&gt;Left&lt;/span&gt;&lt;/label&gt;
-&lt;input type="text" placeholder="Name"&gt;
+&lt;input type="text" placeholder="Name" style="width:auto"&gt;
 &lt;label&gt;&lt;span&gt;Right&lt;/span&gt;&lt;/label&gt;</code></pre>
-    </c>
-    <c span="6.." span-s="row" js-s="center" as="center">
+    </x-col>
+    <x-col span="6.." span-s="row" js-s="center" as="center">
         <label><span>Left</span></label>
-        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Name" style="width:auto">
         <label><span>Right</span></label>
-    </c>
-</grid>
+    </x-col>
+</x-grid>
 
-<grid columns="8" class="margin20">
-    <c span="row"><h3 class="title">Action buttons</h3></c>
+<x-grid columns="8" class="margin20">
+    <x-col span="row"><h3 class="title">Action buttons</h3></x-col>
 
-    <c span="1-4"><code>&lt;button&gt;</code></c>
-    <c span="6.."><button>Button</button></c>
+    <x-col span="1-4"><code>&lt;button&gt;</code></x-col>
+    <x-col span="6.."><button>Button</button></x-col>
 
-    <c span="1-4"><code>&lt;button disabled&gt;</code></c>
-    <c span="6.."><button disabled>Disabled</button></c>
+    <x-col span="1-4"><code>&lt;button disabled&gt;</code></x-col>
+    <x-col span="6.."><button disabled>Disabled</button></x-col>
 
-    <c span="1-4"><code>&lt;input type=button&gt;</code></c>
-    <c span="6.."><input type="button" value="Input button" class="is-primary"></c>
+    <x-col span="1-4"><code>&lt;input type=button&gt;</code></x-col>
+    <x-col span="6.."><input type="button" value="Input button" class="is-primary"></x-col>
 
-    <c span="1-4"><code>&lt;button class="is-primary"&gt;</code></c>
-    <c span="6.."><button class="is-primary">Primary</button></c>
+    <x-col span="1-4"><code>&lt;button class="is-primary"&gt;</code></x-col>
+    <x-col span="6.."><button class="is-primary">Primary</button></x-col>
 
-    <c span="1-4"><code>&lt;a href="#" class="button"&gt;</code></c>
-    <c span="6.."><a href="#" class="button">Link</a></c>
-</grid>
+    <x-col span="1-4"><code>&lt;a href="#" class="button"&gt;</code></x-col>
+    <x-col span="6.."><a href="#" class="button">Link</a></x-col>
+</x-grid>
 
-<grid columns="8" class="margin20">
-    <c span="1-4" span-s="6.." class="large-only">
+<x-grid columns="8" class="margin20">
+    <x-col span="1-4" span-s="6.." class="large-only">
         <pre><code>&lt;a class="button is-white"&gt;White&lt;/a&gt;
-&lt;a class="button is-light"&gt;Light&lt;/a&gt;
-&lt;a class="button is-dark"&gt;Dark&lt;/a&gt;
 &lt;a class="button is-black"&gt;Black&lt;/a&gt;
 &lt;a class="button is-link"&gt;Link&lt;/a&gt;</code></pre>
-    </c>
-    <c span="6.." span-s="row" align="self" style="--align-self: center;">
+    </x-col>
+    <x-col span="6.." span-s="row" align="self" style="--align-self: center;">
         <a class="button is-white">White</a>
         <a class="button is-black">Black</a>
-        <a class="button is-light">Light</a>
-        <a class="button is-dark">Dark</a>
         <a class="button is-link">Link</a>
-    </c>
-</grid>
+    </x-col>
+</x-grid>
 
-<grid columns="8" class="margin20">
-    <c span="1-4" span-s="6.." class="large-only">
-        <pre><code>&lt;a class="button is-primary"&gt;Primary&lt;/a&gt;
-&lt;a class="button is-green">Success&lt;/a&gt;
-&lt;a class="button is-yellow">Warning&lt;/a&gt;
-&lt;a class="button is-red">Danger&lt;/a&gt;
-&lt;a class="button is-outline">Outline&lt;/a&gt;
-&lt;a class="button is-blank">Blank&lt;/a&gt;
-&lt;a class="button is-outline is-large">Large&lt;/a&gt;
-&lt;a class="button is-outline is-small">Small&lt;/a&gt;</code></pre>
-    </c>
-    <c span="6.." span-s="row" align="self" style="--align-self: center;">
-        <a class="button is-primary">Primary</a>
-        <a class="button is-green">Success</a>
-        <a class="button is-yellow">Warning</a>
-        <a class="button is-red">Danger</a>
-        <a class="button is-outline">Outline</a>
-        <a class="button is-blank">Blank</a>
+<x-grid columns="8" class="margin20">
+    <x-col span="1-4" span-s="6.." class="large-only">
+        <pre><code>&lt;button&gt;Normal&lt;/button&gt;
+&lt;button disabled&gt;Button disabled&lt;/button&gt;
+&lt;input type=&quot;button&quot; value=&quot;input button&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;input submit&quot;&gt;
+&lt;input type=&quot;reset&quot; value=&quot;input reset&quot;&gt;
+&lt;input type=&quot;reset&quot; value=&quot;input disabled&quot; disabled&gt;
+&lt;button class=&quot;is-small&quot;&gt;button small&lt;/button&gt;
+&lt;button class=&quot;is-large&quot;&gt;button large&lt;/button&gt;
+&lt;button&gt;default&lt;/button&gt;
+&lt;button class=&quot;text-capitalize&quot;&gt;button text-capitalize&lt;/button&gt;
+&lt;button class=&quot;text-uppercase&quot;&gt;button text-uppercase&lt;/button&gt;
+&lt;button class=&quot;text-lowercase&quot;&gt;button text-lowercase&lt;/button&gt;
+&lt;button class=&quot;is-blank&quot;&gt;button is-blank&lt;/button&gt;
+&lt;button class=&quot;is-outline&quot;&gt;button is-outline&lt;/button&gt;
+&lt;button class=&quot;is-square&quot;&gt;button is-square&lt;/button&gt;
+&lt;button class=&quot;is-pill&quot;&gt;button is-pill&lt;/button&gt;
+&lt;button class=&quot;is-circle has-icon&quot;&gt;&lt;i class=&quot;fas fa-bomb&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;is-outline is-pill&quot;&gt;button is-outline is-pill&lt;/button&gt;
+&lt;button class=&quot;is-loading&quot;&gt;&lt;/button&gt;
+&lt;button class=&quot;is-loading is-yellow&quot;&gt;&lt;/button&gt;
+&lt;button class=&quot;is-loading&quot;&gt;loading&lt;/button&gt;
+&lt;button class=&quot;is-loading is-outline is-small&quot;&gt;&lt;/button&gt;
+&lt;button class=&quot;button has-icon&quot;&gt;&lt;i class=&quot;fas fa-bold&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;button has-icon&quot;&gt;&lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;span&gt;icon + text&lt;/span&gt;&lt;/button&gt;
+&lt;button class=&quot;button has-icon&quot;&gt;&lt;span&gt;text + icon&lt;/span&gt;&lt;i class=&quot;fab fa-github&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;is-yellow has-shadow&quot;&gt;button has-shadow&lt;/button&gt;
+&lt;button class=&quot;is-black is-pill has-shadow&quot;&gt;button is-black has-shadow&lt;/button&gt;
+&lt;button class=&quot;is-green is-outline has-shadow&quot;&gt;button is-outline has-shadow&lt;/button&gt;
+&lt;button class=&quot;is-circle is-large has-shadow&quot;&gt;&lt;i class=&quot;fas fa-bold&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;is-white&quot;&gt;button is-white&lt;/button&gt;
+&lt;button class=&quot;is-light&quot;&gt;button is-light&lt;/button&gt;
+&lt;button class=&quot;is-black&quot;&gt;button is-black&lt;/button&gt;
+&lt;button class=&quot;is-dark&quot;&gt;button is-dark&lt;/button&gt;
+&lt;button class=&quot;is-primary&quot;&gt;button primary&lt;/button&gt;
+&lt;button class=&quot;is-blue&quot;&gt;button is-blue&lt;/button&gt;
+&lt;button class=&quot;is-green&quot;&gt;button is-green&lt;/button&gt;
+&lt;button class=&quot;is-yellow&quot;&gt;button is-yellow&lt;/button&gt;
+&lt;button class=&quot;is-red&quot;&gt;button is-red&lt;/button&gt;
+&lt;button class=&quot;is-outline is-white&quot;&gt;button is-outline is-white&lt;/button&gt;
+&lt;button class=&quot;is-outline is-black&quot;&gt;button is-outline is-black&lt;/button&gt;
+&lt;button class=&quot;is-outline is-primary&quot;&gt;button is-outline is-primary&lt;/button&gt;
+&lt;button class=&quot;is-outline is-blue&quot;&gt;button is-outline is-blue&lt;/button&gt;
+&lt;button class=&quot;is-outline is-outline is-green&quot;&gt;button is-outline is-green&lt;/button&gt;
+&lt;button class=&quot;is-outline is-yellow&quot;&gt;button is-outline is-yellow&lt;/button&gt;
+&lt;button class=&quot;is-outline is-red&quot;&gt;button is-outline is-red&lt;/button&gt;
+&lt;a href=&quot;&quot; class=&quot;button&quot;&gt;a.button&lt;/a&gt;
+&lt;a href=&quot;&quot; class=&quot;button disabled&quot;&gt;a.button.disabled&lt;/a&gt;
+&lt;a href=&quot;&quot; class=&quot;button is-loading is-green&quot;&gt;is-loading is-outline is-small&lt;/a&gt;</code></pre>
+    </x-col>
+    <x-col span="6.." span-s="row" as="center">
+        <button>Normal</button>
+        <button disabled>Button disabled</button>
+        <hr>
+        <input type="button" value="input button">
+        <input type="submit" value="input submit">
+        <input type="reset" value="input reset">
+        <input type="reset" value="input disabled" disabled>
+        <hr>
+        <button class="is-small">button small</button>
+        <button class="is-large">button large</button>
+        <hr>
+        <button>default</button>
+        <button class="text-capitalize">button text-capitalize</button>
+        <button class="text-uppercase">button text-uppercase</button>
+        <button class="text-lowercase">button text-lowercase</button>
+        <hr>
+        <button class="is-blank">button is-blank</button>
+        <button class="is-outline">button is-outline</button>
+        <button class="is-square">button is-square</button>
+        <button class="is-pill">button is-pill</button>
+        <button class="is-circle has-icon"><i class="fas fa-bomb"></i></button>
+        <button class="is-outline is-pill">button is-outline is-pill</button>
+        <hr>
+        <button class="is-loading"></button>
+        <button class="is-loading is-yellow"></button>
+        <button class="is-loading">loading</button>
+        <button class="is-loading is-outline is-small"></button>
+        <hr>
+        <button class="button has-icon">
+            <i class="fas fa-bold"></i>
+        </button>
 
-        <a class="button is-outline is-large">Large</a>
-        <a class="button is-outline is-small">Small</a>
-    </c>
-</grid>
+        <button class="button has-icon">
+            <i class="fab fa-github"></i>
+            <span>icon + text</span>
+        </button>
 
-<grid columns="8" class="margin20">
-    <c span="row">
-        <h3 class="title">Lists</h3></c>
-    <c span="1-4" span-s="row">
+        <button class="button has-icon">
+            <span>text + icon</span>
+            <i class="fab fa-github"></i>
+        </button>
+        <hr>
+        <button class="is-yellow has-shadow">button has-shadow</button>
+        <button class="is-black is-pill has-shadow">button is-black has-shadow</button>
+        <button class="is-green is-outline has-shadow">button is-outline has-shadow</button>
+        <button class="is-circle is-large has-shadow"><i class="fas fa-bold"></i></button>
+        <hr>
+        <button class="is-white">button is-white</button>
+        <button class="is-light">button is-light</button>
+        <button class="is-black">button is-black</button>
+        <button class="is-dark">button is-dark</button>
+        <hr>
+        <button class="is-primary">button primary</button>
+        <button class="is-blue">button is-blue</button>
+        <button class="is-green">button is-green</button>
+        <button class="is-yellow">button is-yellow</button>
+        <button class="is-red">button is-red</button>
+        <hr>
+        <button class="is-outline is-white">button is-outline is-white</button>
+        <button class="is-outline is-black">button is-outline is-black</button>
+        <button class="is-outline is-primary">button is-outline is-primary</button>
+        <button class="is-outline is-blue">button is-outline is-blue</button>
+        <button class="is-outline is-outline is-green">button is-outline is-green</button>
+        <button class="is-outline is-yellow">button is-outline is-yellow</button>
+        <button class="is-outline is-red">button is-outline is-red</button>
+        <hr>
+        <a href="" class="button">a.button</a>
+        <a href="" class="button disabled">a.button.disabled</a>
+        <a href="" class="button is-loading is-green">is-loading is-outline is-small</a>
+    </x-col>
+</x-grid>
+
+<x-grid columns="8" class="margin20">
+    <x-col span="row">
+        <h3 class="title">Lists</h3></x-col>
+    <x-col span="1-4" span-s="row">
         <span class="text-hr" style="margin-bottom:1rem">Unordered list</span>
         <p>&nbsp;</p>
         <ul>
@@ -239,8 +335,8 @@
             </li>
             <li>Item 3</li>
         </ol>
-    </c>
-    <c span="5.." span-s="row">
+    </x-col>
+    <x-col span="5.." span-s="row">
         <span class="text-hr" style="margin-bottom:1rem">No style list</span>
         <p>Add<code>.no-style</code> to <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code></p>
 
@@ -265,13 +361,13 @@
             <li>Item 3</li>
             <li>Item 4</li>
         </ul>
-    </c>
-</grid>
+    </x-col>
+</x-grid>
 
-<grid columns="8" class="margin20">
-    <c span="row">
-        <h3 class="title">Tabular data</h3></c>
-    <c span="1-4" span-s="row">
+<x-grid columns="8" class="margin20">
+    <x-col span="row">
+        <h3 class="title">Tabular data</h3></x-col>
+    <x-col span="1-4" span-s="row">
         <table>
             <caption>Default table</caption>
             <thead>
@@ -295,8 +391,8 @@
                 </tr>
             </tbody>
         </table>
-    </c>
-    <c span="5.." span-s="row">
+    </x-col>
+    <x-col span="5.." span-s="row">
         <table class="is-bordered">
             <caption>Bordedered table</caption>
             <thead>
@@ -320,8 +416,8 @@
                 </tr>
             </tbody>
         </table>
-    </c>
-    <c span="row" span-s="row">
+    </x-col>
+    <x-col span="row" span-s="row">
         <table class="is-striped">
             <caption>Striped table</caption>
             <thead>
@@ -355,5 +451,5 @@
                 </tr>
             </tbody>
         </table>
-    </c>
-</grid>
+    </x-col>
+</x-grid>
