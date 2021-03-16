@@ -195,7 +195,7 @@ img,svg,video,canvas,audio,iframe,embed,object,dd { display: block; vertical-ali
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0}
-[hidden], template, iframe {display:none!important}
+[hidden],.hidden {display:none!important}
 [disabled],[disabled]:hover,.disabled { opacity:0.6!important; cursor:not-allowed!important; }
 
 /* ------------------
