@@ -455,11 +455,11 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 @media (max-width: 600px) { .large-only, .only-large  { display:none!important } }
 @media (min-width: 601px) { .small-only, .only-small  { display:none!important } }
 
-.no-scrollbars { scrollbar-width: none; -ms-overflow-style: none; -moz-scrollbars-none; }
+.no-scrollbars { scrollbar-width: none; -ms-overflow-style: none;  }
 .no-scrollbars::-webkit-scrollbar { display:none }
-@media (max-width: 600px) { .no-scrollbars-s { scrollbar-width: none; -ms-overflow-style: none; -moz-scrollbars-none; } .no-scrollbars-s::-webkit-scrollbar { display: none; } }
-@media (min-width: 1024px) { .no-scrollbars-m { scrollbar-width: none; -ms-overflow-style: none; -moz-scrollbars-none; } .no-scrollbars-m::-webkit-scrollbar { display: none; } }
-@media (min-width: 1599px) { .no-scrollbars-l { scrollbar-width: none; -ms-overflow-style: none; -moz-scrollbars-none; } .no-scrollbars-l::-webkit-scrollbar { display: none; } }
+@media (max-width: 600px) { .no-scrollbars-s { scrollbar-width: none; -ms-overflow-style: none;  } .no-scrollbars-s::-webkit-scrollbar { display: none; } }
+@media (min-width: 1024px) { .no-scrollbars-m { scrollbar-width: none; -ms-overflow-style: none;  } .no-scrollbars-m::-webkit-scrollbar { display: none; } }
+@media (min-width: 1599px) { .no-scrollbars-l { scrollbar-width: none; -ms-overflow-style: none;  } .no-scrollbars-l::-webkit-scrollbar { display: none; } }
 
 .scroll-snap {
     --scrollDirection: x;
