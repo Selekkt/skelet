@@ -125,7 +125,7 @@ summary{display:list-item}
     /* @for checkbox/radio/.switch */
     --boxActive: var(--primary);
     --boxActiveInner: var(--white);
-    --boxFocus: rgba(41, 145, 248, .3);
+    --boxFocus: rgba(41, 145, 248, .7);
 
     /* buttons */
     --buttonPadding: 1.3rem;
@@ -261,7 +261,7 @@ a.no-style { text-decoration:none }
 *:focus { outline:0; }
 .a11y *:focus, .a11y a:focus { outline:2px solid -webkit-focus-ring-color; outline-offset:1px; }
 .a11y--custom *:focus { 
-    box-shadow: var(--a11yStyle, 0 0 0 0.2rem) var(--a11yColor, var(--boxFocus)); 
+    box-shadow: var(--a11yStyle, 0 0 0 0.35rem) var(--a11yColor, var(--boxFocus)); 
     /* fallback: Visible in Windows high-contrast themes */
     outline: 2px solid transparent;
 }
