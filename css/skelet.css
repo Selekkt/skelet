@@ -419,7 +419,6 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 @media (min-width: 1024px) { .no-scrollbars-m { scrollbar-width:none; -ms-overflow-style:none; } .no-scrollbars-m::-webkit-scrollbar { display: none; } }
 @media (min-width: 1599px) { .no-scrollbars-l { scrollbar-width:none; -ms-overflow-style:none; } .no-scrollbars-l::-webkit-scrollbar { display: none; } }
 
-
 .scroll-snap {
     --scrollDirection: x;
     --scrollType: mandatory;
