@@ -6,34 +6,35 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta data-framework="Skelet." data-ver="3.1.10" data-dev="Sēlekkt. Studio">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
 
     <title>Example 8</title>
-    <meta name="description" content="Skelet. Example 8">
-    <meta name="author" content="Skelet.">
+    <meta name="description" content="Build with Skelet.css: Example 8">
+    <meta name="author" content="Selekkt.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="">
-    <meta name="twitter:site" content=""> <!-- e.g. @YourSiteUsername -->
-    <meta name="twitter:creator" content=""> <!-- e.g. @AuthorUsername -->
-
     <!-- Facebook OG Tags -->
-    <meta property="og:type" content="">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
     <meta property="og:title" content="">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
     
     <link rel="canonical" href="">
 
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="img/touch.png">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.1.10/css/skelet.min.css"> <!-- include Skelet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.3.0/css/skelet.min.css">
 
     <style>
     :root {
@@ -43,15 +44,16 @@
         --linkHover: #e68d81;
     }
 
-    header { background-color: var(--bgColor); border-bottom: 1px solid var(--color); z-index: 9 }
+    header { background: var(--bgColor); border-bottom: 1px solid var(--color); z-index: 9 }
     header a { text-decoration: none; }
 
-    footer { background-color: #004b54; }
-    footer input { --boxBgColor: var(--bgColor); --boxBorderColor: var(--color); --boxBorderHover: var(--color); --boxBorderActive: var(--linkColor); }
-    footer c { border: 0.5px solid currentColor; border-top: 1px solid currentColor; text-align: start; padding: 3rem; }
-    footer c:first-child { border-left: none; }
-    footer c:last-child { border-right: none; }
+    footer { background: #004b54; }
+    footer input { --boxBg: var(--bgColor); --boxBgHover: var(--boxBg); --boxBgActive: var(--boxBg); --boxBorderColor: var(--color); --boxBorderHover: var(--color); --boxBorderActive: var(--linkColor); }
+    footer x-col { border: 0.5px solid currentColor; border-top: 1px solid currentColor; text-align: start; padding: 3rem; }
+    footer x-col:first-child { border-left: none; }
+    footer x-col:last-child { border-right: none; }
 
+    .space2 { display: block; width: 100%; margin: 7rem auto;}
     .boxPadding { padding: 4rem; }
     .boxFontSize { font-size: clamp(2rem, 2vw, 4rem); }
 
@@ -63,80 +65,80 @@
 <body>
 <div id="app">
     <header class="header">
-        <grid columns="8" pi="center">
-            <c><a href="https://selekkt.dk/skelet/">Shop</a></c>
-            <c><a href="https://selekkt.dk/skelet/">About</a></c>
-            <c span="3-6"><a href="https://selekkt.dk/skelet/"><h1 class="text-center">Skelet.</h1></a></c>
-            <c><a href="https://selekkt.dk/skelet/">Login</a></c>
-            <c><a href="https://selekkt.dk/skelet/">Cart</a></c>
-        </grid>
+        <x-grid columns="8" pi="center">
+            <x-col><a href="https://selekkt.dk/skelet/">Shop</a></x-col>
+            <x-col><a href="https://selekkt.dk/skelet/">About</a></x-col>
+            <x-col span="3-6"><a href="https://selekkt.dk/skelet/"><h1 class="text-center">Skelet.</h1></a></x-col>
+            <x-col><a href="https://selekkt.dk/skelet/">Login</a></x-col>
+            <x-col><a href="https://selekkt.dk/skelet/">Cart</a></x-col>
+        </x-grid>
     </header>
 
     <main role="main">
         <section>
-            <grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
-                <c order-s="2">
-                    <grid columns="2" style="--columnGap: 1px; --rowGap: 1px;">
-                        <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-hands_1024x1024.jpg?v=1568940423" alt="Skelet." loading=lazy></c>
+            <x-grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
+                <x-col order-s="2">
+                    <x-grid columns="2" style="--columnGap: 1px; --rowGap: 1px;">
+                        <x-col><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-hands_1024x1024.jpg?v=1568940423" alt="Skelet." loading=lazy></x-col>
 
-                        <c ps="center">
+                        <x-col ps="center">
                             <h2>Hands</h2>
                             <div class="text-center"><a href="#" class="no-style">shop now &rarr;</a></div>
-                        </c>
+                        </x-col>
  
-                        <c ps="center"><h2>Wash</h2></c>
-                        <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-wash_1024x1024.jpg?v=1568940452" alt="Skelet." loading=lazy></c>
+                        <x-col ps="center"><h2>Wash</h2></x-col>
+                        <x-col><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-wash_1024x1024.jpg?v=1568940452" alt="Skelet." loading=lazy></x-col>
 
-                        <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-hands_1024x1024.jpg?v=1568940423" alt="Skelet." loading=lazy></c>
-                        <c ps="center"><h2>Hands</h2></c>
-                    </grid>
-                </c>
-                <c class="sticky sticky-none-s" ps="start" order-s="1">
+                        <x-col><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-collection-hands_1024x1024.jpg?v=1568940423" alt="Skelet." loading=lazy></x-col>
+                        <x-col ps="center"><h2>Hands</h2></x-col>
+                    </x-grid>
+                </x-col>
+                <x-col class="sticky sticky-none-s" ps="start" order-s="1">
                     <img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-hero-gumnut-bw_1800x1800.jpg?v=1571016790" alt="Skelet." loading=lazy>
-                </c>
-            </grid>
+                </x-col>
+            </x-grid>
         </section>
         <section>
-            <grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
-                <c><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-sq-shelf_1024x1024.jpg?v=1570584477" alt="Skelet." loading=lazy></c>
-                <c ps="center">
+            <x-grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
+                <x-col><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/home-sq-shelf_1024x1024.jpg?v=1570584477" alt="Skelet." loading=lazy></x-col>
+                <x-col ps="center">
                     <div class="boxPadding">
                         <h3 class="space2">Our story</h3>
                         <p class="boxFontSize">The salus range of home spa products has been developed to help you relax and enjoy experiences that calm the mind and nourish the body.</p>
                         <a href="#" class="space2">read more &rarr;</a>
                     </div>
-                </c>
-            </grid>
+                </x-col>
+            </x-grid>
         </section>
 
         <section>
-            <grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
-                <c ps="center" order-s="2">
+            <x-grid columns="2" columns-s="1" style="--columnGap: 1px; --rowGap: 1px;">
+                <x-col ps="center" order-s="2">
                     <div class="boxPadding">
                         <h3 class="space2">Gift cards</h3>
                         <p class="boxFontSize">Salus gift cards are a gift of choice. Along with your personalised message they can be sent via mail or email.</p>
                         <a href="#" class="space2">read more &rarr;</a>
                     </div>
-                </c>
-                <c order-s="1"><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/collection-img-gift-cards_1024x1024.jpg?v=1571098077" alt="Skelet." loading=lazy></c>
-            </grid>
+                </x-col>
+                <x-col order-s="1"><img src="https://cdn.shopify.com/s/files/1/0039/7859/2305/files/collection-img-gift-cards_1024x1024.jpg?v=1571098077" alt="Skelet." loading=lazy></x-col>
+            </x-grid>
         </section>
     </main>
 
     <footer class="text-center">
-       <grid columns="4" columns-s="2" style="--columnGap: 0; --rowGap: 0;" class="text-start">
-        <c>
+       <x-grid columns="4" columns-s="2" style="--columnGap: 0; --rowGap: 0;" class="text-start">
+        <x-col>
             <h4>Newsletter</h4>
             <p>Enter your email address below and receive exclusive Salus offers, free delivery promotions, the latest spa treatment news, spa reviews.</p>
             <form>
                 <input class="fullwidth" type="email" placeholder="Email address" required>
             </form>
-        </c>
-        <c>
+        </x-col>
+        <x-col>
             <h4>Contact Us</h4>
             <p>Spa Pty Ltd<br>PO Box 0000<br>Upper Park, Vic 0000</p>
-        </c>
-        <c>
+        </x-col>
+        <x-col>
             <h4>Shop</h4>
             <ul class="no-style">
                 <li>All Products</li>
@@ -152,9 +154,9 @@
                     <li>Care Packages</li>
                     <li>Gift Cards</li>
                 </ul>
-            </c>
-            <c><h4>About us</h4></c>
-       </grid>
+            </x-col>
+            <x-col><h4>About us</h4></x-col>
+       </x-grid>
     </footer>
 </div>
 

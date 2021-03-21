@@ -5,11 +5,20 @@ Skelet. provides a simple, minimal yet solid starting point for websites.
 
 Get started quickly with the HTML5 template, or just include skelet.css in your own project.
 
+
+---
+
+### ⚠️ Important changes in v3.3.0 
+##### Grids, columns & flex
+>We discovered a compatibility issue with our custom `grid, flex & c` elements. 
+The name of a custom element must contain a dash (-). `<x-grid> <x-flex> & <x-col>` are all valid names, while `<grid> <flex> & <c>` are not. This ensures forward compatibility when new tags are added to HTML. If you want to upgrade you need to make sure you've change your HTML elements with the new ones!
+
+
 ---
 
 ### Getting started
 
-1. [DOWNLOAD ↓](https://selekkt.dk/help/skelet/) the file.
+1. [DOWNLOAD ↓](https://github.com/Selekkt/skelet/archive/master.zip) the file.
 2. Unzip skelet-master.zip
 3. Two files to pay attenion to:
 	- `skelet.html` = is the the HTML5 boilerplate
@@ -23,7 +32,9 @@ If you need `skelet.css`, just add this tag in the `<head>`.
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.min.css">
 ``` 
 
+
 or
+
 
 ``` 
 https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.min.css
@@ -44,7 +55,8 @@ This is the dir structure of Skelet. `docs` & `layouts` could be deleted if not 
 ``` 
 skelet/
 ├── css/
-│   ├── skelet.css (CSS framework)
+│   ├── skelet.css (CSS boilerplate)
+│   ├── skelet.min.css (Skelet. minified)
 │   └── app.css (is where all of your other CSS goes)
 ├── js/
 │   ├── modules.js (is for all of your JS frameworks)
@@ -54,7 +66,7 @@ skelet/
 │   └── touch.png
 ├── LICENSE
 ├── README.md
-└── skelet.html (HTML boilerplate)
+└── skelet.html (HTML5 boilerplate)
 ``` 
 
 ---

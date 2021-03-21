@@ -1,21 +1,39 @@
-<grid columns="8">
-    <c span="1+4" span-s="row">
-        <p>To create a Flexbox, you need a <code>&lt;flex&gt;</code> container</p>
-    </c>
-    <c span="6.." class="large-only"><pre><code>&lt;flex direction=row wrap&gt;
-    &lt;c&gt;Skelet.&lt;/c&gt;
-    &lt;c&gt;by&lt;/c&gt;
-    &lt;c&gt;Sēlekkt.&lt;/c&gt;
-&lt;/flex&gt;</code></pre></c>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="../css/skelet-future.css">
+    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+    
 
-    <c span="row"><hr></c>
 
-    <c span="1+4" span-s="row">
+
+
+
+
+<x-grid columns="8">
+    <x-col span="1+4" span-s="row">
+        <p>To create a Flexbox, you need a <code>&lt;x-flex&gt;</code> container</p>
+    </x-col>
+    <x-col span="6.." class="large-only"><pre><code>&lt;x-flex direction=row wrap=nowrap&gt;
+    &lt;x-col&gt;Skelet.&lt;/c&gt;
+    &lt;x-col&gt;by&lt;/c&gt;
+    &lt;x-col&gt;Sēlekkt.&lt;/c&gt;
+&lt;/x-flex&gt;</code></pre></x-col>
+
+    <x-col span="row"><hr></x-col>
+
+    <x-col span="1+4" span-s="row">
         <h3 class="title">Flex direction</h3>
-        <p>You can decide the direction of your flexbox, if it's going to be a column or a row <code>&lt;flex direction=*&gt;</code></p>
-    </c>
+        <p>You can decide the direction of your flexbox, if it's going to be a column or a row <code>&lt;x-flex direction=*&gt;</code></p>
+    </x-col>
 
-    <c span="6.." class="large-only">
+    <x-col span="6.." class="large-only">
         <span class="text-hr">Available options</span>
         <ul class="no-style">
             <li><code>direction=column</code></li>
@@ -23,28 +41,28 @@
             <li><code>direction=row</code></li>
             <li><code>direction=row-reverse</code></li>
         </ul>
-    </c>
+    </x-col>
 
-    <c span="1+4" span-s="row">
+    <x-col span="1+4" span-s="row">
         <h3 class="title">Wrap</h3>
         <p>Specifies whether flex items are forced into a single line or can be wrapped onto multiple lines. If wrapping is allowed, this property also enables you to control the direction in which lines are stacked. <code>wrap=*</code></p>
-    </c>
+    </x-col>
 
-    <c span="6.." class="large-only">
+    <x-col span="6.." class="large-only">
         <span class="text-hr">Available options</span>
         <ul class="no-style">
             <li><code>wrap</code></li>
             <li><code>wrap=nowrap</code></li>
             <li><code>wrap=reverse</code></li>
         </ul>
-    </c>
+    </x-col>
 
-    <c span="1+4" span-s="row">
+    <x-col span="1+4" span-s="row">
         <h3 class="title">Visual order</h3>
         <p>Specifies the order used to lay out flex items in their flex container. Elements are laid out in the ascending order of the order value. Elements with the same order value are laid out in the order in which they appear in the source code. <code>order=*</code></p>
-    </c>
+    </x-col>
 
-    <c span="6.." class="large-only">
+    <x-col span="6.." class="large-only">
         <span class="text-hr">Available options</span>
         <ul class="no-style">
             <li><code>order=first</code></li>
@@ -56,14 +74,14 @@
             <li><code>order-l=first</code></li>
             <li><code>order-l=last</code></li>
         </ul>
-    </c>
+    </x-col>
 
-    <c span="1+4" span-s="row">
+    <x-col span="1+4" span-s="row">
         <h3 class="title">Justification</h3>
         <p>Defines how the browser distributes space between and around flex items along the main-axis of their container. <code>jc=*</code></p>
-    </c>
+    </x-col>
 
-    <c span="6.." class="large-only">
+    <x-col span="6.." class="large-only">
         <span class="text-hr">Available options</span>
         <ul class="no-style">
             <li><code>jc=start</code></li>
@@ -72,14 +90,14 @@
             <li><code>jc=between</code></li>
             <li><code>jc=around</code></li>
         </ul>
-    </c>
+    </x-col>
 
-    <c span="1+4" span-s="row">
+    <x-col span="1+4" span-s="row">
         <h3 class="title">Align content</h3>
         <p>Aligns a flex container's lines within the flex container when there is extra space on the cross-axis. <code>ac=*</code></p>
-    </c>
+    </x-col>
 
-    <c span="6.." class="large-only">
+    <x-col span="6.." class="large-only">
         <span class="text-hr">Available options</span>
         <ul class="no-style">
             <li><code>ac=start</code></li>
@@ -89,14 +107,14 @@
             <li><code>ac=around</code></li>
             <li><code>ac=stretch</code></li>
         </ul>
-    </c>
+    </x-col>
 
-    <c span="1+4" span-s="row">
+    <x-col span="1+4" span-s="row">
         <h3 class="title">Align items</h3>
         <p>Aligns flex items of the current flex line the same way as justify-content but in the perpendicular direction. <code>ai=*</code></p>
-    </c>
+    </x-col>
 
-    <c span="6.." class="large-only">
+    <x-col span="6.." class="large-only">
         <span class="text-hr">Available options</span>
         <ul class="no-style">
             <li><code>ai=start</code></li>
@@ -105,14 +123,14 @@
             <li><code>ai=baseline</code></li>
             <li><code>ai=stretch</code></li>
         </ul>
-    </c>
+    </x-col>
 
-    <c span="1+4" span-s="row">
+    <x-col span="1+4" span-s="row">
         <h3 class="title">Align self</h3>
-        <p>To be used on <code>&lt;c&gt;</code> Aligns flex items of the current flex line overriding the align-items value. <code>as=*</code></p>
-    </c>
+        <p>To be used on <code>&lt;x-col&gt;</code> Aligns flex items of the current flex line overriding the align-items value. <code>as=*</code></p>
+    </x-col>
 
-    <c span="6.." class="large-only">
+    <x-col span="6.." class="large-only">
         <span class="text-hr">Available options</span>
         <ul class="no-style">
             <li><code>as=auto</code></li>
@@ -122,5 +140,5 @@
             <li><code>as=baseline</code></li>
             <li><code>as=stretch</code></li>
         </ul>
-    </c>
-</grid>
+    </x-col>
+</x-grid>

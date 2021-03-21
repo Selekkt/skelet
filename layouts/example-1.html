@@ -1,35 +1,40 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta data-framework="Skelet." data-ver="3.0.0" data-dev="Sēlekkt. Studio">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
 
-    <title>Project Title</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>Example 1</title>
+    <meta name="description" content="Build with Skelet.css: Example 1">
+    <meta name="author" content="Selekkt.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content=""> <!-- e.g. @YourSiteUsername -->
-    <meta name="twitter:creator" content=""> <!-- e.g. @AuthorUsername -->
-
     <!-- Facebook OG Tags -->
+    <meta property="og:type" content="website">
     <meta property="og:url" content="">
-    <meta property="og:type" content="">
+    <meta property="og:site_name" content="">
     <meta property="og:title" content="">
     <meta property="og:description" content="">
     <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
 
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    
+    <link rel="canonical" href="">
+
+    <link rel="icon" type="image/png" href="img/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="img/touch.png">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.0.0/css/skelet.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@3.3.0/css/skelet.min.css">
 
     <style>
         :root { 
@@ -41,6 +46,14 @@
 
         #app { padding: var(--sitePadding); max-width: 1600px; margin: 0 auto; }
         .logo { font-size: var(--hHeading); letter-spacing: 0; line-height: 1; font-weight: 800 }
+
+        span[class*="space"] { display: block; width: 100%; margin: var(--spacer, 0.5rem) auto; }
+        .space  { --spacer: 3rem; }
+        .space1 { --spacer: 5vw; }
+        .space2 { --spacer: 10vw; }
+        .space3 { --spacer: 20vw; }
+        .space4 { --spacer: 25vw; }
+        .space5 { --spacer: 30vw; }
 
         @media (max-width: 600px) { 
             :root {
@@ -55,29 +68,29 @@
 <body>
 <div id="app">
     <main>
-        <grid columns="8">
-            <c span="row">
+        <x-grid columns="8">
+            <x-col span="row">
                 <div class="logo">Neue Grafik</div>
                 <div class="logo">New Graphic Design</div>
                 <div class="logo">Graphisme actuel</div>
-            </c>
-        </grid>
+            </x-col>
+        </x-grid>
 
         <span class="space1"></span>
 
-        <grid columns="4" columns-s="3">
-            <c span="2+1" span-s="1">Internationale Zeitschrift für Grafik und verwandte Gebiete Text dreisprachig (deutsch, englisch, französisch)</c>
-            <c span="1">International Review of Graphic Design and related subjects Issued in German, English and French</c>
-            <c span="1">Revue internationale du graphisme et des domaines annexes Parution en langue allemande, anglaise et fraoqaise</c>
-        </grid>
+        <x-grid columns="4" columns-s="3">
+            <x-col span="2+1" span-s="1">Internationale Zeitschrift für Grafik und verwandte Gebiete Text dreisprachig (deutsch, englisch, französisch)</x-col>
+            <x-col span="1">International Review of Graphic Design and related subjects Issued in German, English and French</x-col>
+            <x-col span="1">Revue internationale du graphisme et des domaines annexes Parution en langue allemande, anglaise et fraoqaise</x-col>
+        </x-grid>
 
         <span class="space2"></span>
 
-        <grid columns="1">
-            <c><h1>16</h1></c>
-        </grid>
-        <grid columns="4">
-            <c>
+        <x-grid columns="1">
+            <x-col><h1>16</h1></x-col>
+        </x-grid>
+        <x-grid columns="4">
+            <x-col>
                 <p>Hans Neuburg, Zürich</p>
                 <p>Thomas Maldonado und Gui Bonsiepe, Ulm<br>
                     Peter Mächler, St. Gallen<br>
@@ -101,8 +114,8 @@
                     Printing/Publishing<br>
                     Imprimerie/Edition
                 </p>
-            </c>
-            <c>
+            </x-col>
+            <x-col>
                 <p>Ausgabe Juli 1963</p>
                 <p>Inhalt</p>
                 <p>Schweizer Plakate der letzten vier Jahre<br>
@@ -122,8 +135,8 @@
                     Hans Neuburg SWB/VSG, Zürich<br>
                     Carlo L.Vivarelli SWBVSG, Zürich
                 </p>
-            </c>
-            <c>
+            </x-col>
+            <x-col>
                 <p>Issue for July 1963</p>
                 <p>Contents</p>
                 <p>Swiss Posters of the past four years</p>
@@ -143,8 +156,8 @@
                 <span class="space"></span>
 
                 <p>Single number Fr. 15.-</p>
-            </c>
-            <c>
+            </x-col>
+            <x-col>
                 <p>Juillet 1963</p>
                 <p>Table des matiéres</p>
     <p>
@@ -158,10 +171,10 @@
     Un peintre-graphiste</p>
     <span class="spacex1"></span>
     <p>Le numéro Fr. 15.-</p>
-            </c>
-        </grid>
+            </x-col>
+        </x-grid>
     </main>
-    <footer class="text-right"><a href="https://selekkt.dk/skelet/" class="button is-blank">built with Skelet.</a></footer>
+    <footer class="text-end"><a href="https://selekkt.dk/skelet/" class="button is-black">built with Skelet.</a></footer>
 </div>
 </body>
 </html>

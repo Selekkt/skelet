@@ -2,8 +2,11 @@
 
 /*** CSS variables */
 :root { 
-	
+	--focus: transparent; /* disable buttons outline:; or change its color */
 }
+
+/*** Dark mode */
+:is(.dark-mode, #dark-mode, [dark-mode], [data-mode="dark"]) {  }
 
 @supports (font-variation-settings: normal) { :root { --fontFamily: var(--fontFamilyVar); } } /* If Variable fonts are supported */
 a, a:hover { text-decoration: none; } /* remove underline from links */
