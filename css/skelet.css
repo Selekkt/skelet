@@ -434,7 +434,6 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
     gap: var(--scrollMargin);
     justify-content: var(--scrollJustifyContent);
     align-items: var(--scrollAlignItems);
-    white-space: nowrap;
     overflow: auto;
     counter-reset: item;
     scroll-behavior: smooth;
@@ -601,6 +600,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
 .is-blank:is(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor; }
 .is-outline:is(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg); }
 .is-outline:is(button,.button,[type=button],[type=submit],[type=reset]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--white); }
+.is-custom:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor; }
 
 .is-white:is(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonBg:var(--white); --buttonBgHover:var(--buttonBg); --buttonColor:var(--black); 
     --buttonColorHover: var(--black); }
