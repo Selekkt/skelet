@@ -53,20 +53,21 @@ npm i selekkt-skelet
 ### Directory structure
 This is the dir structure of Skelet. `docs` & `layouts` could be deleted if not needed.
 ``` 
-skelet/
-├── css/
-│   ├── skelet.css (CSS boilerplate)
-│   ├── skelet.min.css (Skelet. minified)
-│   └── app.css (is where all of your other CSS goes)
-├── js/
-│   ├── modules.js (is for all of your JS frameworks)
-│   └── app.js (is where all of your other JS goes)
-├── img/
-│   ├── logo.png
-│   └── touch.png
-├── LICENSE
-├── README.md
-└── skelet.html (HTML5 boilerplate)
+.
+└── skelet/
+    ├── css/
+    │   ├── skelet.css (CSS framework)
+    │   ├── skelet.min.css (Skelet. minified)
+    │   └── app.css (is where all of your other CSS goes)
+    ├── js/
+    │   ├── modules.js (is for all of your JS frameworks)
+    │   └── app.js (is where all of your other JS goes)
+    ├── img/
+    │   ├── logo.png
+    │   └── touch.png
+    ├── LICENSE
+    ├── README.md
+    └── skelet.html (HTML5 boilerplate)
 ``` 
 
 ---
