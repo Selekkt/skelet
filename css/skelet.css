@@ -343,15 +343,15 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
-    .fullwidth-m { width: 100%; box-mizing: border-box; }
-    .fullwidth-max-m { max-width: 100%; box-mizing: border-box; }
+    .fullwidth-m { width: 100%; box-sizing: border-box; }
+    .fullwidth-max-m { max-width: 100%; box-sizing: border-box; }
 
     .block-m { display: block; }
     .inline-m { display: inline; margin: 0; }
     .inline-block-m { display: inline-block; margin: 0; }
     .center-m { display: block; text-align: center; margin: 0 auto; }
 
-    .nowrap-m { white-mpace: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nowrap-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .text-mtart-m { text-align: start; }
     .text-center-m { text-align: center; }
     .text-end-m { text-align: end; }
@@ -372,15 +372,15 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 }
 
 @media (min-width: 1599px) { 
-    .fullwidth-l { width: 100%; box-lizing: border-box; }
-    .fullwidth-lax-l { max-width: 100%; box-lizing: border-box; }
+    .fullwidth-l { width: 100%; box-sizing: border-box; }
+    .fullwidth-lax-l { max-width: 100%; box-sizing: border-box; }
 
     .block-l { display: block; }
     .inline-l { display: inline; margin: 0; }
     .inline-block-l { display: inline-block; margin: 0; }
     .center-l { display: block; text-align: center; margin: 0 auto; }
 
-    .nowrap-l { white-lpace: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nowrap-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .text-ltart-l { text-align: start; }
     .text-center-l { text-align: center; }
     .text-end-l { text-align: end; }
