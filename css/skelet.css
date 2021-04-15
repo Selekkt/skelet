@@ -1,4 +1,4 @@
-/*! Skelet. v3.3.0 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.3.1 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,html,body {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -191,7 +191,7 @@ summary{display:list-item}
   more resets
 ------------------ */
 :not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 1.2rem; font-family: Consolas, monospace, serif; white-space: nowrap; }
-img,svg,video,canvas,audio,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto; }
+img,svg,canvas,video,audio,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; width: 100%; height: auto; }
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0}
