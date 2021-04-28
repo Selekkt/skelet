@@ -1601,7 +1601,8 @@ x-grid.debug>:nth-child(6n+7){ --color:rgba(248,110,91,0.3) }
 ------------------ */
 /*  FLEX CONTAINER */
 x-flex { display: flex; gap: var(--rowGap, 2rem) var(--columnGap, 1rem); }
-x-flex > * { flex: 0 1 auto; width: 100%; appearance: none; -webkit-appearance: none; }
+x-flex > * { flex: 0 1 auto; width: auto; appearance: none; -webkit-appearance: none; }
+x-flex.even > * { width: 100%; }
 x-flex > * > img, x-flex > * > p > img { -o-object-fit: contain; object-fit: contain; max-width: 100% }
 
 /*  FLEX DIRECTION */
