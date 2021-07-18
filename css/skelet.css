@@ -5,7 +5,7 @@
 html{line-height:1.15;-webkit-text-size-adjust:100%}
 body{margin:0}
 hr{box-sizing:content-box;overflow:visible}
-pre{font-family:monospace,monospace;font-size:1em}
+pre{font-family:monospace,monospace;font-size:1em;display:grid}
 a{background:transparent}
 abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
 b,strong{font-weight:bolder}
@@ -45,7 +45,7 @@ summary{display:list-item}
     --blue: #007FFF;
     --white: #FFF;
     --black: #000;
-    --light: #efefef;
+    --light: #EFEFEF;
     --dark: #181818;
     --shadow: rgba(10, 10, 10, 0.1);
 
@@ -60,7 +60,7 @@ summary{display:list-item}
     --selectionBg: rgba(0,0,0,.95);
     --selectionText: #FFF;
 
-    --codeBg: #f8f8f8;
+    --codeBg: #F8F8F8;
     --codeColor: #000FFF;
 
     --hrColor: var(--boxBorderColor);
@@ -120,6 +120,7 @@ summary{display:list-item}
     --boxBorderColor: #E1E1E1;
     --boxBorderHover: #BABABA;
     --boxBorderActive: var(--primary);
+    --boxShadow: 0 0 0 0 rgba(0,0,0,0);
 
     /* @for checkbox/radio/.switch */
     --boxActive: var(--primary);
@@ -140,6 +141,7 @@ summary{display:list-item}
     --buttonColorHover: var(--buttonColor);
     --buttonBorderColor: transparent;
     --buttonBorderHover: transparent;
+    --buttonShadow: 0 0 0 0 rgba(0,0,0,0);
 
     /* grids */
     --columnGap: 1rem;
@@ -543,6 +545,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
     margin: var(--buttonMargin);
     border-radius: var(--buttonRadius);
     border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
+    box-shadow: var(--buttonShadow);
     background: var(--buttonBg);
     --buttonBorderHover: var(--buttonBorderColor);
     --buttonBgHover: var(--buttonBg);
@@ -565,24 +568,24 @@ button,.button,[type=button],[type=submit],[type=reset] {
     user-select: none;
 }
 
-:is(button,.button,[type=button],[type=submit],[type=reset]):hover { opacity: 0.9; background: var(--buttonBgHover); color: var(--buttonColorHover); border-color: var(--buttonBorderHover); }
+:where(button,.button,[type=button],[type=submit],[type=reset]):hover { opacity: 0.9; background: var(--buttonBgHover); color: var(--buttonColorHover); border-color: var(--buttonBorderHover); }
 
-.has-shadow:is(button,.button,[type=button],[type=submit],[type=reset]) { box-shadow: 0 5px 25px -5px rgba(0,0,0,0.2); }
-.has-shadow:is(button,.button,[type=button],[type=submit],[type=reset]):hover { transform: translateY(2px); box-shadow: 0 2px 7px 1px rgba(0,0,0,0.1); }
-.has-icon:is(button,.button,[type=button],[type=submit],[type=reset]) { display:inline-flex; align-items:center; justify-content:center; }
-.has-icon:is(button,.button,[type=button],[type=submit],[type=reset]) i { font-size: max(15px, var(--buttonFontSize)) }
+.has-shadow:where(button,.button,[type=button],[type=submit],[type=reset]) { box-shadow: 0 5px 25px -5px rgba(0,0,0,0.2); }
+.has-shadow:where(button,.button,[type=button],[type=submit],[type=reset]):hover { transform: translateY(2px); box-shadow: 0 2px 7px 1px rgba(0,0,0,0.1); }
+.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) { display:inline-flex; align-items:center; justify-content:center; }
+.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) i { font-size: max(15px, var(--buttonFontSize)) }
 
-.has-icon:is(button,.button,[type=button],[type=submit],[type=reset]) i:first-child:not(:last-child) { padding-right:1rem; }
-.has-icon:is(button,.button,[type=button],[type=submit],[type=reset]) i:last-child:not(:first-child) { padding-left:1rem; }
+.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) i:first-child:not(:last-child) { padding-right:1rem; }
+.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) i:last-child:not(:first-child) { padding-left:1rem; }
 
-.is-small:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonFontSize: min(0.75em, 1.4rem) }
-.is-large:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonFontSize:1.45em; }
+.is-small:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonFontSize: min(0.75em, 1.4rem) }
+.is-large:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonFontSize:1.45em; }
 
-.is-pill:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:100vw; }
-.is-circle:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:100vw; padding:1em; width:1em; height:1em; }
-.is-square:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:0; }
+.is-pill:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:100vw; }
+.is-circle:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:100vw; padding:1em; width:1em; height:1em; }
+.is-square:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:0; }
 
-.is-loading:is(button,.button,[type=button],[type=submit],[type=reset]):after {
+.is-loading:where(button,.button,[type=button],[type=submit],[type=reset]):after {
     content: "";
     animation: loading 500ms infinite linear;
     border: 2px solid var(--buttonColor);
@@ -595,28 +598,28 @@ button,.button,[type=button],[type=submit],[type=reset] {
     position: relative;
 }
 
-.is-loading:is(button,.button,[type=button],[type=submit],[type=reset]):not(:empty):after { margin-left: 1rem; }
+.is-loading:where(button,.button,[type=button],[type=submit],[type=reset]):not(:empty):after { margin-left: 1rem; }
 
-.is-blank:is(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor; }
-.is-outline:is(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg); }
-.is-outline:is(button,.button,[type=button],[type=submit],[type=reset]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--white); }
-.is-custom:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor; }
+.is-blank:where(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor; }
+.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg); }
+.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--white); }
+.is-custom:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor; }
 
-.is-white:is(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonBg:var(--white); --buttonBgHover:var(--buttonBg); --buttonColor:var(--black); 
+.is-white:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonBg:var(--white); --buttonBgHover:var(--buttonBg); --buttonColor:var(--black); 
     --buttonColorHover: var(--black); }
-.is-black:is(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonBg:var(--black); --buttonBgHover:var(--buttonBg); --buttonColor:var(--white); }
+.is-black:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonBg:var(--black); --buttonBgHover:var(--buttonBg); --buttonColor:var(--white); }
 
-.is-currentcolor.is-outline:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: currentColor; --buttonBorderColor: var(--buttonColor); --buttonColorHover: var(--buttonColor);  --buttonBorderHover: var(--buttonColor) }
-.is-white.is-outline:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--white); --buttonBorderColor: var(--white);--buttonColorHover: var(--white);  --buttonBorderHover: var(--white) }
-.is-black.is-outline:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--black); --buttonBorderColor: var(--black); --buttonColorHover: var(--black); --buttonBorderHover: var(--black) }
+.is-currentcolor.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: currentColor; --buttonBorderColor: var(--buttonColor); --buttonColorHover: var(--buttonColor);  --buttonBorderHover: var(--buttonColor) }
+.is-white.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--white); --buttonBorderColor: var(--white);--buttonColorHover: var(--white);  --buttonBorderHover: var(--white) }
+.is-black.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--black); --buttonBorderColor: var(--black); --buttonColorHover: var(--black); --buttonBorderHover: var(--black) }
 
-:is(.is-primary,.is-blue,.is-green,.is-yellow,.is-red):is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg); --a11yColor:var(--buttonBg) }
+:where(.is-primary,.is-blue,.is-green,.is-yellow,.is-red):where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg); --a11yColor:var(--buttonBg) }
 
-.is-primary:is(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: var(--primary); }
-.is-blue:is(button,.button,[type=button],[type=submit],[type=reset])    { --buttonBg: var(--blue); }
-.is-green:is(button,.button,[type=button],[type=submit],[type=reset])   { --buttonBg: var(--green); }
-.is-yellow:is(button,.button,[type=button],[type=submit],[type=reset])  { --buttonBg: var(--yellow); }
-.is-red:is(button,.button,[type=button],[type=submit],[type=reset])     { --buttonBg: var(--red); }
+.is-primary:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: var(--primary); }
+.is-blue:where(button,.button,[type=button],[type=submit],[type=reset])    { --buttonBg: var(--blue); }
+.is-green:where(button,.button,[type=button],[type=submit],[type=reset])   { --buttonBg: var(--green); }
+.is-yellow:where(button,.button,[type=button],[type=submit],[type=reset])  { --buttonBg: var(--yellow); }
+.is-red:where(button,.button,[type=button],[type=submit],[type=reset])     { --buttonBg: var(--red); }
 
 /** Radio Checkbox Switch */
 input[type="checkbox"],
@@ -759,6 +762,7 @@ textarea {
     background-color: var(--boxBg);
     font-size: var(--boxFontSize);
     color: var(--boxColor);
+    box-shadow: var(--boxShadow);
     transition: border 200ms ease-out;
     -webkit-appearance: none;
     appearance: none;
