@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <title>Project Title</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
 
-    <meta name="theme-color" content="#fff">
+    <meta name="theme-color" content="#FFFFFF">
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large, max-video-preview:-1">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     
     <!-- Facebook OG Tags -->
     <meta property="og:type" content="website">
@@ -33,44 +33,49 @@
     <link rel="icon" type="image/png" href="img/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="img/touch.png">
 
+    <script>document.documentElement.className = 'js';</script>
+
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+
     <link rel="stylesheet" href="css/skelet.css"> <!-- include Skelet -->
-    <link rel="stylesheet" href="css/app.css">  <!-- Write all of your CSS styles here -->
+    <link rel="stylesheet" href="css/app.css">  <!-- write all of your CSS styles here -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+    <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+
+    <style></style>
 </head>
 <body>
 <div id="app">
-    <header class="header">
+    <header>
         <div class="logo">
             <h1>Skelet.<sup>3</sup></h1>
         </div>
 
-        <nav class="nav">
+        <nav>
             <ul class="inline">
                 <li><a href="https://selekkt.dk/skelet/">Home</a></li>
-                <li><a href="https://selekkt.dk/skelet/">About</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
-            <article>
-
-                <x-grid columns="2" style="max-width: 750px; margin:0 auto; padding:2rem"> 
-                    <x-col span-s="row"><h3>Hallo Daar!!!</h3></x-col>
-                    <x-col span="2+1" span-s="row">
-                        <p>Thank you for chosing <u>Skelet.</u> as your starting point for you next project.</p>
-                        <p>Take a look at the <a href="https://selekkt.dk/skelet/v3/" target="_blank">documentation</a> for more.</p>
-                    </x-col>
-                </x-grid>
-
-            </article>
-        </section>
+        <article>
+        <!-- Remove this -->
+        <x-grid columns="2" style="max-width: 750px; margin:0 auto; padding:2rem"> 
+            <x-col span-s="row"><h1>Hallo Daar!!!</h1></x-col>
+            <x-col span="2+1" span-s="row">
+                <p>Thank you for chosing <u>Skelet.</u> as your starting point for you next project.</p>
+                <p>Take a look at the <a href="https://selekkt.dk/skelet/v3/" target="_blank">documentation</a> for more.</p>
+            </x-col>
+        </x-grid>
+        <!-- / -->
+        </article>
     </main>
 
-    <footer class="text-center">
-
+    <footer>
+    
+        <center>
         <ul class="inline">
             <li><a href="https://selekkt.dk/" class="button">Sēlekkt.</a></li>
             <li><a href="https://selekkt.dk/skelet/v3/" class="button is-blank">Documentation</a></li>
@@ -78,7 +83,8 @@
             <li><a href="https://selekkt.dk/git/grav-skelet" class="button is-blank">grav-Skelet</a></li>
         </ul>
         <p>&nbsp;</p>
-
+        </center>
+    
     </footer>
 </div>
 
