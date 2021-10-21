@@ -1,4 +1,4 @@
-/*! Skelet. v3.3.2 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.3.3 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,html,body {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -123,7 +123,6 @@ summary{display:list-item}
     --boxBorderHover: #BABABA;
     --boxBorderActive: var(--primary);
     --boxShadow: 0 0 0 0 rgba(0,0,0,0);
-    --boxBorder: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxBorderColor);
 
     /* @for checkbox/radio/.switch */
     --boxActive: var(--primary);
@@ -146,7 +145,6 @@ summary{display:list-item}
     --buttonBorderColor: transparent;
     --buttonBorderHover: transparent;
     --buttonShadow: 0 0 0 0 rgba(0,0,0,0);
-    --buttonBorder: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
 
     /* grids */
     --columnGap: 1rem;
@@ -202,7 +200,7 @@ iframe{width:100%}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0}
-[hidden],[type="hidden"],.hidden {display:none!important}
+[hidden],[type="hidden"],.hidden {display:none!important;outline:0;}
 [disabled],[disabled]:hover,.disabled { opacity:0.6!important; cursor:not-allowed!important; }
 
 /* ------------------
@@ -562,7 +560,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
     padding: var(--buttonPadding);
     margin: var(--buttonMargin);
     border-radius: var(--buttonRadius);
-    border: var(---buttonBorder);
+    border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
     box-shadow: var(--buttonShadow);
     background: var(--buttonBg);
     --buttonBorderHover: var(--buttonBorderColor);
@@ -776,7 +774,7 @@ textarea {
     padding: var(--boxPadding);
     margin: var(--boxMargin);
     border-radius: var(--boxRadius);
-    border: var(--boxBorder);
+    border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxBorderHover);
     background-color: var(--boxBg);
     font-size: var(--boxFontSize);
     color: var(--boxColor);
@@ -827,7 +825,7 @@ input[inputmode]:focus,
 select:focus, 
 textarea:focus {
     background-color: var(--boxBgActive);
-    border: var(--boxBorder);
+    border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxBorderHover);
 }
 
 input[type="range"] { height:2.25rem; line-height: 2.25rem; vertical-align: middle; width: 100%; }
@@ -902,7 +900,7 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
 /* ------------------
   tables
 ------------------ */
-table { width: 100%; }
+table { display: block; overflow-x: auto; margin: 0 auto; white-space: nowrap; max-width: -moz-fit-content; max-width: fit-content; }
 th, td { padding: var(--padding); text-align: start; border-bottom: 1px solid var(--boxBorderColor); }
 
 table.is-bordered { border: 1px solid var(--boxBorderColor); border-radius: var(--radius); }
