@@ -1,38 +1,64 @@
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <titlc>Tests</titlc>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta data-framework="Skelet." data-ver="3.0.0" data-dev="Sēlekkt. Studio">
+    <meta charset="utf-8">
+    <title>Skelet.css tests</title>
 
-  <title>Tests</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
 
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="../css/skelet.css">
-    <style type="text/css" media="screen"></style>
+    <meta name="theme-color" content="#FFFFFF">
 
-<style>p {max-width:65ch}</style>
+    <link rel="stylesheet" href="../css/skelet.css"> 
+    <style>
+        
+    </style>
 </head>
-<body dark-mode>
+<body>
+<div id="app">
+<h1>Tests</h1>
 
-        <ul>
-          <li>
-            <a href="#text">Text</a>
-            <ul>
-              <li><a href="#text__headings">Headings</a></li>
-              <li><a href="#text__paragraphs">Paragraphs</a></li>
-              <li><a href="#text__blockquotes">Blockquotes</a></li>
-              <li><a href="#text__lists">Lists</a></li>
-              <li><a href="#text__hr">Horizontal rules</a></li>
-              <li><a href="#text__tables">Tabular data</a></li>
-              <li><a href="#text__code">Code</a></li>
-              <li><a href="#text__inline">Inline elements</a></li>
-              <li><a href="#text__comments">HTML Comments</a></li>
-            </ul>
-          </li>
-        </ul>
+<main>
+<fieldset>
+    <legend>Position</legend>
+    <button data-tooltip="ziooo" tooltip-pos="up">Up</button>
+    <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
+    <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
+    <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
 
+    <button data-tooltip="ziooo" tooltip-pos="up-left">Up left</button>
+    <button data-tooltip="ziooo" tooltip-pos="down-left">Down left</button>
+</fieldset>
+
+<fieldset>
+    <legend>Lenght</legend>
+
+    <span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit." tooltip-length="medium" tooltip-pos="up">Medium Tooltip</span>
+
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down">N/A</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="small">small</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="medium">medium</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="large">large</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="xlarge">xlarge</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit">Fit</button>
+</fieldset>
+
+<fieldset>
+    <legend>Other</legend>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit" tooltip-blunt>No animation</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length tooltip-break>Break</button>
+</fieldset>
+
+<fieldset>
+    <legend>Visible by default</legend>
+    <button data-tooltip="ziooo" tooltip-pos="down-right">Top</button>
+    <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
+    <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
+    <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
+</fieldset>
+
+</main>
+
+</div>
 </body>
 </html>
