@@ -8,13 +8,13 @@
 
     <x-col span="row"><span class="margin20"></span></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.a11y</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.a11y</code></x-col>
     <x-col span="5..">Default one using browsers defaults.</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.a11y--custom</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.a11y--custom</code></x-col>
     <x-col span="5..">Customizable one using <code>box-shadow:;</code></x-col>
 
-    <x-col span="3-4" span-s="1-3">
+    <x-col span="1-4" span-s="1-3">
 <pre><code>:root {
     --a11yStyle: 0 0 0 0.2rem;
     --a11yColor: rgba(0, 126, 252, 0.6);
@@ -28,7 +28,7 @@
 
 <!-- Dark mode -->
     <x-col span="row"><span class="text-hr">Dark mode</span></x-col>
-    <x-col span="3.." span-s="row">
+    <x-col span="1.." span-s="row">
         <p>In case you're building a Dark website, you can set Skelet. automatically in dark mode, doing so you'll have everything set in darker shades instead of light.</p>
         <p>To activate "<em>Dark mode</em>" you need to add one of the options below to <code>&lt;body&gt;</code> tag</p>
         <button class="is-primary lightsoff">Try it</button>
@@ -36,105 +36,108 @@
 
     <x-col span="row"><span class="margin20"></span></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>data-mode="dark"</code></x-col>
-    <x-col span="5.."><p>This is one way of activating Dark mode</p></x-col>
-
-    <x-col span="3-4" span-s="1-3"><code>dark-mode</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>dark-mode</code></x-col>
     <x-col span="5.."><p>This is way two of activating Dark mode</p></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.dark-mode</code></x-col>
-    <x-col span="5.."><p>This is way three of activating Dark mode</p></x-col>
+    <x-col span="1-4" span-s="1-3"><code>data-mode="dark"</code></x-col>
+    <x-col span="5.."><p>This is one way of activating Dark mode</p></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>#dark-mode</code></x-col>
-    <x-col span="5.."><p>This is way four of activating Dark mode</p></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.dark-mode</code></x-col>
+    <x-col span="5.."><p>This is way three of activating Dark mode</p></x-col>
 
 <!-- Elements -->
     <x-col span="row"><span class="text-hr">Elements</span></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.center-axyz</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.center-axyz</code></x-col>
     <x-col span="5.."><p>Center your elements both horizontally and vertically</p> <small>you need to create a parent container to which the objects will be aligned.</small></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.center-axyz.full</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.center-axyz.full</code></x-col>
     <x-col span="5..">Same as above, but full</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.fullwidth</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.fullwidth</code></x-col>
     <x-col span="5..">Make element full width</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.fullwidth-max</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.fullwidth-max</code></x-col>
     <x-col span="5..">Make all elements fit their container</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.float-left</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.fullheight</code></x-col>
+    <x-col span="5..">Make element full height</x-col>
+
+    <x-col span="1-4" span-s="1-3"><code>.fullheight-max</code></x-col>
+    <x-col span="5..">Make all elements fit their container</x-col>
+
+    <x-col span="1-4" span-s="1-3"><code>.float-left</code></x-col>
     <x-col span="5..">Float elements left</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.float-right</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.float-right</code></x-col>
     <x-col span="5..">Float elements right</x-col>
     
-    <x-col span="3-4" span-s="1-3"><code>.float-none</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.float-none</code></x-col>
     <x-col span="5..">No Float to element</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.block</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.block</code></x-col>
     <x-col span="5..">Display element block</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.inline</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.inline</code></x-col>
     <x-col span="5..">Display elements inline</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.inline-block</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.inline-block</code></x-col>
     <x-col span="5..">Display elements inline-block</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.center</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.center</code></x-col>
     <x-col span="5..">Center the elements</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.sticky</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.sticky</code></x-col>
     <x-col span="5..">Make element sticky</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.sticky-bottom</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.sticky-bottom</code></x-col>
     <x-col span="5..">Make element sticky to bottom</x-col>
     
-    <x-col span="3-4" span-s="1-3"><code>.sticky-none</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.sticky-none</code></x-col>
     <x-col span="5..">Make element un-sticky</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.large-only</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.large-only</code></x-col>
     <x-col span="5..">Element only visible on above: 600px</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.small-only</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.small-only</code></x-col>
     <x-col span="5..">Element only visible below: 600px</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.mob-scroller</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.mob-scroller</code></x-col>
     <x-col span="5..">This creates an element with horizontal scrollers and has all child elements inline</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.no-scrollbars</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.no-scrollbars</code></x-col>
     <x-col span="5..">This hides the scrollbars without preventing scrolling.</x-col>
 
 <!-- Scroll snap -->
     <x-col span="row"><span class="text-hr">Scroll snap</span></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.scroll-snap</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.scroll-snap</code></x-col>
     <x-col span="5..">This feature allows you to create well-controlled scroll experiences by declaring scroll snapping positions.</x-col>
 
     <x-col span="row" class="margin10">&nbsp;</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.y</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.y</code></x-col>
     <x-col span="5..">The scroll container snaps in its vertical axis only.</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.mandatory</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.mandatory</code></x-col>
     <x-col span="5..">This property enables specific strict value that go to the specific scroll position when there is no scrolling.</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.proximity</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.proximity</code></x-col>
     <x-col span="5..">This property enables specific strict value that go to the specific scroll position. If scrolling action gets pretty close to a snap position if not close then it will act normally and should not snap at all.</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.align-start</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.align-start</code></x-col>
     <x-col span="5..">The start and end alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.align-center</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.align-center</code></x-col>
     <x-col span="5..">The center alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.align-end</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.align-end</code></x-col>
     <x-col span="5..">The end alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.stop-always</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.stop-always</code></x-col>
     <x-col span="5..">The scroll container must not "pass over" a possible snap position; and must snap to the first of this elements' snap positions.</x-col>
 
-    <x-col span="3-4" span-s="1-3">
+    <x-col span="1-4" span-s="1-3">
     <pre><code>&lt;div class="scroll-snap y mandatory align-center stop-always"&gt;</pre></code>
     </x-col>
     <x-col span="5..">
@@ -144,62 +147,64 @@
 <!-- Text -->
     <x-col span="row"><span class="text-hr">Text</span></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.nowrap</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.nowrap</code></x-col>
     <x-col span="5..">Prevent text from wrapping</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.text-start</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-start</code></x-col>
     <x-col span="5..">Align text on left</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.text-center</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-center</code></x-col>
     <x-col span="5..">Align text on center</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.text-end</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-end</code></x-col>
     <x-col span="5..">Align text on center</x-col>
     
-    <x-col span="3-4" span-s="1-3"><code>.text-justify</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-justify</code></x-col>
     <x-col span="5..">Justify text</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.text-normal</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-normal</code></x-col>
     <x-col span="5..">Sets font-weight to 400</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.text-uppercase</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-uppercase</code></x-col>
     <x-col span="5..">Transforms text to uppercase</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.text-lowercase</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-lowercase</code></x-col>
     <x-col span="5..">Transforms text to lowercase</x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.text-capitalize</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.text-capitalize</code></x-col>
     <x-col span="5..">Transforms text to capitalize</x-col>
 
 <!-- Floats -->
     <x-col span="row"><span class="text-hr">Floats</span></x-col>
 
-    <x-col span="3-4" span-s="1-3"><code>.float-right</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.float-right</code></x-col>
     <x-col span="5..">Sets float to right</x-col>
     
-    <x-col span="3-4" span-s="1-3"><code>.float-left</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.float-left</code></x-col>
     <x-col span="5..">Sets float to left</x-col>
     
-    <x-col span="3-4" span-s="1-3"><code>.float-none</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.float-none</code></x-col>
     <x-col span="5..">Sets float to none</x-col>
     
-    <x-col span="3-4" span-s="1-3"><code>.clearfix</code></x-col>
+    <x-col span="1-4" span-s="1-3"><code>.clearfix</code></x-col>
     <x-col span="5..">Prevents element overflow outside of its container.</x-col>
 </x-grid>
 
+<!-- Media query -->
 <x-grid columns="8" class="margin20">
     <x-col span="3.." span-s="row">
         <h3 class="title">Media query</h3>
         <p>Media Queries you can use.</p>
     </x-col>
 
-    <x-col span="3-4" span-s="row">
+    <x-col span="1-4" span-s="row">
         <ul class="no-style">
             <li><code>@media (max-width: 600px){}</code></li>
             <li><code>@media (min-width: 601px) and (max-width: 1024px) {}</code></li>
             <li><code>@media (min-width: 1599px){}</code></li>
             <li><code>@media (prefers-color-scheme: dark){}</code></li>
             <li><code>@media (prefers-color-scheme: light) {}</code></li>
+            <li><code>@media (prefers-reduced-motion) {}</code></li>
         </ul>
     </x-col>
 
@@ -210,62 +215,66 @@
             <li>Grid <em>large</em> becomes active</li>
             <li>If OS in <em>dark</em> mode</li>
             <li>If OS in <em>light</em> mode</li>
+            <li>Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects.</li>
         </ul>
     </x-col>
 
 </x-grid>
 
+<!-- Tooltips -->
 <x-grid columns="8" class="margin20 large-only">
     <x-col span="3.." span-s="row">
         <h3 class="title">Tooltips</h3>
-        <p>To use Tooltips simply insert your text inside <code>data-tooltip</code> and use one of the <code>data-tooltip-pos</code> from the list below to position the tooltip.</p>
+        <p>To use Tooltips simply insert your text inside <code>data-tooltip</code> and use one of the <code>tooltip-pos</code> from the list below to position your tooltip. You can also control its dimensions.</p>
     </x-col>
 
-    <x-col span="3-4" span-s="1-2">
+    <x-col span="1-4" span-s="1-2">
         <ul class="no-style">
-            <li><code>data-tooltip-pos=up</code></li>
-            <li><code>data-tooltip-pos=right</code></li>
-            <li><code>data-tooltip-pos=down</code></li>
-            <li><code>data-tooltip-pos=left</code></li>
+            <li><code>tooltip-pos=up</code></li>
+            <li><code>tooltip-pos=right</code></li>
+            <li><code>tooltip-pos=down</code></li>
+            <li><code>tooltip-pos=left</code></li>
+            <li><code>tooltip-blunt</code></li>
         </ul>
         <br>
         <ul class="no-style">
-            <li><code>data-tooltip-pos=up-left</code></li>
-            <li><code>data-tooltip-pos=up-right</code></li>
-            <li><code>data-tooltip-pos=down-left</code></li>
-            <li><code>data-tooltip-pos=down-right</code></li>
+            <li><code>tooltip-pos=up-left</code></li>
+            <li><code>tooltip-pos=up-right</code></li>
+            <li><code>tooltip-pos=down-left</code></li>
+            <li><code>tooltip-pos=down-right</code></li>
         </ul>
         <br>
         <ul class="no-style">
-            <li><code>data-tooltip-length=small</code></li>
-            <li><code>data-tooltip-length=medium</code></li>
-            <li><code>data-tooltip-length=large</code></li>
-            <li><code>data-tooltip-length=xlarge</code></li>
-            <li><code>data-tooltip-length=fit</code></li>
+            <li><code>tooltip-length=small</code></li>
+            <li><code>tooltip-length=medium</code></li>
+            <li><code>tooltip-length=large</code></li>
+            <li><code>tooltip-length=xlarge</code></li>
+            <li><code>tooltip-length=fit</code></li>
         </ul>
     </x-col>
 
-    <x-col span="6.." class="only-large">
+    <x-col span="5.." class="only-large">
         <ul class="no-style">
-            <li><span data-tooltip="Skelet." data-tooltip-pos=up>Tooltip Up</span></li>
-            <li><span data-tooltip="Skelet." data-tooltip-pos=down>Tooltip Down</span></li>
-            <li><span data-tooltip="Skelet." data-tooltip-pos=left>Tooltip Left</span></li>
-            <li><span data-tooltip="Skelet." data-tooltip-pos=right>Tooltip Right</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=up>Tooltip Up</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=right>Tooltip Right</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=down>Tooltip Down</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=left>Tooltip Left</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=up tooltip-blunt>No animation</span></li>
         </ul>
         <br>
         <ul class="no-style">
-            <li><span data-tooltip="Skelet." data-tooltip-pos=up-left>Tooltip Up left</span></li>
-            <li><span data-tooltip="Skelet." data-tooltip-pos=up-right>Tooltip Up right</span></li>
-            <li><span data-tooltip="Skelet." data-tooltip-pos=down-left>Tooltip Down left</span></li>
-            <li><span data-tooltip="Skelet." data-tooltip-pos=down-right>Tooltip Down right</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=up-left>Tooltip Up left</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=up-right>Tooltip Up right</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=down-left>Tooltip Down left</span></li>
+            <li><span data-tooltip="Skelet." tooltip-pos=down-right>Tooltip Down right</span></li>
         </ul>
         <br>
         <ul class="no-style">
-            <li><span data-tooltip="Skelet." data-tooltip-length=small data-tooltip-pos=up>Small Tooltip</span></li>
-            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit." data-tooltip-length=medium data-tooltip-pos=up>Medium Tooltip</span></li>
-            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." data-tooltip-length=large data-tooltip-pos=up>Large Tooltip</span></li>
-            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." data-tooltip-length=xlarge data-tooltip-pos=up>Extra Large Tooltip</span></li>
-            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." data-tooltip-length=fit data-tooltip-pos=up>Fit element width Tooltip</span></li>
+            <li><span data-tooltip="Skelet." tooltip-length=small tooltip-pos=up>Small Tooltip</span></li>
+            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit." tooltip-length=medium tooltip-pos=up>Medium Tooltip</span></li>
+            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." tooltip-length=large tooltip-pos=up>Large Tooltip</span></li>
+            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." tooltip-length=xlarge tooltip-pos=up>Extra Large Tooltip</span></li>
+            <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." tooltip-length=fit tooltip-pos=up>Fit element width Tooltip</span></li>
         </ul>
     </x-col>
 
