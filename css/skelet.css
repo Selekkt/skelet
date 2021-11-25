@@ -1,4 +1,4 @@
-/*! Skelet. v3.3.4 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.3.5 | MIT License | (c) 2021 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,html,body {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -200,7 +200,7 @@ iframe{width:100%}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0}
-[hidden],[type="hidden"],.hidden {display:none!important;outline:0;}
+[hidden],[type="hidden"],.hidden {display:none!important;outline:0}
 [disabled],[disabled]:hover,.disabled { opacity:0.6!important; cursor:not-allowed!important }
 
 /* ------------------
@@ -212,7 +212,7 @@ figure {margin:0}
 html { height: 100%; font-size: 62.5%; scroll-behavior: smooth }
 body { background: var(--bgColor); color: var(--color); font-size: var(--fontSize); line-height: var(--fontLine); letter-spacing: var(--fontSpace); font-weight: var(--fontWeight); font-style: var(--fontStyle); font-family: var(--fontFamily) }
 
-#app { display: flex; min-height: 100vh; flex-direction: column }
+#app { display: flex; flex-direction: column; min-height: 100vh }
 main { flex: 1 }
 
 /* ------------------
@@ -262,6 +262,10 @@ blockquote { max-width: 90%; margin: 2rem auto; font-style: italic }
 a:not(.button) { color:var(--linkColor); cursor:pointer }
 a:not(.button):hover { color:var(--linkHover) }
 a.no-style { text-decoration:none }
+
+/* if JS active show el w/ .js -- if JS disabled show el w/ .no-js */
+:where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
+:where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
 
 /*** Accessibility */
 *:focus { outline: 0 }
@@ -320,6 +324,8 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 .sticky { position: sticky; top: var(--sticky, 0) }
 .sticky-bottom { position: sticky; bottom: var(--sticky, 0) }
 .sticky-none { position: inherit }
+
+.visually-hidden,.visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 
 @media (max-width: 600px) { 
     .fullwidth-s { width: 100%; box-sizing: border-box }
@@ -577,8 +583,9 @@ button,.button,[type=button],[type=submit],[type=reset] {
     text-decoration: none;
     line-height: 1;
     position: relative;
-    display: inline-grid;
-    place-items: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     vertical-align: middle;
     cursor: pointer;
     user-select: none;
@@ -915,7 +922,6 @@ x-grid {
     --grid-ce: -1 /* column end */
 }
 
-x-grid.compact { grid-row-gap: 0; row-gap: 0 }
 x-grid > x-col > img, x-grid > x-col > p > img { object-fit: contain; max-width: 100% }
 
 /* x-col -- column */
@@ -2160,3 +2166,6 @@ x-flex img { object-fit: contain; max-width: 100% }
   80% { transform: scale3d(.97, .97, .97) }
   to { opacity: 1; transform: scale3d(1, 1, 1) }
 }
+
+/*** Accessibility :: Disabling animations if users prefers-reduced-motion */
+@media screen and (prefers-reduced-motion: reduce), (update: slow) { * {  animation-duration: 0.001ms!important; animation-iteration-count: 1!important; transition-duration: 0.001ms!important } }
