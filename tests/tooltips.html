@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Skelet.css tests</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
+
+    <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="stylesheet" href="../css/skelet.css"> 
+    <style>
+        
+    </style>
+</head>
+<body>
+<div id="app">
+<h1>Tests</h1>
+
+<main>
+<fieldset>
+    <legend>Position</legend>
+    <button data-tooltip="ziooo" tooltip-pos="up">Up</button>
+    <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
+    <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
+    <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
+
+    <button data-tooltip="ziooo" tooltip-pos="up-left">Up left</button>
+    <button data-tooltip="ziooo" tooltip-pos="down-left">Down left</button>
+</fieldset>
+
+<fieldset>
+    <legend>Lenght</legend>
+
+    <span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit." tooltip-length="medium" tooltip-pos="up">Medium Tooltip</span>
+
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down">N/A</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="small">small</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="medium">medium</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="large">large</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="xlarge">xlarge</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit">Fit</button>
+</fieldset>
+
+<fieldset>
+    <legend>Other</legend>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit" tooltip-blunt>No animation</button>
+    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length tooltip-break>Break</button>
+</fieldset>
+
+<fieldset>
+    <legend>Visible by default</legend>
+    <button data-tooltip="ziooo" tooltip-pos="down-right">Top</button>
+    <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
+    <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
+    <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
+</fieldset>
+
+</main>
+
+</div>
+</body>
+</html>
