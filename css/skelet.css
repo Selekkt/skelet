@@ -263,10 +263,6 @@ a:not(.button) { color:var(--linkColor); cursor:pointer }
 a:not(.button):hover { color:var(--linkHover) }
 a.no-style { text-decoration:none }
 
-/* if JS active show el w/ .js -- if JS disabled show el w/ .no-js */
-:where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
-:where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
-
 /*** Accessibility */
 *:focus { outline: 0 }
 .a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid -webkit-focus-ring-color; outline-offset: 1px }
@@ -320,7 +316,14 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 .sticky-bottom { position: sticky; bottom: var(--sticky, 0) }
 .sticky-none { position: inherit }
 
+/* if JS active show el w/ .js -- if JS disabled show el w/ .no-js */
+:where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
+:where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
+
 .visually-hidden,.visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
+
+.is-green { border-color: var(--green) }
+.is-red, input:invalid { border-color: var(--red) }
 
 @media (max-width: 600px) { 
     .fullwidth-s { width: 100%; box-sizing: border-box }
@@ -535,12 +538,6 @@ button[data-tooltip] { overflow: visible }
 @media (max-width: 1024px) { [tooltip-length="xlarge"]:after { width: 90vw }  }
 
 /* ------------------
-  elements
------------------- */
-.is-green { border-color: var(--green) }
-.is-red, input:invalid { border-color: var(--red) }
-
-/* ------------------
   buttons
 ------------------ */
 button,.button,[type=button],[type=submit],[type=reset] {
@@ -624,7 +621,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
 .is-yellow:where(button,.button,[type=button],[type=submit],[type=reset])  { --buttonBg: var(--yellow) }
 .is-red:where(button,.button,[type=button],[type=submit],[type=reset])     { --buttonBg: var(--red) }
 
-/** Radio Checkbox Switch */
+/** Radio checkbox switch */
 input[type="checkbox"],
 input[type="radio"] {
     appearance: none;
@@ -2107,5 +2104,5 @@ x-flex img { object-fit: contain; max-width: 100% }
   to { opacity: 1; transform: scale3d(1, 1, 1) }
 }
 
-/*** Accessibility :: Disabling animations if users prefers-reduced-motion */
+/*** Accessibility :: Disabling animations if user prefers-reduced-motion */
 @media screen and (prefers-reduced-motion: reduce), (update: slow) { * {  animation-duration: 0.001ms!important; animation-iteration-count: 1!important; transition-duration: 0.001ms!important } }
