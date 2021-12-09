@@ -32,6 +32,25 @@
 <a href="" class="button">a.button</a>
 </div>
 <hr>
+<fieldset>
+    <legend>.group-input-button</legend>
+    <div class="group-input-button">
+        <input type="text" placeholder="Input">
+        <button class="is-primary">Button</button>
+    </div>
+</fieldset>
+<style>
+.group-input-button.my-style { border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxBorderColor); border-radius: var(--boxRadius); }
+.group-input-button.my-style:focus-within { background: var(--boxBg); border-color: var(--boxActive) }
+</style>
+<fieldset>
+    <legend>.group-input-button.no-style</legend>
+    <div class="group-input-button no-style my-style">
+        <input type="text" placeholder="Input" class="is-blank">
+        <button class="is-primary">Button</button>
+    </div>
+</fieldset>
+<hr>
 <button class="is-small">button small</button>
 <button class="is-large">button large</button>
 <hr>

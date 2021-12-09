@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="../css/skelet.css"> 
     <script>document.documentElement.className='js'</script>
 
-    <style>
-        .js { --bgColor: green; background: orange; }
-        .no-js { --bgColor: red; background: rebeccapurple; }
-    </style>
 
 </head>
 <body>
@@ -24,16 +20,14 @@
 
 <main>
 
-    <div class="js">Show if JavaScript is <u>ACTIVATED</u></div>
-    <div class="no-js">Show if JavaScript is <u>DISABLED</u></div>
-    <noscript><br>Show if JavaScript is <u>DISABLED</u> [noscript tag]</noscript>
+    <button data-tooltip="ziooo" tooltip-pos="up">Up</button>
+    <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
+    <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
+    <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
 
-
-<x-grid class="debug">
-    <x-col span="2..">1</x-col>
-    <x-col>2</x-col>
-    <x-col>3</x-col>
-</x-grid>
+    <button data-tooltip="ziooo" tooltip-pos="up-left">Up left</button>
+    <button data-tooltip="ziooo" tooltip-pos="down-left">Down left</button>
+    <span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit." tooltip-length="medium" tooltip-pos="up">Medium Tooltip</span>
 
 </main>
 
