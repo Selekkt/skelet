@@ -1,5 +1,5 @@
 /*! Skelet. v3.4.0 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
-*,html,body {box-sizing:border-box}
+*,*::before,*::after {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html{line-height:1.15;-webkit-text-size-adjust:100%}
@@ -106,7 +106,7 @@ summary{display:list-item}
     --pMargin: var(--margin) 0;
 
     /* input/textarea/tables etc. */
-    --boxPadding: 1.3rem;
+    --boxPadding: .7em .9em;
     --boxMargin: 2px;
     --boxRadius: var(--radius);
     --boxBorderWidth: var(--borderWidth);
@@ -130,8 +130,8 @@ summary{display:list-item}
     --boxFocus: rgba(41, 145, 248, .7);
 
     /* buttons */
-    --buttonPadding: 1.3rem;
-    --buttonMargin: 2px;
+    --buttonPadding: var(--boxPadding);
+    --buttonMargin: var(--boxMargin);
     --buttonRadius: var(--radius);
     --buttonBorderWidth: var(--borderWidth);
     --buttonBorderStyle: var(--borderStyle);
@@ -322,8 +322,8 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 
 .visually-hidden,.visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 
-.is-green { border-color: var(--green) }
-.is-red, input:invalid { border-color: var(--red) }
+.is-green { border-color: var(--green)!important; }
+.is-red, input:invalid { border-color: var(--red)!important; }
 
 @media (max-width: 600px) { 
     .fullwidth-s { width: 100%; box-sizing: border-box }
@@ -405,10 +405,10 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 
 /* Vertical and Horizontal align */
 .center-axyz { display: grid; place-items: center }
-.center-axyz.full { height: 100vh; width: 100% }
-@media (max-width: 600px) { .center-axyz-s { display: grid; place-items: center } .center-axyz-s.full-s  { height: 100vh; width: 100% } }
-@media (min-width: 1024px) { .center-axyz-m { display: grid; place-items: center } .center-axyz-m.full-m { height: 100vh; width: 100% } }
-@media (min-width: 1599px) { .center-axyz-l { display: grid; place-items: center } .center-axyz-l.full-l { height: 100vh; width: 100% } }
+.center-axyz.full { min-height: 100vh; width: 100% }
+@media (max-width: 600px) { .center-axyz-s { display: grid; place-items: center } .center-axyz-s.full-s  { min-height: 100vh; width: 100% } }
+@media (min-width: 1024px) { .center-axyz-m { display: grid; place-items: center } .center-axyz-m.full-m { min-height: 100vh; width: 100% } }
+@media (min-width: 1599px) { .center-axyz-l { display: grid; place-items: center } .center-axyz-l.full-l { min-height: 100vh; width: 100% } }
 
 .mob-scroller { display: flex; flex-wrap: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch }
 @media (max-width: 1024px) { .mob-scroller::-webkit-scrollbar { display:none } }
@@ -882,19 +882,19 @@ table.is-striped td { border:none }
 /* ------------------
   css grid
 ------------------ */
+x-grid, [x-grid] { display: grid; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
+
 x-grid {
-    display: grid;
-    gap: var(--rowGap, 1rem) var(--columnGap, 1rem);
     grid-template-columns: var(--grid-tc); /* default columns */ 
-    --grid-tc: repeat(4, 1fr);
+    --grid-tc: repeat(4, 1fr); /* template columns */
     --grid-cs: 1; /* column start */
-    --grid-ce: -1 /* column end */
+    --grid-ce: -1; /* column end */
+    --grid-rs: 1; /* row start */
+    --grid-re: -1; /* row end */
 }
 
-x-grid > x-col > img, x-grid > x-col > p > img { object-fit: contain; max-width: 100% }
-
-/* x-col -- column */
-x-grid > x-col { display: block; appearance: none; -webkit-appearance: none }
+x-grid img { object-fit: contain; max-width: 100% }
+x-grid > * { display: block; appearance: none; -webkit-appearance: none }
 
 x-grid[columns="1"] { --grid-tc: repeat(1, 1fr) }
 x-grid[columns="2"] { --grid-tc: repeat(2, 1fr) }
@@ -908,55 +908,75 @@ x-grid[columns="9"] { --grid-tc: repeat(9, 1fr) }
 x-grid[columns="10"] { --grid-tc: repeat(10, 1fr) }
 x-grid[columns="11"] { --grid-tc: repeat(11, 1fr) }
 x-grid[columns="12"] { --grid-tc: repeat(12, 1fr) }
-x-grid[columns="13"] { --grid-tc: repeat(13, 1fr) }
-x-grid[columns="14"] { --grid-tc: repeat(14, 1fr) }
-x-grid[columns="15"] { --grid-tc: repeat(15, 1fr) }
-x-grid[columns="16"] { --grid-tc: repeat(16, 1fr) }
 
-/* span=start... */
-x-grid > x-col[span^="1"] { --grid-cs: 1 }
-x-grid > x-col[span^="2"] { --grid-cs: 2 }
-x-grid > x-col[span^="3"] { --grid-cs: 3 }
-x-grid > x-col[span^="4"] { --grid-cs: 4 }
-x-grid > x-col[span^="5"] { --grid-cs: 5 }
-x-grid > x-col[span^="6"] { --grid-cs: 6 }
-x-grid > x-col[span^="7"] { --grid-cs: 7 }
-x-grid > x-col[span^="8"] { --grid-cs: 8 }
-x-grid > x-col[span^="9"] { --grid-cs: 9 }
-x-grid > x-col[span^="10"] { --grid-cs: 10 }
-x-grid > x-col[span^="11"] { --grid-cs: 11 }
-x-grid > x-col[span^="12"] { --grid-cs: 12 }
-x-grid > x-col[span^="13"] { --grid-cs: 13 }
-x-grid > x-col[span^="14"] { --grid-cs: 14 }
-x-grid > x-col[span^="15"] { --grid-cs: 15 }
-x-grid > x-col[span^="16"] { --grid-cs: 16 }
+/*** Grid Column - X axis */
+x-grid > *[span^="1"] { --grid-cs: 1 }
+x-grid > *[span^="2"] { --grid-cs: 2 }
+x-grid > *[span^="3"] { --grid-cs: 3 }
+x-grid > *[span^="4"] { --grid-cs: 4 }
+x-grid > *[span^="5"] { --grid-cs: 5 }
+x-grid > *[span^="6"] { --grid-cs: 6 }
+x-grid > *[span^="7"] { --grid-cs: 7 }
+x-grid > *[span^="8"] { --grid-cs: 8 }
+x-grid > *[span^="9"] { --grid-cs: 9 }
+x-grid > *[span^="10"] { --grid-cs: 10 }
+x-grid > *[span^="11"] { --grid-cs: 11 }
+x-grid > *[span^="12"] { --grid-cs: 12 }
 
-/* span=...+width, span=...-end */
-x-grid > x-col[span$="+1"], x-grid > x-col[span="1"] { --grid-ce: 1 }
-x-grid > x-col[span$="+2"], x-grid > x-col[span$="-1"], x-grid > x-col[span="2"] { --grid-ce: 2 }
-x-grid > x-col[span$="+3"], x-grid > x-col[span$="-2"], x-grid > x-col[span="3"] { --grid-ce: 3 }
-x-grid > x-col[span$="+4"], x-grid > x-col[span$="-3"], x-grid > x-col[span="4"] { --grid-ce: 4 }
-x-grid > x-col[span$="+5"], x-grid > x-col[span$="-4"], x-grid > x-col[span="5"] { --grid-ce: 5 }
-x-grid > x-col[span$="+6"], x-grid > x-col[span$="-5"], x-grid > x-col[span="6"] { --grid-ce: 6 }
-x-grid > x-col[span$="+7"], x-grid > x-col[span$="-6"], x-grid > x-col[span="7"] { --grid-ce: 7 }
-x-grid > x-col[span$="+8"], x-grid > x-col[span$="-7"], x-grid > x-col[span="8"] { --grid-ce: 8 }
-x-grid > x-col[span$="+9"], x-grid > x-col[span$="-8"], x-grid > x-col[span="9"] { --grid-ce: 9 }
-x-grid > x-col[span$="+10"], x-grid > x-col[span$="-9"], x-grid > x-col[span="10"] { --grid-ce: 10 }
-x-grid > x-col[span$="+11"], x-grid > x-col[span$="-10"], x-grid > x-col[span="11"] { --grid-ce: 11 }
-x-grid > x-col[span$="+12"], x-grid > x-col[span$="-11"], x-grid > x-col[span="12"] { --grid-ce: 12 }
-x-grid > x-col[span$="+13"], x-grid > x-col[span$="-12"], x-grid > x-col[span="13"] { --grid-ce: 13 }
-x-grid > x-col[span$="+14"], x-grid > x-col[span$="-13"], x-grid > x-col[span="14"] { --grid-ce: 14 }
-x-grid > x-col[span$="+15"], x-grid > x-col[span$="-14"], x-grid > x-col[span="15"] { --grid-ce: 15 }
-x-grid > x-col[span$="+16"], x-grid > x-col[span$="-15"], x-grid > x-col[span="16"] { --grid-ce: 16 }
-x-grid > x-col[span$="-16"] { --grid-ce: 17 }
+x-grid > *[span$="+1"], x-grid > *[span="1"] { --grid-ce: 1 }
+x-grid > *[span$="+2"], x-grid > *[span$="-1"], x-grid > *[span="2"] { --grid-ce: 2 }
+x-grid > *[span$="+3"], x-grid > *[span$="-2"], x-grid > *[span="3"] { --grid-ce: 3 }
+x-grid > *[span$="+4"], x-grid > *[span$="-3"], x-grid > *[span="4"] { --grid-ce: 4 }
+x-grid > *[span$="+5"], x-grid > *[span$="-4"], x-grid > *[span="5"] { --grid-ce: 5 }
+x-grid > *[span$="+6"], x-grid > *[span$="-5"], x-grid > *[span="6"] { --grid-ce: 6 }
+x-grid > *[span$="+7"], x-grid > *[span$="-6"], x-grid > *[span="7"] { --grid-ce: 7 }
+x-grid > *[span$="+8"], x-grid > *[span$="-7"], x-grid > *[span="8"] { --grid-ce: 8 }
+x-grid > *[span$="+9"], x-grid > *[span$="-8"], x-grid > *[span="9"] { --grid-ce: 9 }
+x-grid > *[span$="+10"], x-grid > *[span$="-9"], x-grid > *[span="10"] { --grid-ce: 10 }
+x-grid > *[span$="+11"], x-grid > *[span$="-10"], x-grid > *[span="11"] { --grid-ce: 11 }
+x-grid > *[span$="+12"], x-grid > *[span$="-11"], x-grid > *[span="12"] { --grid-ce: 12 }
+x-grid > *[span$="-12"] { --grid-ce: 13 }
 
 /* connect vars */
-x-grid > x-col[span] { grid-column-end: span var(--grid-ce) }
-x-grid > x-col[span*="+"], x-grid > x-col[span*="-"], x-grid > x-col[span*=".."] { grid-column-start: var(--grid-cs) }
-x-grid > x-col[span*="-"], x-grid > x-col[span*=".."] { grid-column-end: var(--grid-ce) }
-x-grid > x-col[span="row"] { grid-column: 1 / -1 }
+x-grid > *[span] { grid-column-end: span var(--grid-ce) }
+x-grid > *[span*="+"], x-grid > *[span*="-"], x-grid > *[span*=".."] { grid-column-start: var(--grid-cs) }
+x-grid > *[span*="-"], x-grid > *[span*=".."] { grid-column-end: var(--grid-ce) }
+x-grid > *[span="row"] { grid-column: 1 / -1 }
 
-/* for window width <= 600 */
+/*** Grid Row - Y axis */
+x-grid > *[span-y^="1"] { --grid-rs: 1 }
+x-grid > *[span-y^="2"] { --grid-rs: 2 }
+x-grid > *[span-y^="3"] { --grid-rs: 3 }
+x-grid > *[span-y^="4"] { --grid-rs: 4 }
+x-grid > *[span-y^="5"] { --grid-rs: 5 }
+x-grid > *[span-y^="6"] { --grid-rs: 6 }
+x-grid > *[span-y^="7"] { --grid-rs: 7 }
+x-grid > *[span-y^="8"] { --grid-rs: 8 }
+x-grid > *[span-y^="9"] { --grid-rs: 9 }
+x-grid > *[span-y^="10"] { --grid-rs: 10 }
+x-grid > *[span-y^="11"] { --grid-rs: 11 }
+x-grid > *[span-y^="12"] { --grid-rs: 12 }
+
+x-grid > *[span-y$="+1"], x-grid > *[span-y="1"] { --grid-re: 1 }
+x-grid > *[span-y$="+2"], x-grid > *[span-y$="-1"], x-grid > *[span-y="2"] { --grid-re: 2 }
+x-grid > *[span-y$="+3"], x-grid > *[span-y$="-2"], x-grid > *[span-y="3"] { --grid-re: 3 }
+x-grid > *[span-y$="+4"], x-grid > *[span-y$="-3"], x-grid > *[span-y="4"] { --grid-re: 4 }
+x-grid > *[span-y$="+5"], x-grid > *[span-y$="-4"], x-grid > *[span-y="5"] { --grid-re: 5 }
+x-grid > *[span-y$="+6"], x-grid > *[span-y$="-5"], x-grid > *[span-y="6"] { --grid-re: 6 }
+x-grid > *[span-y$="+7"], x-grid > *[span-y$="-6"], x-grid > *[span-y="7"] { --grid-re: 7 }
+x-grid > *[span-y$="+8"], x-grid > *[span-y$="-7"], x-grid > *[span-y="8"] { --grid-re: 8 }
+x-grid > *[span-y$="+9"], x-grid > *[span-y$="-8"], x-grid > *[span-y="9"] { --grid-re: 9 }
+x-grid > *[span-y$="+10"], x-grid > *[span-y$="-9"], x-grid > *[span-y="10"] { --grid-re: 10 }
+x-grid > *[span-y$="+11"], x-grid > *[span-y$="-10"], x-grid > *[span-y="11"] { --grid-re: 11 }
+x-grid > *[span-y$="+12"], x-grid > *[span-y$="-11"], x-grid > *[span-y="12"] { --grid-re: 12 }
+x-grid > *[span-y$="-12"] { --grid-re: 13 }
+
+/* connect vars */
+x-grid > *[span-y] { grid-row-end: span var(--grid-re) }
+x-grid > *[span-y*="+"], x-grid > *[span-y*="-"] { grid-row-start: var(--grid-rs) }
+x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
+
+/* [S] for window width <= 600 */
 @media (max-width: 600px) {
   x-grid[columns-s="1"] { --grid-tc: repeat(1, 1fr) }
   x-grid[columns-s="2"] { --grid-tc: repeat(2, 1fr) }
@@ -970,56 +990,76 @@ x-grid > x-col[span="row"] { grid-column: 1 / -1 }
   x-grid[columns-s="10"] { --grid-tc: repeat(10, 1fr) }
   x-grid[columns-s="11"] { --grid-tc: repeat(11, 1fr) }
   x-grid[columns-s="12"] { --grid-tc: repeat(12, 1fr) }
-  x-grid[columns-s="13"] { --grid-tc: repeat(13, 1fr) }
-  x-grid[columns-s="14"] { --grid-tc: repeat(14, 1fr) }
-  x-grid[columns-s="15"] { --grid-tc: repeat(15, 1fr) }
-  x-grid[columns-s="16"] { --grid-tc: repeat(16, 1fr) }
-  
-  /* span-s=start... */
-  x-grid > x-col[span-s^="1"] { --grid-cs: 1 }
-  x-grid > x-col[span-s^="2"] { --grid-cs: 2 }
-  x-grid > x-col[span-s^="3"] { --grid-cs: 3 }
-  x-grid > x-col[span-s^="4"] { --grid-cs: 4 }
-  x-grid > x-col[span-s^="5"] { --grid-cs: 5 }
-  x-grid > x-col[span-s^="6"] { --grid-cs: 6 }
-  x-grid > x-col[span-s^="7"] { --grid-cs: 7 }
-  x-grid > x-col[span-s^="8"] { --grid-cs: 8 }
-  x-grid > x-col[span-s^="9"] { --grid-cs: 9 }
-  x-grid > x-col[span-s^="10"] { --grid-cs: 10 }
-  x-grid > x-col[span-s^="11"] { --grid-cs: 11 }
-  x-grid > x-col[span-s^="12"] { --grid-cs: 12 }
-  x-grid > x-col[span-s^="13"] { --grid-cs: 13 }
-  x-grid > x-col[span-s^="14"] { --grid-cs: 14 }
-  x-grid > x-col[span-s^="15"] { --grid-cs: 15 }
-  x-grid > x-col[span-s^="16"] { --grid-cs: 16 }
-  
-  /* span-s=...+width, span-s=...-end */
-  x-grid > x-col[span-s$="+1"], x-grid > x-col[span-s="1"] { --grid-ce: 1 }
-  x-grid > x-col[span-s$="+2"], x-grid > x-col[span-s$="-1"], x-grid > x-col[span-s="2"] { --grid-ce: 2 }
-  x-grid > x-col[span-s$="+3"], x-grid > x-col[span-s$="-2"], x-grid > x-col[span-s="3"] { --grid-ce: 3 }
-  x-grid > x-col[span-s$="+4"], x-grid > x-col[span-s$="-3"], x-grid > x-col[span-s="4"] { --grid-ce: 4 }
-  x-grid > x-col[span-s$="+5"], x-grid > x-col[span-s$="-4"], x-grid > x-col[span-s="5"] { --grid-ce: 5 }
-  x-grid > x-col[span-s$="+6"], x-grid > x-col[span-s$="-5"], x-grid > x-col[span-s="6"] { --grid-ce: 6 }
-  x-grid > x-col[span-s$="+7"], x-grid > x-col[span-s$="-6"], x-grid > x-col[span-s="7"] { --grid-ce: 7 }
-  x-grid > x-col[span-s$="+8"], x-grid > x-col[span-s$="-7"], x-grid > x-col[span-s="8"] { --grid-ce: 8 }
-  x-grid > x-col[span-s$="+9"], x-grid > x-col[span-s$="-8"], x-grid > x-col[span-s="9"] { --grid-ce: 9 }
-  x-grid > x-col[span-s$="+10"], x-grid > x-col[span-s$="-9"], x-grid > x-col[span-s="10"] { --grid-ce: 10 }
-  x-grid > x-col[span-s$="+11"], x-grid > x-col[span-s$="-10"], x-grid > x-col[span-s="11"] { --grid-ce: 11 }
-  x-grid > x-col[span-s$="+12"], x-grid > x-col[span-s$="-11"], x-grid > x-col[span-s="12"] { --grid-ce: 12 }
-  x-grid > x-col[span-s$="+13"], x-grid > x-col[span-s$="-12"], x-grid > x-col[span-s="13"] { --grid-ce: 13 }
-  x-grid > x-col[span-s$="+14"], x-grid > x-col[span-s$="-13"], x-grid > x-col[span-s="14"] { --grid-ce: 14 }
-  x-grid > x-col[span-s$="+15"], x-grid > x-col[span-s$="-14"], x-grid > x-col[span-s="15"] { --grid-ce: 15 }
-  x-grid > x-col[span-s$="+16"], x-grid > x-col[span-s$="-15"], x-grid > x-col[span-s="16"] { --grid-ce: 16 }
-  x-grid > x-col[span-s$="-16"] { --grid-ce: 17 }
-  
+
+  /*** Grid Column - X axis */
+  x-grid > *[span-s^="1"] { --grid-cs: 1 }
+  x-grid > *[span-s^="2"] { --grid-cs: 2 }
+  x-grid > *[span-s^="3"] { --grid-cs: 3 }
+  x-grid > *[span-s^="4"] { --grid-cs: 4 }
+  x-grid > *[span-s^="5"] { --grid-cs: 5 }
+  x-grid > *[span-s^="6"] { --grid-cs: 6 }
+  x-grid > *[span-s^="7"] { --grid-cs: 7 }
+  x-grid > *[span-s^="8"] { --grid-cs: 8 }
+  x-grid > *[span-s^="9"] { --grid-cs: 9 }
+  x-grid > *[span-s^="10"] { --grid-cs: 10 }
+  x-grid > *[span-s^="11"] { --grid-cs: 11 }
+  x-grid > *[span-s^="12"] { --grid-cs: 12 }
+
+  x-grid > *[span-s$="+1"], x-grid > *[span-s="1"] { --grid-ce: 1 }
+  x-grid > *[span-s$="+2"], x-grid > *[span-s$="-1"], x-grid > *[span-s="2"] { --grid-ce: 2 }
+  x-grid > *[span-s$="+3"], x-grid > *[span-s$="-2"], x-grid > *[span-s="3"] { --grid-ce: 3 }
+  x-grid > *[span-s$="+4"], x-grid > *[span-s$="-3"], x-grid > *[span-s="4"] { --grid-ce: 4 }
+  x-grid > *[span-s$="+5"], x-grid > *[span-s$="-4"], x-grid > *[span-s="5"] { --grid-ce: 5 }
+  x-grid > *[span-s$="+6"], x-grid > *[span-s$="-5"], x-grid > *[span-s="6"] { --grid-ce: 6 }
+  x-grid > *[span-s$="+7"], x-grid > *[span-s$="-6"], x-grid > *[span-s="7"] { --grid-ce: 7 }
+  x-grid > *[span-s$="+8"], x-grid > *[span-s$="-7"], x-grid > *[span-s="8"] { --grid-ce: 8 }
+  x-grid > *[span-s$="+9"], x-grid > *[span-s$="-8"], x-grid > *[span-s="9"] { --grid-ce: 9 }
+  x-grid > *[span-s$="+10"], x-grid > *[span-s$="-9"], x-grid > *[span-s="10"] { --grid-ce: 10 }
+  x-grid > *[span-s$="+11"], x-grid > *[span-s$="-10"], x-grid > *[span-s="11"] { --grid-ce: 11 }
+  x-grid > *[span-s$="+12"], x-grid > *[span-s$="-11"], x-grid > *[span-s="12"] { --grid-ce: 12 }
+  x-grid > *[span-s$="-12"] { --grid-ce: 13 }
+
   /* connect vars */
-  x-grid > x-col[span-s] { grid-column-end: span var(--grid-ce) }
-  x-grid > x-col[span-s*="+"], x-grid > x-col[span-s*="-"], x-grid > x-col[span-s*=".."] { grid-column-start: var(--grid-cs) }
-  x-grid > x-col[span-s*="-"], x-grid > x-col[span-s*=".."] { grid-column-end: var(--grid-ce) }
-  x-grid > x-col[span-s="row"] { grid-column: 1 / -1 }
+  x-grid > *[span-s] { grid-column-end: span var(--grid-ce) }
+  x-grid > *[span-s*="+"], x-grid > *[span-s*="-"], x-grid > *[span-s*=".."] { grid-column-start: var(--grid-cs) }
+  x-grid > *[span-s*="-"], x-grid > *[span-s*=".."] { grid-column-end: var(--grid-ce) }
+  x-grid > *[span-s="row"] { grid-column: 1 / -1 }
+
+  /*** Grid Row - Y axis */
+  x-grid > *[span-y-s^="1"] { --grid-rs: 1 }
+  x-grid > *[span-y-s^="2"] { --grid-rs: 2 }
+  x-grid > *[span-y-s^="3"] { --grid-rs: 3 }
+  x-grid > *[span-y-s^="4"] { --grid-rs: 4 }
+  x-grid > *[span-y-s^="5"] { --grid-rs: 5 }
+  x-grid > *[span-y-s^="6"] { --grid-rs: 6 }
+  x-grid > *[span-y-s^="7"] { --grid-rs: 7 }
+  x-grid > *[span-y-s^="8"] { --grid-rs: 8 }
+  x-grid > *[span-y-s^="9"] { --grid-rs: 9 }
+  x-grid > *[span-y-s^="10"] { --grid-rs: 10 }
+  x-grid > *[span-y-s^="11"] { --grid-rs: 11 }
+  x-grid > *[span-y-s^="12"] { --grid-rs: 12 }
+
+  x-grid > *[span-y-s$="+1"], x-grid > *[span-y-s="1"] { --grid-re: 1 }
+  x-grid > *[span-y-s$="+2"], x-grid > *[span-y-s$="-1"], x-grid > *[span-y-s="2"] { --grid-re: 2 }
+  x-grid > *[span-y-s$="+3"], x-grid > *[span-y-s$="-2"], x-grid > *[span-y-s="3"] { --grid-re: 3 }
+  x-grid > *[span-y-s$="+4"], x-grid > *[span-y-s$="-3"], x-grid > *[span-y-s="4"] { --grid-re: 4 }
+  x-grid > *[span-y-s$="+5"], x-grid > *[span-y-s$="-4"], x-grid > *[span-y-s="5"] { --grid-re: 5 }
+  x-grid > *[span-y-s$="+6"], x-grid > *[span-y-s$="-5"], x-grid > *[span-y-s="6"] { --grid-re: 6 }
+  x-grid > *[span-y-s$="+7"], x-grid > *[span-y-s$="-6"], x-grid > *[span-y-s="7"] { --grid-re: 7 }
+  x-grid > *[span-y-s$="+8"], x-grid > *[span-y-s$="-7"], x-grid > *[span-y-s="8"] { --grid-re: 8 }
+  x-grid > *[span-y-s$="+9"], x-grid > *[span-y-s$="-8"], x-grid > *[span-y-s="9"] { --grid-re: 9 }
+  x-grid > *[span-y-s$="+10"], x-grid > *[span-y-s$="-9"], x-grid > *[span-y-s="10"] { --grid-re: 10 }
+  x-grid > *[span-y-s$="+11"], x-grid > *[span-y-s$="-10"], x-grid > *[span-y-s="11"] { --grid-re: 11 }
+  x-grid > *[span-y-s$="+12"], x-grid > *[span-y-s$="-11"], x-grid > *[span-y-s="12"] { --grid-re: 12 }
+  x-grid > *[span-y-s$="-12"] { --grid-re: 13 }
+
+  /* connect vars */
+  x-grid > *[span-y-s] { grid-row-end: span var(--grid-re) }
+  x-grid > *[span-y-s*="+"], x-grid > *[span-y-s*="-"] { grid-row-start: var(--grid-rs) }
+  x-grid > *[span-y-s*="-"] { grid-row-end: var(--grid-re) }
 }
 
-/* for window width 601px <> 1024px */
+/* [M] for window width 601px <> 1024px */
 @media (min-width: 601px) and (max-width: 1024px) {
   x-grid[columns-m="1"] { --grid-tc: repeat(1, 1fr) }
   x-grid[columns-m="2"] { --grid-tc: repeat(2, 1fr) }
@@ -1033,56 +1073,76 @@ x-grid > x-col[span="row"] { grid-column: 1 / -1 }
   x-grid[columns-m="10"] { --grid-tc: repeat(10, 1fr) }
   x-grid[columns-m="11"] { --grid-tc: repeat(11, 1fr) }
   x-grid[columns-m="12"] { --grid-tc: repeat(12, 1fr) }
-  x-grid[columns-m="13"] { --grid-tc: repeat(13, 1fr) }
-  x-grid[columns-m="14"] { --grid-tc: repeat(14, 1fr) }
-  x-grid[columns-m="15"] { --grid-tc: repeat(15, 1fr) }
-  x-grid[columns-m="16"] { --grid-tc: repeat(16, 1fr) }
-  
-  /* span-m=start... */
-  x-grid > x-col[span-m^="1"] { --grid-cs: 1 }
-  x-grid > x-col[span-m^="2"] { --grid-cs: 2 }
-  x-grid > x-col[span-m^="3"] { --grid-cs: 3 }
-  x-grid > x-col[span-m^="4"] { --grid-cs: 4 }
-  x-grid > x-col[span-m^="5"] { --grid-cs: 5 }
-  x-grid > x-col[span-m^="6"] { --grid-cs: 6 }
-  x-grid > x-col[span-m^="7"] { --grid-cs: 7 }
-  x-grid > x-col[span-m^="8"] { --grid-cs: 8 }
-  x-grid > x-col[span-m^="9"] { --grid-cs: 9 }
-  x-grid > x-col[span-m^="10"] { --grid-cs: 10 }
-  x-grid > x-col[span-m^="11"] { --grid-cs: 11 }
-  x-grid > x-col[span-m^="12"] { --grid-cs: 12 }
-  x-grid > x-col[span-m^="13"] { --grid-cs: 13 }
-  x-grid > x-col[span-m^="14"] { --grid-cs: 14 }
-  x-grid > x-col[span-m^="15"] { --grid-cs: 15 }
-  x-grid > x-col[span-m^="16"] { --grid-cs: 16 }
-  
-  /* span-m=...+width, span-m=...-end */
-  x-grid > x-col[span-m$="+1"], x-grid > x-col[span-m="1"] { --grid-ce: 1 }
-  x-grid > x-col[span-m$="+2"], x-grid > x-col[span-m$="-1"], x-grid > x-col[span-m="2"] { --grid-ce: 2 }
-  x-grid > x-col[span-m$="+3"], x-grid > x-col[span-m$="-2"], x-grid > x-col[span-m="3"] { --grid-ce: 3 }
-  x-grid > x-col[span-m$="+4"], x-grid > x-col[span-m$="-3"], x-grid > x-col[span-m="4"] { --grid-ce: 4 }
-  x-grid > x-col[span-m$="+5"], x-grid > x-col[span-m$="-4"], x-grid > x-col[span-m="5"] { --grid-ce: 5 }
-  x-grid > x-col[span-m$="+6"], x-grid > x-col[span-m$="-5"], x-grid > x-col[span-m="6"] { --grid-ce: 6 }
-  x-grid > x-col[span-m$="+7"], x-grid > x-col[span-m$="-6"], x-grid > x-col[span-m="7"] { --grid-ce: 7 }
-  x-grid > x-col[span-m$="+8"], x-grid > x-col[span-m$="-7"], x-grid > x-col[span-m="8"] { --grid-ce: 8 }
-  x-grid > x-col[span-m$="+9"], x-grid > x-col[span-m$="-8"], x-grid > x-col[span-m="9"] { --grid-ce: 9 }
-  x-grid > x-col[span-m$="+10"], x-grid > x-col[span-m$="-9"], x-grid > x-col[span-m="10"] { --grid-ce: 10 }
-  x-grid > x-col[span-m$="+11"], x-grid > x-col[span-m$="-10"], x-grid > x-col[span-m="11"] { --grid-ce: 11 }
-  x-grid > x-col[span-m$="+12"], x-grid > x-col[span-m$="-11"], x-grid > x-col[span-m="12"] { --grid-ce: 12 }
-  x-grid > x-col[span-m$="+13"], x-grid > x-col[span-m$="-12"], x-grid > x-col[span-m="13"] { --grid-ce: 13 }
-  x-grid > x-col[span-m$="+14"], x-grid > x-col[span-m$="-13"], x-grid > x-col[span-m="14"] { --grid-ce: 14 }
-  x-grid > x-col[span-m$="+15"], x-grid > x-col[span-m$="-14"], x-grid > x-col[span-m="15"] { --grid-ce: 15 }
-  x-grid > x-col[span-m$="+16"], x-grid > x-col[span-m$="-15"], x-grid > x-col[span-m="16"] { --grid-ce: 16 }
-  x-grid > x-col[span-m$="-16"] { --grid-ce: 17 }
-  
+
+  /*** Grid Column - X axis */
+  x-grid > *[span-m^="1"] { --grid-cs: 1 }
+  x-grid > *[span-m^="2"] { --grid-cs: 2 }
+  x-grid > *[span-m^="3"] { --grid-cs: 3 }
+  x-grid > *[span-m^="4"] { --grid-cs: 4 }
+  x-grid > *[span-m^="5"] { --grid-cs: 5 }
+  x-grid > *[span-m^="6"] { --grid-cs: 6 }
+  x-grid > *[span-m^="7"] { --grid-cs: 7 }
+  x-grid > *[span-m^="8"] { --grid-cs: 8 }
+  x-grid > *[span-m^="9"] { --grid-cs: 9 }
+  x-grid > *[span-m^="10"] { --grid-cs: 10 }
+  x-grid > *[span-m^="11"] { --grid-cs: 11 }
+  x-grid > *[span-m^="12"] { --grid-cs: 12 }
+
+  x-grid > *[span-m$="+1"], x-grid > *[span-m="1"] { --grid-ce: 1 }
+  x-grid > *[span-m$="+2"], x-grid > *[span-m$="-1"], x-grid > *[span-m="2"] { --grid-ce: 2 }
+  x-grid > *[span-m$="+3"], x-grid > *[span-m$="-2"], x-grid > *[span-m="3"] { --grid-ce: 3 }
+  x-grid > *[span-m$="+4"], x-grid > *[span-m$="-3"], x-grid > *[span-m="4"] { --grid-ce: 4 }
+  x-grid > *[span-m$="+5"], x-grid > *[span-m$="-4"], x-grid > *[span-m="5"] { --grid-ce: 5 }
+  x-grid > *[span-m$="+6"], x-grid > *[span-m$="-5"], x-grid > *[span-m="6"] { --grid-ce: 6 }
+  x-grid > *[span-m$="+7"], x-grid > *[span-m$="-6"], x-grid > *[span-m="7"] { --grid-ce: 7 }
+  x-grid > *[span-m$="+8"], x-grid > *[span-m$="-7"], x-grid > *[span-m="8"] { --grid-ce: 8 }
+  x-grid > *[span-m$="+9"], x-grid > *[span-m$="-8"], x-grid > *[span-m="9"] { --grid-ce: 9 }
+  x-grid > *[span-m$="+10"], x-grid > *[span-m$="-9"], x-grid > *[span-m="10"] { --grid-ce: 10 }
+  x-grid > *[span-m$="+11"], x-grid > *[span-m$="-10"], x-grid > *[span-m="11"] { --grid-ce: 11 }
+  x-grid > *[span-m$="+12"], x-grid > *[span-m$="-11"], x-grid > *[span-m="12"] { --grid-ce: 12 }
+  x-grid > *[span-m$="-12"] { --grid-ce: 13 }
+
   /* connect vars */
-  x-grid > x-col[span-m] { grid-column-end: span var(--grid-ce) }
-  x-grid > x-col[span-m*="+"], x-grid > x-col[span-m*="-"], x-grid > x-col[span-m*=".."] { grid-column-start: var(--grid-cs) }
-  x-grid > x-col[span-m*="-"], x-grid > x-col[span-m*=".."] { grid-column-end: var(--grid-ce) }
-  x-grid > x-col[span-m="row"] { grid-column: 1 / -1 }
+  x-grid > *[span-m] { grid-column-end: span var(--grid-ce) }
+  x-grid > *[span-m*="+"], x-grid > *[span-m*="-"], x-grid > *[span-m*=".."] { grid-column-start: var(--grid-cs) }
+  x-grid > *[span-m*="-"], x-grid > *[span-m*=".."] { grid-column-end: var(--grid-ce) }
+  x-grid > *[span-m="row"] { grid-column: 1 / -1 }
+
+  /*** Grid Row - Y axis */
+  x-grid > *[span-y-m^="1"] { --grid-rs: 1 }
+  x-grid > *[span-y-m^="2"] { --grid-rs: 2 }
+  x-grid > *[span-y-m^="3"] { --grid-rs: 3 }
+  x-grid > *[span-y-m^="4"] { --grid-rs: 4 }
+  x-grid > *[span-y-m^="5"] { --grid-rs: 5 }
+  x-grid > *[span-y-m^="6"] { --grid-rs: 6 }
+  x-grid > *[span-y-m^="7"] { --grid-rs: 7 }
+  x-grid > *[span-y-m^="8"] { --grid-rs: 8 }
+  x-grid > *[span-y-m^="9"] { --grid-rs: 9 }
+  x-grid > *[span-y-m^="10"] { --grid-rs: 10 }
+  x-grid > *[span-y-m^="11"] { --grid-rs: 11 }
+  x-grid > *[span-y-m^="12"] { --grid-rs: 12 }
+
+  x-grid > *[span-y-m$="+1"], x-grid > *[span-y-m="1"] { --grid-re: 1 }
+  x-grid > *[span-y-m$="+2"], x-grid > *[span-y-m$="-1"], x-grid > *[span-y-m="2"] { --grid-re: 2 }
+  x-grid > *[span-y-m$="+3"], x-grid > *[span-y-m$="-2"], x-grid > *[span-y-m="3"] { --grid-re: 3 }
+  x-grid > *[span-y-m$="+4"], x-grid > *[span-y-m$="-3"], x-grid > *[span-y-m="4"] { --grid-re: 4 }
+  x-grid > *[span-y-m$="+5"], x-grid > *[span-y-m$="-4"], x-grid > *[span-y-m="5"] { --grid-re: 5 }
+  x-grid > *[span-y-m$="+6"], x-grid > *[span-y-m$="-5"], x-grid > *[span-y-m="6"] { --grid-re: 6 }
+  x-grid > *[span-y-m$="+7"], x-grid > *[span-y-m$="-6"], x-grid > *[span-y-m="7"] { --grid-re: 7 }
+  x-grid > *[span-y-m$="+8"], x-grid > *[span-y-m$="-7"], x-grid > *[span-y-m="8"] { --grid-re: 8 }
+  x-grid > *[span-y-m$="+9"], x-grid > *[span-y-m$="-8"], x-grid > *[span-y-m="9"] { --grid-re: 9 }
+  x-grid > *[span-y-m$="+10"], x-grid > *[span-y-m$="-9"], x-grid > *[span-y-m="10"] { --grid-re: 10 }
+  x-grid > *[span-y-m$="+11"], x-grid > *[span-y-m$="-10"], x-grid > *[span-y-m="11"] { --grid-re: 11 }
+  x-grid > *[span-y-m$="+12"], x-grid > *[span-y-m$="-11"], x-grid > *[span-y-m="12"] { --grid-re: 12 }
+  x-grid > *[span-y-m$="-12"] { --grid-re: 13 }
+
+  /* connect vars */
+  x-grid > *[span-y-m] { grid-row-end: span var(--grid-re) }
+  x-grid > *[span-y-m*="+"], x-grid > *[span-y-m*="-"] { grid-row-start: var(--grid-rs) }
+  x-grid > *[span-y-m*="-"] { grid-row-end: var(--grid-re) }
 }
 
-/* for window width >= 1600 */
+/* [L] for window width >= 1600 */
 @media (min-width: 1599px) {
   x-grid[columns-l="1"] { --grid-tc: repeat(1, 1fr) }
   x-grid[columns-l="2"] { --grid-tc: repeat(2, 1fr) }
@@ -1096,61 +1156,81 @@ x-grid > x-col[span="row"] { grid-column: 1 / -1 }
   x-grid[columns-l="10"] { --grid-tc: repeat(10, 1fr) }
   x-grid[columns-l="11"] { --grid-tc: repeat(11, 1fr) }
   x-grid[columns-l="12"] { --grid-tc: repeat(12, 1fr) }
-  x-grid[columns-l="13"] { --grid-tc: repeat(13, 1fr) }
-  x-grid[columns-l="14"] { --grid-tc: repeat(14, 1fr) }
-  x-grid[columns-l="15"] { --grid-tc: repeat(15, 1fr) }
-  x-grid[columns-l="16"] { --grid-tc: repeat(16, 1fr) }
-  
-  /* span-l=start... */
-  x-grid > x-col[span-l^="1"] { --grid-cs: 1 }
-  x-grid > x-col[span-l^="2"] { --grid-cs: 2 }
-  x-grid > x-col[span-l^="3"] { --grid-cs: 3 }
-  x-grid > x-col[span-l^="4"] { --grid-cs: 4 }
-  x-grid > x-col[span-l^="5"] { --grid-cs: 5 }
-  x-grid > x-col[span-l^="6"] { --grid-cs: 6 }
-  x-grid > x-col[span-l^="7"] { --grid-cs: 7 }
-  x-grid > x-col[span-l^="8"] { --grid-cs: 8 }
-  x-grid > x-col[span-l^="9"] { --grid-cs: 9 }
-  x-grid > x-col[span-l^="10"] { --grid-cs: 10 }
-  x-grid > x-col[span-l^="11"] { --grid-cs: 11 }
-  x-grid > x-col[span-l^="12"] { --grid-cs: 12 }
-  x-grid > x-col[span-l^="13"] { --grid-cs: 13 }
-  x-grid > x-col[span-l^="14"] { --grid-cs: 14 }
-  x-grid > x-col[span-l^="15"] { --grid-cs: 15 }
-  x-grid > x-col[span-l^="16"] { --grid-cs: 16 }
-  
-  /* span-l=...+width, span-l=...-end */
-  x-grid > x-col[span-l$="+1"], x-grid > x-col[span-l="1"] { --grid-ce: 1 }
-  x-grid > x-col[span-l$="+2"], x-grid > x-col[span-l$="-1"], x-grid > x-col[span-l="2"] { --grid-ce: 2 }
-  x-grid > x-col[span-l$="+3"], x-grid > x-col[span-l$="-2"], x-grid > x-col[span-l="3"] { --grid-ce: 3 }
-  x-grid > x-col[span-l$="+4"], x-grid > x-col[span-l$="-3"], x-grid > x-col[span-l="4"] { --grid-ce: 4 }
-  x-grid > x-col[span-l$="+5"], x-grid > x-col[span-l$="-4"], x-grid > x-col[span-l="5"] { --grid-ce: 5 }
-  x-grid > x-col[span-l$="+6"], x-grid > x-col[span-l$="-5"], x-grid > x-col[span-l="6"] { --grid-ce: 6 }
-  x-grid > x-col[span-l$="+7"], x-grid > x-col[span-l$="-6"], x-grid > x-col[span-l="7"] { --grid-ce: 7 }
-  x-grid > x-col[span-l$="+8"], x-grid > x-col[span-l$="-7"], x-grid > x-col[span-l="8"] { --grid-ce: 8 }
-  x-grid > x-col[span-l$="+9"], x-grid > x-col[span-l$="-8"], x-grid > x-col[span-l="9"] { --grid-ce: 9 }
-  x-grid > x-col[span-l$="+10"], x-grid > x-col[span-l$="-9"], x-grid > x-col[span-l="10"] { --grid-ce: 10 }
-  x-grid > x-col[span-l$="+11"], x-grid > x-col[span-l$="-10"], x-grid > x-col[span-l="11"] { --grid-ce: 11 }
-  x-grid > x-col[span-l$="+12"], x-grid > x-col[span-l$="-11"], x-grid > x-col[span-l="12"] { --grid-ce: 12 }
-  x-grid > x-col[span-l$="+13"], x-grid > x-col[span-l$="-12"], x-grid > x-col[span-l="13"] { --grid-ce: 13 }
-  x-grid > x-col[span-l$="+14"], x-grid > x-col[span-l$="-13"], x-grid > x-col[span-l="14"] { --grid-ce: 14 }
-  x-grid > x-col[span-l$="+15"], x-grid > x-col[span-l$="-14"], x-grid > x-col[span-l="15"] { --grid-ce: 15 }
-  x-grid > x-col[span-l$="+16"], x-grid > x-col[span-l$="-15"], x-grid > x-col[span-l="16"] { --grid-ce: 16 }
-  x-grid > x-col[span-l$="-16"] { --grid-ce: 17 }
-  
+
+  /*** Grid Column - X axis */
+  x-grid > *[span-l^="1"] { --grid-cs: 1 }
+  x-grid > *[span-l^="2"] { --grid-cs: 2 }
+  x-grid > *[span-l^="3"] { --grid-cs: 3 }
+  x-grid > *[span-l^="4"] { --grid-cs: 4 }
+  x-grid > *[span-l^="5"] { --grid-cs: 5 }
+  x-grid > *[span-l^="6"] { --grid-cs: 6 }
+  x-grid > *[span-l^="7"] { --grid-cs: 7 }
+  x-grid > *[span-l^="8"] { --grid-cs: 8 }
+  x-grid > *[span-l^="9"] { --grid-cs: 9 }
+  x-grid > *[span-l^="10"] { --grid-cs: 10 }
+  x-grid > *[span-l^="11"] { --grid-cs: 11 }
+  x-grid > *[span-l^="12"] { --grid-cs: 12 }
+
+  x-grid > *[span-l$="+1"], x-grid > *[span-l="1"] { --grid-ce: 1 }
+  x-grid > *[span-l$="+2"], x-grid > *[span-l$="-1"], x-grid > *[span-l="2"] { --grid-ce: 2 }
+  x-grid > *[span-l$="+3"], x-grid > *[span-l$="-2"], x-grid > *[span-l="3"] { --grid-ce: 3 }
+  x-grid > *[span-l$="+4"], x-grid > *[span-l$="-3"], x-grid > *[span-l="4"] { --grid-ce: 4 }
+  x-grid > *[span-l$="+5"], x-grid > *[span-l$="-4"], x-grid > *[span-l="5"] { --grid-ce: 5 }
+  x-grid > *[span-l$="+6"], x-grid > *[span-l$="-5"], x-grid > *[span-l="6"] { --grid-ce: 6 }
+  x-grid > *[span-l$="+7"], x-grid > *[span-l$="-6"], x-grid > *[span-l="7"] { --grid-ce: 7 }
+  x-grid > *[span-l$="+8"], x-grid > *[span-l$="-7"], x-grid > *[span-l="8"] { --grid-ce: 8 }
+  x-grid > *[span-l$="+9"], x-grid > *[span-l$="-8"], x-grid > *[span-l="9"] { --grid-ce: 9 }
+  x-grid > *[span-l$="+10"], x-grid > *[span-l$="-9"], x-grid > *[span-l="10"] { --grid-ce: 10 }
+  x-grid > *[span-l$="+11"], x-grid > *[span-l$="-10"], x-grid > *[span-l="11"] { --grid-ce: 11 }
+  x-grid > *[span-l$="+12"], x-grid > *[span-l$="-11"], x-grid > *[span-l="12"] { --grid-ce: 12 }
+  x-grid > *[span-l$="-12"] { --grid-ce: 13 }
+
   /* connect vars */
-  x-grid > x-col[span-l] { grid-column-end: span var(--grid-ce) }
-  x-grid > x-col[span-l*="+"], x-grid > x-col[span-l*="-"], x-grid > x-col[span-l*=".."] { grid-column-start: var(--grid-cs) }
-  x-grid > x-col[span-l*="-"], x-grid > x-col[span-l*=".."] { grid-column-end: var(--grid-ce) }
-  x-grid > x-col[span-l="row"] { grid-column: 1 / -1 }
+  x-grid > *[span-l] { grid-column-end: span var(--grid-ce) }
+  x-grid > *[span-l*="+"], x-grid > *[span-l*="-"], x-grid > *[span-l*=".."] { grid-column-start: var(--grid-cs) }
+  x-grid > *[span-l*="-"], x-grid > *[span-l*=".."] { grid-column-end: var(--grid-ce) }
+  x-grid > *[span-l="row"] { grid-column: 1 / -1 }
+
+  /*** Grid Row - Y axis */
+  x-grid > *[span-y-l^="1"] { --grid-rs: 1 }
+  x-grid > *[span-y-l^="2"] { --grid-rs: 2 }
+  x-grid > *[span-y-l^="3"] { --grid-rs: 3 }
+  x-grid > *[span-y-l^="4"] { --grid-rs: 4 }
+  x-grid > *[span-y-l^="5"] { --grid-rs: 5 }
+  x-grid > *[span-y-l^="6"] { --grid-rs: 6 }
+  x-grid > *[span-y-l^="7"] { --grid-rs: 7 }
+  x-grid > *[span-y-l^="8"] { --grid-rs: 8 }
+  x-grid > *[span-y-l^="9"] { --grid-rs: 9 }
+  x-grid > *[span-y-l^="10"] { --grid-rs: 10 }
+  x-grid > *[span-y-l^="11"] { --grid-rs: 11 }
+  x-grid > *[span-y-l^="12"] { --grid-rs: 12 }
+
+  x-grid > *[span-y-l$="+1"], x-grid > *[span-y-l="1"] { --grid-re: 1 }
+  x-grid > *[span-y-l$="+2"], x-grid > *[span-y-l$="-1"], x-grid > *[span-y-l="2"] { --grid-re: 2 }
+  x-grid > *[span-y-l$="+3"], x-grid > *[span-y-l$="-2"], x-grid > *[span-y-l="3"] { --grid-re: 3 }
+  x-grid > *[span-y-l$="+4"], x-grid > *[span-y-l$="-3"], x-grid > *[span-y-l="4"] { --grid-re: 4 }
+  x-grid > *[span-y-l$="+5"], x-grid > *[span-y-l$="-4"], x-grid > *[span-y-l="5"] { --grid-re: 5 }
+  x-grid > *[span-y-l$="+6"], x-grid > *[span-y-l$="-5"], x-grid > *[span-y-l="6"] { --grid-re: 6 }
+  x-grid > *[span-y-l$="+7"], x-grid > *[span-y-l$="-6"], x-grid > *[span-y-l="7"] { --grid-re: 7 }
+  x-grid > *[span-y-l$="+8"], x-grid > *[span-y-l$="-7"], x-grid > *[span-y-l="8"] { --grid-re: 8 }
+  x-grid > *[span-y-l$="+9"], x-grid > *[span-y-l$="-8"], x-grid > *[span-y-l="9"] { --grid-re: 9 }
+  x-grid > *[span-y-l$="+10"], x-grid > *[span-y-l$="-9"], x-grid > *[span-y-l="10"] { --grid-re: 10 }
+  x-grid > *[span-y-l$="+11"], x-grid > *[span-y-l$="-10"], x-grid > *[span-y-l="11"] { --grid-re: 11 }
+  x-grid > *[span-y-l$="+12"], x-grid > *[span-y-l$="-11"], x-grid > *[span-y-l="12"] { --grid-re: 12 }
+  x-grid > *[span-y-l$="-12"] { --grid-re: 13 }
+
+  /* connect vars */
+  x-grid > *[span-y-l] { grid-row-end: span var(--grid-re) }
+  x-grid > *[span-y-l*="+"], x-grid > *[span-y-l*="-"] { grid-row-start: var(--grid-rs) }
+  x-grid > *[span-y-l*="-"] { grid-row-end: var(--grid-re) }
 }
 
 /* ------------------
   flexbox
 ------------------ */
 /*  Flex Container */
-x-flex { display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
-x-flex > * { flex: 0 1 auto; width: auto; appearance: none}
+x-flex, [x-flex] { display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
+x-flex > * { flex: 0 1 auto; width: auto; appearance: none }
 x-flex.even > * { width: 100% }
 x-flex img { object-fit: contain; max-width: 100% }
 
@@ -1241,16 +1321,16 @@ x-flex img { object-fit: contain; max-width: 100% }
 [ac="evenly"] { align-content: space-evenly }
 
 /* Align SELF */
-* > x-col[as="start"] { align-self: start }
-* > x-col[as="center"] { align-self: center }
-* > x-col[as="end"] { align-self: end }
-* > x-col[as="stretch"] { align-self: stretch }
+[as="start"] { align-self: start }
+[as="center"] { align-self: center }
+[as="end"] { align-self: end }
+[as="stretch"] { align-self: stretch }
 
 /* Justify SELF */
-* > x-col[js="start"] { justify-self: start }
-* > x-col[js="center"] { justify-self: center }
-* > x-col[js="end"] { justify-self: end }
-* > x-col[js="stretch"] { justify-self: stretch }
+[js="start"] { justify-self: start }
+[js="center"] { justify-self: center }
+[js="end"] { justify-self: end }
+[js="stretch"] { justify-self: stretch }
 
 /* Place ITEMS – place-items: align-items justify-items; */
 [pi="start"] { place-items: start }
@@ -1333,26 +1413,26 @@ x-flex img { object-fit: contain; max-width: 100% }
 [pc="evenly between"] { place-content: space-evenly space-between }
 
 /* Place SELF - place-self: align-self justify-self; */
-* > x-col[ps="start"] { place-self: start }
-* > x-col[ps="center"] { place-self: center }
-* > x-col[ps="end"] { place-self: end }
-* > x-col[ps="stretch"] { place-self: stretch }
+[ps="start"] { place-self: start }
+[ps="center"] { place-self: center }
+[ps="end"] { place-self: end }
+[ps="stretch"] { place-self: stretch }
 
-* > x-col[ps="start center"] { place-self: start center }
-* > x-col[ps="start end"] { place-self: start end }
-* > x-col[ps="start stretch"] { place-self: start stretch }
+[ps="start center"] { place-self: start center }
+[ps="start end"] { place-self: start end }
+[ps="start stretch"] { place-self: start stretch }
 
-* > x-col[ps="center start"] { place-self: center start }
-* > x-col[ps="center end"] { place-self: center end }
-* > x-col[ps="center stretch"] { place-self: center stretch }
+[ps="center start"] { place-self: center start }
+[ps="center end"] { place-self: center end }
+[ps="center stretch"] { place-self: center stretch }
 
-* > x-col[ps="end start"] { place-self: end start }
-* > x-col[ps="end center"] { place-self: end center }
-* > x-col[ps="end stretch"] { place-self: end stretch }
+[ps="end start"] { place-self: end start }
+[ps="end center"] { place-self: end center }
+[ps="end stretch"] { place-self: end stretch }
 
-* > x-col[ps="stretch start"] { place-self: stretch start }
-* > x-col[ps="stretch center"] { place-self: stretch center }
-* > x-col[ps="stretch end"] { place-self: stretch end }
+[ps="stretch start"] { place-self: stretch start }
+[ps="stretch center"] { place-self: stretch center }
+[ps="stretch end"] { place-self: stretch end }
 
 /* VISUAL ORDER */
 [order="first"] { order: -1 }
@@ -1407,16 +1487,16 @@ x-flex img { object-fit: contain; max-width: 100% }
     [ac-s="evenly"] { align-content: space-evenly }
 
     /* Align SELF */
-    * > x-col[as-s="start"] { align-self: start } 
-    * > x-col[as-s="center"] { align-self: center }
-    * > x-col[as-s="end"] { align-self: end } 
-    * > x-col[as-s="stretch"] { align-self: stretch }
+    [as-s="start"] { align-self: start } 
+    [as-s="center"] { align-self: center }
+    [as-s="end"] { align-self: end } 
+    [as-s="stretch"] { align-self: stretch }
 
     /* Justify SELF */
-    * > x-col[js-s="start"] { justify-self: start }
-    * > x-col[js-s="center"] { justify-self: center }
-    * > x-col[js-s="end"] { justify-self: end }
-    * > x-col[js-s="stretch"] { justify-self: stretch }
+    [js-s="start"] { justify-self: start }
+    [js-s="center"] { justify-self: center }
+    [js-s="end"] { justify-self: end }
+    [js-s="stretch"] { justify-self: stretch }
 
     /* Place ITEMS – place-items: align-items justify-items; */
     [pi-s="start"] { place-items: start }
@@ -1499,26 +1579,26 @@ x-flex img { object-fit: contain; max-width: 100% }
     [pc-s="evenly between"] { place-content: space-evenly space-between }
 
     /* Place SELF - place-self: align-self justify-self; */
-    * > x-col[ps-s="start"] { place-self: start }
-    * > x-col[ps-s="center"] { place-self: center }
-    * > x-col[ps-s="end"] { place-self: end }
-    * > x-col[ps-s="stretch"] { place-self: stretch }
+    [ps-s="start"] { place-self: start }
+    [ps-s="center"] { place-self: center }
+    [ps-s="end"] { place-self: end }
+    [ps-s="stretch"] { place-self: stretch }
 
-    * > x-col[ps-s="start center"] { place-self: start center }
-    * > x-col[ps-s="start end"] { place-self: start end }
-    * > x-col[ps-s="start stretch"] { place-self: start stretch }
+    [ps-s="start center"] { place-self: start center }
+    [ps-s="start end"] { place-self: start end }
+    [ps-s="start stretch"] { place-self: start stretch }
 
-    * > x-col[ps-s="center start"] { place-self: center start }
-    * > x-col[ps-s="center end"] { place-self: center end }
-    * > x-col[ps-s="center stretch"] { place-self: center stretch }
+    [ps-s="center start"] { place-self: center start }
+    [ps-s="center end"] { place-self: center end }
+    [ps-s="center stretch"] { place-self: center stretch }
 
-    * > x-col[ps-s="end start"] { place-self: end start }
-    * > x-col[ps-s="end center"] { place-self: end center }
-    * > x-col[ps-s="end stretch"] { place-self: end stretch }
+    [ps-s="end start"] { place-self: end start }
+    [ps-s="end center"] { place-self: end center }
+    [ps-s="end stretch"] { place-self: end stretch }
 
-    * > x-col[ps-s="stretch start"] { place-self: stretch start }
-    * > x-col[ps-s="stretch center"] { place-self: stretch center }
-    * > x-col[ps-s="stretch end"] { place-self: stretch end }
+    [ps-s="stretch start"] { place-self: stretch start }
+    [ps-s="stretch center"] { place-self: stretch center }
+    [ps-s="stretch end"] { place-self: stretch end }
 
     /* VISUAL ORDER */
     [order-s="first"] { order: -1 }
@@ -1574,16 +1654,16 @@ x-flex img { object-fit: contain; max-width: 100% }
     [ac-m="evenly"] { align-content: space-evenly }
 
     /* Align SELF */
-    * > x-col[as-m="start"] { align-self: start } 
-    * > x-col[as-m="center"] { align-self: center }
-    * > x-col[as-m="end"] { align-self: end } 
-    * > x-col[as-m="stretch"] { align-self: stretch }
+    [as-m="start"] { align-self: start } 
+    [as-m="center"] { align-self: center }
+    [as-m="end"] { align-self: end } 
+    [as-m="stretch"] { align-self: stretch }
 
     /* Justify SELF */
-    * > x-col[js-m="start"] { justify-self: start }
-    * > x-col[js-m="center"] { justify-self: center }
-    * > x-col[js-m="end"] { justify-self: end }
-    * > x-col[js-m="stretch"] { justify-self: stretch }
+    [js-m="start"] { justify-self: start }
+    [js-m="center"] { justify-self: center }
+    [js-m="end"] { justify-self: end }
+    [js-m="stretch"] { justify-self: stretch }
 
     /* Place ITEMS – place-items: align-items justify-items; */
     [pi-m="start"] { place-items: start }
@@ -1666,26 +1746,26 @@ x-flex img { object-fit: contain; max-width: 100% }
     [pc-m="evenly between"] { place-content: space-evenly space-between }
 
     /* Place SELF - place-self: align-self justify-self; */
-    * > x-col[ps-m="start"] { place-self: start }
-    * > x-col[ps-m="center"] { place-self: center }
-    * > x-col[ps-m="end"] { place-self: end }
-    * > x-col[ps-m="stretch"] { place-self: stretch }
+    [ps-m="start"] { place-self: start }
+    [ps-m="center"] { place-self: center }
+    [ps-m="end"] { place-self: end }
+    [ps-m="stretch"] { place-self: stretch }
 
-    * > x-col[ps-m="start center"] { place-self: start center }
-    * > x-col[ps-m="start end"] { place-self: start end }
-    * > x-col[ps-m="start stretch"] { place-self: start stretch }
+    [ps-m="start center"] { place-self: start center }
+    [ps-m="start end"] { place-self: start end }
+    [ps-m="start stretch"] { place-self: start stretch }
 
-    * > x-col[ps-m="center start"] { place-self: center start }
-    * > x-col[ps-m="center end"] { place-self: center end }
-    * > x-col[ps-m="center stretch"] { place-self: center stretch }
+    [ps-m="center start"] { place-self: center start }
+    [ps-m="center end"] { place-self: center end }
+    [ps-m="center stretch"] { place-self: center stretch }
 
-    * > x-col[ps-m="end start"] { place-self: end start }
-    * > x-col[ps-m="end center"] { place-self: end center }
-    * > x-col[ps-m="end stretch"] { place-self: end stretch }
+    [ps-m="end start"] { place-self: end start }
+    [ps-m="end center"] { place-self: end center }
+    [ps-m="end stretch"] { place-self: end stretch }
 
-    * > x-col[ps-m="stretch start"] { place-self: stretch start }
-    * > x-col[ps-m="stretch center"] { place-self: stretch center }
-    * > x-col[ps-m="stretch end"] { place-self: stretch end }
+    [ps-m="stretch start"] { place-self: stretch start }
+    [ps-m="stretch center"] { place-self: stretch center }
+    [ps-m="stretch end"] { place-self: stretch end }
 
     /* VISUAL ORDER */
     [order-m="first"] { order: -1 }
@@ -1741,16 +1821,16 @@ x-flex img { object-fit: contain; max-width: 100% }
     [ac-l="evenly"] { align-content: space-evenly }
 
     /* Align SELF */
-    * > x-col[as-l="start"] { align-self: start } 
-    * > x-col[as-l="center"] { align-self: center }
-    * > x-col[as-l="end"] { align-self: end } 
-    * > x-col[as-l="stretch"] { align-self: stretch }
+    [as-l="start"] { align-self: start } 
+    [as-l="center"] { align-self: center }
+    [as-l="end"] { align-self: end } 
+    [as-l="stretch"] { align-self: stretch }
 
     /* Justify SELF */
-    * > x-col[js-l="start"] { justify-self: start }
-    * > x-col[js-l="center"] { justify-self: center }
-    * > x-col[js-l="end"] { justify-self: end }
-    * > x-col[js-l="stretch"] { justify-self: stretch }
+    [js-l="start"] { justify-self: start }
+    [js-l="center"] { justify-self: center }
+    [js-l="end"] { justify-self: end }
+    [js-l="stretch"] { justify-self: stretch }
 
     /* Place ITEMS – place-items: align-items justify-items; */
     [pi-l="start"] { place-items: start }
@@ -1833,26 +1913,26 @@ x-flex img { object-fit: contain; max-width: 100% }
     [pc-l="evenly between"] { place-content: space-evenly space-between }
 
     /* Place SELF - place-self: align-self justify-self; */
-    * > x-col[ps-l="start"] { place-self: start }
-    * > x-col[ps-l="center"] { place-self: center }
-    * > x-col[ps-l="end"] { place-self: end }
-    * > x-col[ps-l="stretch"] { place-self: stretch }
+    [ps-l="start"] { place-self: start }
+    [ps-l="center"] { place-self: center }
+    [ps-l="end"] { place-self: end }
+    [ps-l="stretch"] { place-self: stretch }
 
-    * > x-col[ps-l="start center"] { place-self: start center }
-    * > x-col[ps-l="start end"] { place-self: start end }
-    * > x-col[ps-l="start stretch"] { place-self: start stretch }
+    [ps-l="start center"] { place-self: start center }
+    [ps-l="start end"] { place-self: start end }
+    [ps-l="start stretch"] { place-self: start stretch }
 
-    * > x-col[ps-l="center start"] { place-self: center start }
-    * > x-col[ps-l="center end"] { place-self: center end }
-    * > x-col[ps-l="center stretch"] { place-self: center stretch }
+    [ps-l="center start"] { place-self: center start }
+    [ps-l="center end"] { place-self: center end }
+    [ps-l="center stretch"] { place-self: center stretch }
 
-    * > x-col[ps-l="end start"] { place-self: end start }
-    * > x-col[ps-l="end center"] { place-self: end center }
-    * > x-col[ps-l="end stretch"] { place-self: end stretch }
+    [ps-l="end start"] { place-self: end start }
+    [ps-l="end center"] { place-self: end center }
+    [ps-l="end stretch"] { place-self: end stretch }
 
-    * > x-col[ps-l="stretch start"] { place-self: stretch start }
-    * > x-col[ps-l="stretch center"] { place-self: stretch center }
-    * > x-col[ps-l="stretch end"] { place-self: stretch end }
+    [ps-l="stretch start"] { place-self: stretch start }
+    [ps-l="stretch center"] { place-self: stretch center }
+    [ps-l="stretch end"] { place-self: stretch end }
 
     /* VISUAL ORDER */
     [order-l="first"] { order: -1 }
@@ -1884,6 +1964,8 @@ x-flex img { object-fit: contain; max-width: 100% }
 .debug>:nth-child(6n+6){ --dc:rgb(94,204,211,0.3) }
 .debug>:nth-child(6n+7){ --dc:rgb(248,110,91,0.3) }
 .debug.outline { outline: 1px dotted red; }
+.debug.outline-child { outline: 1px dotted red; outline-offset: 5px; }
+.debug.outline-child > * { outline: 1px dotted lime; }
 
 /* ------------------
   Cubic Beziers
@@ -2021,7 +2103,7 @@ x-flex img { object-fit: contain; max-width: 100% }
 @keyframes loading { from { transform: rotate(0deg) } to { transform: rotate(359deg) } }
 @keyframes rollIn  { from { opacity: 0; transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg) } to { opacity: 1; transform: none } }
 @keyframes rollOut  { from { opacity: 1 } to { opacity: 0; transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg) } }
-@keyframes zoomIn  { from { opacity: 0; transform: scale3d(.3, .3, .3) } 50% { opacity: 1 } }
+@keyframes zoomIn  { from { opacity: 0; transform: scale3d(.3, .3, .3) } to { opacity: 1 } }
 @keyframes scaleIn { from { opacity: 0; transform: scale(3) } to { opacity: 1; transform: scale(1) } }
 
 @keyframes pulse  { 
