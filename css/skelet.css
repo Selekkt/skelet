@@ -77,12 +77,12 @@ summary{display:list-item}
     --fontWeight: 400;
     --fontStyle: normal;
 
-    --h1Size: 5.0rem;
-    --h2Size: 4.2rem;
-    --h3Size: 3.6rem;
-    --h4Size: 3.0rem;
-    --h5Size: 2.4rem;
-    --h6Size: 1.8rem;
+    --h1Size: 4.0rem;
+    --h2Size: 3.2rem;
+    --h3Size: 2.8rem;
+    --h4Size: 2.4rem;
+    --h5Size: 2rem;
+    --h6Size: 1.6rem;
 
     --hLine: 1.5;
     --h1Line: var(--hLine);
@@ -106,7 +106,7 @@ summary{display:list-item}
     --pMargin: var(--margin) 0;
 
     /* input/textarea/tables etc. */
-    --boxPadding: .7em .9em;
+    --boxPadding: .7em;
     --boxMargin: 2px;
     --boxRadius: var(--radius);
     --boxBorderWidth: var(--borderWidth);
@@ -130,7 +130,7 @@ summary{display:list-item}
     --boxFocus: rgba(41, 145, 248, .7);
 
     /* buttons */
-    --buttonPadding: var(--boxPadding);
+    --buttonPadding: .7em .9em;
     --buttonMargin: var(--boxMargin);
     --buttonRadius: var(--radius);
     --buttonBorderWidth: var(--borderWidth);
@@ -139,7 +139,7 @@ summary{display:list-item}
     --buttonFontWeight: 600;
 
     --buttonBg: var(--primary);
-    --buttonBgHover: var(--primary);
+    --buttonBgHover: var(--linkHover);
     --buttonColor: #FFF;
     --buttonColorHover: var(--buttonColor);
     --buttonBorderColor: transparent;
@@ -239,12 +239,12 @@ h6,.h6 { --hSize: var(--h6Size); --hLine: var(--h6Line) }
 
 @media (max-width: 600px) {
     :root {
-        --h1Size: 4.0rem;
-        --h2Size: 3.6rem;
-        --h3Size: 3.0rem;
-        --h4Size: 2.4rem;
-        --h5Size: 2.1rem;
-        --h6Size: 1.8rem;
+        --h1Size: 3.1rem;
+        --h2Size: 2.7rem;
+        --h3Size: 2.4rem;
+        --h4Size: 2.2rem;
+        --h5Size: 2rem;
+        --h6Size: 1.6rem;
 
         --hLine: 1.2;
         --h1Line: var(--hLine);
@@ -272,9 +272,9 @@ a.no-style { text-decoration:none }
     outline: 2px solid transparent;
 }
 
-code {
-    padding: calc(var(--boxPadding) - 0.5rem);
-    margin: calc(var(--boxPadding) - 0.75rem);
+code, kbd, samp {
+    padding: var(--boxPadding);
+    margin: var(--boxPadding);
     font-size: 90%;
     white-space: nowrap;
     vertical-align: middle;
@@ -292,17 +292,19 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 /* ------------------
   utilities
 ------------------ */
-.fullwidth { width: 100%; box-sizing: border-box }
-.fullwidth-max { max-width: 100%; box-sizing: border-box }
-.fullheight { height: 100%; box-sizing: border-box }
-.fullheight-max { max-height: 100%; box-sizing: border-box }
+.fullwidth { width: 100% }
+.fullwidth-max { max-width: 100% }
+.fullheight { height: 100% }
+.fullheight-max { max-height: 100% }
+.full { width: 100%; height: 100% }
+.full-max { max-width: 100%; max-height: 100% }
 
 .block { display:block }
 .inline { display: inline; margin: 0 }
 .inline-block { display: inline-block; margin: 0 }
 .center { display: block; text-align: center; margin: 0 auto }
 
-.nowrap { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.text-truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
 .text-start { text-align: start }
 .text-center { text-align: center }
 .text-end { text-align: end }
@@ -311,6 +313,8 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 .text-uppercase { text-transform:uppercase }
 .text-lowercase { text-transform:lowercase }
 .text-capitalize { text-transform:capitalize }
+.text-underline { border-bottom: 1px solid currentColor }
+.text-line-through { text-decoration: line-through }
 
 .sticky { position: sticky; top: var(--sticky, 0) }
 .sticky-bottom { position: sticky; bottom: var(--sticky, 0) }
@@ -322,21 +326,26 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 
 .visually-hidden,.visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 
-.is-green { border-color: var(--green)!important; }
-.is-red, input:invalid { border-color: var(--red)!important; }
+.is-green { border-color: var(--green)!important }
+.is-red, input:invalid { border-color: var(--red)!important }
+
+.group-input-button { display: inline-flex; justify-items: center; align-content: center }
+.group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; background: transparent!important; color: currentColor }
 
 @media (max-width: 600px) { 
-    .fullwidth-s { width: 100%; box-sizing: border-box }
-    .fullwidth-max-s { max-width: 100%; box-sizing: border-box }
-    .fullheight-s { height: 100%; box-sizing: border-box }
-    .fullheight-max-s { max-height: 100%; box-sizing: border-box }
+    .fullwidth-s { width: 100% }
+    .fullwidth-max-s { max-width: 100% }
+    .fullheight-s { height: 100% }
+    .fullheight-max-s { max-height: 100% }
+    .full-s { width: 100%; height: 100% }
+    .full-max-s { max-width: 100%; max-height: 100% }
 
     .block-s { display: block }
     .inline-s { display: inline; margin: 0 }
     .inline-block-s { display: inline-block; margin: 0 }
     .center-s { display: block; text-align: center; margin: 0 auto }
 
-    .nowrap-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-truncate-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
     .text-start-s { text-align: start }
     .text-center-s { text-align: center }
     .text-end-s { text-align: end }
@@ -345,6 +354,8 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
     .text-uppercase-s { text-transform:uppercase }
     .text-lowercase-s { text-transform:lowercase }
     .text-capitalize-s { text-transform:capitalize }
+    .text-underline-s { border-bottom: 1px solid currentColor }
+    .text-line-through-s { text-decoration: line-through }
 
     .sticky-s { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-s { position: sticky; bottom: var(--sticky, 0) }
@@ -352,17 +363,19 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
-    .fullwidth-m { width: 100%; box-sizing: border-box }
-    .fullwidth-max-m { max-width: 100%; box-sizing: border-box }
-    .fullheight-m { height: 100%; box-sizing: border-box }
-    .fullheight-max-m { max-height: 100%; box-sizing: border-box }
+    .fullwidth-m { width: 100% }
+    .fullwidth-max-m { max-width: 100% }
+    .fullheight-m { height: 100% }
+    .fullheight-max-m { max-height: 100% }
+    .full-m { width: 100%; height: 100% }
+    .full-max-m { max-width: 100%; max-height: 100% }
 
     .block-m { display: block }
     .inline-m { display: inline; margin: 0 }
     .inline-block-m { display: inline-block; margin: 0 }
     .center-m { display: block; text-align: center; margin: 0 auto }
 
-    .nowrap-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-truncate-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
     .text-mtart-m { text-align: start }
     .text-center-m { text-align: center }
     .text-end-m { text-align: end }
@@ -371,6 +384,8 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
     .text-uppercase-m { text-transform:uppercase }
     .text-lowercase-m { text-transform:lowercase }
     .text-capitalize-m { text-transform:capitalize }
+    .text-underline-m { border-bottom: 1px solid currentColor }
+    .text-line-through-m { text-decoration: line-through }
 
     .sticky-m { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-m { position: sticky; bottom: var(--sticky, 0) }
@@ -378,17 +393,19 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 }
 
 @media (min-width: 1599px) { 
-    .fullwidth-l { width: 100%; box-sizing: border-box }
-    .fullwidth-max-l { max-width: 100%; box-sizing: border-box }
-    .fullheight-l { height: 100%; box-sizing: border-box }
-    .fullheight-max-l { max-height: 100%; box-sizing: border-box }
+    .fullwidth-l { width: 100% }
+    .fullwidth-max-l { max-width: 100% }
+    .fullheight-l { height: 100% }
+    .fullheight-max-l { max-height: 100% }
+    .full-l { width: 100%; height: 100% }
+    .full-max-l { max-width: 100%; max-height: 100% }
 
     .block-l { display: block }
     .inline-l { display: inline; margin: 0 }
     .inline-block-l { display: inline-block; margin: 0 }
     .center-l { display: block; text-align: center; margin: 0 auto }
 
-    .nowrap-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-truncate-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
     .text-ltart-l { text-align: start }
     .text-center-l { text-align: center }
     .text-end-l { text-align: end }
@@ -397,6 +414,8 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
     .text-uppercase-l { text-transform:uppercase }
     .text-lowercase-l { text-transform:lowercase }
     .text-capitalize-l { text-transform:capitalize }
+    .text-underline-l { border-bottom: 1px solid currentColor }
+    .text-line-through-l { text-decoration: line-through }
 
     .sticky-l { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-l { position: sticky; bottom: var(--sticky, 0) }
@@ -461,13 +480,11 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 /* ------------------
   tooltips
 ------------------ */
-button[data-tooltip] { overflow: visible }
-[data-tooltip] { position: relative; z-index: 999; cursor: pointer }
+[data-tooltip] { overflow: visible; position: relative; cursor: pointer; z-index: 1; isolation: isolate; }
 
-[data-tooltip]:after {
+[data-tooltip]::after {
     content: attr(data-tooltip);
     position: absolute;
-    z-index: 99;
     padding: 1rem;
     opacity: 0;
     pointer-events: none;
@@ -489,10 +506,9 @@ button[data-tooltip] { overflow: visible }
     transition: all var(--tooltipDuration) ease-in-out var(--tooltipDuration);
 }
 
-[data-tooltip]:before {
+[data-tooltip]::before {
     content: "";
     position: absolute;
-    z-index: 99;
     width: 0;
     height: 0;
     border: 5px solid transparent;
@@ -503,38 +519,47 @@ button[data-tooltip] { overflow: visible }
 }
 [data-tooltip]:hover:before,[data-tooltip]:hover:after,[data-tooltip][tooltip-visible]:before,[data-tooltip][tooltip-visible]:after,[data-tooltip]:not([tooltip-nofocus]):focus:before,[data-tooltip]:not([tooltip-nofocus]):focus:after { opacity: 1; pointer-events: none }
 [data-tooltip].font-awesome:after { font-family: FontAwesome, var(--fontFamily) }
+
 [tooltip-break]:after { white-space: pre }
-[tooltip-break][tooltip-length]:after { white-space: pre-line; word-break: break-word }
+[tooltip-break][tooltip-length]:after { white-space: pre-line; word-break: break-word; width: fit-content }
 [tooltip-blunt]:before, [tooltip-blunt]:after { transition: none }
+
 [tooltip-pos="up"]:hover:after,[tooltip-pos="up"][tooltip-visible]:after,[tooltip-pos="down"]:hover:after, [tooltip-pos="down"][tooltip-visible]:after { transform: translate(-50%, 0) }
 [tooltip-pos="up"]:hover:before,[tooltip-pos="up"][tooltip-visible]:before,[tooltip-pos="down"]:hover:before, [tooltip-pos="down"][tooltip-visible]:before { transform: translate(-50%, 0) }
+
 [tooltip-pos*="-left"]:after { left: 0 }
 [tooltip-pos*="-left"]:before { left: 5px }
 [tooltip-pos*="-right"]:after { right: 0 }
 [tooltip-pos*="-right"]:before { right: 5px }
 [tooltip-pos*="-left"]:hover:after, [tooltip-pos*="-left"][tooltip-visible]:after,[tooltip-pos*="-right"]:hover:after,[tooltip-pos*="-right"][tooltip-visible]:after { transform: translate(0, 0) }
 [tooltip-pos*="-left"]:hover:before, [tooltip-pos*="-left"][tooltip-visible]:before,[tooltip-pos*="-right"]:hover:before,[tooltip-pos*="-right"][tooltip-visible]:before { transform: translate(0, 0) }
+
 [tooltip-pos^="up"]:before, [tooltip-pos^="up"]:after { bottom: 100%; transform-origin: top; transform: translate(0, var(--tooltipMove)) }
 [tooltip-pos^="up"]:after { margin-bottom: 10px }
 [tooltip-pos="up"]:before, [tooltip-pos="up"]:after { left: 50%; transform: translate(-50%, var(--tooltipMove)) }
+
 [tooltip-pos^="down"]:before, [tooltip-pos^="down"]:after { top: 100%; transform: translate(0, calc(var(--tooltipMove) * -1)) }
 [tooltip-pos^="down"]:after { margin-top: 10px }
 [tooltip-pos^="down"]:before { width: 0; height: 0; border: 5px solid transparent; border-bottom-color: var(--tooltipBg) }
 [tooltip-pos="down"]:after, [tooltip-pos="down"]:before { left: 50%; transform: translate(-50%, calc(var(--tooltipMove) * -1)) }
+
 [tooltip-pos="left"]:hover:after, [tooltip-pos="left"][tooltip-visible]:after, [tooltip-pos="right"]:hover:after, [tooltip-pos="right"][tooltip-visible]:after { transform: translate(0, -50%) }
 [tooltip-pos="left"]:hover:before, [tooltip-pos="left"][tooltip-visible]:before, [tooltip-pos="right"]:hover:before, [tooltip-pos="right"][tooltip-visible]:before { transform: translate(0, -50%) }
 [tooltip-pos="left"]:after, [tooltip-pos="left"]:before { right: 100%; top: 50%; transform: translate(var(--tooltipMove), -50%) }
 [tooltip-pos="left"]:after { margin-right: 10px }
 [tooltip-pos="left"]:before { width: 0; height: 0; border: 5px solid transparent; border-left-color: var(--tooltipBg) }
+
 [tooltip-pos="right"]:after, [tooltip-pos="right"]:before { left: 100%; top: 50%; transform: translate(calc(var(--tooltipMove) * -1), -50%) }
 [tooltip-pos="right"]:after { margin-left: 10px }
 [tooltip-pos="right"]:before { width: 0; height: 0; border: 5px solid transparent; border-right-color: var(--tooltipBg) }
+
 [tooltip-length]:after { white-space: normal }
 [tooltip-length="small"]:after { width: 80px }
 [tooltip-length="medium"]:after { width: 150px }
 [tooltip-length="large"]:after { width: 260px }
 [tooltip-length="xlarge"]:after { width: 380px }
 [tooltip-length="fit"]:after { width: 100% }
+[tooltip-length="fit-content"]:after { width: fit-content }
 @media (max-width: 1024px) { [tooltip-length="xlarge"]:after { width: 90vw }  }
 
 /* ------------------
@@ -547,9 +572,6 @@ button,.button,[type=button],[type=submit],[type=reset] {
     border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
     box-shadow: var(--buttonShadow);
     background: var(--buttonBg);
-    --buttonBorderHover: var(--buttonBorderColor);
-    --buttonBgHover: var(--buttonBg);
-    --buttonColorHover: var(--buttonColor);
     font-size: var(--buttonFontSize);
     font-weight: var(--buttonFontWeight);
     color: var(--buttonColor);
@@ -568,7 +590,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
     user-select: none;
 }
 
-:where(button,.button,[type=button],[type=submit],[type=reset]):hover { opacity: 0.9; background: var(--buttonBgHover); color: var(--buttonColorHover); border-color: var(--buttonBorderHover) }
+:where(button,.button,[type=button],[type=submit],[type=reset]):hover { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover) }
 
 .has-shadow:where(button,.button,[type=button],[type=submit],[type=reset]) { box-shadow: 0 5px 25px -5px rgba(0,0,0,0.2) }
 .has-shadow:where(button,.button,[type=button],[type=submit],[type=reset]):hover { transform: translateY(2px); box-shadow: 0 2px 7px 1px rgba(0,0,0,0.1) }
@@ -613,7 +635,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
 .is-white.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--white); --buttonBorderColor: var(--white);--buttonColorHover: var(--white);  --buttonBorderHover: var(--white) }
 .is-black.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--black); --buttonBorderColor: var(--black); --buttonColorHover: var(--black); --buttonBorderHover: var(--black) }
 
-:where(.is-primary,.is-blue,.is-green,.is-yellow,.is-red):where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg); }
+:where(.is-primary,.is-blue,.is-green,.is-yellow,.is-red):where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg) }
 
 .is-primary:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: var(--primary) }
 .is-blue:where(button,.button,[type=button],[type=submit],[type=reset])    { --buttonBg: var(--blue) }
@@ -814,7 +836,8 @@ label, legend { display: inline-flex; margin-bottom: var(--boxMargin); font-weig
 fieldset { border: 1px solid var(--boxBorderColor); border-radius: var(--boxRadius) }
 legend { padding: var(--boxPadding) }
 option { padding: 5px }
-label span { color: var(--color); margin: 0 0.5rem; font-weight: normal;  }
+label span { color: var(--color); margin: 0 0.5rem; font-weight: normal }
+:is(input,textarea).is-blank { border:none!important; background:transparent }
 
 select {
     background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderColor) 50%), linear-gradient(135deg, var(--boxBorderColor) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderColor), var(--boxBorderColor));
@@ -1963,9 +1986,9 @@ x-flex img { object-fit: contain; max-width: 100% }
 .debug>:nth-child(6n+5){ --dc:rgb(217,103,219,0.3) }
 .debug>:nth-child(6n+6){ --dc:rgb(94,204,211,0.3) }
 .debug>:nth-child(6n+7){ --dc:rgb(248,110,91,0.3) }
-.debug.outline { outline: 1px dotted red; }
-.debug.outline-child { outline: 1px dotted red; outline-offset: 5px; }
-.debug.outline-child > * { outline: 1px dotted lime; }
+.debug.outline { outline: 1px dotted red }
+.debug.outline-child { outline: 1px dotted red; outline-offset: 5px }
+.debug.outline-child > * { outline: 1px dotted lime }
 
 /* ------------------
   Cubic Beziers
@@ -2168,8 +2191,8 @@ x-flex img { object-fit: contain; max-width: 100% }
 
 @keyframes wobble {
   from { transform: none }
-  15% { transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);}
-  30% { transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);}
+  15% { transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg) }
+  30% { transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg) }
   45% { transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg) }
   60% { transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg) }
   75% { transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg) }
