@@ -89,7 +89,7 @@
               <blockquote>
                 <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
                 <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-                <x-colite><a href="#!">Said no one, ever.</a></cite>
+                <cite><a href="#!">Said no one, ever.</a></cite>
               </blockquote>
             </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
@@ -228,7 +228,7 @@
               <p><small>This small text is small for for fine print, etc.</small></p>
               <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
               <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
-              <p><x-colite>This is a citation.</cite></p>
+              <p><cite>This is a citation.</cite></p>
               <p>The <dfn>dfn element</dfn> indicates a definition.</p>
               <p>The <mark>mark element</mark> indicates a highlight.</p>
               <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
@@ -277,7 +277,7 @@
           </article>
           <article id="embedded__canvas">
             <header><h2>Canvas</h2></header>
-            <div><x-colanvas>canvas</canvas></div>
+            <div><x-cellanvas>canvas</canvas></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__meter">
@@ -292,7 +292,7 @@
           </article>
           <article id="embedded__svg">
             <header><h2>Inline SVG</h2></header>
-            <div><svg width="100px" height="100px"><x-colircle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+            <div><svg width="100px" height="100px"><x-cellircle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__iframe">
@@ -427,31 +427,31 @@
 
                 <form>
                     <x-grid columns="8">
-                        <x-col span="1-4" span-s="row">
+                        <x-cell span="1-4" span-s="row">
                             <label for="exampleEmailInput">Your email</label>
                             <input class="fullwidth" placeholder="example@example.com" id="exampleEmailInput" type="email">
-                        </x-col>
+                        </x-cell>
 
-                        <x-col span="5.." span-s="row">
+                        <x-cell span="5.." span-s="row">
                             <label for="exampleRecipientInput">Reply to</label>
                             <select class="fullwidth" id="exampleRecipientInput">
                                 <option selected="" disabled="" value="Option 1">-- Select --</option>
                                 <option value="Option 2">Sarude</option>
                                 <option value="Option 3">Dancestorm</option>
                             </select>
-                        </x-col>
+                        </x-cell>
                     </x-grid>
                     <x-grid columns="1">
-                        <x-col span="row">
+                        <x-cell span="row">
                             <label for="exampleMessage">Comment</label>
                             <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
                             <label class="agree-with-terms">
                                 <input type="checkbox"><span>I agree with the term of use</span>
                             </label>
-                        </x-col>
-                        <x-col span="row" justify="start">
+                        </x-cell>
+                        <x-cell span="row" justify="start">
                             <input class="button is-green" value="Comment" type="submit">
-                        </x-col>
+                        </x-cell>
                     </x-grid>
                 </form>
             </fieldset>
@@ -623,77 +623,77 @@
 
             <style>
                 .box-row { color: var(--white); background-color: var(--primary); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
-                x-col { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
+                x-cell { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
             </style>
 
             <fieldset id="cssgrid">
                 <legend>CSS Grid</legend>
 
                 <x-grid columns="12" class="debug">
-                  <x-col span="1..">row</x-col>
+                  <x-cell span="1..">row</x-cell>
 
-                  <x-col span="1-2">1-2</x-col>
-                  <x-col span="3..">3..</x-col>
+                  <x-cell span="1-2">1-2</x-cell>
+                  <x-cell span="3..">3..</x-cell>
 
-                  <x-col span="1-4">1-4</x-col>
-                  <x-col span="5..">5..</x-col>
+                  <x-cell span="1-4">1-4</x-cell>
+                  <x-cell span="5..">5..</x-cell>
 
-                  <x-col span="1-5">1-5</x-col>
-                  <x-col span="6..">6..</x-col>
+                  <x-cell span="1-5">1-5</x-cell>
+                  <x-cell span="6..">6..</x-cell>
 
-                  <x-col span="1-6">1-6</x-col>
-                  <x-col span="7..">7..</x-col>
+                  <x-cell span="1-6">1-6</x-cell>
+                  <x-cell span="7..">7..</x-cell>
 
-                  <x-col span="1-7">1-7</x-col>
-                  <x-col span="8..">8..</x-col>
+                  <x-cell span="1-7">1-7</x-cell>
+                  <x-cell span="8..">8..</x-cell>
 
-                  <x-col span="1-8">1-8</x-col>
-                  <x-col span="9..">9..</x-col>
+                  <x-cell span="1-8">1-8</x-cell>
+                  <x-cell span="9..">9..</x-cell>
                 </x-grid>
 
                 <span class="text-hr">8 columns</span>
 
                 <x-grid columns="8" class="debug">
-                  <x-col></x-col>
-                  <x-col span="3">3</x-col>
-                  <x-col></x-col>
-                  <x-col span="7-8">7-8</x-col>
-                  <x-col span="2+2">2+2</x-col>
-                  <x-col span="5-8">5-8</x-col>
-                  <x-col span="1-4">1-4</x-col>
-                  <x-col span="6..">6..</x-col>
-                  <x-col span="2..">2..</x-col>
-                  <x-col span="4..">4..</x-col>
-                  <x-col span="1-2">1-2</x-col>
-                  <x-col span="4-5">4-5</x-col>
+                  <x-cell></x-cell>
+                  <x-cell span="3">3</x-cell>
+                  <x-cell></x-cell>
+                  <x-cell span="7-8">7-8</x-cell>
+                  <x-cell span="2+2">2+2</x-cell>
+                  <x-cell span="5-8">5-8</x-cell>
+                  <x-cell span="1-4">1-4</x-cell>
+                  <x-cell span="6..">6..</x-cell>
+                  <x-cell span="2..">2..</x-cell>
+                  <x-cell span="4..">4..</x-cell>
+                  <x-cell span="1-2">1-2</x-cell>
+                  <x-cell span="4-5">4-5</x-cell>
                 </x-grid>
 
                 <span class="text-hr">6 columns</span>
 
                 <x-grid columns="6" class="debug">
-                  <x-col span="2" span-s="row">span 2</x-col>
-                  <x-col span="3-6" span-s="row">span 3-6</x-col>
-                  <x-col span="1-2" span-s="1">span 1-2</x-col>
-                  <x-col span="3.." span-s="2..">span 3..</x-col>
+                  <x-cell span="2" span-s="row">span 2</x-cell>
+                  <x-cell span="3-6" span-s="row">span 3-6</x-cell>
+                  <x-cell span="1-2" span-s="1">span 1-2</x-cell>
+                  <x-cell span="3.." span-s="2..">span 3..</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Fluid grid</span>
                 
                 <x-grid columns="fill" min="300" class="debug">
-                  <x-col>Box 1</x-col>
-                  <x-col>Box 2</x-col>
-                  <x-col>Box 3</x-col>
-                  <x-col>Box 4</x-col>
-                  <x-col span="row">Box 5</x-col>
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell span="row">Box 5</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Site layout</span>
 
                 <x-grid columns="8" class="debug">
-                  <x-col span="row">Head</x-col>
-                  <x-col span="1-5">Main</x-col>
-                  <x-col span="6..">Sidebar</x-col>
-                  <x-col span="row">Footer</x-col>
+                  <x-cell span="row">Head</x-cell>
+                  <x-cell span="1-5">Main</x-cell>
+                  <x-cell span="6..">Sidebar</x-cell>
+                  <x-cell span="row">Footer</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Grid not inside x-grid</span>
@@ -719,27 +719,27 @@
               <legend>CSS Grid</legend>
 
               <x-flex class="debug">
-                  <x-col>Box 1</x-col>
-                  <x-col>Box 2</x-col>
-                  <x-col>Box 3</x-col>
-                  <x-col>Box 4</x-col>
-                  <x-col>Box 4</x-col>
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 4</x-cell>
               </x-flex>
 
               <x-flex class="debug even">
-                  <x-col>Box 1</x-col>
-                  <x-col>Box 2</x-col>
-                  <x-col>Box 3</x-col>
-                  <x-col>Box 4</x-col>
-                  <x-col>Box 4</x-col>
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 4</x-cell>
               </x-flex>
 
               <x-flex class="debug" pc="center evenly">
-                  <x-col>Box 1</x-col>
-                  <x-col>Box 2</x-col>
-                  <x-col>Box 3</x-col>
-                  <x-col>Box 4</x-col>
-                  <x-col>Box 4</x-col>
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 4</x-cell>
               </x-flex>
             </fieldset>
     
