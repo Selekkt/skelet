@@ -4,137 +4,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="../css/skelet.css">
 
 <style>
-/*
-  tc = template columns
-  cs = column start
-  ce = column end
-
-  rs = row start
-  re = row end
-
-*/
-x-grid {
-    display: grid;
-    gap: var(--rowGap, 1rem) var(--columnGap, 1rem);
-    grid-template-columns: var(--grid-tc); /* default columns */ 
-    --grid-tc: repeat(4, 1fr);
-    --grid-cs: 1; /* column start */
-    --grid-ce: -1; /* column end */
-    --grid-rs: 1; /* row start */
-    --grid-re: -1; /* row end */
-}
-
-x-grid > x-cell > img, x-grid > x-cell > p > img { object-fit: contain; max-width: 100% }
-
-/* x-cell -- column */
-x-grid > x-cell { display: block; appearance: none; -webkit-appearance: none }
-
-x-grid[columns="1"] { --grid-tc: repeat(1, 1fr) }
-x-grid[columns="2"] { --grid-tc: repeat(2, 1fr) }
-x-grid[columns="3"] { --grid-tc: repeat(3, 1fr) }
-x-grid[columns="4"] { --grid-tc: repeat(4, 1fr) }
-x-grid[columns="5"] { --grid-tc: repeat(5, 1fr) }
-x-grid[columns="6"] { --grid-tc: repeat(6, 1fr) }
-x-grid[columns="7"] { --grid-tc: repeat(7, 1fr) }
-x-grid[columns="8"] { --grid-tc: repeat(8, 1fr) }
-x-grid[columns="9"] { --grid-tc: repeat(9, 1fr) }
-x-grid[columns="10"] { --grid-tc: repeat(10, 1fr) }
-x-grid[columns="11"] { --grid-tc: repeat(11, 1fr) }
-x-grid[columns="12"] { --grid-tc: repeat(12, 1fr) }
-
-/* span=start... */
-x-grid > x-cell[span^="1"] { --grid-cs: 1 }
-x-grid > x-cell[span^="2"] { --grid-cs: 2 }
-x-grid > x-cell[span^="3"] { --grid-cs: 3 }
-x-grid > x-cell[span^="4"] { --grid-cs: 4 }
-x-grid > x-cell[span^="5"] { --grid-cs: 5 }
-x-grid > x-cell[span^="6"] { --grid-cs: 6 }
-x-grid > x-cell[span^="7"] { --grid-cs: 7 }
-x-grid > x-cell[span^="8"] { --grid-cs: 8 }
-x-grid > x-cell[span^="9"] { --grid-cs: 9 }
-x-grid > x-cell[span^="10"] { --grid-cs: 10 }
-x-grid > x-cell[span^="11"] { --grid-cs: 11 }
-x-grid > x-cell[span^="12"] { --grid-cs: 12 }
-
-/* span=...+width, span=...-end */
-x-grid > x-cell[span$="+1"], x-grid > x-cell[span="1"] { --grid-ce: 1 }
-x-grid > x-cell[span$="+2"], x-grid > x-cell[span$="-1"], x-grid > x-cell[span="2"] { --grid-ce: 2 }
-x-grid > x-cell[span$="+3"], x-grid > x-cell[span$="-2"], x-grid > x-cell[span="3"] { --grid-ce: 3 }
-x-grid > x-cell[span$="+4"], x-grid > x-cell[span$="-3"], x-grid > x-cell[span="4"] { --grid-ce: 4 }
-x-grid > x-cell[span$="+5"], x-grid > x-cell[span$="-4"], x-grid > x-cell[span="5"] { --grid-ce: 5 }
-x-grid > x-cell[span$="+6"], x-grid > x-cell[span$="-5"], x-grid > x-cell[span="6"] { --grid-ce: 6 }
-x-grid > x-cell[span$="+7"], x-grid > x-cell[span$="-6"], x-grid > x-cell[span="7"] { --grid-ce: 7 }
-x-grid > x-cell[span$="+8"], x-grid > x-cell[span$="-7"], x-grid > x-cell[span="8"] { --grid-ce: 8 }
-x-grid > x-cell[span$="+9"], x-grid > x-cell[span$="-8"], x-grid > x-cell[span="9"] { --grid-ce: 9 }
-x-grid > x-cell[span$="+10"], x-grid > x-cell[span$="-9"], x-grid > x-cell[span="10"] { --grid-ce: 10 }
-x-grid > x-cell[span$="+11"], x-grid > x-cell[span$="-10"], x-grid > x-cell[span="11"] { --grid-ce: 11 }
-x-grid > x-cell[span$="+12"], x-grid > x-cell[span$="-11"], x-grid > x-cell[span="12"] { --grid-ce: 12 }
-x-grid > x-cell[span$="-12"] { --grid-ce: 13 }
-
-/* connect vars */
-x-grid > x-cell[span] { grid-column-end: span var(--grid-ce) }
-x-grid > x-cell[span*="+"], x-grid > x-cell[span*="-"], x-grid > x-cell[span*=".."] { grid-column-start: var(--grid-cs) }
-x-grid > x-cell[span*="-"], x-grid > x-cell[span*=".."] { grid-column-end: var(--grid-ce) }
-x-grid > x-cell[span="row"] { grid-column: 1 / -1 }
-
-/*** ROW */
-/* span-y=start... */
-x-grid > x-cell[span-y^="1"] { --grid-rs: 1 }
-x-grid > x-cell[span-y^="2"] { --grid-rs: 2 }
-x-grid > x-cell[span-y^="3"] { --grid-rs: 3 }
-x-grid > x-cell[span-y^="4"] { --grid-rs: 4 }
-x-grid > x-cell[span-y^="5"] { --grid-rs: 5 }
-x-grid > x-cell[span-y^="6"] { --grid-rs: 6 }
-x-grid > x-cell[span-y^="7"] { --grid-rs: 7 }
-x-grid > x-cell[span-y^="8"] { --grid-rs: 8 }
-x-grid > x-cell[span-y^="9"] { --grid-rs: 9 }
-x-grid > x-cell[span-y^="10"] { --grid-rs: 10 }
-x-grid > x-cell[span-y^="11"] { --grid-rs: 11 }
-x-grid > x-cell[span-y^="12"] { --grid-rs: 12 }
-
-/* span-y=...+width, span-y=...-end */
-x-grid > x-cell[span-y$="+1"], x-grid > x-cell[span-y="1"] { --grid-re: 1 }
-x-grid > x-cell[span-y$="+2"], x-grid > x-cell[span-y$="-1"], x-grid > x-cell[span-y="2"] { --grid-re: 2 }
-x-grid > x-cell[span-y$="+3"], x-grid > x-cell[span-y$="-2"], x-grid > x-cell[span-y="3"] { --grid-re: 3 }
-x-grid > x-cell[span-y$="+4"], x-grid > x-cell[span-y$="-3"], x-grid > x-cell[span-y="4"] { --grid-re: 4 }
-x-grid > x-cell[span-y$="+5"], x-grid > x-cell[span-y$="-4"], x-grid > x-cell[span-y="5"] { --grid-re: 5 }
-x-grid > x-cell[span-y$="+6"], x-grid > x-cell[span-y$="-5"], x-grid > x-cell[span-y="6"] { --grid-re: 6 }
-x-grid > x-cell[span-y$="+7"], x-grid > x-cell[span-y$="-6"], x-grid > x-cell[span-y="7"] { --grid-re: 7 }
-x-grid > x-cell[span-y$="+8"], x-grid > x-cell[span-y$="-7"], x-grid > x-cell[span-y="8"] { --grid-re: 8 }
-x-grid > x-cell[span-y$="+9"], x-grid > x-cell[span-y$="-8"], x-grid > x-cell[span-y="9"] { --grid-re: 9 }
-x-grid > x-cell[span-y$="+10"], x-grid > x-cell[span-y$="-9"], x-grid > x-cell[span-y="10"] { --grid-re: 10 }
-x-grid > x-cell[span-y$="+11"], x-grid > x-cell[span-y$="-10"], x-grid > x-cell[span-y="11"] { --grid-re: 11 }
-x-grid > x-cell[span-y$="+12"], x-grid > x-cell[span-y$="-11"], x-grid > x-cell[span-y="12"] { --grid-re: 12 }
-x-grid > x-cell[span-y$="-12"] { --grid-re: 13 }
-
-/* connect vars */
-x-grid > x-cell[span-y] { grid-row-end: span var(--grid-re) }
-x-grid > x-cell[span-y*="+"], x-grid > x-cell[span-y*="-"] { grid-row-start: var(--grid-rs) }
-x-grid > x-cell[span-y*="-"] { grid-row-end: var(--grid-re) }
-x-grid > x-cell[span-y="row"] { grid-row: 1 / -1 }
-
-/* Debug */
-.debug > * { --dc:rgba(248,110,91,0.3); background: var(--dc) }
-.debug>:nth-child(6n+2){ --dc:rgb(103,126,208,0.3) }
-.debug>:nth-child(6n+3){ --dc:rgb(224,174,72,0.3) }
-.debug>:nth-child(6n+4){ --dc:rgb(77,214,115,0.3) }
-.debug>:nth-child(6n+5){ --dc:rgb(217,103,219,0.3) }
-.debug>:nth-child(6n+6){ --dc:rgb(94,204,211,0.3) }
-.debug>:nth-child(6n+7){ --dc:rgb(248,110,91,0.3) }
-.debug.outline { outline: 1px dotted red; }
-
-
 x-grid {
   border-radius: 1rem;
   overflow: hidden;
+  grid-auto-rows: 100px;
 }
 
 x-grid > x-cell {
     padding: 10px;
-    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,10 +26,23 @@ x-grid > x-cell {
     border: green;
     border-radius: 10rem;
 }
+
 </style>
 
 </head>
 <body>
+
+<x-grid columns="fit" class="debug">
+  <x-cell>cell 1</x-cell>
+  <x-cell>cell 2</x-cell>
+  <x-cell>cell 3</x-cell>
+  <x-cell>cell 4</x-cell>
+  <x-cell>cell 2</x-cell>
+  <x-cell>cell 3</x-cell>
+  <x-cell>cell 4</x-cell>
+</x-grid>
+
+<hr>
 
 <x-grid class="debug" style="gap:2px" columns="10">
   <x-cell span="1+2" span-y="row">cell 1</x-cell>
@@ -250,6 +143,43 @@ x-grid > x-cell {
   <x-cell>zio 11</x-cell>
   <x-cell>zio 12</x-cell>
   <x-cell>zio 13</x-cell>
+</x-grid>
+
+fill
+<x-grid columns="4" columns-s="fill" class="debug">
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+</x-grid>
+
+<hr>
+fit
+<x-grid columns="fit" columns-s="4" class="debug">
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
 </x-grid>
 </body>
 </html>
