@@ -369,8 +369,8 @@
         <x-grid columns="5" columns-s="1f" class="apple">
             <x-cell span="row">
                 <div class="size-600">
-                    <h2 class="fs-900 clr-100">Pure. Pro. Power.</h2>
-                    <p class="fs-300 clr-600 size-100">A15 Bionic is the world’s fastest smartphone chip.</p>
+                    <h2 class="fs-900 clr-100 wow" animation="fadein-up" style="--duration:1s">Pure. Pro. Power.</h2>
+                    <p class="fs-300 clr-600 size-100 wow" animation="fadein-up" style="--duration:1s;--delay:.25s">A15 Bionic is the world’s fastest smartphone chip.</p>
                 </div>
             </x-cell>
             <x-cell span="1-3" span-s="row">
@@ -552,7 +552,7 @@ let isInView = (target, threshold, triggerAnimation) => {
     });
 }
 
-isInView('.wow', 0.4, 'animate');
+isInView('.wow', 1, 'animate');
 </script>
 
 </body>
