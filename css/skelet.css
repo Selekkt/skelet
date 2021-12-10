@@ -909,6 +909,7 @@ x-grid, [x-grid] { display: grid; gap: var(--rowGap, 1rem) var(--columnGap, 1rem
 
 x-grid {
     grid-template-columns: var(--grid-tc); /* default columns */ 
+    --grid-mm: 200px, 1fr; /* auto-fit/fill minmax */
     --grid-tc: repeat(4, 1fr); /* template columns */
     --grid-cs: 1; /* column start */
     --grid-ce: -1; /* column end */
@@ -931,6 +932,11 @@ x-grid[columns="9"] { --grid-tc: repeat(9, 1fr) }
 x-grid[columns="10"] { --grid-tc: repeat(10, 1fr) }
 x-grid[columns="11"] { --grid-tc: repeat(11, 1fr) }
 x-grid[columns="12"] { --grid-tc: repeat(12, 1fr) }
+
+x-grid[columns="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+x-grid[columns="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+x-grid[columns="1f"] { --grid-tc: repeat(1, 1fr) }
+x-grid[columns="1f"] > * { grid-column: 1 / -1 }
 
 /*** Grid Column - X axis */
 x-grid > *[span^="1"] { --grid-cs: 1 }
@@ -1013,6 +1019,11 @@ x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
   x-grid[columns-s="10"] { --grid-tc: repeat(10, 1fr) }
   x-grid[columns-s="11"] { --grid-tc: repeat(11, 1fr) }
   x-grid[columns-s="12"] { --grid-tc: repeat(12, 1fr) }
+
+  x-grid[columns-s="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+  x-grid[columns-s="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+  x-grid[columns-s="1f"] { --grid-tc: repeat(1, 1fr) }
+  x-grid[columns-s="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
   x-grid > *[span-s^="1"] { --grid-cs: 1 }
@@ -1097,6 +1108,11 @@ x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
   x-grid[columns-m="11"] { --grid-tc: repeat(11, 1fr) }
   x-grid[columns-m="12"] { --grid-tc: repeat(12, 1fr) }
 
+  x-grid[columns-m="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+  x-grid[columns-m="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+  x-grid[columns-m="1f"] { --grid-tc: repeat(1, 1fr) }
+  x-grid[columns-m="1f"] > * { grid-column: 1 / -1 }
+
   /*** Grid Column - X axis */
   x-grid > *[span-m^="1"] { --grid-cs: 1 }
   x-grid > *[span-m^="2"] { --grid-cs: 2 }
@@ -1179,6 +1195,11 @@ x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
   x-grid[columns-l="10"] { --grid-tc: repeat(10, 1fr) }
   x-grid[columns-l="11"] { --grid-tc: repeat(11, 1fr) }
   x-grid[columns-l="12"] { --grid-tc: repeat(12, 1fr) }
+
+  x-grid[columns-l="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+  x-grid[columns-l="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+  x-grid[columns-l="1f"] { --grid-tc: repeat(1, 1fr) }
+  x-grid[columns-l="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
   x-grid > *[span-l^="1"] { --grid-cs: 1 }
@@ -1980,12 +2001,12 @@ x-flex img { object-fit: contain; max-width: 100% }
 
 /* Debug */
 .debug > * { --dc:rgba(248,110,91,0.3); background: var(--dc) }
-.debug>:nth-child(6n+2){ --dc:rgb(103,126,208,0.3) }
-.debug>:nth-child(6n+3){ --dc:rgb(224,174,72,0.3) }
-.debug>:nth-child(6n+4){ --dc:rgb(77,214,115,0.3) }
-.debug>:nth-child(6n+5){ --dc:rgb(217,103,219,0.3) }
-.debug>:nth-child(6n+6){ --dc:rgb(94,204,211,0.3) }
-.debug>:nth-child(6n+7){ --dc:rgb(248,110,91,0.3) }
+.debug>:nth-child(6n+2){ --dc:rgb(103,126,208,.5) }
+.debug>:nth-child(6n+3){ --dc:rgb(224,174,72,0.5) }
+.debug>:nth-child(6n+4){ --dc:rgb(77,214,115,0.5) }
+.debug>:nth-child(6n+5){ --dc:rgb(217,103,219,0.5) }
+.debug>:nth-child(6n+6){ --dc:rgb(94,204,211,0.5) }
+.debug>:nth-child(6n+7){ --dc:rgb(248,110,91,0.5) }
 .debug.outline { outline: 1px dotted red }
 .debug.outline-child { outline: 1px dotted red; outline-offset: 5px }
 .debug.outline-child > * { outline: 1px dotted lime }
