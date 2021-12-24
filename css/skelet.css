@@ -196,7 +196,7 @@ summary{display:list-item}
 ------------------ */
 :not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 1.2rem; font-family: Consolas, monospace, serif; white-space: nowrap }
 img,svg,canvas,video,audio,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
-iframe{width:100%}
+iframe{width:100%;border:0}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0}
@@ -265,8 +265,8 @@ a.no-style { text-decoration:none }
 
 /*** Accessibility */
 *:focus { outline: 0 }
-.a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid -webkit-focus-ring-color; outline-offset: 1px }
-.a11y--custom *:focus-visible { 
+.a11y *:focus, .a11y *:focus-visible, .a11y a:focus, .a11y a:focus-visible { outline: 2px solid var(--a11yColor, var(--primary)); outline-offset: 1px }
+.a11y--custom *:focus, .a11y--custom *:focus-visible { 
     box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--boxFocus)); 
     /* fallback: Visible in Windows high-contrast themes */
     outline: 2px solid transparent;
@@ -647,6 +647,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
 /** Radio checkbox switch */
 input[type="checkbox"],
 input[type="radio"] {
+    -webkit-appearance: none;
     appearance: none;
     height: var(--boxHeight);
     width: var(--boxHeight);
@@ -829,9 +830,19 @@ textarea:focus {
     border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxActive, var(--boxBorderHover));
 }
 
-input[type="range"] { height:2.25rem; line-height: 2.25rem; vertical-align: middle; width: 100% }
-input[type="color"] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
-input[type="file"] { --boxBorderWidth: 2px; --boxBorderStyle: dashed; padding: 0 var(--boxPadding) 0 0; line-height: 2.4; cursor:pointer; display:block; width: fit-content; height: auto }
+input[type=color] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
+
+input[type=file] { --boxBorderWidth: 2px; --boxBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
+input[type=file]::file-selector-button { border: 0; border-right: 1px solid var(--boxBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--boxBgActive); color: currentColor; display: inline-block; height: 100%; }
+
+input[type=range] { height: 25px; margin: 10px 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none; }
+input[type=range]:focus {outline: none }
+
+input[type=range]::-moz-range-track              { width: 100%; height: 5px; cursor: pointer; animate: 0.2s; background: var(--primary); border-radius: 100vw; }
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 5px; cursor: pointer; animate: 0.2s; background: var(--primary); border-radius: 100vw; }
+
+input[type=range]::-moz-range-thumb     { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px; }
+input[type=range]::-webkit-slider-thumb { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px; }
 
 textarea { min-height: 6.5rem; padding: var(--boxPadding) }
 textarea.resize-vertical { resize: vertical }
