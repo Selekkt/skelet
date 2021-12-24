@@ -266,11 +266,11 @@ a.no-style { text-decoration:none }
 /*** Accessibility */
 *:focus { outline: 0 }
 .a11y *:focus, .a11y a:focus { outline: 2px solid var(--a11yColor, var(--boxFocus)); outline-offset: 1px; }
-.a11y.custom *:focus, .a11y.custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--boxFocus)); outline: 2px solid transparent }
+.a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--boxFocus)); outline: 2px solid transparent }
 
 @supports selector(:focus-visible) {
     .a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid var(--a11yColor, var(--boxFocus)); outline-offset: 1px; }
-    .a11y.custom *:focus, .a11y.custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--boxFocus)); outline: 2px solid transparent }
+    .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--boxFocus)); outline: 2px solid transparent }
 }
 
 code, kbd, samp {
