@@ -17,6 +17,18 @@
 <div id="app">
 <h1>Tests</h1>
 
+<input id="xemail" type="email" name="email" placeholder="Your e-mail" required="" title="">
+
+<select id="searchresults4" name="primarysport" required>
+    <option value="" disabled selected>Choose Primary Sport...</option>
+    <option>Football</option>
+    <option>Basketball</option>
+    <option>Baseball</option>
+    <option>Softball</option>
+    <option>Soccer</option>
+    <option>Golf</option>
+</select>
+
 <main>
 fill
 <x-grid columns="4" columns-s="fill" class="debug">
@@ -47,6 +59,26 @@ fit
     <x-cell>zio</x-cell>
     <x-cell>zio</x-cell>
     <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+</x-grid>
+<hr>
+fit with span-y
+<x-grid columns="fit" columns-s="4" class="debug">
+    <x-cell span-y="1-3">zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell span-y="2+3">zio</x-cell>
     <x-cell>zio</x-cell>
     <x-cell>zio</x-cell>
     <x-cell>zio</x-cell>

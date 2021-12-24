@@ -118,7 +118,7 @@ summary{display:list-item}
     --boxBgHover: var(--boxBg);
     --boxBgActive: var(--boxBg);
     --boxColor: var(--color);
-    --boxPlaceholderColor: var(--boxColor);
+    --boxPlaceholderColor: rgba(0,0,0,.4);
     --boxBorderColor: #E1E1E1;
     --boxBorderHover: #BABABA;
 
@@ -174,7 +174,7 @@ summary{display:list-item}
     --boxBorderHover: #444;
     --boxActive: var(--primary);
     --boxColor: var(--color);
-    --boxPlaceholderColor: var(--boxColor);
+    --boxPlaceholderColor: rgba(255,255,255,.4);
 
     --buttonColor: var(--color);
     --buttonColorHover: var(--color);
@@ -324,10 +324,10 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 :where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
 :where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
 
-.visually-hidden,.visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
+.v-hidden,.v-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 
 .is-green { border-color: var(--green)!important }
-.is-red, input:invalid { border-color: var(--red)!important }
+.is-red, input:not(:placeholder-shown):invalid { border-color: var(--red); --boxBorderColor: var(--red) }
 
 .group-input-button { display: inline-flex; justify-items: center; align-content: center }
 .group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; background: transparent!important; color: currentColor }
@@ -586,6 +586,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+    height: fit-content;
     cursor: pointer;
     user-select: none;
 }
@@ -711,8 +712,8 @@ input[type="checkbox"]:not(.switch):after {
     border: 1px solid var(--boxActiveInner);
     border-top: 0;
     border-left: 0;
-    left: 6px;
-    top: 2.5px;
+    left: 7px;
+    top: 4.5px;
     transform: rotate(43deg);
 }
 
@@ -835,7 +836,7 @@ textarea { min-height: 6.5rem; padding: var(--boxPadding) }
 label, legend { display: inline-flex; margin-bottom: var(--boxMargin); font-weight: 600; align-items: center }
 fieldset { border: 1px solid var(--boxBorderColor); border-radius: var(--boxRadius) }
 legend { padding: var(--boxPadding) }
-option { padding: 5px }
+option { padding: 5px; color: var(--boxColor) }
 label span { color: var(--color); margin: 0 0.5rem; font-weight: normal }
 :is(input,textarea).is-blank { border:none!important; background:transparent }
 
@@ -848,6 +849,7 @@ select {
     padding-right: 45px;
 }
 
+select:required:invalid { color:var(--boxPlaceholderColor) }
 select:hover { color: var(--boxColor); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderHover) 50%), linear-gradient(135deg, var(--boxBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderHover), var(--boxBorderHover)) }
 select:focus { color: var(--boxColor); background-image: linear-gradient(45deg, transparent 50%, var(--boxActive, var(--boxBorderHover)) 50%), linear-gradient(135deg, var(--boxActive, var(--boxBorderHover)) 50%, transparent 50%), linear-gradient(to right, var(--boxActive, var(--boxBorderHover)), var(--boxActive)) }
 select:-moz-focusring { color:transparent; text-shadow: 0 0 0 var(--color) }
@@ -2231,4 +2233,4 @@ x-flex img { object-fit: contain; max-width: 100% }
 }
 
 /*** Accessibility :: Disabling animations if user prefers-reduced-motion */
-@media screen and (prefers-reduced-motion: reduce), (update: slow) { * {  animation-duration: 0.001ms!important; animation-iteration-count: 1!important; transition-duration: 0.001ms!important } }
+@media screen and (prefers-reduced-motion: reduce), (update: slow) { * { animation-duration:0.001ms!important; animation-iteration-count:1!important; transition-duration:0.001ms!important; animation-delay:0.001ms!important } }

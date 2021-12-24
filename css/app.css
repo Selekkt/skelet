@@ -6,7 +6,7 @@
 }
 
 /*** Dark mode */
-:is(.dark-mode, #dark-mode, [dark-mode], [data-mode="dark"]) {  }
+:where(.dark-mode, #dark-mode, [dark-mode], [data-mode="dark"]) {  }
 
 @supports (font-variation-settings: normal) { :root { --fontFamily: var(--fontFamilyVar); } } /* If Variable fonts are supported */
 a, a:hover { text-decoration: none; } /* remove underline from links */

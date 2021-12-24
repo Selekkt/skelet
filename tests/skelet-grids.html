@@ -366,7 +366,7 @@
             }
         </style>
         <h4 class="h5">Apple style grid</h4>
-        <x-grid columns="5" columns-s="1f" class="apple">
+        <x-grid columns="5" columns-s="fill" class="apple">
             <x-cell span="row">
                 <div class="size-600">
                     <h2 class="fs-900 clr-100 wow" animation="fadein-up" style="--duration:1s">Pure. Pro. Power.</h2>
@@ -411,6 +411,24 @@
                     <p class="fs-200 clr-600">keeps things like your Siri requests and interactions with Live Text private.</p>
                 </div>
             </x-cell>
+        </x-grid>
+
+        <!-- Grid circle -->
+        <h4 class="h5">Grid circle</h4>
+        <x-grid columns="2" class="cards" style="gap: 2px; width:600px; aspect-ratio: 1 / 1;border-radius: 100vw; overflow: hidden;">
+            <x-cell>1</x-cell>
+            <x-cell>2</x-cell>
+            <x-cell>3</x-cell>
+            <x-cell>4</x-cell>
+        </x-grid>
+
+        <!-- Grid circle -->
+        <h4 class="h5">Grid circle 2</h4>
+        <x-grid columns="2" class="cards" style="gap:2px;max-height: 500px;aspect-ratio:1/1"> 
+            <x-cell style="border-top-left-radius: 100vw;" x-grid jc="end" ac="end">1</x-cell>
+            <x-cell style="border-top-right-radius: 100vw;" x-grid jc="start" ac="end">2</x-cell>
+            <x-cell style="border-bottom-left-radius: 100vw;" x-grid jc="end" ac="start">3</x-cell>
+            <x-cell style="border-bottom-right-radius: 100vw;" x-grid jc="start" ac="start">4</x-cell>
         </x-grid>
 
     </div>
