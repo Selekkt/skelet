@@ -480,7 +480,7 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 /* ------------------
   tooltips
 ------------------ */
-[data-tooltip] { overflow: visible; position: relative; cursor: pointer; z-index: 1; isolation: isolate; }
+[data-tooltip] { overflow: visible; position: relative; cursor: pointer; z-index: 1; isolation: isolate }
 
 [data-tooltip]::after {
     content: attr(data-tooltip);
@@ -649,6 +649,8 @@ input[type="checkbox"],
 input[type="radio"] {
     appearance: none;
     height: var(--boxHeight);
+    width: var(--boxHeight);
+    aspect-ratio: 1 / 1;
     outline: none;
     display: inline-block;
     vertical-align: top;
@@ -689,7 +691,6 @@ input[type="checkbox"]:hover:not(:checked):not(:disabled),
 input[type="radio"]:hover:not(:checked):not(:disabled) { --bc: var(--boxBorderHover) }
 
 input[type="checkbox"]:focus, input[type="radio"]:focus { box-shadow: 0 0 0 2px var(--boxFocus) }  
-input[type="checkbox"]:not(.switch), input[type="radio"]:not(.switch) { width: 21px }
 input[type="checkbox"]:not(.switch):after, input[type="radio"]:not(.switch):after { opacity: var(--o, 0) }  
 input[type="checkbox"]:not(.switch):checked, input[type="radio"]:not(.switch):checked { --o: 1 }
   
@@ -830,9 +831,11 @@ textarea:focus {
 
 input[type="range"] { height:2.25rem; line-height: 2.25rem; vertical-align: middle; width: 100% }
 input[type="color"] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
-input[type="file"] { cursor:pointer; display:block; width:auto; height:auto; font-size:1 }
+input[type="file"] { --boxBorderWidth: 2px; --boxBorderStyle: dashed; padding: 0 var(--boxPadding) 0 0; line-height: 2.4; cursor:pointer; display:block; width: fit-content; height: auto }
 
 textarea { min-height: 6.5rem; padding: var(--boxPadding) }
+textarea.resize-vertical { resize: vertical }
+textarea.resize-horizontal { resize: horizontal }
 label, legend { display: inline-flex; margin-bottom: var(--boxMargin); font-weight: 600; align-items: center }
 fieldset { border: 1px solid var(--boxBorderColor); border-radius: var(--boxRadius) }
 legend { padding: var(--boxPadding) }
@@ -842,8 +845,8 @@ label span { color: var(--color); margin: 0 0.5rem; font-weight: normal }
 
 select {
     background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderColor) 50%), linear-gradient(135deg, var(--boxBorderColor) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderColor), var(--boxBorderColor));
-    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-    background-size: 5px 5px, 5px 5px, 1px 1.6em;
+    background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%, calc(100% - 45px) 50%;
+    background-size: 5px 5px, 5px 5px, 1px 90%;
     background-repeat: no-repeat;
     color: var(--boxColor);
     padding-right: 45px;
