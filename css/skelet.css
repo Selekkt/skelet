@@ -63,7 +63,7 @@ summary{display:list-item}
     --codeBg: #F8F8F8;
     --codeColor: #0000FF;
 
-    --hrColor: var(--boxBorderColor);
+    --hrColor: var(--inputBorderColor);
     --hrGradient: rgba(255, 255, 255, 0);
 
     /* typography */
@@ -106,32 +106,32 @@ summary{display:list-item}
     --pMargin: var(--margin) 0;
 
     /* input/textarea/tables etc. */
-    --boxPadding: .7em;
-    --boxMargin: 2px;
-    --boxRadius: var(--radius);
-    --boxBorderWidth: var(--borderWidth);
-    --boxBorderStyle: var(--borderStyle);
-    --boxFontSize: var(--fontSize);
-    --boxHeight: 21px;
+    --inputPadding: .7em;
+    --inputMargin: 2px;
+    --inputRadius: var(--radius);
+    --inputBorderWidth: var(--borderWidth);
+    --inputBorderStyle: var(--borderStyle);
+    --inputFontSize: var(--fontSize);
+    --inputHeight: 21px;
 
-    --boxBg: #FEFEFE;
-    --boxBgHover: var(--boxBg);
-    --boxBgActive: var(--boxBg);
-    --boxColor: var(--color);
-    --boxPlaceholderColor: rgba(0,0,0,.4);
-    --boxBorderColor: #E1E1E1;
-    --boxBorderHover: #BABABA;
+    --inputBg: #FEFEFE;
+    --inputBgHover: var(--inputBg);
+    --inputBgActive: var(--inputBg);
+    --inputColor: var(--color);
+    --inputPlaceholderColor: rgba(0,0,0,.4);
+    --inputBorderColor: #E1E1E1;
+    --inputBorderHover: #BABABA;
 
-    --boxShadow: 0 0 0 0 rgba(0,0,0,0);
+    --inputShadow: 0 0 0 0 rgba(0,0,0,0);
 
     /* @for checkbox/radio/.switch */
-    --boxActive: var(--primary);
-    --boxActiveInner: var(--white);
-    --boxFocus: rgba(41, 145, 248, .7);
+    --inputActive: var(--primary);
+    --inputActiveInner: var(--white);
+    --inputFocus: rgba(41, 145, 248, .7);
 
     /* buttons */
     --buttonPadding: .7em .9em;
-    --buttonMargin: var(--boxMargin);
+    --buttonMargin: var(--inputMargin);
     --buttonRadius: var(--radius);
     --buttonBorderWidth: var(--borderWidth);
     --buttonBorderStyle: var(--borderStyle);
@@ -167,14 +167,14 @@ summary{display:list-item}
     --colorInverse: #000;
     --hColor: var(--color);
 
-    --boxBg: #181818;
-    --boxBgHover: var(--boxBg);
-    --boxBgActive: var(--boxBg);
-    --boxBorderColor: #333;
-    --boxBorderHover: #444;
-    --boxActive: var(--primary);
-    --boxColor: var(--color);
-    --boxPlaceholderColor: rgba(255,255,255,.4);
+    --inputBg: #181818;
+    --inputBgHover: var(--inputBg);
+    --inputBgActive: var(--inputBg);
+    --inputBorderColor: #333;
+    --inputBorderHover: #444;
+    --inputActive: var(--primary);
+    --inputColor: var(--color);
+    --inputPlaceholderColor: rgba(255,255,255,.4);
 
     --buttonColor: var(--color);
     --buttonColorHover: var(--color);
@@ -187,7 +187,7 @@ summary{display:list-item}
     --codeColor: #00F900;
     --codeBg: #111;
 
-    --hrColor: var(--boxBorderColor);
+    --hrColor: var(--inputBorderColor);
     --hrGradient: rgba(0, 0, 0, 0);
 }
 
@@ -265,30 +265,30 @@ a.no-style { text-decoration:none }
 
 /*** Accessibility */
 *:focus { outline: 0 }
-.a11y *:focus, .a11y a:focus { outline: 2px solid var(--a11yColor, var(--boxFocus)); outline-offset: 1px; }
-.a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--boxFocus)); outline: 2px solid transparent }
+.a11y *:focus, .a11y a:focus { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px; }
+.a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 
 @supports selector(:focus-visible) {
-    .a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid var(--a11yColor, var(--boxFocus)); outline-offset: 1px; }
-    .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--boxFocus)); outline: 2px solid transparent }
+    .a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px; }
+    .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 }
 
 code, kbd, samp {
-    padding: var(--boxPadding);
-    margin: var(--boxPadding);
+    padding: var(--inputPadding);
+    margin: var(--inputPadding);
     font-size: 90%;
     white-space: nowrap;
     vertical-align: middle;
     background-color: var(--codeBg);
-    border: 1px solid var(--boxBorderColor);
+    border: 1px solid var(--inputBorderColor);
     color: var(--codeColor);
-    border-radius: var(--boxRadius);
+    border-radius: var(--inputRadius);
     overflow:hidden;
     display: inline-block;
 }
 
 code:hover { overflow:auto }
-pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: pre }
+pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space: pre }
 
 /* ------------------
   utilities
@@ -327,8 +327,8 @@ pre > code { display: block; padding: calc(var(--boxPadding) * 1); white-space: 
 
 .v-hidden,.v-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 
-.is-green { border-color: var(--green)!important; --boxBorderColor: var(--green); --boxBorderHover: var(--green); }
-.is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --boxBorderColor: var(--red); --boxBorderHover: var(--red); }
+.is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green); }
+.is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red); }
 
 .group-input-button { display: inline-flex; justify-items: center; align-content: center }
 .group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; background: transparent!important; color: currentColor }
@@ -650,8 +650,8 @@ input[type="checkbox"],
 input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
-    height: var(--boxHeight);
-    width: var(--boxHeight);
+    height: var(--inputHeight);
+    width: var(--inputHeight);
     aspect-ratio: 1 / 1;
     outline: none;
     display: inline-block;
@@ -659,8 +659,8 @@ input[type="radio"] {
     position: relative;
     margin: 0;
     cursor: pointer;
-    border: 1px solid var(--bc, var(--boxBorderColor));
-    background: var(--b, var(--boxBgColor));
+    border: 1px solid var(--bc, var(--inputBorderColor));
+    background: var(--b, var(--inputBgColor));
     transition: background .3s, border-color .3s, box-shadow .2s;
 }
 
@@ -677,8 +677,8 @@ input[type="radio"]:after {
 
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-    --b: var(--boxActive);
-    --bc: var(--boxActive);
+    --b: var(--inputActive);
+    --bc: var(--inputActive);
     --d-o: 100ms;
     --d-t: 300ms;
     --d-t-e: var(--easeInOutSine);
@@ -690,16 +690,16 @@ input[type="checkbox"]:disabled:checked,input[type="radio"]:disabled:checked { f
 input[type="checkbox"]:disabled + label, input[type="radio"]:disabled + label { cursor: not-allowed }
 
 input[type="checkbox"]:hover:not(:checked):not(:disabled),
-input[type="radio"]:hover:not(:checked):not(:disabled) { --bc: var(--boxBorderHover) }
+input[type="radio"]:hover:not(:checked):not(:disabled) { --bc: var(--inputBorderHover) }
 
-input[type="checkbox"]:focus, input[type="radio"]:focus { box-shadow: 0 0 0 2px var(--boxFocus) }  
+input[type="checkbox"]:focus, input[type="radio"]:focus { box-shadow: 0 0 0 2px var(--inputFocus) }  
 input[type="checkbox"]:not(.switch):after, input[type="radio"]:not(.switch):after { opacity: var(--o, 0) }  
 input[type="checkbox"]:not(.switch):checked, input[type="radio"]:not(.switch):checked { --o: 1 }
   
 input[type="checkbox"] + label,
 input[type="radio"] + label {
     font-size: 1.4rem;
-    line-height: var(--boxHeight);
+    line-height: var(--inputHeight);
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
@@ -712,7 +712,7 @@ input[type="checkbox"]:not(.switch) { border-radius: 3px }
 input[type="checkbox"]:not(.switch):after {
     width: 5px;
     height: 9px;
-    border: 1px solid var(--boxActiveInner);
+    border: 1px solid var(--inputActiveInner);
     border-top: 0;
     border-left: 0;
     left: 7px;
@@ -733,7 +733,7 @@ input[type="checkbox"].switch:after {
     transform: translateX(var(--x, 0));
 }
 
-input[type="checkbox"].switch:checked { --ab: var(--boxActiveInner); --x: 17px }
+input[type="checkbox"].switch:checked { --ab: var(--inputActiveInner); --x: 17px }
 input[type="checkbox"].switch:disabled:not(:checked):after { opacity: .6 }
 
 /* Radio */
@@ -743,7 +743,7 @@ input[type="radio"]:after {
     width: 19px;
     height: 19px;
     border-radius: 50%;
-    background: var(--boxActiveInner);
+    background: var(--inputActiveInner);
     opacity: 0;
     transform: scale(var(--s, 0.7));
 }
@@ -753,7 +753,7 @@ input[type="radio"]:checked { --s: .5 }
 /* ------------------
   forms
 ------------------ */
-::placeholder { color: var(--boxPlaceholderColor) }
+::placeholder { color: var(--inputPlaceholderColor) }
 
 input[type="color"],
 input[type="date"],
@@ -774,14 +774,14 @@ input[inputmode],
 select,
 textarea {
     width: 100%;
-    padding: var(--boxPadding);
-    margin: var(--boxMargin);
-    border-radius: var(--boxRadius);
-    border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxBorderColor);
-    background-color: var(--boxBg);
-    font-size: var(--boxFontSize);
-    color: var(--boxColor);
-    box-shadow: var(--boxShadow);
+    padding: var(--inputPadding);
+    margin: var(--inputMargin);
+    border-radius: var(--inputRadius);
+    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
+    background-color: var(--inputBg);
+    font-size: var(--inputFontSize);
+    color: var(--inputColor);
+    box-shadow: var(--inputShadow);
     transition: border 200ms ease-out;
     -webkit-appearance: none;
     appearance: none;
@@ -805,8 +805,8 @@ input[type="color"]:hover,
 input[inputmode]:hover,
 select:hover,
 textarea:hover {
-    background-color: var(--boxBgHover);
-    border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxBorderHover);
+    background-color: var(--inputBgHover);
+    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderHover);
 }
 
 input[type="color"]:focus, 
@@ -827,14 +827,14 @@ input[type="color"]:focus,
 input[inputmode]:focus,
 select:focus, 
 textarea:focus {
-    background-color: var(--boxBgActive);
-    border: var(--boxBorderWidth) var(--boxBorderStyle) var(--boxActive, var(--boxBorderHover));
+    background-color: var(--inputBgActive);
+    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputActive, var(--inputBorderHover));
 }
 
 input[type=color] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
 
-input[type=file] { --boxBorderWidth: 2px; --boxBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
-input[type=file]::file-selector-button { border: 0; border-right: 1px solid var(--boxBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--boxBgActive); color: currentColor; display: inline-block; height: 100%; }
+input[type=file] { --inputBorderWidth: 2px; --inputBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
+input[type=file]::file-selector-button { border: 0; border-right: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100%; }
 
 input[type=range] { height: 25px; margin: 10px 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none; }
 input[type=range]::-moz-range-track              { width: 100%; height: 5px; cursor: pointer; animate: 0.2s; background: var(--primary); border-radius: 100vw; }
@@ -843,28 +843,28 @@ input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 5px; cur
 input[type=range]::-moz-range-thumb     { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px; }
 input[type=range]::-webkit-slider-thumb { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px; }
 
-textarea { min-height: 6.5rem; padding: var(--boxPadding) }
+textarea { min-height: 6.5rem; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius)) }
 textarea.resize-vertical { resize: vertical }
 textarea.resize-horizontal { resize: horizontal }
-label, legend { display: inline-flex; margin-bottom: var(--boxMargin); font-weight: 600; align-items: center }
-fieldset { border: 1px solid var(--boxBorderColor); border-radius: var(--boxRadius) }
-legend { padding: var(--boxPadding) }
-option { padding: 5px; color: var(--boxColor) }
+label, legend { display: inline-flex; margin-bottom: var(--inputMargin); font-weight: 600; align-items: center }
+fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--inputRadius) }
+legend { padding: var(--inputPadding) }
+option { padding: 5px; color: var(--inputColor) }
 label span { color: var(--color); margin: 0 0.5rem; font-weight: normal }
 :is(input,textarea).is-blank { border:none!important; background:transparent }
 
 select {
-    background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderColor) 50%), linear-gradient(135deg, var(--boxBorderColor) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderColor), var(--boxBorderColor));
+    background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderColor) 50%), linear-gradient(135deg, var(--inputBorderColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderColor), var(--inputBorderColor));
     background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%, calc(100% - 45px) 50%;
     background-size: 5px 5px, 5px 5px, 1px 90%;
     background-repeat: no-repeat;
-    color: var(--boxColor);
+    color: var(--inputColor);
     padding-right: 45px;
 }
 
-select:required:invalid { color:var(--boxPlaceholderColor) }
-select:hover { color: var(--boxColor); background-image: linear-gradient(45deg, transparent 50%, var(--boxBorderHover) 50%), linear-gradient(135deg, var(--boxBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--boxBorderHover), var(--boxBorderHover)) }
-select:focus { color: var(--boxColor); background-image: linear-gradient(45deg, transparent 50%, var(--boxActive, var(--boxBorderHover)) 50%), linear-gradient(135deg, var(--boxActive, var(--boxBorderHover)) 50%, transparent 50%), linear-gradient(to right, var(--boxActive, var(--boxBorderHover)), var(--boxActive)) }
+select:required:invalid { color:var(--inputPlaceholderColor) }
+select:hover { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderHover) 50%), linear-gradient(135deg, var(--inputBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderHover), var(--inputBorderHover)) }
+select:focus { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputActive, var(--inputBorderHover)) 50%), linear-gradient(135deg, var(--inputActive, var(--inputBorderHover)) 50%, transparent 50%), linear-gradient(to right, var(--inputActive, var(--inputBorderHover)), var(--inputActive)) }
 select:-moz-focusring { color:transparent; text-shadow: 0 0 0 var(--color) }
 
 /* ------------------
@@ -900,7 +900,7 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
 
 /* Line w/ text: --- text --- */
 .text-hr { display: flex; align-items: center; text-align: center; margin: calc(var(--margin) * 1) auto }
-.text-hr::before, .text-hr::after { content: ""; flex: 1; border-bottom: 1px solid var(--boxBorderColor) }
+.text-hr::before, .text-hr::after { content: ""; flex: 1; border-bottom: 1px solid var(--inputBorderColor) }
 .text-hr::before { margin-right: var(--padding) }
 .text-hr::after { margin-left: var(--padding) }
 
@@ -908,13 +908,13 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
   tables
 ------------------ */
 table { display: block; overflow-x: auto; margin: 0 auto; white-space: nowrap; max-width: -moz-fit-content; max-width: fit-content }
-th, td { padding: var(--padding); text-align: start; border-bottom: 1px solid var(--boxBorderColor) }
+th, td { padding: var(--padding); text-align: start; border-bottom: 1px solid var(--inputBorderColor) }
 
-table.is-bordered { border: 1px solid var(--boxBorderColor); border-radius: var(--radius) }
-table.is-bordered th { background-color: var(--boxBorderColor) }
-table.is-bordered th, table.is-bordered td { border-bottom: 1px solid var(--boxBorderColor) }
+table.is-bordered { border: 1px solid var(--inputBorderColor); border-radius: var(--radius) }
+table.is-bordered th { background-color: var(--inputBorderColor) }
+table.is-bordered th, table.is-bordered td { border-bottom: 1px solid var(--inputBorderColor) }
 table.is-bordered > tbody > tr:last-child td { border-bottom: none }
-table.is-striped tbody tr:nth-child(2n) { background-color: var(--boxBorderColor) }
+table.is-striped tbody tr:nth-child(2n) { background-color: var(--inputBorderColor) }
 table.is-striped td { border:none }
 
 /* ------------------
