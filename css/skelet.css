@@ -331,7 +331,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
 .is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red); }
 
 .group-input-button { display: inline-flex; justify-items: center; align-content: center }
-.group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; background: transparent!important; color: currentColor }
+.group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
 
 @media (max-width: 600px) { 
     .fullwidth-s { width: 100% }
@@ -624,6 +624,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
 
 .is-loading:where(button,.button,[type=button],[type=submit],[type=reset]):not(:empty):after { margin-left: 1rem }
 
+.is-unset { all: unset }
 .is-blank:where(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
 .is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg) }
 .is-outline:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--white) }
@@ -828,7 +829,7 @@ input[inputmode]:focus,
 select:focus, 
 textarea:focus {
     background-color: var(--inputBgActive);
-    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputActive, var(--inputBorderHover));
+    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderActive, var(--inputBorderHover));
 }
 
 input[type=color] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
@@ -864,7 +865,7 @@ select {
 
 select:required:invalid { color:var(--inputPlaceholderColor) }
 select:hover { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderHover) 50%), linear-gradient(135deg, var(--inputBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderHover), var(--inputBorderHover)) }
-select:focus { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputActive, var(--inputBorderHover)) 50%), linear-gradient(135deg, var(--inputActive, var(--inputBorderHover)) 50%, transparent 50%), linear-gradient(to right, var(--inputActive, var(--inputBorderHover)), var(--inputActive)) }
+select:focus { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderActive, var(--inputBorderHover)) 50%), linear-gradient(135deg, var(--inputBorderActive, var(--inputBorderHover)) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderActive, var(--inputBorderHover)), var(--inputBorderActive)) }
 select:-moz-focusring { color:transparent; text-shadow: 0 0 0 var(--color) }
 
 /* ------------------
