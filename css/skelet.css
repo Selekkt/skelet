@@ -121,6 +121,7 @@ summary{display:list-item}
     --inputPlaceholderColor: rgba(0,0,0,.4);
     --inputBorderColor: #E1E1E1;
     --inputBorderHover: #BABABA;
+    --inputBorderActive: var(--primary);
 
     --inputShadow: 0 0 0 0 rgba(0,0,0,0);
 
@@ -581,7 +582,6 @@ button,.button,[type=button],[type=submit],[type=reset] {
     white-space: nowrap;
     font-style: inherit;
     text-decoration: none;
-    line-height: 1;
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -1350,7 +1350,7 @@ x-flex img { object-fit: contain; max-width: 100% }
 /* ------------------------
   Grid & Flexbox Utilities
 ------------------------ */
-/* Justify CONTENT */
+/* Justify CONTENT - F+G */
 [jc="start"] { justify-content: start }
 [jc="center"] { justify-content: center }
 [jc="end"] { justify-content: end }
@@ -1407,8 +1407,8 @@ x-flex img { object-fit: contain; max-width: 100% }
 [pi="center stretch"] { place-items: center stretch }
 
 [pi="end start"] { place-items: end start }
-[pi="end center"] { place-items: end center }
-[pi="end stretch"] { place-items: end stretch }
+[pi="end center"] { place-items: flex-end center }
+[pi="end stretch"] { place-items: flex-end stretch }
 
 [pi="stretch start"] { place-items: stretch start }
 [pi="stretch center"] { place-items: stretch center }
@@ -1493,6 +1493,68 @@ x-flex img { object-fit: contain; max-width: 100% }
 [ps="stretch start"] { place-self: stretch start }
 [ps="stretch center"] { place-self: stretch center }
 [ps="stretch end"] { place-self: stretch end }
+
+/* flex-* start & end for flexbox (needed for safari) */
+x-flex[jc="start"] { justify-content: flex-start }
+x-flex[jc="end"] { justify-content: flex-end }
+x-flex[ji="start"] { justify-items: flex-start }
+x-flex[ji="end"] { justify-items: flex-end }
+x-flex[ai="start"] { align-items: flex-start }
+x-flex[ai="end"] { align-items: flex-end }
+x-flex[ac="start"] { align-content: flex-start }
+x-flex[ac="end"] { align-content: flex-end }
+x-flex[as="start"] { align-self: flex-start }
+x-flex[as="end"] { align-self: flex-end }
+x-flex[js="start"] { justify-self: flex-start }
+x-flex[js="end"] { justify-self: flex-end }
+x-flex[pi="start"] { place-items: flex-start }
+x-flex[pi="end"] { place-items: flex-end }
+x-flex[pi="start center"] { place-items: flex-start center }
+x-flex[pi="start end"] { place-items: flex-start flex-end }
+x-flex[pi="start stretch"] { place-items: flex-start stretch }
+x-flex[pi="center start"] { place-items: center flex-start }
+x-flex[pi="center end"] { place-items: center flex-end }
+x-flex[pi="end start"] { place-items: flex-end flex-start }
+x-flex[pi="end center"] { place-items: flex-end center }
+x-flex[pi="end stretch"] { place-items: flex-end stretch }
+x-flex[pi="stretch start"] { place-items: stretch flex-start }
+x-flex[pi="stretch end"] { place-items: stretch flex-end }
+x-flex[pc="start"] { place-content: flex-start }
+x-flex[pc="end"] { place-content: flex-end }
+x-flex[pc="start center"] { place-content: flex-start center }
+x-flex[pc="start end"] { place-content: flex-start flex-end }
+x-flex[pc="start stretch"] { place-content: flex-start stretch }
+x-flex[pc="start around"] { place-content: flex-start space-around }
+x-flex[pc="start between"] { place-content: flex-start space-between }
+x-flex[pc="start evenly"] { place-content: flex-start space-evenly }
+x-flex[pc="center start"] { place-content: center flex-start }
+x-flex[pc="center end"] { place-content: center flex-end }
+x-flex[pc="end start"] { place-content: flex-end flex-start }
+x-flex[pc="end center"] { place-content: flex-end center }
+x-flex[pc="end stretch"] { place-content: flex-end stretch }
+x-flex[pc="end around"] { place-content: flex-end space-around }
+x-flex[pc="end between"] { place-content: flex-end space-between }
+x-flex[pc="end evenly"] { place-content: flex-end space-evenly }
+x-flex[pc="stretch start"] { place-content: stretch flex-start }
+x-flex[pc="stretch end"] { place-content: stretch flex-end }
+x-flex[pc="around start"] { place-content: space-around flex-start }
+x-flex[pc="around end"] { place-content: space-around flex-end }
+x-flex[pc="between start"] { place-content: space-between flex-start }
+x-flex[pc="between end"] { place-content: space-between flex-end }
+x-flex[pc="evenly start"] { place-content: space-evenly flex-start }
+x-flex[pc="evenly end"] { place-content: space-evenly flex-end }
+x-flex[ps="start"] { place-self: flex-start }
+x-flex[ps="end"] { place-self: flex-end }
+x-flex[ps="start center"] { place-self: flex-start center }
+x-flex[ps="start end"] { place-self: flex-start flex-end }
+x-flex[ps="start stretch"] { place-self: flex-start stretch }
+x-flex[ps="center start"] { place-self: center flex-start }    
+x-flex[ps="center end"] { place-self: center flex-end }    
+x-flex[ps="end start"] { place-self: flex-end flex-start }    
+x-flex[ps="end center"] { place-self: flex-end center }    
+x-flex[ps="end stretch"] { place-self:flex-end stretch }    
+x-flex[ps="stretch start"] { place-self: stretch flex-start }    
+x-flex[ps="stretch end"] { place-self: stretch flex-end }    
 
 /* VISUAL ORDER */
 [order="first"] { order: -1 }
@@ -1659,6 +1721,68 @@ x-flex img { object-fit: contain; max-width: 100% }
     [ps-s="stretch start"] { place-self: stretch start }
     [ps-s="stretch center"] { place-self: stretch center }
     [ps-s="stretch end"] { place-self: stretch end }
+
+    /* flex-* start & end for flexbox (needed for safari) */
+    x-flex[jc-s="start"] { justify-content: flex-start }
+    x-flex[jc-s="end"] { justify-content: flex-end }
+    x-flex[ji-s="start"] { justify-items: flex-start }
+    x-flex[ji-s="end"] { justify-items: flex-end }
+    x-flex[ai-s="start"] { align-items: flex-start }
+    x-flex[ai-s="end"] { align-items: flex-end }
+    x-flex[ac-s="start"] { align-content: flex-start }
+    x-flex[ac-s="end"] { align-content: flex-end }
+    x-flex[as-s="start"] { align-self: flex-start }
+    x-flex[as-s="end"] { align-self: flex-end }
+    x-flex[js-s="start"] { justify-self: flex-start }
+    x-flex[js-s="end"] { justify-self: flex-end }
+    x-flex[pi-s="start"] { place-items: flex-start }
+    x-flex[pi-s="end"] { place-items: flex-end }
+    x-flex[pi-s="start center"] { place-items: flex-start center }
+    x-flex[pi-s="start end"] { place-items: flex-start flex-end }
+    x-flex[pi-s="start stretch"] { place-items: flex-start stretch }
+    x-flex[pi-s="center start"] { place-items: center flex-start }
+    x-flex[pi-s="center end"] { place-items: center flex-end }
+    x-flex[pi-s="end start"] { place-items: flex-end flex-start }
+    x-flex[pi-s="end center"] { place-items: flex-end center }
+    x-flex[pi-s="end stretch"] { place-items: flex-end stretch }
+    x-flex[pi-s="stretch start"] { place-items: stretch flex-start }
+    x-flex[pi-s="stretch end"] { place-items: stretch flex-end }
+    x-flex[pc-s="start"] { place-content: flex-start }
+    x-flex[pc-s="end"] { place-content: flex-end }
+    x-flex[pc-s="start center"] { place-content: flex-start center }
+    x-flex[pc-s="start end"] { place-content: flex-start flex-end }
+    x-flex[pc-s="start stretch"] { place-content: flex-start stretch }
+    x-flex[pc-s="start around"] { place-content: flex-start space-around }
+    x-flex[pc-s="start between"] { place-content: flex-start space-between }
+    x-flex[pc-s="start evenly"] { place-content: flex-start space-evenly }
+    x-flex[pc-s="center start"] { place-content: center flex-start }
+    x-flex[pc-s="center end"] { place-content: center flex-end }
+    x-flex[pc-s="end start"] { place-content: flex-end flex-start }
+    x-flex[pc-s="end center"] { place-content: flex-end center }
+    x-flex[pc-s="end stretch"] { place-content: flex-end stretch }
+    x-flex[pc-s="end around"] { place-content: flex-end space-around }
+    x-flex[pc-s="end between"] { place-content: flex-end space-between }
+    x-flex[pc-s="end evenly"] { place-content: flex-end space-evenly }
+    x-flex[pc-s="stretch start"] { place-content: stretch flex-start }
+    x-flex[pc-s="stretch end"] { place-content: stretch flex-end }
+    x-flex[pc-s="around start"] { place-content: space-around flex-start }
+    x-flex[pc-s="around end"] { place-content: space-around flex-end }
+    x-flex[pc-s="between start"] { place-content: space-between flex-start }
+    x-flex[pc-s="between end"] { place-content: space-between flex-end }
+    x-flex[pc-s="evenly start"] { place-content: space-evenly flex-start }
+    x-flex[pc-s="evenly end"] { place-content: space-evenly flex-end }
+    x-flex[ps-s="start"] { place-self: flex-start }
+    x-flex[ps-s="end"] { place-self: flex-end }
+    x-flex[ps-s="start center"] { place-self: flex-start center }
+    x-flex[ps-s="start end"] { place-self: flex-start flex-end }
+    x-flex[ps-s="start stretch"] { place-self: flex-start stretch }
+    x-flex[ps-s="center start"] { place-self: center flex-start }    
+    x-flex[ps-s="center end"] { place-self: center flex-end }    
+    x-flex[ps-s="end start"] { place-self: flex-end flex-start }    
+    x-flex[ps-s="end center"] { place-self: flex-end center }    
+    x-flex[ps-s="end stretch"] { place-self:flex-end stretch }    
+    x-flex[ps-s="stretch start"] { place-self: stretch flex-start }    
+    x-flex[ps-s="stretch end"] { place-self: stretch flex-end }
 
     /* VISUAL ORDER */
     [order-s="first"] { order: -1 }
@@ -1827,6 +1951,68 @@ x-flex img { object-fit: contain; max-width: 100% }
     [ps-m="stretch center"] { place-self: stretch center }
     [ps-m="stretch end"] { place-self: stretch end }
 
+    /* flex-* start & end for flexbox (needed for safari) */
+    x-flex[jc-m="start"] { justify-content: flex-start }
+    x-flex[jc-m="end"] { justify-content: flex-end }
+    x-flex[ji-m="start"] { justify-items: flex-start }
+    x-flex[ji-m="end"] { justify-items: flex-end }
+    x-flex[ai-m="start"] { align-items: flex-start }
+    x-flex[ai-m="end"] { align-items: flex-end }
+    x-flex[ac-m="start"] { align-content: flex-start }
+    x-flex[ac-m="end"] { align-content: flex-end }
+    x-flex[as-m="start"] { align-self: flex-start }
+    x-flex[as-m="end"] { align-self: flex-end }
+    x-flex[js-m="start"] { justify-self: flex-start }
+    x-flex[js-m="end"] { justify-self: flex-end }
+    x-flex[pi-m="start"] { place-items: flex-start }
+    x-flex[pi-m="end"] { place-items: flex-end }
+    x-flex[pi-m="start center"] { place-items: flex-start center }
+    x-flex[pi-m="start end"] { place-items: flex-start flex-end }
+    x-flex[pi-m="start stretch"] { place-items: flex-start stretch }
+    x-flex[pi-m="center start"] { place-items: center flex-start }
+    x-flex[pi-m="center end"] { place-items: center flex-end }
+    x-flex[pi-m="end start"] { place-items: flex-end flex-start }
+    x-flex[pi-m="end center"] { place-items: flex-end center }
+    x-flex[pi-m="end stretch"] { place-items: flex-end stretch }
+    x-flex[pi-m="stretch start"] { place-items: stretch flex-start }
+    x-flex[pi-m="stretch end"] { place-items: stretch flex-end }
+    x-flex[pc-m="start"] { place-content: flex-start }
+    x-flex[pc-m="end"] { place-content: flex-end }
+    x-flex[pc-m="start center"] { place-content: flex-start center }
+    x-flex[pc-m="start end"] { place-content: flex-start flex-end }
+    x-flex[pc-m="start stretch"] { place-content: flex-start stretch }
+    x-flex[pc-m="start around"] { place-content: flex-start space-around }
+    x-flex[pc-m="start between"] { place-content: flex-start space-between }
+    x-flex[pc-m="start evenly"] { place-content: flex-start space-evenly }
+    x-flex[pc-m="center start"] { place-content: center flex-start }
+    x-flex[pc-m="center end"] { place-content: center flex-end }
+    x-flex[pc-m="end start"] { place-content: flex-end flex-start }
+    x-flex[pc-m="end center"] { place-content: flex-end center }
+    x-flex[pc-m="end stretch"] { place-content: flex-end stretch }
+    x-flex[pc-m="end around"] { place-content: flex-end space-around }
+    x-flex[pc-m="end between"] { place-content: flex-end space-between }
+    x-flex[pc-m="end evenly"] { place-content: flex-end space-evenly }
+    x-flex[pc-m="stretch start"] { place-content: stretch flex-start }
+    x-flex[pc-m="stretch end"] { place-content: stretch flex-end }
+    x-flex[pc-m="around start"] { place-content: space-around flex-start }
+    x-flex[pc-m="around end"] { place-content: space-around flex-end }
+    x-flex[pc-m="between start"] { place-content: space-between flex-start }
+    x-flex[pc-m="between end"] { place-content: space-between flex-end }
+    x-flex[pc-m="evenly start"] { place-content: space-evenly flex-start }
+    x-flex[pc-m="evenly end"] { place-content: space-evenly flex-end }
+    x-flex[ps-m="start"] { place-self: flex-start }
+    x-flex[ps-m="end"] { place-self: flex-end }
+    x-flex[ps-m="start center"] { place-self: flex-start center }
+    x-flex[ps-m="start end"] { place-self: flex-start flex-end }
+    x-flex[ps-m="start stretch"] { place-self: flex-start stretch }
+    x-flex[ps-m="center start"] { place-self: center flex-start }    
+    x-flex[ps-m="center end"] { place-self: center flex-end }    
+    x-flex[ps-m="end start"] { place-self: flex-end flex-start }    
+    x-flex[ps-m="end center"] { place-self: flex-end center }    
+    x-flex[ps-m="end stretch"] { place-self:flex-end stretch }    
+    x-flex[ps-m="stretch start"] { place-self: stretch flex-start }    
+    x-flex[ps-m="stretch end"] { place-self: stretch flex-end }
+
     /* VISUAL ORDER */
     [order-m="first"] { order: -1 }
     [order-m="1"] { order: 1 }
@@ -1993,6 +2179,68 @@ x-flex img { object-fit: contain; max-width: 100% }
     [ps-l="stretch start"] { place-self: stretch start }
     [ps-l="stretch center"] { place-self: stretch center }
     [ps-l="stretch end"] { place-self: stretch end }
+
+    /* flex-* start & end for flexbox (needed for safari) */
+    x-flex[jc-l="start"] { justify-content: flex-start }
+    x-flex[jc-l="end"] { justify-content: flex-end }
+    x-flex[ji-l="start"] { justify-items: flex-start }
+    x-flex[ji-l="end"] { justify-items: flex-end }
+    x-flex[ai-l="start"] { align-items: flex-start }
+    x-flex[ai-l="end"] { align-items: flex-end }
+    x-flex[ac-l="start"] { align-content: flex-start }
+    x-flex[ac-l="end"] { align-content: flex-end }
+    x-flex[as-l="start"] { align-self: flex-start }
+    x-flex[as-l="end"] { align-self: flex-end }
+    x-flex[js-l="start"] { justify-self: flex-start }
+    x-flex[js-l="end"] { justify-self: flex-end }
+    x-flex[pi-l="start"] { place-items: flex-start }
+    x-flex[pi-l="end"] { place-items: flex-end }
+    x-flex[pi-l="start center"] { place-items: flex-start center }
+    x-flex[pi-l="start end"] { place-items: flex-start flex-end }
+    x-flex[pi-l="start stretch"] { place-items: flex-start stretch }
+    x-flex[pi-l="center start"] { place-items: center flex-start }
+    x-flex[pi-l="center end"] { place-items: center flex-end }
+    x-flex[pi-l="end start"] { place-items: flex-end flex-start }
+    x-flex[pi-l="end center"] { place-items: flex-end center }
+    x-flex[pi-l="end stretch"] { place-items: flex-end stretch }
+    x-flex[pi-l="stretch start"] { place-items: stretch flex-start }
+    x-flex[pi-l="stretch end"] { place-items: stretch flex-end }
+    x-flex[pc-l="start"] { place-content: flex-start }
+    x-flex[pc-l="end"] { place-content: flex-end }
+    x-flex[pc-l="start center"] { place-content: flex-start center }
+    x-flex[pc-l="start end"] { place-content: flex-start flex-end }
+    x-flex[pc-l="start stretch"] { place-content: flex-start stretch }
+    x-flex[pc-l="start around"] { place-content: flex-start space-around }
+    x-flex[pc-l="start between"] { place-content: flex-start space-between }
+    x-flex[pc-l="start evenly"] { place-content: flex-start space-evenly }
+    x-flex[pc-l="center start"] { place-content: center flex-start }
+    x-flex[pc-l="center end"] { place-content: center flex-end }
+    x-flex[pc-l="end start"] { place-content: flex-end flex-start }
+    x-flex[pc-l="end center"] { place-content: flex-end center }
+    x-flex[pc-l="end stretch"] { place-content: flex-end stretch }
+    x-flex[pc-l="end around"] { place-content: flex-end space-around }
+    x-flex[pc-l="end between"] { place-content: flex-end space-between }
+    x-flex[pc-l="end evenly"] { place-content: flex-end space-evenly }
+    x-flex[pc-l="stretch start"] { place-content: stretch flex-start }
+    x-flex[pc-l="stretch end"] { place-content: stretch flex-end }
+    x-flex[pc-l="around start"] { place-content: space-around flex-start }
+    x-flex[pc-l="around end"] { place-content: space-around flex-end }
+    x-flex[pc-l="between start"] { place-content: space-between flex-start }
+    x-flex[pc-l="between end"] { place-content: space-between flex-end }
+    x-flex[pc-l="evenly start"] { place-content: space-evenly flex-start }
+    x-flex[pc-l="evenly end"] { place-content: space-evenly flex-end }
+    x-flex[ps-l="start"] { place-self: flex-start }
+    x-flex[ps-l="end"] { place-self: flex-end }
+    x-flex[ps-l="start center"] { place-self: flex-start center }
+    x-flex[ps-l="start end"] { place-self: flex-start flex-end }
+    x-flex[ps-l="start stretch"] { place-self: flex-start stretch }
+    x-flex[ps-l="center start"] { place-self: center flex-start }
+    x-flex[ps-l="center end"] { place-self: center flex-end }
+    x-flex[ps-l="end start"] { place-self: flex-end flex-start }
+    x-flex[ps-l="end center"] { place-self: flex-end center }
+    x-flex[ps-l="end stretch"] { place-self:flex-end stretch }
+    x-flex[ps-l="stretch start"] { place-self: stretch flex-start }
+    x-flex[ps-l="stretch end"] { place-self: stretch flex-end }
 
     /* VISUAL ORDER */
     [order-l="first"] { order: -1 }
