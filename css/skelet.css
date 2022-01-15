@@ -317,6 +317,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
 .text-capitalize { text-transform:capitalize }
 .text-underline { border-bottom: 1px solid currentColor }
 .text-line-through { text-decoration: line-through }
+.text-break-word { overflow-wrap: break-word }
 
 .sticky { position: sticky; top: var(--sticky, 0) }
 .sticky-bottom { position: sticky; bottom: var(--sticky, 0) }
@@ -358,6 +359,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
     .text-capitalize-s { text-transform:capitalize }
     .text-underline-s { border-bottom: 1px solid currentColor }
     .text-line-through-s { text-decoration: line-through }
+    .text-break-word-s { overflow-wrap: break-word }
 
     .sticky-s { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-s { position: sticky; bottom: var(--sticky, 0) }
@@ -378,7 +380,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
     .center-m { display: block; text-align: center; margin: 0 auto }
 
     .text-truncate-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-    .text-mtart-m { text-align: start }
+    .text-start-m { text-align: start }
     .text-center-m { text-align: center }
     .text-end-m { text-align: end }
     .text-justify-m { text-align: justify }
@@ -388,6 +390,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
     .text-capitalize-m { text-transform:capitalize }
     .text-underline-m { border-bottom: 1px solid currentColor }
     .text-line-through-m { text-decoration: line-through }
+    .text-break-word-m { overflow-wrap: break-word }
 
     .sticky-m { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-m { position: sticky; bottom: var(--sticky, 0) }
@@ -408,7 +411,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
     .center-l { display: block; text-align: center; margin: 0 auto }
 
     .text-truncate-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-    .text-ltart-l { text-align: start }
+    .text-start-l { text-align: start }
     .text-center-l { text-align: center }
     .text-end-l { text-align: end }
     .text-justify-l { text-align: justify }
@@ -418,6 +421,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
     .text-capitalize-l { text-transform:capitalize }
     .text-underline-l { border-bottom: 1px solid currentColor }
     .text-line-through-l { text-decoration: line-through }
+    .text-break-word-l { overflow-wrap: break-word }
 
     .sticky-l { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-l { position: sticky; bottom: var(--sticky, 0) }
@@ -926,7 +930,7 @@ x-grid, [x-grid] { display: grid; gap: var(--rowGap, 1rem) var(--columnGap, 1rem
 x-grid {
     grid-template-columns: var(--grid-tc); /* default columns */ 
     --grid-mm: 200px, 1fr; /* auto-fit/fill minmax */
-    --grid-tc: repeat(4, 1fr); /* template columns */
+    --grid-tc: repeat(4, minmax(0,1fr)); /* template columns */
     --grid-cs: 1; /* column start */
     --grid-ce: -1; /* column end */
     --grid-rs: 1; /* row start */
@@ -936,22 +940,22 @@ x-grid {
 x-grid img { object-fit: contain; max-width: 100% }
 x-grid > * { display: block; appearance: none; -webkit-appearance: none }
 
-x-grid[columns="1"] { --grid-tc: repeat(1, 1fr) }
-x-grid[columns="2"] { --grid-tc: repeat(2, 1fr) }
-x-grid[columns="3"] { --grid-tc: repeat(3, 1fr) }
-x-grid[columns="4"] { --grid-tc: repeat(4, 1fr) }
-x-grid[columns="5"] { --grid-tc: repeat(5, 1fr) }
-x-grid[columns="6"] { --grid-tc: repeat(6, 1fr) }
-x-grid[columns="7"] { --grid-tc: repeat(7, 1fr) }
-x-grid[columns="8"] { --grid-tc: repeat(8, 1fr) }
-x-grid[columns="9"] { --grid-tc: repeat(9, 1fr) }
-x-grid[columns="10"] { --grid-tc: repeat(10, 1fr) }
-x-grid[columns="11"] { --grid-tc: repeat(11, 1fr) }
-x-grid[columns="12"] { --grid-tc: repeat(12, 1fr) }
+x-grid[columns="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+x-grid[columns="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+x-grid[columns="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+x-grid[columns="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+x-grid[columns="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+x-grid[columns="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+x-grid[columns="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+x-grid[columns="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+x-grid[columns="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+x-grid[columns="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+x-grid[columns="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+x-grid[columns="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
 x-grid[columns="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
 x-grid[columns="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-x-grid[columns="1f"] { --grid-tc: repeat(1, 1fr) }
+x-grid[columns="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
 x-grid[columns="1f"] > * { grid-column: 1 / -1 }
 
 /*** Grid Column - X axis */
@@ -1023,22 +1027,22 @@ x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
 
 /* [S] for window width <= 600 */
 @media (max-width: 600px) {
-  x-grid[columns-s="1"] { --grid-tc: repeat(1, 1fr) }
-  x-grid[columns-s="2"] { --grid-tc: repeat(2, 1fr) }
-  x-grid[columns-s="3"] { --grid-tc: repeat(3, 1fr) }
-  x-grid[columns-s="4"] { --grid-tc: repeat(4, 1fr) }
-  x-grid[columns-s="5"] { --grid-tc: repeat(5, 1fr) }
-  x-grid[columns-s="6"] { --grid-tc: repeat(6, 1fr) }
-  x-grid[columns-s="7"] { --grid-tc: repeat(7, 1fr) }
-  x-grid[columns-s="8"] { --grid-tc: repeat(8, 1fr) }
-  x-grid[columns-s="9"] { --grid-tc: repeat(9, 1fr) }
-  x-grid[columns-s="10"] { --grid-tc: repeat(10, 1fr) }
-  x-grid[columns-s="11"] { --grid-tc: repeat(11, 1fr) }
-  x-grid[columns-s="12"] { --grid-tc: repeat(12, 1fr) }
+  x-grid[columns-s="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  x-grid[columns-s="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+  x-grid[columns-s="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+  x-grid[columns-s="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+  x-grid[columns-s="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+  x-grid[columns-s="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+  x-grid[columns-s="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+  x-grid[columns-s="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+  x-grid[columns-s="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+  x-grid[columns-s="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+  x-grid[columns-s="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+  x-grid[columns-s="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
   x-grid[columns-s="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
   x-grid[columns-s="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-  x-grid[columns-s="1f"] { --grid-tc: repeat(1, 1fr) }
+  x-grid[columns-s="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
   x-grid[columns-s="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
@@ -1111,22 +1115,22 @@ x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
 
 /* [M] for window width 601px <> 1024px */
 @media (min-width: 601px) and (max-width: 1024px) {
-  x-grid[columns-m="1"] { --grid-tc: repeat(1, 1fr) }
-  x-grid[columns-m="2"] { --grid-tc: repeat(2, 1fr) }
-  x-grid[columns-m="3"] { --grid-tc: repeat(3, 1fr) }
-  x-grid[columns-m="4"] { --grid-tc: repeat(4, 1fr) }
-  x-grid[columns-m="5"] { --grid-tc: repeat(5, 1fr) }
-  x-grid[columns-m="6"] { --grid-tc: repeat(6, 1fr) }
-  x-grid[columns-m="7"] { --grid-tc: repeat(7, 1fr) }
-  x-grid[columns-m="8"] { --grid-tc: repeat(8, 1fr) }
-  x-grid[columns-m="9"] { --grid-tc: repeat(9, 1fr) }
-  x-grid[columns-m="10"] { --grid-tc: repeat(10, 1fr) }
-  x-grid[columns-m="11"] { --grid-tc: repeat(11, 1fr) }
-  x-grid[columns-m="12"] { --grid-tc: repeat(12, 1fr) }
+  x-grid[columns-m="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  x-grid[columns-m="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+  x-grid[columns-m="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+  x-grid[columns-m="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+  x-grid[columns-m="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+  x-grid[columns-m="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+  x-grid[columns-m="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+  x-grid[columns-m="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+  x-grid[columns-m="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+  x-grid[columns-m="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+  x-grid[columns-m="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+  x-grid[columns-m="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
   x-grid[columns-m="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
   x-grid[columns-m="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-  x-grid[columns-m="1f"] { --grid-tc: repeat(1, 1fr) }
+  x-grid[columns-m="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
   x-grid[columns-m="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
@@ -1199,22 +1203,22 @@ x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
 
 /* [L] for window width >= 1600 */
 @media (min-width: 1599px) {
-  x-grid[columns-l="1"] { --grid-tc: repeat(1, 1fr) }
-  x-grid[columns-l="2"] { --grid-tc: repeat(2, 1fr) }
-  x-grid[columns-l="3"] { --grid-tc: repeat(3, 1fr) }
-  x-grid[columns-l="4"] { --grid-tc: repeat(4, 1fr) }
-  x-grid[columns-l="5"] { --grid-tc: repeat(5, 1fr) }
-  x-grid[columns-l="6"] { --grid-tc: repeat(6, 1fr) }
-  x-grid[columns-l="7"] { --grid-tc: repeat(7, 1fr) }
-  x-grid[columns-l="8"] { --grid-tc: repeat(8, 1fr) }
-  x-grid[columns-l="9"] { --grid-tc: repeat(9, 1fr) }
-  x-grid[columns-l="10"] { --grid-tc: repeat(10, 1fr) }
-  x-grid[columns-l="11"] { --grid-tc: repeat(11, 1fr) }
-  x-grid[columns-l="12"] { --grid-tc: repeat(12, 1fr) }
+  x-grid[columns-l="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  x-grid[columns-l="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+  x-grid[columns-l="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+  x-grid[columns-l="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+  x-grid[columns-l="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+  x-grid[columns-l="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+  x-grid[columns-l="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+  x-grid[columns-l="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+  x-grid[columns-l="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+  x-grid[columns-l="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+  x-grid[columns-l="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+  x-grid[columns-l="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
   x-grid[columns-l="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
   x-grid[columns-l="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-  x-grid[columns-l="1f"] { --grid-tc: repeat(1, 1fr) }
+  x-grid[columns-l="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
   x-grid[columns-l="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
