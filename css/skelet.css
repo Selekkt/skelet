@@ -67,8 +67,9 @@ summary{display:list-item}
     --hrGradient: rgba(255, 255, 255, 0);
 
     /* typography */
-    --fontFamily: "Inter", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
-    --fontFamilyVar: "Inter var", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
+    --fontFallback: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
+    --fontFamily: "Inter", var(--fontFallback);
+    --fontFamilyVar: "Inter var", var(--fontFallback);
     --hFontFamily: var(--fontFamily);
 
     --fontSize: 1.7rem;
