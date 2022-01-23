@@ -67,9 +67,10 @@ summary{display:list-item}
     --hrGradient: rgba(255, 255, 255, 0);
 
     /* typography */
-    --fontFallback: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, -system-ui, system-ui, sans-serif;
+    --fontFallback: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     --fontFamily: "Inter", var(--fontFallback);
     --fontFamilyVar: "Inter var", var(--fontFallback);
+    --fontMono: "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono","Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     --hFontFamily: var(--fontFamily);
 
     --fontSize: 1.7rem;
@@ -196,7 +197,7 @@ summary{display:list-item}
 /* ------------------
   more resets
 ------------------ */
-:not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 1.2rem; font-family: Consolas, monospace, serif; white-space: nowrap }
+:not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
 img,svg,canvas,video,audio,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
 iframe{width:100%;border:0}
 dt {font-weight:bold}
@@ -267,11 +268,11 @@ a.no-style { text-decoration:none }
 
 /*** Accessibility */
 *:focus { outline: 0 }
-.a11y *:focus, .a11y a:focus { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px; }
+.a11y *:focus, .a11y a:focus { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px }
 .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 
 @supports selector(:focus-visible) {
-    .a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px; }
+    .a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px }
     .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 }
 
@@ -328,10 +329,10 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
 :where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
 :where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
 
-.v-hidden,.v-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
+.visually-hidden,.visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 
-.is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green); }
-.is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red); }
+.is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
+.is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
 .group-input-button { display: inline-flex; justify-items: center; align-content: center }
 .group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
@@ -528,7 +529,7 @@ pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space
 [data-tooltip].font-awesome:after { font-family: FontAwesome, var(--fontFamily) }
 
 [tooltip-break]:after { white-space: pre }
-[tooltip-break][tooltip-length]:after { white-space: pre-line; word-break: break-word; width: fit-content }
+[tooltip-break][tooltip-length]:after { white-space: pre-line; overflow-wrap: break-word; width: fit-content }
 [tooltip-blunt]:before, [tooltip-blunt]:after { transition: none }
 
 [tooltip-pos="up"]:hover:after,[tooltip-pos="up"][tooltip-visible]:after,[tooltip-pos="down"]:hover:after, [tooltip-pos="down"][tooltip-visible]:after { transform: translate(-50%, 0) }
@@ -667,7 +668,7 @@ input[type="radio"] {
     cursor: pointer;
     border: 1px solid var(--bc, var(--inputBorderColor));
     background: var(--b, var(--inputBgColor));
-    transition: background .3s, border-color .3s, box-shadow .2s;
+
 }
 
 input[type="checkbox"]:after,
@@ -686,7 +687,7 @@ input[type="radio"]:checked {
     --b: var(--inputActive);
     --bc: var(--inputActive);
     --d-o: 100ms;
-    --d-t: 300ms;
+    --d-t: 250ms;
     --d-t-e: var(--easeInOutSine);
 }
 
@@ -732,7 +733,7 @@ input[type="checkbox"].switch { width: 38px; border-radius: 11px }
 input[type="checkbox"].switch:after {
     left: 2px;
     top: 2px;
-    border-radius: 50%;
+    border-radius: 100vw;
     width: 15px;
     height: 15px;
     background: var(--ab, var(--primary));
@@ -743,12 +744,12 @@ input[type="checkbox"].switch:checked { --ab: var(--inputActiveInner); --x: 17px
 input[type="checkbox"].switch:disabled:not(:checked):after { opacity: .6 }
 
 /* Radio */
-input[type="radio"] { border-radius: 50% }
+input[type="radio"] { border-radius: 100vw }
 
 input[type="radio"]:after {
     width: 19px;
     height: 19px;
-    border-radius: 50%;
+    border-radius: 100vw;
     background: var(--inputActiveInner);
     opacity: 0;
     transform: scale(var(--s, 0.7));
@@ -840,14 +841,14 @@ textarea:focus {
 input[type=color] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
 
 input[type=file] { --inputBorderWidth: 2px; --inputBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
-input[type=file]::file-selector-button { border: 0; border-right: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100%; }
+input[type=file]::file-selector-button { border: 0; border-right: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100% }
 
-input[type=range] { height: 25px; margin: 10px 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none; }
-input[type=range]::-moz-range-track              { width: 100%; height: 5px; cursor: pointer; animate: 0.2s; background: var(--primary); border-radius: 100vw; }
-input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 5px; cursor: pointer; animate: 0.2s; background: var(--primary); border-radius: 100vw; }
+input[type=range] { height: 25px; margin: 10px 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none }
+input[type=range]::-moz-range-track              { width: 100%; height: 5px; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
+input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 5px; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
 
-input[type=range]::-moz-range-thumb     { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px; }
-input[type=range]::-webkit-slider-thumb { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px; }
+input[type=range]::-moz-range-thumb     { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px }
+input[type=range]::-webkit-slider-thumb { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px }
 
 textarea { min-height: 6.5rem; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius)) }
 textarea.resize-vertical { resize: vertical }
