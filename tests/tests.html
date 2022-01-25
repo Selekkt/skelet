@@ -1,38 +1,119 @@
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <titlc>Tests</titlc>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta data-framework="Skelet." data-ver="3.0.0" data-dev="Sēlekkt. Studio">
+    <meta charset="utf-8">
+    <title>Skelet.css tests</title>
 
-  <title>Tests</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
 
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="../css/skelet.css">
-    <style type="text/css" media="screen"></style>
+    <meta name="theme-color" content="#FFFFFF">
 
-<style>p {max-width:65ch}</style>
+    <link rel="stylesheet" href="../css/skelet.css"> 
+    <script>document.documentElement.className='js'</script>
+    <style>
+        :root {
+            --boxPadding: 1rem;
+        }
+    </style>
 </head>
 <body dark-mode>
+<div id="app">
+<h1>Tests</h1>
 
-        <ul>
-          <li>
-            <a href="#text">Text</a>
-            <ul>
-              <li><a href="#text__headings">Headings</a></li>
-              <li><a href="#text__paragraphs">Paragraphs</a></li>
-              <li><a href="#text__blockquotes">Blockquotes</a></li>
-              <li><a href="#text__lists">Lists</a></li>
-              <li><a href="#text__hr">Horizontal rules</a></li>
-              <li><a href="#text__tables">Tabular data</a></li>
-              <li><a href="#text__code">Code</a></li>
-              <li><a href="#text__inline">Inline elements</a></li>
-              <li><a href="#text__comments">HTML Comments</a></li>
-            </ul>
-          </li>
-        </ul>
 
+<x-grid columns="7" class="debug">
+    <x-cell>pneumonoultramicroscopicsilicovolcanoconiosis (45 letters)</x-cell>
+    <x-cell class="text-break-word">pneumonoultramicroscopicsilicovolcanoconiosis</x-cell>
+    <x-cell>3</x-cell>
+    <x-cell>4</x-cell>
+    <x-cell>2</x-cell>
+    <x-cell>3</x-cell>
+    <x-cell>4</x-cell>
+    <x-cell>2</x-cell>
+    <x-cell>3</x-cell>
+    <x-cell>4</x-cell>
+</x-grid>
+
+
+
+
+<input type="checkbox">
+<input type="radio">
+
+<!--
+<input id="xemail" type="email" name="email" placeholder="Your e-mail" required="" title="">
+-->
+<select id="searchresults4" name="primarysport" required>
+    <option value="" disabled selected>Choose Primary Sport...</option>
+    <option>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem nostrum quae ipsa maiores incidunt quis.</option>
+    <option>Basketball</option>
+    <option>Baseball</option>
+    <option>Softball</option>
+    <option>Soccer</option>
+    <option>Golf</option>
+</select>
+
+<main>
+fill
+<x-grid columns="4" columns-s="fill" class="debug">
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+</x-grid>
+
+<hr>
+fit
+<x-grid columns="fit" columns-s="4" class="debug">
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+</x-grid>
+<hr>
+fit with span-y
+<x-grid columns="fit" columns-s="4" class="debug">
+    <x-cell span-y="1-3">zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell span-y="2+3">zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+</x-grid>
+
+</main>
+
+</div>
 </body>
 </html>

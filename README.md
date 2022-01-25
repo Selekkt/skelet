@@ -5,15 +5,6 @@ Skelet. provides a simple, minimal yet solid starting point for websites.
 
 Get started quickly with the HTML5 template, or just include skelet.css in your own project.
 
-
----
-
-### ⚠️ Important changes in v3.3.0 
-##### Grids, columns & flex
->We discovered a compatibility issue with our custom `grid, flex & c` elements. 
-The name of a custom element must contain a dash (-). `<x-grid> <x-flex> & <x-col>` are all valid names, while `<grid> <flex> & <c>` are not. This ensures forward compatibility when new tags are added to HTML. If you want to upgrade you need to make sure you've change your HTML elements with the new ones!
-
-
 ---
 
 ### Getting started

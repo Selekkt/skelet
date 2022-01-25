@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="../css/skelet.css">
+
+<style>
+x-grid {
+  border-radius: 1rem;
+  overflow: hidden;
+  grid-auto-rows: 100px;
+}
+
+x-grid > x-cell {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v1 x-cell {
+    background: red;
+    color: blue;
+    border: green;
+    border-radius: 10rem;
+}
+
+</style>
+
+</head>
+<body>
+
+<x-grid columns="fit" class="debug">
+  <x-cell>cell 1</x-cell>
+  <x-cell>cell 2</x-cell>
+  <x-cell>cell 3</x-cell>
+  <x-cell>cell 4</x-cell>
+  <x-cell>cell 2</x-cell>
+  <x-cell>cell 3</x-cell>
+  <x-cell>cell 4</x-cell>
+</x-grid>
+
+<hr>
+
+<x-grid class="debug" style="gap:2px" columns="10">
+  <x-cell span="1+2" span-y="row">cell 1</x-cell>
+  <x-cell span="3+2">cell 2</x-cell>
+  <x-cell span="5+4">cell 3</x-cell>
+  <x-cell span="9+2">cell 4</x-cell>
+  <x-cell span="3+2">cell 2</x-cell>
+  <x-cell span="5+4">cell 3</x-cell>
+  <x-cell span="9+2">cell 4</x-cell>
+
+</x-grid>
+<p><hr></p>
+<x-grid class="debug" style="gap:2px" columns="10">
+  <x-cell span="1+2" span-y="1-3">cell 1</x-cell>
+  <x-cell span="3+2">cell 2</x-cell>
+  <x-cell span="5+4">cell 3</x-cell>
+  <x-cell span="9+2">cell 4</x-cell>
+
+  <x-cell span="3+4">cell 5</x-cell>
+  <x-cell span="7+4" span-y="2-3">cell 6</x-cell>
+  <x-cell span="3-6">cell 7</x-cell>
+</x-grid>
+
+<p><hr></p>
+<x-grid class="debug" style="gap:1px">
+    <x-cell>
+        <x-grid>
+            <x-cell>grid>cell>grid>cell</x-cell>
+        </x-grid>
+    </x-cell>
+    <x-cell span="2..">
+        <x-grid class="debug" style="width:100%; gap:1px">
+            <x-cell span="1+1">grid>cell>grid>cell</x-cell>
+            <x-cell span="2-3">grid>cell>grid>cell</x-cell>
+            <x-cell span="4..">grid>cell>grid>cell</x-cell>
+            <x-cell span="row">
+                <x-grid columns="2" class="debug" style="width:100%; gap:1px">
+                    <x-cell>
+                        <x-grid class="debug" style="width:100%; gap:1px">
+                            <x-cell span="row">grid>cell>grid>cell>grid>cell>grid>cell</x-cell>
+                            <x-cell span="row">grid>cell>grid>cell>grid>cell>grid>cell</x-cell>
+                        </x-grid>
+                    </x-cell>
+                    <x-cell>grid>cell>grid>cell>grid>cell</x-cell>
+                </x-grid>
+            </x-cell>
+        </x-grid>
+    </x-cell>
+</x-grid>
+
+<p><hr></p>
+<x-grid class="debug" style="gap:1rem" columns="10">
+  <x-cell span="1+2">One</x-cell>
+  <x-cell span="3+2">two</x-cell>
+  <x-cell span="5+4">3</x-cell>
+  <x-cell span="9+2">4</x-cell>
+
+  <x-cell>One</x-cell>
+  <x-cell span="2+2">two</x-cell>
+  <x-cell span="4+4">3</x-cell>
+  <x-cell span="8+2">4</x-cell>
+  <x-cell span="10..">5</x-cell>
+
+  <x-cell span="1+3">One</x-cell>
+  <x-cell span="4+4">two</x-cell>
+  <x-cell span="8+1">3</x-cell>
+  <x-cell span="9..">4</x-cell>
+</x-grid>
+<p><hr></p>
+<x-grid columns="5" class="debug v1" style="gap:1px">
+  <x-cell>zio 1 </x-cell>
+  <x-cell>zio 2</x-cell>
+  <x-cell>Zio 3</x-cell>
+  <x-cell span="3-5" span-y="1-2">Ziooo 4</x-cell>
+  <x-cell>zio 5</x-cell>
+</x-grid>
+<p><hr></p>
+<x-grid class="debug v1">
+  <x-cell span="1-2" span-y="1+2">zio 1 </x-cell>
+  <x-cell>zio 2</x-cell>
+  <x-cell>Zio 3</x-cell>
+  <x-cell span="3-4">Ziooo 4</x-cell>
+</x-grid>
+<p><hr></p>
+<x-grid class="debug" style="gap:1px">
+  <x-cell>zio 1 </x-cell>
+  <x-cell>zio 2</x-cell>
+  <x-cell>zio 3 </x-cell>
+  <x-cell>zio 4</x-cell>
+
+  <x-cell>zio 5</x-cell>
+  <x-cell span="2-3" span-y="2-3">large</x-cell>
+  <x-cell>Zio 7</x-cell>
+
+  <x-cell>zio 8</x-cell>
+  <x-cell>zio 9</x-cell>
+  <x-cell>zio 10</x-cell>
+  <x-cell>zio 11</x-cell>
+  <x-cell>zio 12</x-cell>
+  <x-cell>zio 13</x-cell>
+</x-grid>
+
+fill
+<x-grid columns="4" columns-s="fill" class="debug">
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+</x-grid>
+
+<hr>
+fit
+<x-grid columns="fit" columns-s="4" class="debug">
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+    <x-cell>zio</x-cell>
+</x-grid>
+</body>
+</html>

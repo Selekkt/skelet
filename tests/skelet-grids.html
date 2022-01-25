@@ -1,0 +1,577 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Skelet.css GRID examples</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
+
+    <meta name="theme-color" content="#181818">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    
+    <!-- Facebook OG Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    
+    <link rel="canonical" href="">
+
+    <link rel="icon" type="image/png" href="img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="img/touch.png">
+
+    <script>document.documentElement.className='js'</script>
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="../css/skelet.css"> <!-- include Skelet -->
+
+    <style>
+        [dark-mode] { 
+            --globalRadius: 2rem; 
+            --linkColor: white; 
+            --linkHover: white; 
+            --tooltipBg: white;
+            --tooltipColor: black;
+        }
+
+        body { overflow-x: hidden; }
+        main { margin: var(--margin); }
+
+        .wow { opacity: 0 }
+        .no-js .wow { opacity: 1 }
+
+/** Header */
+        header { background: #1C3A13; padding: var(--margin) }
+        header .type1 { border-radius: var(--globalRadius); overflow: hidden; box-shadow: 0 0 10px rgb(0 0 0 / .5) }
+        header .type1 > x-cell { background: #021E26; padding: var(--padding); min-height: 222px; transition: background 250ms ease-in-out; }
+            .type1 > x-cell:hover { background: #012A35 }
+        header .type1 p { margin: 0; color: #999; font-size: 1.3rem; line-height: 1.3; max-width: 35ch; }
+        header .disclaimer { padding: var(--padding) var(--padding) 0 0; opacity: .4; font-size: 1rem }
+
+        @media (min-width: 600px) { header { min-height: 100vh; width: 100% } }
+        @media (max-width: 600px) { header .type1 > x-cell { min-height: 150px } }
+
+/** Titles  */
+        .title {
+            --sticky: 0.5rem;
+            background: rgb(0 0 0 / .5);
+            padding: var(--padding);
+            width: fit-content;
+            margin: 0 auto;
+            border-radius: var(--globalRadius);
+        }
+
+/** Cards / Cells */
+        x-grid.cards { margin: calc(var(--margin) * 2) 0 }
+
+        .cards x-cell {
+            border-radius: var(--globalRadius);
+            background: var(--dark);
+            border: 2px solid #232323;
+            padding: var(--padding);
+            display: grid;
+            place-items: center;
+            min-height: 100px;
+        }
+
+/** Calculator */
+        .calculator { 
+            max-width: 400px; 
+            border-radius: var(--globalRadius); 
+            overflow: hidden;
+            --inputFontSize: var(--h3Size);
+            --inputBg: #4C4E5A;
+            --inputActive: none;
+            --inputBgHover: var(--boxBg);
+            --inputBgActive: var(--boxBg);
+            --inputBorderColor: none;
+            --inputBorderHover: none;
+            --inputRadius: 0;
+            --inputMargin: 0;
+
+            --buttonBg: #4C4E5A;
+            --buttonBgHover: var(--buttonBg);
+            --buttonRadius: 0;
+            --buttonMargin: 0;
+        }
+
+        .calculator button { width: 100%; }
+        .calculator x-cell.orange button { --buttonBg: orange }
+        .calculator x-cell { width: 100%; }
+        .calculator x-cell:hover { opacity: 0.8; }
+    </style>
+</head>
+<body dark-mode>
+
+<div id="app">
+<header x-grid pi="center" ji-m="stretch" ji-s="stretch">
+    <div start animation="fadein-up" ease="easeOutQuint" style="--duration:1s">
+    <x-grid columns="3" columns-m="2" columns-s="1" class="type1" style="gap:2px">
+        <x-cell span-s="row" span-y="1-2" span-y-s="1" ai="between" x-flex direction="column">
+            <x-flex jc="between">
+                <x-cell><h1 class="h6">Skelet.</h1></x-cell>
+                <x-cell>Grids</x-cell>
+            </x-flex>
+            <x-flex jc="between" ai="end" style="margin-top:auto">
+                <x-cell><p>Examples of Grids that you can build with Skelet.css</p></x-cell>
+                <x-cell><a href="https://selekkt.dk/skelet/v3" class="no-style">Docs</a></x-cell>
+            </x-flex>
+        </x-cell>
+
+        <x-cell ai="between" x-flex direction="column">
+            <x-flex jc="between">
+                <x-cell>
+                    <a href="#one-dimensional" class="no-style">
+                        <small>View</small>
+                        <h2 class="h6">One dimensional Grids</h2>
+                    </a>
+                </x-cell>
+                <x-cell>&rarr;</x-cell>
+            </x-flex>
+            <x-flex jc="between" ai="end" style="margin-top:auto">
+                <x-cell><p>One-dimension layouts - rows.</p></x-cell>
+            </x-flex>
+        </x-cell>
+
+        <x-cell ai="between" x-flex direction="column">
+            <x-flex jc="between">
+                <x-cell>
+                    <a href="#two-dimensional" class="no-style">
+                        <small>View</small>
+                        <h2 class="h6">Two dimensional Grids</h2>
+                    </a>
+                </x-cell>
+                <x-cell>&rarr;</x-cell>
+            </x-flex>
+            <x-flex jc="between" ai="end" style="margin-top:auto">
+                <x-cell><p>Two-dimensional layouts - rows, and columns at the same time.</p></x-cell>
+            </x-flex>
+        </x-cell>
+
+        <x-cell span="2.." span-m="row" span-s="row" x-flex direction="column">
+            <x-flex jc="between">
+                <x-cell><h2 class="h6">Skelet.</h2></x-cell>
+                <x-cell>Grids</x-cell>
+            </x-flex>
+            <x-flex jc="between" ai="end" style="margin-top:auto">
+                <x-cell>
+                    <p>To view the HTML of the grids and how they were built <em data-tooltip="right click + Inspect" tooltip-pos="up">inspect</em> or <em data-tooltip="alt + cmd + u" tooltip-pos="up">view source</em> of this file.</p>
+                </x-cell>
+                <x-cell>&rarr;</x-cell>
+            </x-flex>
+        </x-cell>
+    </x-grid>
+    <small class="text-end text-center-s block disclaimer">Two-dimensional grids are available from <em>v3.4.0</em> and up.</small>
+    </div>
+</header>
+
+<main>
+
+    <!-- One dimensional grids -->
+    <section id="one-dimensional">
+        <h2 class="h5 text-center sticky title">One dimensional grids</h2>
+
+    <!-- Not responsive -->
+    <div id="not-responsive">
+        <h3 class="h6 text-center sticky" style="--sticky:calc(var(--margin) * 5)">Not responsive</h3>
+
+        <!-- Grid -->
+        <h4 class="h5">2 columns</h4>
+        <x-grid columns="2" class="cards">
+            <x-cell><div class="wow" animation="zoomin" style="--duration:1s">Skelet.</div></x-cell>
+            <x-cell><div class="wow" animation="zoomin" style="--duration:1s;--delay:200ms">Skelet.</div></x-cell>
+            <x-cell span="row"><div class="wow" animation="zoomin" style="--duration:1s;--delay:300ms">Skelet.</div></x-cell>
+            <x-cell><div class="wow" animation="zoomin" style="--duration:1s;--delay:400ms">Skelet.</div></x-cell>
+            <x-cell><div class="wow" animation="zoomin" style="--duration:1s;--delay:500ms">Skelet.</div></x-cell>
+        </x-grid>
+
+        <!-- Grid -->
+        <h4 class="h5">4 columns</h4>
+        <x-grid class="cards">
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+
+            <x-cell span="1+2">Skelet.</x-cell>
+            <x-cell span="3..">Skelet.</x-cell>
+
+            <x-cell span="row">Skelet.</x-cell>
+        </x-grid>
+
+        <!-- Grid -->
+        <h4 class="h5">8 columns</h4>
+        <x-grid class="cards" columns="8">
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+
+            <x-cell span="1+2">Skelet.</x-cell>
+            <x-cell span="3+2">Skelet.</x-cell>
+            <x-cell span="5+2">Skelet.</x-cell>
+            <x-cell span="7+2">Skelet.</x-cell>
+        </x-grid>
+
+        <!-- Grid -->
+        <h4 class="h5">12 columns</h4>
+        <x-grid class="cards" columns="12">
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+
+            <x-cell span="1+2">Skelet.</x-cell>
+            <x-cell span="3+2">Skelet.</x-cell>
+            <x-cell span="5+2">Skelet.</x-cell>
+            <x-cell span="7+2">Skelet.</x-cell>
+            <x-cell span="9+2">Skelet.</x-cell>
+            <x-cell span="11..">Skelet.</x-cell>
+
+            <x-cell span="1+4">Skelet.</x-cell>
+            <x-cell span="5+4">Skelet.</x-cell>
+            <x-cell span="9..">Skelet.</x-cell>
+        </x-grid>
+
+        <!-- Grid -->
+        <h4 class="h5">macOS Mojave widget calculator <a href="https://i.imgur.com/qQRVMuT.png" class="no-style" target="_blank">&nearr;</a></h4>
+        <center class="wow" animation="fadein-up" style="--duration:1s;">
+        <x-grid class="calculator" style="gap:1px" >
+            <x-cell span="row"><input name="a" type="number" inputmode="decimal" placeholder="0" class="text-end fullwidth"></x-cell>
+
+            <x-cell><button>AC</button></x-cell>
+            <x-cell><button>+/-</button></x-cell>
+            <x-cell><button>%</button></x-cell>
+            <x-cell class="orange"><button>÷</button></x-cell>
+
+            <x-cell><button>7</button></x-cell>
+            <x-cell><button>8</button></x-cell>
+            <x-cell><button>9</button></x-cell>
+            <x-cell class="orange"><button>X</button></x-cell>
+
+            <x-cell><button>4</button></x-cell>
+            <x-cell><button>5</button></x-cell>
+            <x-cell><button>6</button></x-cell>
+            <x-cell class="orange"><button>&mdash;</button></x-cell>
+
+            <x-cell><button>1</button></x-cell>
+            <x-cell><button>2</button></x-cell>
+            <x-cell><button>3</button></x-cell>
+            <x-cell class="orange"><button>+</button></x-cell>
+
+            <x-cell span="1+2"><button>0</button></x-cell>
+            <x-cell><button>,</button></x-cell>
+            <x-cell class="orange"><button>=</button></x-cell>
+        </x-grid>
+        </center>
+    </div>
+
+    <!-- Responsive -->
+    <div id="responsive">
+        <h3 class="h6 text-center sticky" style="--sticky:calc(var(--margin) * 5)">Responsive</h3>
+
+        <!-- Grid -->
+        <h4 class="h5">4 columns</h4>
+        <x-grid columns-m="2" columns-s="1" class="cards">
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+            <x-cell>Skelet.</x-cell>
+        </x-grid>
+
+        <!-- Grid -->
+        <h4 class="h5">8 columns</h4>
+        <x-grid columns="8" columns-s="4" class="cards">
+            <x-cell span="1-5" span-s="1-3">Skelet.</x-cell>
+            <x-cell span="6.." span-s="4..">Skelet.</x-cell>
+
+            <x-cell span="1+1">Skelet.</x-cell>
+            <x-cell span="2..">Skelet.</x-cell>
+
+            <x-cell span="1+2" span-m="1+4" span-s="row">Skelet.</x-cell>
+            <x-cell span="3+2" span-m="5-8" span-s="row">Skelet.</x-cell>
+            <x-cell span="5+2" span-m="1+4" span-s="row">Skelet.</x-cell>
+            <x-cell span="7.." span-m="5.." span-s="row">Skelet.</x-cell>
+        </x-grid>
+
+        <!-- Grid -->
+        <style>
+            .apple { 
+                background: radial-gradient(ellipse at center, #555 0%, var(--bgColor) 100%); 
+                overflow: hidden; 
+                border-radius: var(--globalRadius); 
+                gap: 1px
+            }
+
+            .apple x-cell { min-height: 400px;             
+                background: var(--dark);
+                padding: calc(var(--margin) * 2);
+                display: grid;
+                place-items: center
+            }
+
+            [class^="fs-"] { line-height: 1.1 }
+
+            .fs-200 { font-size: 2rem }
+            .fs-300 { font-size: 3rem }
+            .fs-500 { font-size: 5rem }
+            .fs-700 { font-size: 7rem }
+            .fs-900 { font-size: 9rem }
+
+            .clr-100 { 
+                color: #1db3ff;
+                -webkit-text-fill-color: transparent;
+                text-fill-color: transparent;
+                -webkit-background-clip: text;
+                background-clip: text;
+                background-image: linear-gradient(110deg,#ff6673,#ff6673,#cc25e4,#7c00ff)
+            }
+
+            .clr-600 { color: #999999 }
+
+            .size-100 { max-width: 25ch }
+            .size-200 { max-width: 45ch }
+            .size-700 { max-width: 70ch }
+
+            @media (max-width: 600px) {
+                .apple x-cell { min-height: 200px }
+                [class^="fs-"] { line-height: 1.4 }
+                [class^="fs-"]:not(.fs-200, .fs-300) { font-size: 3.2rem }
+                [class^="size-"] { max-width: 40ch }
+            }
+        </style>
+        <h4 class="h5">Apple style grid</h4>
+        <x-grid columns="5" columns-s="1f" class="apple">
+            <x-cell span="row">
+                <div class="size-600">
+                    <h2 class="fs-900 clr-100 wow" animation="fadein-up" style="--duration:1s">Pure. Pro. Power.</h2>
+                    <p class="fs-300 clr-600 size-100 wow" animation="fadein-up" style="--duration:1s;--delay:.25s">A15 Bionic is the world’s fastest smartphone chip.</p>
+                </div>
+            </x-cell>
+            <x-cell span="1-3" span-s="row">
+                <div class="size-200">
+                    <h2 class="fs-600">All-new 5‑core GPU</h2>
+                    <p class="fs-200 clr-600">delivers up to 50% faster graphics performance than any other smartphone chip.</p>
+                </div>
+            </x-cell>
+            <x-cell span="4..">
+                <div class="size-100">
+                    <h2 class="fs-300">New CPU performance and efficiency cores</h2>
+                    <p class="fs-200 clr-600">power through complex tasks and preserve battery life.</p>
+                </div>
+            </x-cell>
+
+            <x-cell span="1-2">
+                <div class="size-100">
+                    <h2 class="fs-300">Superfast Neural Engine</h2>
+                    <p class="fs-200 clr-600">performs up to 15.8 trillion operations per second, enabling Cinematic mode, Smart HDR 4, and more.</p>
+                </div>
+            </x-cell>
+            <x-cell span="3..">
+                <div class="size-200">
+                    <h2 class="fs-600">Advanced ISP</h2>
+                    <p class="fs-200 clr-600">takes noise reduction and tone mapping to the next level.</p>
+                </div>
+            </x-cell>
+
+            <x-cell span="1-3">
+                <div class="size-200">
+                    <h2 class="fs-600">Secure Enclave</h2>
+                    <p class="fs-200 clr-600">protects personal information like your Face ID data, contacts, and more</p>
+                </div>
+            </x-cell>
+            <x-cell span="4..">
+                <div class="size-100">
+                    <h2 class="fs-300">On-device processing</h2>
+                    <p class="fs-200 clr-600">keeps things like your Siri requests and interactions with Live Text private.</p>
+                </div>
+            </x-cell>
+        </x-grid>
+
+        <!-- Grid circle -->
+        <h4 class="h5">Grid circle</h4>
+        <x-grid columns="2" class="cards" style="gap: 2px; width:600px; aspect-ratio: 1 / 1;border-radius: 100vw; overflow: hidden;">
+            <x-cell>1</x-cell>
+            <x-cell>2</x-cell>
+            <x-cell>3</x-cell>
+            <x-cell>4</x-cell>
+        </x-grid>
+
+        <!-- Grid circle -->
+        <h4 class="h5">Grid circle 2</h4>
+        <x-grid columns="2" class="cards" style="gap:2px;max-height: 500px;aspect-ratio:1/1"> 
+            <x-cell style="border-top-left-radius: 100vw;" x-grid jc="end" ac="end">1</x-cell>
+            <x-cell style="border-top-right-radius: 100vw;" x-grid jc="start" ac="end">2</x-cell>
+            <x-cell style="border-bottom-left-radius: 100vw;" x-grid jc="end" ac="start">3</x-cell>
+            <x-cell style="border-bottom-right-radius: 100vw;" x-grid jc="start" ac="start">4</x-cell>
+        </x-grid>
+
+    </div>
+
+    </section>
+        
+    <!-- Two dimensional grids -->
+    <section id="two-dimensional">
+        <h2 class="h5 text-center sticky title">Two dimensional grids</h2>
+    
+    <!-- Grid -->
+    <h4 class="h5">Grid</h4>
+    <x-grid columns="2" class="cards">
+        <x-cell span-y="1-2" span-y-s="1" span-s="row">Skelet.</x-cell>
+        <x-cell>Skelet.</x-cell>
+        <x-cell>Skelet.</x-cell>
+    </x-grid>
+
+    <!-- Grid -->
+    <h4 class="h5">Grid</h4>
+    <x-grid class="cards">
+        <x-cell span="1-2" span-m="row" span-s="row" span-y="1-2" span-m="1" span-y-s="1">Skelet.</x-cell>
+        <x-cell span-m="1+2" span-s="1+2">Skelet.</x-cell>
+        <x-cell span-m="3.." span-s="3..">Skelet.</x-cell>
+        <x-cell span="3.." span-m="row" span-s="row">Skelet.</x-cell>
+    </x-grid>
+
+    <!-- Grid -->
+    <h4 class="h5">Grid</h4>
+    <x-grid class="cards">
+        <x-cell span="3.." span-y="1-2">Skelet.</x-cell>
+
+        <x-cell>Skelet.</x-cell>
+        <x-cell>Skelet.</x-cell>
+        <x-cell>Skelet.</x-cell>
+        <x-cell>Skelet.</x-cell>
+    </x-grid>
+
+    <!-- Grid -->
+    <h4 class="h5">Grid</h4>
+    <x-grid class="cards" style="gap:3px;--globalRadius:0">
+        <x-cell span="2-3" span-s="row" span-y="2-3" span-y-s="1">Skelet. 0</x-cell>
+
+        <x-cell>Skelet. 1</x-cell>
+        <x-cell>Skelet. 2</x-cell>
+        <x-cell>Skelet. 3</x-cell>
+
+        <x-cell>Skelet. 4</x-cell>
+        <x-cell>Skelet. 5</x-cell>
+        <x-cell>Skelet. 6</x-cell>
+
+        <x-cell>Skelet. 7</x-cell>
+        <x-cell>Skelet. 8</x-cell>
+        <x-cell>Skelet. 9</x-cell>
+        <x-cell>Skelet. 10</x-cell>
+        <x-cell>Skelet. 11</x-cell>
+        <x-cell>Skelet. 12</x-cell>
+    </x-grid>
+
+    <!-- Grid -->
+    <h4 class="h5">Grid</h4>
+    <x-grid class="cards" style="gap:3px;--globalRadius:0">
+        <x-cell span="2-3" span-s="row" span-y="2-3" span-y-s="1">Skelet. 0</x-cell>
+
+        <x-cell>Skelet. 1</x-cell>
+        <x-cell span="2+2">Skelet. 2</x-cell>
+        <x-cell>Skelet. 3</x-cell>
+
+        <x-cell>Skelet. 4</x-cell>
+        <x-cell span="4.." span-y="2-4" span-y-s="2+1">Skelet. 5</x-cell>
+        <x-cell>Skelet. 6</x-cell>
+
+        <x-cell>Skelet. 8</x-cell>
+        <x-cell span="2+2" span-s="row">Skelet. 9</x-cell>
+    </x-grid>
+
+    <!-- Grid -->
+    <h4 class="h5">Grid</h4>
+    <x-grid columns="10" class="cards" style="gap:3px;--globalRadius:0">
+        <x-cell span="1+2" span-y="1-3">Skelet.</x-cell>
+        <x-cell span="3+2">Skelet.</x-cell>
+        <x-cell span="5+4">Skelet.</x-cell>
+        <x-cell span="9+2">Skelet.</x-cell>
+
+        <x-cell span="3+4">Skelet.</x-cell>
+        <x-cell span="7+4" span-y="2-3">Skelet.</x-cell>
+        <x-cell span="3-6">Skelet.</x-cell>
+    </x-grid>
+
+    </section>
+
+    <footer>
+        <x-grid class="type2" columns="3" columns-s="1">
+            <x-cell>
+                <small>Get started with</small>
+                <div class="h4"><a href="https://selekkt.dk/skelet/v3" class="no-style" target="_blank">Skelet.css</a></div>
+            </x-cell>
+            <x-cell>
+                <small>&copy; 2022. All rights reserved</small>
+                <div class="h4">Sēlekkt. studio</div>
+            </x-cell>
+            <x-cell ps="end" ps-s="start">
+                <small>Back to index</small>
+                <div class="h4 text-end text-start-s"><a href="#" class="no-style">&uarr;</a></div>
+            </x-cell>
+        </x-grid>
+    </footer>
+
+</main>
+</div>
+
+<script>
+/* When element is in view **/
+let isInView = (target, threshold, triggerAnimation) => {
+
+    // Defaults
+    if(!target) { let target = '.wow'; }
+    if(!threshold) { let threshold = 0.5; } // 50% of the element in view
+    if(!triggerAnimation) { let triggerAnimation = 'animate'; }
+
+    // Define the elements you want to intiate an action on
+    let observedElements = document.querySelectorAll(target); 
+
+    //define your options
+    const options = { threshold: threshold }
+
+    const inViewCallback = entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { // define the event/property you want to use
+          entry.target.classList.add(triggerAnimation);
+          //do something with the element
+        }
+      });
+    }
+    let observer = new IntersectionObserver(inViewCallback,options);
+
+    observedElements.forEach(element => {
+      observer.observe(element) // run the observer 
+    });
+}
+
+isInView('.wow', 1, 'animate');
+</script>
+
+</body>
+</html>

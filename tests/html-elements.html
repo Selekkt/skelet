@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
-    <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
+    <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
   </head>
-  <body dark-mode>
+  <body dark-mode class="a11y-custom">
     <div id="top" class="page" role="document">
       <header role="banner">
         <h1>HTML5 Test Page</h1>
@@ -50,8 +50,8 @@
               <li><a href="#forms__input">Input fields</a></li>
               <li><a href="#forms__select">Select menus</a></li>
               <li><a href="#forms__checkbox">Checkboxes</a></li>
-              <li><a href="forms__checkbox">Radio buttons</a></li>
-              <li><a href="forms__checkbox">Switch buttons</a></li>
+              <li><a href="#forms__checkbox">Radio buttons</a></li>
+              <li><a href="#forms__checkbox">Switch buttons</a></li>
               <li><a href="#forms__textareas">Textareas</a></li>
               <li><a href="#forms__html5">HTML5 inputs</a></li>
               <li><a href="#forms__action">Action buttons</a></li>
@@ -89,7 +89,7 @@
               <blockquote>
                 <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
                 <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-                <x-colite><a href="#!">Said no one, ever.</a></cite>
+                <cite><a href="#!">Said no one, ever.</a></cite>
               </blockquote>
             </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
@@ -228,7 +228,7 @@
               <p><small>This small text is small for for fine print, etc.</small></p>
               <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
               <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
-              <p><x-colite>This is a citation.</cite></p>
+              <p><cite>This is a citation.</cite></p>
               <p>The <dfn>dfn element</dfn> indicates a definition.</p>
               <p>The <mark>mark element</mark> indicates a highlight.</p>
               <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
@@ -277,7 +277,7 @@
           </article>
           <article id="embedded__canvas">
             <header><h2>Canvas</h2></header>
-            <div><x-colanvas>canvas</canvas></div>
+            <div><x-cellanvas>canvas</canvas></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__meter">
@@ -292,7 +292,7 @@
           </article>
           <article id="embedded__svg">
             <header><h2>Inline SVG</h2></header>
-            <div><svg width="100px" height="100px"><x-colircle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+            <div><svg width="100px" height="100px"><x-cellircle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__iframe">
@@ -385,6 +385,9 @@
     <input id="s2" type="checkbox" class="switch" checked>
     <label for="s2">Switch</label>
   </li>
+  <li><input id="c1" type="checkbox"></li>
+  <li><input id="r1" type="radio" name="radio" value="1"></li>
+  <li><input id="s1" type="checkbox" class="switch"></li>
 </ul>
 <p class="text-hr">Disabled state</p>
 <ul class="no-style">
@@ -427,31 +430,31 @@
 
                 <form>
                     <x-grid columns="8">
-                        <x-col span="1-4" span-s="row">
+                        <x-cell span="1-4" span-s="row">
                             <label for="exampleEmailInput">Your email</label>
                             <input class="fullwidth" placeholder="example@example.com" id="exampleEmailInput" type="email">
-                        </x-col>
+                        </x-cell>
 
-                        <x-col span="5.." span-s="row">
+                        <x-cell span="5.." span-s="row">
                             <label for="exampleRecipientInput">Reply to</label>
                             <select class="fullwidth" id="exampleRecipientInput">
                                 <option selected="" disabled="" value="Option 1">-- Select --</option>
                                 <option value="Option 2">Sarude</option>
                                 <option value="Option 3">Dancestorm</option>
                             </select>
-                        </x-col>
+                        </x-cell>
                     </x-grid>
                     <x-grid columns="1">
-                        <x-col span="row">
+                        <x-cell span="row">
                             <label for="exampleMessage">Comment</label>
                             <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
                             <label class="agree-with-terms">
                                 <input type="checkbox"><span>I agree with the term of use</span>
                             </label>
-                        </x-col>
-                        <x-col span="row" justify="start">
+                        </x-cell>
+                        <x-cell span="row" justify="start">
                             <input class="button is-green" value="Comment" type="submit">
-                        </x-col>
+                        </x-cell>
                     </x-grid>
                 </form>
             </fieldset>
@@ -465,6 +468,10 @@
               <p>
                 <label for="fi">File input</label>
                 <input id="fi" type="file">
+              </p>
+              <p>
+                <label for="fii">File input multiple</label>
+                <input id="fii" type="file" name="files[]" multiple>
               </p>
               <p>
                 <label for="in">Number input</label>
@@ -580,87 +587,120 @@
                 </p>
             </fieldset>
 
-           <fieldset id="tooltips">
+           <div id="tooltips">
               <legend>Tooltips</legend>
-                    <a href="#" data-tooltip="This is a link with a tooltip" data-tooltip-pos="up" class="button">Tooltip Up</a>
-                    <a href="#" data-tooltip="This is a link with a tooltip" data-tooltip-pos="down">Tooltip Down</a>
-                    <a href="#" data-tooltip="This is a link with a tooltip" data-tooltip-pos="left">Tooltip Left</a>
-                    <a href="#" data-tooltip="This is a link with a tooltip" data-tooltip-pos="right">Tooltip Right</a>
-            </fieldset>
+                  <fieldset>
+                      <legend>Position</legend>
+                      <button data-tooltip="ziooo" tooltip-pos="up">Up</button>
+                      <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
+                      <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
+                      <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
+
+                      <button data-tooltip="ziooo" tooltip-pos="up-left">Up left</button>
+                      <button data-tooltip="ziooo" tooltip-pos="down-left">Down left</button>
+                  </fieldset>
+
+                  <fieldset>
+                      <legend>Lenght</legend>
+
+                      <span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit." tooltip-length="medium" tooltip-pos="up">Medium Tooltip</span>
+
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down">N/A</button>
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="small">small</button>
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="medium">medium</button>
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="large">large</button>
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="xlarge">xlarge</button>
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit">Fit</button>
+                  </fieldset>
+
+                  <fieldset>
+                      <legend>Other</legend>
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit" tooltip-blunt>No animation</button>
+                      <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length tooltip-break>Break</button>
+                  </fieldset>
+
+                  <fieldset>
+                      <legend>Visible by default</legend>
+                      <button data-tooltip="ziooo" tooltip-pos="down-right">Top</button>
+                      <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
+                      <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
+                      <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
+                  </fieldset>
+            </div>
 
             <style>
                 .box-row { color: var(--white); background-color: var(--primary); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
-                x-col { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
+                x-cell { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
             </style>
 
             <fieldset id="cssgrid">
                 <legend>CSS Grid</legend>
 
                 <x-grid columns="12" class="debug">
-                  <x-col span="1..">row</x-col>
+                  <x-cell span="1..">row</x-cell>
 
-                  <x-col span="1-2">1-2</x-col>
-                  <x-col span="3..">3..</x-col>
+                  <x-cell span="1-2">1-2</x-cell>
+                  <x-cell span="3..">3..</x-cell>
 
-                  <x-col span="1-4">1-4</x-col>
-                  <x-col span="5..">5..</x-col>
+                  <x-cell span="1-4">1-4</x-cell>
+                  <x-cell span="5..">5..</x-cell>
 
-                  <x-col span="1-5">1-5</x-col>
-                  <x-col span="6..">6..</x-col>
+                  <x-cell span="1-5">1-5</x-cell>
+                  <x-cell span="6..">6..</x-cell>
 
-                  <x-col span="1-6">1-6</x-col>
-                  <x-col span="7..">7..</x-col>
+                  <x-cell span="1-6">1-6</x-cell>
+                  <x-cell span="7..">7..</x-cell>
 
-                  <x-col span="1-7">1-7</x-col>
-                  <x-col span="8..">8..</x-col>
+                  <x-cell span="1-7">1-7</x-cell>
+                  <x-cell span="8..">8..</x-cell>
 
-                  <x-col span="1-8">1-8</x-col>
-                  <x-col span="9..">9..</x-col>
+                  <x-cell span="1-8">1-8</x-cell>
+                  <x-cell span="9..">9..</x-cell>
                 </x-grid>
 
                 <span class="text-hr">8 columns</span>
 
                 <x-grid columns="8" class="debug">
-                  <x-col></x-col>
-                  <x-col span="3">3</x-col>
-                  <x-col></x-col>
-                  <x-col span="7-8">7-8</x-col>
-                  <x-col span="2+2">2+2</x-col>
-                  <x-col span="5-8">5-8</x-col>
-                  <x-col span="1-4">1-4</x-col>
-                  <x-col span="6..">6..</x-col>
-                  <x-col span="2..">2..</x-col>
-                  <x-col span="4..">4..</x-col>
-                  <x-col span="1-2">1-2</x-col>
-                  <x-col span="4-5">4-5</x-col>
+                  <x-cell></x-cell>
+                  <x-cell span="3">3</x-cell>
+                  <x-cell></x-cell>
+                  <x-cell span="7-8">7-8</x-cell>
+                  <x-cell span="2+2">2+2</x-cell>
+                  <x-cell span="5-8">5-8</x-cell>
+                  <x-cell span="1-4">1-4</x-cell>
+                  <x-cell span="6..">6..</x-cell>
+                  <x-cell span="2..">2..</x-cell>
+                  <x-cell span="4..">4..</x-cell>
+                  <x-cell span="1-2">1-2</x-cell>
+                  <x-cell span="4-5">4-5</x-cell>
                 </x-grid>
 
                 <span class="text-hr">6 columns</span>
 
                 <x-grid columns="6" class="debug">
-                  <x-col span="2" span-s="row">span 2</x-col>
-                  <x-col span="3-6" span-s="row">span 3-6</x-col>
-                  <x-col span="1-2" span-s="1">span 1-2</x-col>
-                  <x-col span="3.." span-s="2..">span 3..</x-col>
+                  <x-cell span="2" span-s="row">span 2</x-cell>
+                  <x-cell span="3-6" span-s="row">span 3-6</x-cell>
+                  <x-cell span="1-2" span-s="1">span 1-2</x-cell>
+                  <x-cell span="3.." span-s="2..">span 3..</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Fluid grid</span>
                 
                 <x-grid columns="fill" min="300" class="debug">
-                  <x-col>Box 1</x-col>
-                  <x-col>Box 2</x-col>
-                  <x-col>Box 3</x-col>
-                  <x-col>Box 4</x-col>
-                  <x-col span="row">Box 5</x-col>
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell span="row">Box 5</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Site layout</span>
 
                 <x-grid columns="8" class="debug">
-                  <x-col span="row">Head</x-col>
-                  <x-col span="1-5">Main</x-col>
-                  <x-col span="6..">Sidebar</x-col>
-                  <x-col span="row">Footer</x-col>
+                  <x-cell span="row">Head</x-cell>
+                  <x-cell span="1-5">Main</x-cell>
+                  <x-cell span="6..">Sidebar</x-cell>
+                  <x-cell span="row">Footer</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Grid not inside x-grid</span>
@@ -680,6 +720,34 @@
                   <span>Box 4</span>
                   <span span="row">Box 5</span>
                 </div>
+            </fieldset>
+
+            <fieldset class="flexbox">
+              <legend>CSS Grid</legend>
+
+              <x-flex class="debug">
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 4</x-cell>
+              </x-flex>
+
+              <x-flex class="debug even">
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 4</x-cell>
+              </x-flex>
+
+              <x-flex class="debug" pc="center evenly">
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 4</x-cell>
+              </x-flex>
             </fieldset>
     
       </main>
