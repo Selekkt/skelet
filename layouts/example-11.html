@@ -36,7 +36,7 @@
     <script>document.documentElement.className='js'</script>
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href=".https://cdn.jsdelivr.net/gh/Selekkt/skelet@latest/css/skelet.css"> <!-- include Skelet -->
+    <link rel="stylesheet" href="../css/skelet.css"> <!-- include Skelet -->
 
     <style>
         [dark-mode] { 
@@ -92,15 +92,15 @@
             max-width: 400px; 
             border-radius: var(--globalRadius); 
             overflow: hidden;
-            --boxFontSize: var(--h3Size);
-            --boxBg: #4C4E5A;
-            --boxActive: none;
-            --boxBgHover: var(--boxBg);
-            --boxBgActive: var(--boxBg);
-            --boxBorderColor: none;
-            --boxBorderHover: none;
-            --boxRadius: 0;
-            --boxMargin: 0;
+            --inputFontSize: var(--h3Size);
+            --inputBg: #4C4E5A;
+            --inputActive: none;
+            --inputBgHover: var(--boxBg);
+            --inputBgActive: var(--boxBg);
+            --inputBorderColor: none;
+            --inputBorderHover: none;
+            --inputRadius: 0;
+            --inputMargin: 0;
 
             --buttonBg: #4C4E5A;
             --buttonBgHover: var(--buttonBg);
@@ -319,7 +319,99 @@
             <x-cell span="7.." span-m="5.." span-s="row">Skelet.</x-cell>
         </x-grid>
 
-    </div>
+        <!-- Grid -->
+        <style>
+            .apple { 
+                background: radial-gradient(ellipse at center, #555 0%, var(--bgColor) 100%); 
+                overflow: hidden; 
+                border-radius: var(--globalRadius); 
+                gap: 1px
+            }
+
+            .apple x-cell { min-height: 400px;             
+                background: var(--dark);
+                padding: calc(var(--margin) * 2);
+                display: grid;
+                place-items: center
+            }
+
+            [class^="fs-"] { line-height: 1.1 }
+
+            .fs-200 { font-size: 2rem }
+            .fs-300 { font-size: 3rem }
+            .fs-500 { font-size: 5rem }
+            .fs-700 { font-size: 7rem }
+            .fs-900 { font-size: 9rem }
+
+            .clr-100 { 
+                color: #1db3ff;
+                -webkit-text-fill-color: transparent;
+                text-fill-color: transparent;
+                -webkit-background-clip: text;
+                background-clip: text;
+                background-image: linear-gradient(110deg,#ff6673,#ff6673,#cc25e4,#7c00ff)
+            }
+
+            .clr-600 { color: #999999 }
+
+            .size-100 { max-width: 25ch }
+            .size-200 { max-width: 45ch }
+            .size-700 { max-width: 70ch }
+
+            @media (max-width: 600px) {
+                .apple x-cell { min-height: 200px }
+                [class^="fs-"] { line-height: 1.4 }
+                [class^="fs-"]:not(.fs-200, .fs-300) { font-size: 3.2rem }
+                [class^="size-"] { max-width: 40ch }
+            }
+        </style>
+        <h4 class="h5">Apple style grid</h4>
+        <x-grid columns="5" columns-s="1f" class="apple">
+            <x-cell span="row">
+                <div class="size-600">
+                    <h2 class="fs-900 clr-100 wow" animation="fadein-up" style="--duration:1s">Pure. Pro. Power.</h2>
+                    <p class="fs-300 clr-600 size-100 wow" animation="fadein-up" style="--duration:1s;--delay:.25s">Skelet.css has the world’s fastest CSS grid system.</p>
+                </div>
+            </x-cell>
+            <x-cell span="1-3" span-s="row">
+                <div class="size-200">
+                    <h2 class="fs-600">All-new CSS Grid</h2>
+                    <p class="fs-200 clr-600">Create up to 200% faster grids with Skelet.css semantic grid system.</p>
+                </div>
+            </x-cell>
+            <x-cell span="4..">
+                <div class="size-100">
+                    <h2 class="fs-300">New GRID performance and efficiency cores</h2>
+                    <p class="fs-200 clr-600">power through complex tasks and preserve brain power.</p>
+                </div>
+            </x-cell>
+
+            <x-cell span="1-2">
+                <div class="size-100">
+                    <h2 class="fs-300">Superfast Neural Engine</h2>
+                    <p class="fs-200 clr-600">performs up to 15.8 trillion operations per second, enabling Cinematic mode, Smart HDR 4, and more.</p>
+                </div>
+            </x-cell>
+            <x-cell span="3..">
+                <div class="size-200">
+                    <h2 class="fs-600">Advanced ISP</h2>
+                    <p class="fs-200 clr-600">takes noise reduction and tone mapping to the next level.</p>
+                </div>
+            </x-cell>
+
+            <x-cell span="1-3">
+                <div class="size-200">
+                    <h2 class="fs-600">Secure Enclave</h2>
+                    <p class="fs-200 clr-600">protects personal information like your Face ID data, contacts, and more</p>
+                </div>
+            </x-cell>
+            <x-cell span="4..">
+                <div class="size-100">
+                    <h2 class="fs-300">On-device processing</h2>
+                    <p class="fs-200 clr-600">keeps things like your Siri requests and interactions with Live Text private.</p>
+                </div>
+            </x-cell>
+        </x-grid>
 
     </section>
         
@@ -416,7 +508,7 @@
             </x-cell>
             <x-cell>
                 <small>&copy; 2022. All rights reserved</small>
-                <div class="h4">Sēlekkt. studio</div>
+                <div class="h4"><a href="https://selekkt.dk/" class="no-style" target="_blank">Sēlekkt. studio</a></div>
             </x-cell>
             <x-cell ps="end" ps-s="start">
                 <small>Back to index</small>
@@ -458,7 +550,7 @@ let isInView = (target, threshold, triggerAnimation) => {
     });
 }
 
-isInView('.wow', 0.4, 'animate');
+isInView('.wow', 1, 'animate');
 </script>
 
 </body>
