@@ -586,6 +586,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
     letter-spacing: .03em;
     text-align: center;
     white-space: nowrap;
+    line-height: 1;
     font-style: inherit;
     text-decoration: none;
     position: relative;
