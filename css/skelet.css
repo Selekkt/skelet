@@ -198,11 +198,12 @@ summary{display:list-item}
   more resets
 ------------------ */
 :not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
-img,svg,canvas,video,audio,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
+img,svg,canvas,video,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
 iframe{width:100%;border:0}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
-figure {margin:0}
+figure {margin:0;width:fit-content}
+figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
 [hidden],[type="hidden"],.hidden {display:none!important;outline:0}
 [disabled],[disabled]:hover,.disabled { opacity:0.6!important; cursor:not-allowed!important }
 
@@ -276,9 +277,9 @@ a.no-style { text-decoration:none }
     .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 }
 
-code, kbd, samp {
+code, samp {
     padding: var(--inputPadding);
-    margin: var(--inputPadding);
+    margin: var(--inputMargin);
     font-size: 90%;
     white-space: nowrap;
     vertical-align: middle;
@@ -292,6 +293,19 @@ code, kbd, samp {
 
 code:hover { overflow:auto }
 pre > code { display: block; padding: calc(var(--inputPadding) * 1); white-space: pre }
+
+kbd {
+    display: inline-block;
+    margin: var(--inputMargin);
+    padding: var(--inputPadding);
+    background: var(--inputBg);
+    box-shadow: 0px 0px 10px 0 rgba(0,0,0,0.06), 0 0.2rem 0 var(--inputBorderColor);
+    border: 1px solid var(--inputBorderColor);
+    border-radius: var(--inputRadius);
+    color: var(--inputColor);
+    text-align: center;
+    min-width: 3rem;
+}
 
 /* ------------------
   utilities
@@ -915,15 +929,59 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
 /* ------------------
   tables
 ------------------ */
-table { display: block; overflow-x: auto; margin: 0 auto; white-space: nowrap; max-width: -moz-fit-content; max-width: fit-content }
-th, td { padding: var(--padding); text-align: start; border-bottom: 1px solid var(--inputBorderColor) }
+table {
+    --tableColor: currentColor;
+    --tableBg: var(--inputBg);
+    --tableStrip: var(--inputBg);
+    --tablePadding: var(--inputPadding);
+    --tableBorderWidth: var(--inputBorderWidth);
+    --tableBorderStyle: var(--inputBorderStyle);
+    --tableBorderColor: var(--inputBorderColor);
+    --tableBorder: var(--tableBorderWidth) var(--tableBorderStyle) var(--tableBorderColor);
+    display: block; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+    max-width: -moz-fit-content; 
+    max-width: fit-content;
+    border-spacing: 0;
+    font-size: 1.4rem;
+    margin: var(--margin);
+}
 
-table.is-bordered { border: 1px solid var(--inputBorderColor); border-radius: var(--radius) }
-table.is-bordered th { background-color: var(--inputBorderColor) }
-table.is-bordered th, table.is-bordered td { border-bottom: 1px solid var(--inputBorderColor) }
-table.is-bordered > tbody > tr:last-child td { border-bottom: none }
-table.is-striped tbody tr:nth-child(2n) { background-color: var(--inputBorderColor) }
-table.is-striped td { border:none }
+table caption { margin: var(--margin) }
+table tr td { padding: var(--tablePadding); min-width: 150px; vertical-align: middle; border-bottom: var(--tableBorder) }
+table tr:last-child td { border-bottom: 0 }
+
+table th {
+    position: relative;
+    color: var(--tableColor);
+    text-transform: uppercase;
+    padding: var(--tablePadding);
+    text-align: left;
+    vertical-align: middle;
+    border-top: var(--tableBorder);
+    border-bottom: var(--tableBorder);
+    overflow: hidden;
+    font-weight: 400;
+    letter-spacing: 0
+}
+
+table thead th { background: var(--tableBg) }
+table th:first-child { border-radius: var(--radius) 0 0 var(--radius); border-left: var(--tableBorder) }
+table th:last-child { border-radius: 0 var(--radius) var(--radius) 0; border-right: var(--tableBorder) }
+
+table.is-striped tr { border:0 }
+table.is-striped tbody tr:nth-child(2n) td { background: var(--tableStrip); }
+
+table.is-hover tbody tr:hover { background: var(--tableBg); border-radius: var(--radius) }
+
+table:where(.is-sticky-head,.is-sticky-foot) { overflow: unset }
+table.is-sticky-head thead { position: sticky; top: var(--sticky, .2rem); z-index: 2 }
+table.is-sticky-foot tfoot { position: sticky; bottom: var(--sticky, .2rem); z-index: 1; background: var(--bgColor) }
+
+table.has-borders { border: var(--tableBorder) }
+table.has-borders th { border-radius: 0; border:0 }
+table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
 
 /* ------------------
   css grid
