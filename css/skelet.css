@@ -42,7 +42,7 @@ summary{display:list-item}
     --green: #34C84A;
     --yellow: #FDBC40;
     --red: #FC615D;
-    --blue: #007FFF;
+    --blue: #004FFF;
     --white: #FFF;
     --black: #000;
     --light: #EFEFEF;
@@ -50,7 +50,7 @@ summary{display:list-item}
     --shadow: rgba(10, 10, 10, 0.1);
 
     --linkColor: var(--primary);
-    --linkHover: #3298ff;
+    --linkHover: #004FFF;
 
     --bgColor: #FFF;
     --color: #000;
@@ -61,7 +61,7 @@ summary{display:list-item}
     --selectionText: #FFF;
 
     --codeBg: #F8F8F8;
-    --codeColor: #0000FF;
+    --codeColor: #004FFF;
 
     --hrColor: var(--inputBorderColor);
     --hrGradient: rgba(255, 255, 255, 0);
@@ -116,7 +116,7 @@ summary{display:list-item}
     --inputFontSize: var(--fontSize);
     --inputHeight: 21px;
 
-    --inputBg: #FEFEFE;
+    --inputBg: #f8f8f8;
     --inputBgHover: var(--inputBg);
     --inputBgActive: var(--inputBg);
     --inputColor: var(--color);
@@ -205,7 +205,7 @@ dd {margin-inline-start:4rem}
 figure {margin:0;width:fit-content}
 figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
 [hidden],[type="hidden"],.hidden {display:none!important;outline:0}
-[disabled],[disabled]:hover,.disabled { opacity:0.6!important; cursor:not-allowed!important }
+[disabled],[disabled]:hover,.disabled { filter: grayscale(100%); opacity:0.7!important; cursor:not-allowed!important }
 
 /* ------------------
   basics
@@ -299,7 +299,7 @@ kbd {
     margin: var(--inputMargin);
     padding: var(--inputPadding);
     background: var(--inputBg);
-    box-shadow: 0px 0px 10px 0 rgba(0,0,0,0.06), 0 0.2rem 0 var(--inputBorderColor);
+    box-shadow: 0px 0px 10px 0 var(--shadow), 0 0.2rem 0 var(--inputBorderColor);
     border: 1px solid var(--inputBorderColor);
     border-radius: var(--inputRadius);
     color: var(--inputColor);
@@ -348,8 +348,47 @@ kbd {
 .is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
 .is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
-.group-input-button { display: inline-flex; justify-items: center; align-content: center }
+/** Group inputs */
+.group-input-button { --buttonMargin: auto; --buttonHeight: 100%; display: inline-flex; justify-content: center; align-items: center }
 .group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
+.group-input-button:where(.no-style,.presuffix) > *:focus { box-shadow: none; outline: none!important }
+
+.group-input-button.presuffix {
+    --buttonColor: currentColor;
+    background: var(--inputBg);
+    color: var(--inputColor);
+    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
+    border-radius: var(--inputRadius);
+    margin: var(--inputMargin)
+}
+
+.group-input-button.presuffix:hover { border-color: var(--inputBorderHover); background: var(--inputBgHover) }
+.group-input-button.presuffix:focus-within { border-color: var(--inputBorderActive); background: var(--inputBgActive) }
+.group-input-button.presuffix > * { padding: var(--inputPadding) }
+.group-input-button.presuffix > span:first-child { border-right: inherit }
+.group-input-button.presuffix > span:last-child { border-left: inherit }
+
+/* Badge */
+.badge {
+    display: inline-grid;
+    place-items: center;
+    color: var(--badgeColor, var(--inputColor));
+    background: var(--badgeBg, var(--inputBg));
+    border: 1px solid var(--badgeBorder, var(--inputBorderColor));
+    border-radius: var(--badgeRadius, 100vw);
+    font-size: var(--badgeSize, 1.3rem);
+    padding: var(--badgePadding, .2em .7em);
+    font-weight: 500;
+    line-height: 1;
+    cursor: inherit;
+    font-feature-settings: "tnum";
+    font-variant: tabular-nums;
+    text-transform: capitalize;
+    white-space: nowrap
+}
+.badge.is-large { --badgeSize: 1.4em }
+.badge.is-circle { aspect-ratio: 1/1 }
+.badge.is-outline { --badgeBg: transparent }
 
 @media (max-width: 600px) { 
     .fullwidth-s { width: 100% }
@@ -608,7 +647,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    height: fit-content;
+    height: var(--buttonHeight, fit-content);
     cursor: pointer;
     user-select: none;
 }
@@ -630,7 +669,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
 .is-circle:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:100vw; padding:1em; width:1em; height:1em }
 .is-square:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:0 }
 
-.is-loading:where(button,.button,[type=button],[type=submit],[type=reset]):after {
+.is-loading:where(span,button,.button,[type=button],[type=submit],[type=reset]):after {
     content: "";
     animation: loading 500ms infinite linear;
     border: 2px solid var(--buttonColor);
@@ -643,7 +682,7 @@ button,.button,[type=button],[type=submit],[type=reset] {
     position: relative;
 }
 
-.is-loading:where(button,.button,[type=button],[type=submit],[type=reset]):not(:empty):after { margin-left: 1rem }
+.is-loading:where(span,button,.button,[type=button],[type=submit],[type=reset]):not(:empty):after { margin-left: 1rem }
 
 .is-unset { all: unset }
 .is-blank:where(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
@@ -707,7 +746,7 @@ input[type="radio"]:checked {
 }
 
 /* Disabled */
-input[type="checkbox"]:disabled,input[type="radio"]:disabled { filter: grayscale(100%); cursor: not-allowed; opacity: .9 }
+input[type="checkbox"]:disabled,input[type="radio"]:disabled { filter: grayscale(100%); cursor: not-allowed; opacity: .7 }
 input[type="checkbox"]:disabled:checked,input[type="radio"]:disabled:checked { filter: grayscale(100%) }
 input[type="checkbox"]:disabled + label, input[type="radio"]:disabled + label { cursor: not-allowed }
 
@@ -756,7 +795,7 @@ input[type="checkbox"].switch:after {
 }
 
 input[type="checkbox"].switch:checked { --ab: var(--inputActiveInner); --x: 17px }
-input[type="checkbox"].switch:disabled:not(:checked):after { opacity: .6 }
+input[type="checkbox"].switch:disabled:not(:checked):after { opacity: .7 }
 
 /* Radio */
 input[type="radio"] { border-radius: 100vw }

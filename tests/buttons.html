@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+    <title>Buttons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  <!-- browse the icons: https://fontawesome.com/v6.0/icons?m=free -->
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="../css/skelet.css">
@@ -50,6 +50,42 @@
         <button class="is-primary">Button</button>
     </div>
 </fieldset>
+<fieldset>
+    <legend>Prefix and suffix</legend>
+    <div class="group-input-button presuffix">
+        <input type="text" placeholder="https://selekkt.dk" class="is-blank">
+        <span>/skelet/v3</span>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="selekkt.dk/skelet/v3" class="is-blank">
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="skelet" class="is-blank">
+        <span>.dk</span>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button>Search</button>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button class="text-uppercase"><i class="fa-regular fa-circle-xmark"></i></button>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <span class="is-loading"></span>
+    </div>
+</fieldset>
 <hr>
 <button class="is-small">button small</button>
 <button class="is-large">button large</button>
@@ -68,7 +104,7 @@
 <hr>
 <button class="is-loading"></button>
 <button class="is-loading is-yellow"></button>
-<button class="is-loading">loading</button>
+<button class="is-loading" disabled>loading</button>
 <button class="is-loading is-outline is-small"></button>
 <hr>
 <button class="button has-icon">

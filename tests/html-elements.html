@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HTML5 Test Page</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
     <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
   </head>
@@ -870,12 +870,101 @@
             <p><a href="#top">[Top]</a></p>
           </form>
         </section>
-            <fieldset id="flow">
-              <legend>Flow Columns</legend>
-                <p flow-col="3">
-                A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
+
+<fieldset id="group-input-button">
+    <legend>.group-input-button</legend>
+    <div class="group-input-button">
+        <input type="text" placeholder="Input">
+        <button class="is-primary">Button</button>
+    </div>
+</fieldset>
+<a href="#group-input-button">url</a>
+
+<style>
+.group-input-button.my-style { border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor); border-radius: var(--inputRadius); }
+.group-input-button.my-style:focus-within { background: var(--inputBg); border-color: var(--inputActive) }
+</style>
+<fieldset id="group-input-button-no-style">
+    <legend>.group-input-button.no-style</legend>
+    <div class="group-input-button no-style my-style">
+        <input type="text" placeholder="Input" class="is-blank">
+        <button class="is-primary">Button</button>
+    </div>
+</fieldset>
+<a href="#group-input-button-no-style">url</a>
+
+<section id="presuffix">
+<fieldset>
+    <legend>Prefix and suffix</legend>
+    <div class="group-input-button presuffix">
+        <input type="text" placeholder="https://selekkt.dk" class="is-blank">
+        <span>/skelet/v3</span>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="selekkt.dk/skelet/v3" class="is-blank">
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="skelet" class="is-blank">
+        <span>.dk</span>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button>Search</button>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button class="text-uppercase"><i class="fa-regular fa-circle-xmark"></i></button>
+    </div>
+<br>
+    <div class="group-input-button no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <span class="is-loading"></span>
+    </div>
+</fieldset>
+<a href="#presuffix">url</a>
+</section>
+
+            <fieldset id="badge">
+              <legend>.badge</legend>
+              <p>
+              <div>.badge</div>
+              <span class="badge">1</span>
+              <span class="badge">10</span>
+              <span class="badge">100</span>
+              <span class="badge">1000</span>
+              <span class="badge">New</span>
+              <span class="badge">Hot</span>
+              <span class="badge">WOW</span>
+              </p>
+              <p>
+                <div>.badge .is-circle</div>
+              <span class="badge is-circle">1</span>
+              <span class="badge is-circle">10</span>
+              <span class="badge is-circle">100</span>
+              </p>
+              <p>
+              <div>.badge .is-outline</div>
+              <span class="badge is-outline">HOT</span>
+              <span class="badge is-outline">🔥 New</span>
+              <span class="badge o is-outline">🌴</span>
+              </p>
+              <p>
+              <div>.badge .is-large</div>
+              <span class="badge is-large">HOT</span>
+              <span class="badge is-large">🔥 New</span>
+              <span class="badge o is-large">🌴</span>
+              </p>
             </fieldset>
+            <a href="#badge">url</a>
 
            <div id="tooltips">
               <legend>Tooltips</legend>
@@ -1042,5 +1131,25 @@
     
       </main>
     </div>
+    <style>
+      #light {
+        position: fixed;
+        top: var(--margin);
+        right: var(--margin);
+        z-index: 999;
+        cursor: pointer;
+        aspect-ratio: 1/1;
+        background: var(--color);
+        height: 30px;
+        border-radius: 100vw;
+      }
+    </style>
+    <div id="light"></div>
   </body>
+  <script>
+    let lightBulb = document.querySelector('#light');
+    lightBulb.addEventListener("click", () => {
+      document.body.toggleAttribute("dark-mode");
+    }, false);
+  </script>
 </html>
