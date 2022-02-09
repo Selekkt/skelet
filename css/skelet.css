@@ -386,9 +386,15 @@ kbd {
     text-transform: capitalize;
     white-space: nowrap
 }
+
 .badge.is-large { --badgeSize: 1.4em }
 .badge.is-circle { aspect-ratio: 1/1 }
 .badge.is-outline { --badgeBg: transparent }
+
+.badge.is-red { --badgeColor: var(--red); --badgeBorder: var(--red) }
+.badge.is-green { --badgeColor: var(--green); --badgeBorder: var(--green) }
+.badge.is-yellow { --badgeColor: var(--yellow); --badgeBorder: var(--yellow) }
+.badge.is-blue { --badgeColor: var(--blue); --badgeBorder: var(--blue) }
 
 @media (max-width: 600px) { 
     .fullwidth-s { width: 100% }
