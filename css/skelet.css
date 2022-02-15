@@ -547,7 +547,7 @@ kbd {
 /* ------------------
   tooltips
 ------------------ */
-[data-tooltip] { overflow: visible; position: relative; cursor: pointer; z-index: 1; isolation: isolate }
+[data-tooltip] { overflow: visible; position: relative; cursor: pointer; z-index: 1; }
 
 [data-tooltip]::after {
     content: attr(data-tooltip);
