@@ -349,11 +349,11 @@ kbd {
 .is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
 /** Group inputs */
-.group-input-button { --buttonMargin: auto; --buttonHeight: 100%; display: inline-flex; justify-content: center; align-items: center }
-.group-input-button.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
-.group-input-button:where(.no-style,.presuffix) > *:focus { box-shadow: none; outline: none!important }
+.stack { --buttonMargin: auto; --buttonHeight: 100%; display: inline-flex; justify-content: center; align-items: center }
+.stack.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
+.stack:where(.no-style,.presuffix) > *:focus { box-shadow: none; outline: none!important }
 
-.group-input-button.presuffix {
+.stack.presuffix {
     --buttonColor: currentColor;
     background: var(--inputBg);
     color: var(--inputColor);
@@ -362,11 +362,11 @@ kbd {
     margin: var(--inputMargin)
 }
 
-.group-input-button.presuffix:hover { border-color: var(--inputBorderHover); background: var(--inputBgHover) }
-.group-input-button.presuffix:focus-within { border-color: var(--inputBorderActive); background: var(--inputBgActive) }
-.group-input-button.presuffix > * { padding: var(--inputPadding) }
-.group-input-button.presuffix > span:first-child { border-right: inherit }
-.group-input-button.presuffix > span:last-child { border-left: inherit }
+.stack.presuffix:hover { border-color: var(--inputBorderHover); background: var(--inputBgHover) }
+.stack.presuffix:focus-within { border-color: var(--inputBorderActive); background: var(--inputBgActive) }
+.stack.presuffix > * { padding: var(--inputPadding) }
+.stack.presuffix > span:first-child { border-right: inherit }
+.stack.presuffix > span:last-child { border-left: inherit }
 
 /* Badge */
 .badge {
