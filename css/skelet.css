@@ -38,10 +38,12 @@ summary{display:list-item}
 ------------------ */
 :root {
 /** Colors */
-    --primary: #007FFF;
-    --green: #34C84A;
-    --yellow: #FDBC40;
-    --red: #FC615D;
+    --primary: #409cff;
+    --red: #ff6961;
+    --orange: #FFB340;
+    --yellow: #FFD426;
+    --green: #30DB5B;
+    --purple: #6F64FC;
     --blue: #004FFF;
     --white: #FFF;
     --black: #000;
@@ -61,7 +63,7 @@ summary{display:list-item}
     --selectionText: #FFF;
 
     --codeBg: #F8F8F8;
-    --codeColor: #004FFF;
+    --codeColor: var(--blue);
 
     --hrColor: var(--inputBorderColor);
     --hrGradient: rgba(255, 255, 255, 0);
@@ -116,7 +118,7 @@ summary{display:list-item}
     --inputFontSize: var(--fontSize);
     --inputHeight: 21px;
 
-    --inputBg: #f8f8f8;
+    --inputBg: #F8F8F8;
     --inputBgHover: var(--inputBg);
     --inputBgActive: var(--inputBg);
     --inputColor: var(--color);
@@ -164,7 +166,7 @@ summary{display:list-item}
 }
 
 /*** Dark Mode */
-.dark-mode, [dark-mode], [data-mode="dark"] {
+.dark-mode, [dark-mode], [data-mode=dark] {
     --bgColor: #000;
     --color: #FFF;
     --colorInverse: #000;
@@ -187,7 +189,7 @@ summary{display:list-item}
     --selectionBg: rgba(255,255,255,.99);
     --selectionText: #000;
 
-    --codeColor: #00F900;
+    --codeColor: var(--green);
     --codeBg: #111;
 
     --hrColor: var(--inputBorderColor);
@@ -284,7 +286,7 @@ code, samp {
     white-space: nowrap;
     vertical-align: middle;
     background-color: var(--codeBg);
-    border: 1px solid var(--inputBorderColor);
+    border: 1px solid var(--codeBorderColor, var(--inputBorderColor));
     color: var(--codeColor);
     border-radius: var(--inputRadius);
     overflow:hidden;
@@ -519,6 +521,8 @@ kbd {
     --scrollFlexFlow: row nowrap;
     --scrollHeight: auto;
     --scrollWidth: auto;
+    --scrollOverflowX: scroll;
+    --scrollOverflowY: hidden;
     display: flex;
     flex: none;
     flex-flow: var(--scrollFlexFlow);
@@ -527,8 +531,10 @@ kbd {
     align-items: var(--scrollAlignItems);
     height: 100%;
     min-height: var(--scrollHeight);
-    overflow: auto;
+    overflow-x: var(--scrollOverflowX);
+    overflow-y: var(--scrollOverflowY);
     counter-reset: item;
+    -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
     scroll-margin: var(--scrollMargin);
     scroll-snap-stop: var(--scrollStop);
@@ -536,7 +542,7 @@ kbd {
 }
 
 .scroll-snap > * { width: var(--scrollWidth); flex: none; scroll-snap-align: var(--scrollAlign) }
-.scroll-snap.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh } 
+.scroll-snap.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll; } 
 .scroll-snap.mandatory { --scrollType: mandatory } /* default */
 .scroll-snap.proximity { --scrollType: proximity }
 .scroll-snap.align-start { --scrollAlign: start }
@@ -2374,16 +2380,16 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
 }
 
 /* Debug */
-.debug > * { --dc:rgba(248,110,91,0.3); background: var(--dc) }
-.debug>:nth-child(6n+2){ --dc:rgb(103,126,208,.5) }
-.debug>:nth-child(6n+3){ --dc:rgb(224,174,72,0.5) }
-.debug>:nth-child(6n+4){ --dc:rgb(77,214,115,0.5) }
-.debug>:nth-child(6n+5){ --dc:rgb(217,103,219,0.5) }
-.debug>:nth-child(6n+6){ --dc:rgb(94,204,211,0.5) }
-.debug>:nth-child(6n+7){ --dc:rgb(248,110,91,0.5) }
-.debug.outline { outline: 1px dotted red }
-.debug.outline-child { outline: 1px dotted red; outline-offset: 5px }
-.debug.outline-child > * { outline: 1px dotted lime }
+.debug > * { --dc:rgba(248,110,91,0.8); background: var(--dc) }
+.debug>:nth-child(6n+2){ --dc:rgb(103,126,208,.8) }
+.debug>:nth-child(6n+3){ --dc:rgb(224,174,72,0.8) }
+.debug>:nth-child(6n+4){ --dc:rgb(77,214,115,0.8) }
+.debug>:nth-child(6n+5){ --dc:rgb(217,103,219,0.8) }
+.debug>:nth-child(6n+6){ --dc:rgb(94,204,211,0.8) }
+.debug>:nth-child(6n+7){ --dc:rgb(248,110,91,0.8) }
+.debug.outline { outline: 1px dotted var(--red) }
+.debug.outline-child { outline: 1px dotted var(--red); outline-offset: 5px }
+.debug.outline-child > * { outline: 1px dotted var(--green) }
 
 /* ------------------
   Cubic Beziers
