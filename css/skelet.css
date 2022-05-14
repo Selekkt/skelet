@@ -135,7 +135,7 @@ summary{display:list-item}
     --inputFocus: rgba(41, 145, 248, .7);
 
     /* buttons */
-    --buttonPadding: .7em .9em;
+    --buttonPadding: 1.3rem;
     --buttonMargin: var(--inputMargin);
     --buttonRadius: var(--radius);
     --buttonBorderWidth: var(--borderWidth);
@@ -166,7 +166,9 @@ summary{display:list-item}
 }
 
 /*** Dark Mode */
-.dark-mode, [dark-mode], [data-mode=dark] {
+.dark-mode, [dark-mode], [color-scheme=dark] {
+    color-scheme: dark;
+
     --bgColor: #000;
     --color: #FFF;
     --colorInverse: #000;
@@ -630,8 +632,7 @@ kbd {
 [tooltip-length="medium"]:after { width: 150px }
 [tooltip-length="large"]:after { width: 260px }
 [tooltip-length="xlarge"]:after { width: 380px }
-[tooltip-length="fit"]:after { width: 100% }
-[tooltip-length="fit-content"]:after { width: fit-content }
+[tooltip-length="fit"]:after { width: fit-content }
 @media (max-width: 1024px) { [tooltip-length="xlarge"]:after { width: 90vw }  }
 
 /* ------------------
@@ -738,18 +739,16 @@ input[type="radio"] {
     cursor: pointer;
     border: 1px solid var(--bc, var(--inputBorderColor));
     background: var(--b, var(--inputBgColor));
-
 }
 
 input[type="checkbox"]:after,
 input[type="radio"]:after {
     content: "";
     display: block;
+    position: absolute;
     left: 0;
     top: 0;
-    position: absolute;
     transition: opacity var(--d-o, 0.2s), transform var(--d-t, 0.3s) var(--d-t-e, ease);
-    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
 }
 
 input[type="checkbox"]:checked,
@@ -758,7 +757,7 @@ input[type="radio"]:checked {
     --bc: var(--inputActive);
     --d-o: 100ms;
     --d-t: 250ms;
-    --d-t-e: var(--easeInOutSine);
+    --d-t-e: ease-in-out;
 }
 
 /* Disabled */
@@ -923,7 +922,7 @@ input[type=range]::-webkit-slider-thumb { border: 1px solid rgba(0,0,0,.5); heig
 textarea { min-height: 6.5rem; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius)) }
 textarea.resize-vertical { resize: vertical }
 textarea.resize-horizontal { resize: horizontal }
-label, legend { display: inline-flex; margin-bottom: var(--inputMargin); font-weight: 600; align-items: center }
+label, legend { display: inline-flex; gap: 0.7rem; margin-bottom: var(--inputMargin); font-weight: 600; align-items: center }
 fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--inputRadius) }
 legend { padding: var(--inputPadding) }
 option { padding: 5px; color: var(--inputColor) }
@@ -932,8 +931,8 @@ label span { color: var(--color); margin: 0 0.5rem; font-weight: normal }
 
 select {
     background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderColor) 50%), linear-gradient(135deg, var(--inputBorderColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderColor), var(--inputBorderColor));
-    background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%, calc(100% - 45px) 50%;
-    background-size: 5px 5px, 5px 5px, 1px 90%;
+    background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%, calc(100% - 40px) 50%;
+    background-size: 5px 5px, 5px 5px, 1px 100%;
     background-repeat: no-repeat;
     color: var(--inputColor);
     padding-right: 45px;
