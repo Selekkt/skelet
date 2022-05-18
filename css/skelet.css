@@ -1,4 +1,4 @@
-/*! Skelet. v3.4.0 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.4.5 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,*::before,*::after {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -199,7 +199,7 @@ summary{display:list-item}
 /* ------------------
   more resets
 ------------------ */
-:not(pre) > code, :not(pre) > kbd, :not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
+:not(pre) > code,:not(pre) > kbd,:not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
 img,svg,canvas,video,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
 iframe{width:100%;border:0}
 dt {font-weight:bold}
@@ -1040,9 +1040,9 @@ table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
 /* ------------------
   css grid
 ------------------ */
-x-grid, [x-grid] { display: grid; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
+:where(x-grid,[x-grid]) { display: grid; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
 
-x-grid {
+:where(x-grid,[x-grid]) {
     grid-template-columns: var(--grid-tc); /* default columns */ 
     --grid-mm: 200px, 1fr; /* auto-fit/fill minmax */
     --grid-tc: repeat(4, minmax(0,1fr)); /* template columns */
@@ -1052,366 +1052,366 @@ x-grid {
     --grid-re: -1; /* row end */
 }
 
-x-grid img { object-fit: contain; max-width: 100% }
-x-grid > * { display: block; appearance: none; -webkit-appearance: none }
+:where(x-grid,[x-grid]) img { object-fit: contain; max-width: 100% }
+:where(x-grid,[x-grid]) > * { display: block; appearance: none; -webkit-appearance: none }
 
-x-grid[columns="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-x-grid[columns="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
-x-grid[columns="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
-x-grid[columns="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
-x-grid[columns="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
-x-grid[columns="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
-x-grid[columns="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
-x-grid[columns="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
-x-grid[columns="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
-x-grid[columns="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
-x-grid[columns="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
-x-grid[columns="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
+[columns="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+[columns="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+[columns="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+[columns="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+[columns="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+[columns="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+[columns="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+[columns="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+[columns="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+[columns="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+[columns="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+[columns="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
-x-grid[columns="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
-x-grid[columns="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-x-grid[columns="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-x-grid[columns="1f"] > * { grid-column: 1 / -1 }
+[columns="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+[columns="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+[columns="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+[columns="1f"] > * { grid-column: 1 / -1 }
 
 /*** Grid Column - X axis */
-x-grid > *[span^="1"] { --grid-cs: 1 }
-x-grid > *[span^="2"] { --grid-cs: 2 }
-x-grid > *[span^="3"] { --grid-cs: 3 }
-x-grid > *[span^="4"] { --grid-cs: 4 }
-x-grid > *[span^="5"] { --grid-cs: 5 }
-x-grid > *[span^="6"] { --grid-cs: 6 }
-x-grid > *[span^="7"] { --grid-cs: 7 }
-x-grid > *[span^="8"] { --grid-cs: 8 }
-x-grid > *[span^="9"] { --grid-cs: 9 }
-x-grid > *[span^="10"] { --grid-cs: 10 }
-x-grid > *[span^="11"] { --grid-cs: 11 }
-x-grid > *[span^="12"] { --grid-cs: 12 }
+:where(x-grid,[x-grid]) > *[span^="1"] { --grid-cs: 1 }
+:where(x-grid,[x-grid]) > *[span^="2"] { --grid-cs: 2 }
+:where(x-grid,[x-grid]) > *[span^="3"] { --grid-cs: 3 }
+:where(x-grid,[x-grid]) > *[span^="4"] { --grid-cs: 4 }
+:where(x-grid,[x-grid]) > *[span^="5"] { --grid-cs: 5 }
+:where(x-grid,[x-grid]) > *[span^="6"] { --grid-cs: 6 }
+:where(x-grid,[x-grid]) > *[span^="7"] { --grid-cs: 7 }
+:where(x-grid,[x-grid]) > *[span^="8"] { --grid-cs: 8 }
+:where(x-grid,[x-grid]) > *[span^="9"] { --grid-cs: 9 }
+:where(x-grid,[x-grid]) > *[span^="10"] { --grid-cs: 10 }
+:where(x-grid,[x-grid]) > *[span^="11"] { --grid-cs: 11 }
+:where(x-grid,[x-grid]) > *[span^="12"] { --grid-cs: 12 }
 
-x-grid > *[span$="+1"], x-grid > *[span="1"] { --grid-ce: 1 }
-x-grid > *[span$="+2"], x-grid > *[span$="-1"], x-grid > *[span="2"] { --grid-ce: 2 }
-x-grid > *[span$="+3"], x-grid > *[span$="-2"], x-grid > *[span="3"] { --grid-ce: 3 }
-x-grid > *[span$="+4"], x-grid > *[span$="-3"], x-grid > *[span="4"] { --grid-ce: 4 }
-x-grid > *[span$="+5"], x-grid > *[span$="-4"], x-grid > *[span="5"] { --grid-ce: 5 }
-x-grid > *[span$="+6"], x-grid > *[span$="-5"], x-grid > *[span="6"] { --grid-ce: 6 }
-x-grid > *[span$="+7"], x-grid > *[span$="-6"], x-grid > *[span="7"] { --grid-ce: 7 }
-x-grid > *[span$="+8"], x-grid > *[span$="-7"], x-grid > *[span="8"] { --grid-ce: 8 }
-x-grid > *[span$="+9"], x-grid > *[span$="-8"], x-grid > *[span="9"] { --grid-ce: 9 }
-x-grid > *[span$="+10"], x-grid > *[span$="-9"], x-grid > *[span="10"] { --grid-ce: 10 }
-x-grid > *[span$="+11"], x-grid > *[span$="-10"], x-grid > *[span="11"] { --grid-ce: 11 }
-x-grid > *[span$="+12"], x-grid > *[span$="-11"], x-grid > *[span="12"] { --grid-ce: 12 }
-x-grid > *[span$="-12"] { --grid-ce: 13 }
+:where(x-grid,[x-grid]) > *[span$="+1"], :where(x-grid,[x-grid]) > *[span="1"] { --grid-ce: 1 }
+:where(x-grid,[x-grid]) > *[span$="+2"], :where(x-grid,[x-grid]) > *[span$="-1"], :where(x-grid,[x-grid]) > *[span="2"] { --grid-ce: 2 }
+:where(x-grid,[x-grid]) > *[span$="+3"], :where(x-grid,[x-grid]) > *[span$="-2"], :where(x-grid,[x-grid]) > *[span="3"] { --grid-ce: 3 }
+:where(x-grid,[x-grid]) > *[span$="+4"], :where(x-grid,[x-grid]) > *[span$="-3"], :where(x-grid,[x-grid]) > *[span="4"] { --grid-ce: 4 }
+:where(x-grid,[x-grid]) > *[span$="+5"], :where(x-grid,[x-grid]) > *[span$="-4"], :where(x-grid,[x-grid]) > *[span="5"] { --grid-ce: 5 }
+:where(x-grid,[x-grid]) > *[span$="+6"], :where(x-grid,[x-grid]) > *[span$="-5"], :where(x-grid,[x-grid]) > *[span="6"] { --grid-ce: 6 }
+:where(x-grid,[x-grid]) > *[span$="+7"], :where(x-grid,[x-grid]) > *[span$="-6"], :where(x-grid,[x-grid]) > *[span="7"] { --grid-ce: 7 }
+:where(x-grid,[x-grid]) > *[span$="+8"], :where(x-grid,[x-grid]) > *[span$="-7"], :where(x-grid,[x-grid]) > *[span="8"] { --grid-ce: 8 }
+:where(x-grid,[x-grid]) > *[span$="+9"], :where(x-grid,[x-grid]) > *[span$="-8"], :where(x-grid,[x-grid]) > *[span="9"] { --grid-ce: 9 }
+:where(x-grid,[x-grid]) > *[span$="+10"], :where(x-grid,[x-grid]) > *[span$="-9"], :where(x-grid,[x-grid]) > *[span="10"] { --grid-ce: 10 }
+:where(x-grid,[x-grid]) > *[span$="+11"], :where(x-grid,[x-grid]) > *[span$="-10"], :where(x-grid,[x-grid]) > *[span="11"] { --grid-ce: 11 }
+:where(x-grid,[x-grid]) > *[span$="+12"], :where(x-grid,[x-grid]) > *[span$="-11"], :where(x-grid,[x-grid]) > *[span="12"] { --grid-ce: 12 }
+:where(x-grid,[x-grid]) > *[span$="-12"] { --grid-ce: 13 }
 
 /* connect vars */
-x-grid > *[span] { grid-column-end: span var(--grid-ce) }
-x-grid > *[span*="+"], x-grid > *[span*="-"], x-grid > *[span*=".."] { grid-column-start: var(--grid-cs) }
-x-grid > *[span*="-"], x-grid > *[span*=".."] { grid-column-end: var(--grid-ce) }
-x-grid > *[span="row"] { grid-column: 1 / -1 }
+:where(x-grid,[x-grid]) > *[span] { grid-column-end: span var(--grid-ce) }
+:where(x-grid,[x-grid]) > *[span*="+"], :where(x-grid,[x-grid]) > *[span*="-"], :where(x-grid,[x-grid]) > *[span*=".."] { grid-column-start: var(--grid-cs) }
+:where(x-grid,[x-grid]) > *[span*="-"], :where(x-grid,[x-grid]) > *[span*=".."] { grid-column-end: var(--grid-ce) }
+:where(x-grid,[x-grid]) > *[span="row"] { grid-column: 1 / -1 }
 
 /*** Grid Row - Y axis */
-x-grid > *[span-y^="1"] { --grid-rs: 1 }
-x-grid > *[span-y^="2"] { --grid-rs: 2 }
-x-grid > *[span-y^="3"] { --grid-rs: 3 }
-x-grid > *[span-y^="4"] { --grid-rs: 4 }
-x-grid > *[span-y^="5"] { --grid-rs: 5 }
-x-grid > *[span-y^="6"] { --grid-rs: 6 }
-x-grid > *[span-y^="7"] { --grid-rs: 7 }
-x-grid > *[span-y^="8"] { --grid-rs: 8 }
-x-grid > *[span-y^="9"] { --grid-rs: 9 }
-x-grid > *[span-y^="10"] { --grid-rs: 10 }
-x-grid > *[span-y^="11"] { --grid-rs: 11 }
-x-grid > *[span-y^="12"] { --grid-rs: 12 }
+:where(x-grid,[x-grid]) > *[span-y^="1"] { --grid-rs: 1 }
+:where(x-grid,[x-grid]) > *[span-y^="2"] { --grid-rs: 2 }
+:where(x-grid,[x-grid]) > *[span-y^="3"] { --grid-rs: 3 }
+:where(x-grid,[x-grid]) > *[span-y^="4"] { --grid-rs: 4 }
+:where(x-grid,[x-grid]) > *[span-y^="5"] { --grid-rs: 5 }
+:where(x-grid,[x-grid]) > *[span-y^="6"] { --grid-rs: 6 }
+:where(x-grid,[x-grid]) > *[span-y^="7"] { --grid-rs: 7 }
+:where(x-grid,[x-grid]) > *[span-y^="8"] { --grid-rs: 8 }
+:where(x-grid,[x-grid]) > *[span-y^="9"] { --grid-rs: 9 }
+:where(x-grid,[x-grid]) > *[span-y^="10"] { --grid-rs: 10 }
+:where(x-grid,[x-grid]) > *[span-y^="11"] { --grid-rs: 11 }
+:where(x-grid,[x-grid]) > *[span-y^="12"] { --grid-rs: 12 }
 
-x-grid > *[span-y$="+1"], x-grid > *[span-y="1"] { --grid-re: 1 }
-x-grid > *[span-y$="+2"], x-grid > *[span-y$="-1"], x-grid > *[span-y="2"] { --grid-re: 2 }
-x-grid > *[span-y$="+3"], x-grid > *[span-y$="-2"], x-grid > *[span-y="3"] { --grid-re: 3 }
-x-grid > *[span-y$="+4"], x-grid > *[span-y$="-3"], x-grid > *[span-y="4"] { --grid-re: 4 }
-x-grid > *[span-y$="+5"], x-grid > *[span-y$="-4"], x-grid > *[span-y="5"] { --grid-re: 5 }
-x-grid > *[span-y$="+6"], x-grid > *[span-y$="-5"], x-grid > *[span-y="6"] { --grid-re: 6 }
-x-grid > *[span-y$="+7"], x-grid > *[span-y$="-6"], x-grid > *[span-y="7"] { --grid-re: 7 }
-x-grid > *[span-y$="+8"], x-grid > *[span-y$="-7"], x-grid > *[span-y="8"] { --grid-re: 8 }
-x-grid > *[span-y$="+9"], x-grid > *[span-y$="-8"], x-grid > *[span-y="9"] { --grid-re: 9 }
-x-grid > *[span-y$="+10"], x-grid > *[span-y$="-9"], x-grid > *[span-y="10"] { --grid-re: 10 }
-x-grid > *[span-y$="+11"], x-grid > *[span-y$="-10"], x-grid > *[span-y="11"] { --grid-re: 11 }
-x-grid > *[span-y$="+12"], x-grid > *[span-y$="-11"], x-grid > *[span-y="12"] { --grid-re: 12 }
-x-grid > *[span-y$="-12"] { --grid-re: 13 }
+:where(x-grid,[x-grid]) > *[span-y$="+1"], :where(x-grid,[x-grid]) > *[span-y="1"] { --grid-re: 1 }
+:where(x-grid,[x-grid]) > *[span-y$="+2"], :where(x-grid,[x-grid]) > *[span-y$="-1"], :where(x-grid,[x-grid]) > *[span-y="2"] { --grid-re: 2 }
+:where(x-grid,[x-grid]) > *[span-y$="+3"], :where(x-grid,[x-grid]) > *[span-y$="-2"], :where(x-grid,[x-grid]) > *[span-y="3"] { --grid-re: 3 }
+:where(x-grid,[x-grid]) > *[span-y$="+4"], :where(x-grid,[x-grid]) > *[span-y$="-3"], :where(x-grid,[x-grid]) > *[span-y="4"] { --grid-re: 4 }
+:where(x-grid,[x-grid]) > *[span-y$="+5"], :where(x-grid,[x-grid]) > *[span-y$="-4"], :where(x-grid,[x-grid]) > *[span-y="5"] { --grid-re: 5 }
+:where(x-grid,[x-grid]) > *[span-y$="+6"], :where(x-grid,[x-grid]) > *[span-y$="-5"], :where(x-grid,[x-grid]) > *[span-y="6"] { --grid-re: 6 }
+:where(x-grid,[x-grid]) > *[span-y$="+7"], :where(x-grid,[x-grid]) > *[span-y$="-6"], :where(x-grid,[x-grid]) > *[span-y="7"] { --grid-re: 7 }
+:where(x-grid,[x-grid]) > *[span-y$="+8"], :where(x-grid,[x-grid]) > *[span-y$="-7"], :where(x-grid,[x-grid]) > *[span-y="8"] { --grid-re: 8 }
+:where(x-grid,[x-grid]) > *[span-y$="+9"], :where(x-grid,[x-grid]) > *[span-y$="-8"], :where(x-grid,[x-grid]) > *[span-y="9"] { --grid-re: 9 }
+:where(x-grid,[x-grid]) > *[span-y$="+10"], :where(x-grid,[x-grid]) > *[span-y$="-9"], :where(x-grid,[x-grid]) > *[span-y="10"] { --grid-re: 10 }
+:where(x-grid,[x-grid]) > *[span-y$="+11"], :where(x-grid,[x-grid]) > *[span-y$="-10"], :where(x-grid,[x-grid]) > *[span-y="11"] { --grid-re: 11 }
+:where(x-grid,[x-grid]) > *[span-y$="+12"], :where(x-grid,[x-grid]) > *[span-y$="-11"], :where(x-grid,[x-grid]) > *[span-y="12"] { --grid-re: 12 }
+:where(x-grid,[x-grid]) > *[span-y$="-12"] { --grid-re: 13 }
 
 /* connect vars */
-x-grid > *[span-y] { grid-row-end: span var(--grid-re) }
-x-grid > *[span-y*="+"], x-grid > *[span-y*="-"] { grid-row-start: var(--grid-rs) }
-x-grid > *[span-y*="-"] { grid-row-end: var(--grid-re) }
+:where(x-grid,[x-grid]) > *[span-y] { grid-row-end: span var(--grid-re) }
+:where(x-grid,[x-grid]) > *[span-y*="+"], :where(x-grid,[x-grid]) > *[span-y*="-"] { grid-row-start: var(--grid-rs) }
+:where(x-grid,[x-grid]) > *[span-y*="-"] { grid-row-end: var(--grid-re) }
 
 /* [S] for window width <= 600 */
 @media (max-width: 600px) {
-  x-grid[columns-s="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  x-grid[columns-s="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
-  x-grid[columns-s="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
-  x-grid[columns-s="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
-  x-grid[columns-s="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
-  x-grid[columns-s="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
-  x-grid[columns-s="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
-  x-grid[columns-s="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
-  x-grid[columns-s="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
-  x-grid[columns-s="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
-  x-grid[columns-s="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
-  x-grid[columns-s="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
+  [columns-s="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  [columns-s="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+  [columns-s="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+  [columns-s="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+  [columns-s="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+  [columns-s="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+  [columns-s="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+  [columns-s="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+  [columns-s="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+  [columns-s="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+  [columns-s="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+  [columns-s="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
-  x-grid[columns-s="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
-  x-grid[columns-s="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-  x-grid[columns-s="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  x-grid[columns-s="1f"] > * { grid-column: 1 / -1 }
+  [columns-s="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+  [columns-s="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+  [columns-s="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  [columns-s="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
-  x-grid > *[span-s^="1"] { --grid-cs: 1 }
-  x-grid > *[span-s^="2"] { --grid-cs: 2 }
-  x-grid > *[span-s^="3"] { --grid-cs: 3 }
-  x-grid > *[span-s^="4"] { --grid-cs: 4 }
-  x-grid > *[span-s^="5"] { --grid-cs: 5 }
-  x-grid > *[span-s^="6"] { --grid-cs: 6 }
-  x-grid > *[span-s^="7"] { --grid-cs: 7 }
-  x-grid > *[span-s^="8"] { --grid-cs: 8 }
-  x-grid > *[span-s^="9"] { --grid-cs: 9 }
-  x-grid > *[span-s^="10"] { --grid-cs: 10 }
-  x-grid > *[span-s^="11"] { --grid-cs: 11 }
-  x-grid > *[span-s^="12"] { --grid-cs: 12 }
+  :where(x-grid,[x-grid]) > *[span-s^="1"] { --grid-cs: 1 }
+  :where(x-grid,[x-grid]) > *[span-s^="2"] { --grid-cs: 2 }
+  :where(x-grid,[x-grid]) > *[span-s^="3"] { --grid-cs: 3 }
+  :where(x-grid,[x-grid]) > *[span-s^="4"] { --grid-cs: 4 }
+  :where(x-grid,[x-grid]) > *[span-s^="5"] { --grid-cs: 5 }
+  :where(x-grid,[x-grid]) > *[span-s^="6"] { --grid-cs: 6 }
+  :where(x-grid,[x-grid]) > *[span-s^="7"] { --grid-cs: 7 }
+  :where(x-grid,[x-grid]) > *[span-s^="8"] { --grid-cs: 8 }
+  :where(x-grid,[x-grid]) > *[span-s^="9"] { --grid-cs: 9 }
+  :where(x-grid,[x-grid]) > *[span-s^="10"] { --grid-cs: 10 }
+  :where(x-grid,[x-grid]) > *[span-s^="11"] { --grid-cs: 11 }
+  :where(x-grid,[x-grid]) > *[span-s^="12"] { --grid-cs: 12 }
 
-  x-grid > *[span-s$="+1"], x-grid > *[span-s="1"] { --grid-ce: 1 }
-  x-grid > *[span-s$="+2"], x-grid > *[span-s$="-1"], x-grid > *[span-s="2"] { --grid-ce: 2 }
-  x-grid > *[span-s$="+3"], x-grid > *[span-s$="-2"], x-grid > *[span-s="3"] { --grid-ce: 3 }
-  x-grid > *[span-s$="+4"], x-grid > *[span-s$="-3"], x-grid > *[span-s="4"] { --grid-ce: 4 }
-  x-grid > *[span-s$="+5"], x-grid > *[span-s$="-4"], x-grid > *[span-s="5"] { --grid-ce: 5 }
-  x-grid > *[span-s$="+6"], x-grid > *[span-s$="-5"], x-grid > *[span-s="6"] { --grid-ce: 6 }
-  x-grid > *[span-s$="+7"], x-grid > *[span-s$="-6"], x-grid > *[span-s="7"] { --grid-ce: 7 }
-  x-grid > *[span-s$="+8"], x-grid > *[span-s$="-7"], x-grid > *[span-s="8"] { --grid-ce: 8 }
-  x-grid > *[span-s$="+9"], x-grid > *[span-s$="-8"], x-grid > *[span-s="9"] { --grid-ce: 9 }
-  x-grid > *[span-s$="+10"], x-grid > *[span-s$="-9"], x-grid > *[span-s="10"] { --grid-ce: 10 }
-  x-grid > *[span-s$="+11"], x-grid > *[span-s$="-10"], x-grid > *[span-s="11"] { --grid-ce: 11 }
-  x-grid > *[span-s$="+12"], x-grid > *[span-s$="-11"], x-grid > *[span-s="12"] { --grid-ce: 12 }
-  x-grid > *[span-s$="-12"] { --grid-ce: 13 }
+  :where(x-grid,[x-grid]) > *[span-s$="+1"], :where(x-grid,[x-grid]) > *[span-s="1"] { --grid-ce: 1 }
+  :where(x-grid,[x-grid]) > *[span-s$="+2"], :where(x-grid,[x-grid]) > *[span-s$="-1"], :where(x-grid,[x-grid]) > *[span-s="2"] { --grid-ce: 2 }
+  :where(x-grid,[x-grid]) > *[span-s$="+3"], :where(x-grid,[x-grid]) > *[span-s$="-2"], :where(x-grid,[x-grid]) > *[span-s="3"] { --grid-ce: 3 }
+  :where(x-grid,[x-grid]) > *[span-s$="+4"], :where(x-grid,[x-grid]) > *[span-s$="-3"], :where(x-grid,[x-grid]) > *[span-s="4"] { --grid-ce: 4 }
+  :where(x-grid,[x-grid]) > *[span-s$="+5"], :where(x-grid,[x-grid]) > *[span-s$="-4"], :where(x-grid,[x-grid]) > *[span-s="5"] { --grid-ce: 5 }
+  :where(x-grid,[x-grid]) > *[span-s$="+6"], :where(x-grid,[x-grid]) > *[span-s$="-5"], :where(x-grid,[x-grid]) > *[span-s="6"] { --grid-ce: 6 }
+  :where(x-grid,[x-grid]) > *[span-s$="+7"], :where(x-grid,[x-grid]) > *[span-s$="-6"], :where(x-grid,[x-grid]) > *[span-s="7"] { --grid-ce: 7 }
+  :where(x-grid,[x-grid]) > *[span-s$="+8"], :where(x-grid,[x-grid]) > *[span-s$="-7"], :where(x-grid,[x-grid]) > *[span-s="8"] { --grid-ce: 8 }
+  :where(x-grid,[x-grid]) > *[span-s$="+9"], :where(x-grid,[x-grid]) > *[span-s$="-8"], :where(x-grid,[x-grid]) > *[span-s="9"] { --grid-ce: 9 }
+  :where(x-grid,[x-grid]) > *[span-s$="+10"], :where(x-grid,[x-grid]) > *[span-s$="-9"], :where(x-grid,[x-grid]) > *[span-s="10"] { --grid-ce: 10 }
+  :where(x-grid,[x-grid]) > *[span-s$="+11"], :where(x-grid,[x-grid]) > *[span-s$="-10"], :where(x-grid,[x-grid]) > *[span-s="11"] { --grid-ce: 11 }
+  :where(x-grid,[x-grid]) > *[span-s$="+12"], :where(x-grid,[x-grid]) > *[span-s$="-11"], :where(x-grid,[x-grid]) > *[span-s="12"] { --grid-ce: 12 }
+  :where(x-grid,[x-grid]) > *[span-s$="-12"] { --grid-ce: 13 }
 
   /* connect vars */
-  x-grid > *[span-s] { grid-column-end: span var(--grid-ce) }
-  x-grid > *[span-s*="+"], x-grid > *[span-s*="-"], x-grid > *[span-s*=".."] { grid-column-start: var(--grid-cs) }
-  x-grid > *[span-s*="-"], x-grid > *[span-s*=".."] { grid-column-end: var(--grid-ce) }
-  x-grid > *[span-s="row"] { grid-column: 1 / -1 }
+  :where(x-grid,[x-grid]) > *[span-s] { grid-column-end: span var(--grid-ce) }
+  :where(x-grid,[x-grid]) > *[span-s*="+"], :where(x-grid,[x-grid]) > *[span-s*="-"], :where(x-grid,[x-grid]) > *[span-s*=".."] { grid-column-start: var(--grid-cs) }
+  :where(x-grid,[x-grid]) > *[span-s*="-"], :where(x-grid,[x-grid]) > *[span-s*=".."] { grid-column-end: var(--grid-ce) }
+  :where(x-grid,[x-grid]) > *[span-s="row"] { grid-column: 1 / -1 }
 
   /*** Grid Row - Y axis */
-  x-grid > *[span-y-s^="1"] { --grid-rs: 1 }
-  x-grid > *[span-y-s^="2"] { --grid-rs: 2 }
-  x-grid > *[span-y-s^="3"] { --grid-rs: 3 }
-  x-grid > *[span-y-s^="4"] { --grid-rs: 4 }
-  x-grid > *[span-y-s^="5"] { --grid-rs: 5 }
-  x-grid > *[span-y-s^="6"] { --grid-rs: 6 }
-  x-grid > *[span-y-s^="7"] { --grid-rs: 7 }
-  x-grid > *[span-y-s^="8"] { --grid-rs: 8 }
-  x-grid > *[span-y-s^="9"] { --grid-rs: 9 }
-  x-grid > *[span-y-s^="10"] { --grid-rs: 10 }
-  x-grid > *[span-y-s^="11"] { --grid-rs: 11 }
-  x-grid > *[span-y-s^="12"] { --grid-rs: 12 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="1"] { --grid-rs: 1 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="2"] { --grid-rs: 2 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="3"] { --grid-rs: 3 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="4"] { --grid-rs: 4 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="5"] { --grid-rs: 5 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="6"] { --grid-rs: 6 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="7"] { --grid-rs: 7 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="8"] { --grid-rs: 8 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="9"] { --grid-rs: 9 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="10"] { --grid-rs: 10 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="11"] { --grid-rs: 11 }
+  :where(x-grid,[x-grid]) > *[span-y-s^="12"] { --grid-rs: 12 }
 
-  x-grid > *[span-y-s$="+1"], x-grid > *[span-y-s="1"] { --grid-re: 1 }
-  x-grid > *[span-y-s$="+2"], x-grid > *[span-y-s$="-1"], x-grid > *[span-y-s="2"] { --grid-re: 2 }
-  x-grid > *[span-y-s$="+3"], x-grid > *[span-y-s$="-2"], x-grid > *[span-y-s="3"] { --grid-re: 3 }
-  x-grid > *[span-y-s$="+4"], x-grid > *[span-y-s$="-3"], x-grid > *[span-y-s="4"] { --grid-re: 4 }
-  x-grid > *[span-y-s$="+5"], x-grid > *[span-y-s$="-4"], x-grid > *[span-y-s="5"] { --grid-re: 5 }
-  x-grid > *[span-y-s$="+6"], x-grid > *[span-y-s$="-5"], x-grid > *[span-y-s="6"] { --grid-re: 6 }
-  x-grid > *[span-y-s$="+7"], x-grid > *[span-y-s$="-6"], x-grid > *[span-y-s="7"] { --grid-re: 7 }
-  x-grid > *[span-y-s$="+8"], x-grid > *[span-y-s$="-7"], x-grid > *[span-y-s="8"] { --grid-re: 8 }
-  x-grid > *[span-y-s$="+9"], x-grid > *[span-y-s$="-8"], x-grid > *[span-y-s="9"] { --grid-re: 9 }
-  x-grid > *[span-y-s$="+10"], x-grid > *[span-y-s$="-9"], x-grid > *[span-y-s="10"] { --grid-re: 10 }
-  x-grid > *[span-y-s$="+11"], x-grid > *[span-y-s$="-10"], x-grid > *[span-y-s="11"] { --grid-re: 11 }
-  x-grid > *[span-y-s$="+12"], x-grid > *[span-y-s$="-11"], x-grid > *[span-y-s="12"] { --grid-re: 12 }
-  x-grid > *[span-y-s$="-12"] { --grid-re: 13 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+1"], :where(x-grid,[x-grid]) > *[span-y-s="1"] { --grid-re: 1 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+2"], :where(x-grid,[x-grid]) > *[span-y-s$="-1"], :where(x-grid,[x-grid]) > *[span-y-s="2"] { --grid-re: 2 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+3"], :where(x-grid,[x-grid]) > *[span-y-s$="-2"], :where(x-grid,[x-grid]) > *[span-y-s="3"] { --grid-re: 3 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+4"], :where(x-grid,[x-grid]) > *[span-y-s$="-3"], :where(x-grid,[x-grid]) > *[span-y-s="4"] { --grid-re: 4 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+5"], :where(x-grid,[x-grid]) > *[span-y-s$="-4"], :where(x-grid,[x-grid]) > *[span-y-s="5"] { --grid-re: 5 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+6"], :where(x-grid,[x-grid]) > *[span-y-s$="-5"], :where(x-grid,[x-grid]) > *[span-y-s="6"] { --grid-re: 6 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+7"], :where(x-grid,[x-grid]) > *[span-y-s$="-6"], :where(x-grid,[x-grid]) > *[span-y-s="7"] { --grid-re: 7 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+8"], :where(x-grid,[x-grid]) > *[span-y-s$="-7"], :where(x-grid,[x-grid]) > *[span-y-s="8"] { --grid-re: 8 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+9"], :where(x-grid,[x-grid]) > *[span-y-s$="-8"], :where(x-grid,[x-grid]) > *[span-y-s="9"] { --grid-re: 9 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+10"], :where(x-grid,[x-grid]) > *[span-y-s$="-9"], :where(x-grid,[x-grid]) > *[span-y-s="10"] { --grid-re: 10 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+11"], :where(x-grid,[x-grid]) > *[span-y-s$="-10"], :where(x-grid,[x-grid]) > *[span-y-s="11"] { --grid-re: 11 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="+12"], :where(x-grid,[x-grid]) > *[span-y-s$="-11"], :where(x-grid,[x-grid]) > *[span-y-s="12"] { --grid-re: 12 }
+  :where(x-grid,[x-grid]) > *[span-y-s$="-12"] { --grid-re: 13 }
 
   /* connect vars */
-  x-grid > *[span-y-s] { grid-row-end: span var(--grid-re) }
-  x-grid > *[span-y-s*="+"], x-grid > *[span-y-s*="-"] { grid-row-start: var(--grid-rs) }
-  x-grid > *[span-y-s*="-"] { grid-row-end: var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-s] { grid-row-end: span var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-s*="+"], :where(x-grid,[x-grid]) > *[span-y-s*="-"] { grid-row-start: var(--grid-rs) }
+  :where(x-grid,[x-grid]) > *[span-y-s*="-"] { grid-row-end: var(--grid-re) }
 }
 
 /* [M] for window width 601px <> 1024px */
 @media (min-width: 601px) and (max-width: 1024px) {
-  x-grid[columns-m="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  x-grid[columns-m="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
-  x-grid[columns-m="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
-  x-grid[columns-m="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
-  x-grid[columns-m="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
-  x-grid[columns-m="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
-  x-grid[columns-m="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
-  x-grid[columns-m="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
-  x-grid[columns-m="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
-  x-grid[columns-m="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
-  x-grid[columns-m="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
-  x-grid[columns-m="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
+  [columns-m="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  [columns-m="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+  [columns-m="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+  [columns-m="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+  [columns-m="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+  [columns-m="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+  [columns-m="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+  [columns-m="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+  [columns-m="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+  [columns-m="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+  [columns-m="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+  [columns-m="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
-  x-grid[columns-m="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
-  x-grid[columns-m="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-  x-grid[columns-m="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  x-grid[columns-m="1f"] > * { grid-column: 1 / -1 }
+  [columns-m="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+  [columns-m="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+  [columns-m="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  [columns-m="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
-  x-grid > *[span-m^="1"] { --grid-cs: 1 }
-  x-grid > *[span-m^="2"] { --grid-cs: 2 }
-  x-grid > *[span-m^="3"] { --grid-cs: 3 }
-  x-grid > *[span-m^="4"] { --grid-cs: 4 }
-  x-grid > *[span-m^="5"] { --grid-cs: 5 }
-  x-grid > *[span-m^="6"] { --grid-cs: 6 }
-  x-grid > *[span-m^="7"] { --grid-cs: 7 }
-  x-grid > *[span-m^="8"] { --grid-cs: 8 }
-  x-grid > *[span-m^="9"] { --grid-cs: 9 }
-  x-grid > *[span-m^="10"] { --grid-cs: 10 }
-  x-grid > *[span-m^="11"] { --grid-cs: 11 }
-  x-grid > *[span-m^="12"] { --grid-cs: 12 }
+  :where(x-grid,[x-grid]) > *[span-m^="1"] { --grid-cs: 1 }
+  :where(x-grid,[x-grid]) > *[span-m^="2"] { --grid-cs: 2 }
+  :where(x-grid,[x-grid]) > *[span-m^="3"] { --grid-cs: 3 }
+  :where(x-grid,[x-grid]) > *[span-m^="4"] { --grid-cs: 4 }
+  :where(x-grid,[x-grid]) > *[span-m^="5"] { --grid-cs: 5 }
+  :where(x-grid,[x-grid]) > *[span-m^="6"] { --grid-cs: 6 }
+  :where(x-grid,[x-grid]) > *[span-m^="7"] { --grid-cs: 7 }
+  :where(x-grid,[x-grid]) > *[span-m^="8"] { --grid-cs: 8 }
+  :where(x-grid,[x-grid]) > *[span-m^="9"] { --grid-cs: 9 }
+  :where(x-grid,[x-grid]) > *[span-m^="10"] { --grid-cs: 10 }
+  :where(x-grid,[x-grid]) > *[span-m^="11"] { --grid-cs: 11 }
+  :where(x-grid,[x-grid]) > *[span-m^="12"] { --grid-cs: 12 }
 
-  x-grid > *[span-m$="+1"], x-grid > *[span-m="1"] { --grid-ce: 1 }
-  x-grid > *[span-m$="+2"], x-grid > *[span-m$="-1"], x-grid > *[span-m="2"] { --grid-ce: 2 }
-  x-grid > *[span-m$="+3"], x-grid > *[span-m$="-2"], x-grid > *[span-m="3"] { --grid-ce: 3 }
-  x-grid > *[span-m$="+4"], x-grid > *[span-m$="-3"], x-grid > *[span-m="4"] { --grid-ce: 4 }
-  x-grid > *[span-m$="+5"], x-grid > *[span-m$="-4"], x-grid > *[span-m="5"] { --grid-ce: 5 }
-  x-grid > *[span-m$="+6"], x-grid > *[span-m$="-5"], x-grid > *[span-m="6"] { --grid-ce: 6 }
-  x-grid > *[span-m$="+7"], x-grid > *[span-m$="-6"], x-grid > *[span-m="7"] { --grid-ce: 7 }
-  x-grid > *[span-m$="+8"], x-grid > *[span-m$="-7"], x-grid > *[span-m="8"] { --grid-ce: 8 }
-  x-grid > *[span-m$="+9"], x-grid > *[span-m$="-8"], x-grid > *[span-m="9"] { --grid-ce: 9 }
-  x-grid > *[span-m$="+10"], x-grid > *[span-m$="-9"], x-grid > *[span-m="10"] { --grid-ce: 10 }
-  x-grid > *[span-m$="+11"], x-grid > *[span-m$="-10"], x-grid > *[span-m="11"] { --grid-ce: 11 }
-  x-grid > *[span-m$="+12"], x-grid > *[span-m$="-11"], x-grid > *[span-m="12"] { --grid-ce: 12 }
-  x-grid > *[span-m$="-12"] { --grid-ce: 13 }
+  :where(x-grid,[x-grid]) > *[span-m$="+1"], :where(x-grid,[x-grid]) > *[span-m="1"] { --grid-ce: 1 }
+  :where(x-grid,[x-grid]) > *[span-m$="+2"], :where(x-grid,[x-grid]) > *[span-m$="-1"], :where(x-grid,[x-grid]) > *[span-m="2"] { --grid-ce: 2 }
+  :where(x-grid,[x-grid]) > *[span-m$="+3"], :where(x-grid,[x-grid]) > *[span-m$="-2"], :where(x-grid,[x-grid]) > *[span-m="3"] { --grid-ce: 3 }
+  :where(x-grid,[x-grid]) > *[span-m$="+4"], :where(x-grid,[x-grid]) > *[span-m$="-3"], :where(x-grid,[x-grid]) > *[span-m="4"] { --grid-ce: 4 }
+  :where(x-grid,[x-grid]) > *[span-m$="+5"], :where(x-grid,[x-grid]) > *[span-m$="-4"], :where(x-grid,[x-grid]) > *[span-m="5"] { --grid-ce: 5 }
+  :where(x-grid,[x-grid]) > *[span-m$="+6"], :where(x-grid,[x-grid]) > *[span-m$="-5"], :where(x-grid,[x-grid]) > *[span-m="6"] { --grid-ce: 6 }
+  :where(x-grid,[x-grid]) > *[span-m$="+7"], :where(x-grid,[x-grid]) > *[span-m$="-6"], :where(x-grid,[x-grid]) > *[span-m="7"] { --grid-ce: 7 }
+  :where(x-grid,[x-grid]) > *[span-m$="+8"], :where(x-grid,[x-grid]) > *[span-m$="-7"], :where(x-grid,[x-grid]) > *[span-m="8"] { --grid-ce: 8 }
+  :where(x-grid,[x-grid]) > *[span-m$="+9"], :where(x-grid,[x-grid]) > *[span-m$="-8"], :where(x-grid,[x-grid]) > *[span-m="9"] { --grid-ce: 9 }
+  :where(x-grid,[x-grid]) > *[span-m$="+10"], :where(x-grid,[x-grid]) > *[span-m$="-9"], :where(x-grid,[x-grid]) > *[span-m="10"] { --grid-ce: 10 }
+  :where(x-grid,[x-grid]) > *[span-m$="+11"], :where(x-grid,[x-grid]) > *[span-m$="-10"], :where(x-grid,[x-grid]) > *[span-m="11"] { --grid-ce: 11 }
+  :where(x-grid,[x-grid]) > *[span-m$="+12"], :where(x-grid,[x-grid]) > *[span-m$="-11"], :where(x-grid,[x-grid]) > *[span-m="12"] { --grid-ce: 12 }
+  :where(x-grid,[x-grid]) > *[span-m$="-12"] { --grid-ce: 13 }
 
   /* connect vars */
-  x-grid > *[span-m] { grid-column-end: span var(--grid-ce) }
-  x-grid > *[span-m*="+"], x-grid > *[span-m*="-"], x-grid > *[span-m*=".."] { grid-column-start: var(--grid-cs) }
-  x-grid > *[span-m*="-"], x-grid > *[span-m*=".."] { grid-column-end: var(--grid-ce) }
-  x-grid > *[span-m="row"] { grid-column: 1 / -1 }
+  :where(x-grid,[x-grid]) > *[span-m] { grid-column-end: span var(--grid-ce) }
+  :where(x-grid,[x-grid]) > *[span-m*="+"], :where(x-grid,[x-grid]) > *[span-m*="-"], :where(x-grid,[x-grid]) > *[span-m*=".."] { grid-column-start: var(--grid-cs) }
+  :where(x-grid,[x-grid]) > *[span-m*="-"], :where(x-grid,[x-grid]) > *[span-m*=".."] { grid-column-end: var(--grid-ce) }
+  :where(x-grid,[x-grid]) > *[span-m="row"] { grid-column: 1 / -1 }
 
   /*** Grid Row - Y axis */
-  x-grid > *[span-y-m^="1"] { --grid-rs: 1 }
-  x-grid > *[span-y-m^="2"] { --grid-rs: 2 }
-  x-grid > *[span-y-m^="3"] { --grid-rs: 3 }
-  x-grid > *[span-y-m^="4"] { --grid-rs: 4 }
-  x-grid > *[span-y-m^="5"] { --grid-rs: 5 }
-  x-grid > *[span-y-m^="6"] { --grid-rs: 6 }
-  x-grid > *[span-y-m^="7"] { --grid-rs: 7 }
-  x-grid > *[span-y-m^="8"] { --grid-rs: 8 }
-  x-grid > *[span-y-m^="9"] { --grid-rs: 9 }
-  x-grid > *[span-y-m^="10"] { --grid-rs: 10 }
-  x-grid > *[span-y-m^="11"] { --grid-rs: 11 }
-  x-grid > *[span-y-m^="12"] { --grid-rs: 12 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="1"] { --grid-rs: 1 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="2"] { --grid-rs: 2 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="3"] { --grid-rs: 3 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="4"] { --grid-rs: 4 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="5"] { --grid-rs: 5 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="6"] { --grid-rs: 6 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="7"] { --grid-rs: 7 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="8"] { --grid-rs: 8 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="9"] { --grid-rs: 9 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="10"] { --grid-rs: 10 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="11"] { --grid-rs: 11 }
+  :where(x-grid,[x-grid]) > *[span-y-m^="12"] { --grid-rs: 12 }
 
-  x-grid > *[span-y-m$="+1"], x-grid > *[span-y-m="1"] { --grid-re: 1 }
-  x-grid > *[span-y-m$="+2"], x-grid > *[span-y-m$="-1"], x-grid > *[span-y-m="2"] { --grid-re: 2 }
-  x-grid > *[span-y-m$="+3"], x-grid > *[span-y-m$="-2"], x-grid > *[span-y-m="3"] { --grid-re: 3 }
-  x-grid > *[span-y-m$="+4"], x-grid > *[span-y-m$="-3"], x-grid > *[span-y-m="4"] { --grid-re: 4 }
-  x-grid > *[span-y-m$="+5"], x-grid > *[span-y-m$="-4"], x-grid > *[span-y-m="5"] { --grid-re: 5 }
-  x-grid > *[span-y-m$="+6"], x-grid > *[span-y-m$="-5"], x-grid > *[span-y-m="6"] { --grid-re: 6 }
-  x-grid > *[span-y-m$="+7"], x-grid > *[span-y-m$="-6"], x-grid > *[span-y-m="7"] { --grid-re: 7 }
-  x-grid > *[span-y-m$="+8"], x-grid > *[span-y-m$="-7"], x-grid > *[span-y-m="8"] { --grid-re: 8 }
-  x-grid > *[span-y-m$="+9"], x-grid > *[span-y-m$="-8"], x-grid > *[span-y-m="9"] { --grid-re: 9 }
-  x-grid > *[span-y-m$="+10"], x-grid > *[span-y-m$="-9"], x-grid > *[span-y-m="10"] { --grid-re: 10 }
-  x-grid > *[span-y-m$="+11"], x-grid > *[span-y-m$="-10"], x-grid > *[span-y-m="11"] { --grid-re: 11 }
-  x-grid > *[span-y-m$="+12"], x-grid > *[span-y-m$="-11"], x-grid > *[span-y-m="12"] { --grid-re: 12 }
-  x-grid > *[span-y-m$="-12"] { --grid-re: 13 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+1"], :where(x-grid,[x-grid]) > *[span-y-m="1"] { --grid-re: 1 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+2"], :where(x-grid,[x-grid]) > *[span-y-m$="-1"], :where(x-grid,[x-grid]) > *[span-y-m="2"] { --grid-re: 2 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+3"], :where(x-grid,[x-grid]) > *[span-y-m$="-2"], :where(x-grid,[x-grid]) > *[span-y-m="3"] { --grid-re: 3 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+4"], :where(x-grid,[x-grid]) > *[span-y-m$="-3"], :where(x-grid,[x-grid]) > *[span-y-m="4"] { --grid-re: 4 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+5"], :where(x-grid,[x-grid]) > *[span-y-m$="-4"], :where(x-grid,[x-grid]) > *[span-y-m="5"] { --grid-re: 5 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+6"], :where(x-grid,[x-grid]) > *[span-y-m$="-5"], :where(x-grid,[x-grid]) > *[span-y-m="6"] { --grid-re: 6 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+7"], :where(x-grid,[x-grid]) > *[span-y-m$="-6"], :where(x-grid,[x-grid]) > *[span-y-m="7"] { --grid-re: 7 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+8"], :where(x-grid,[x-grid]) > *[span-y-m$="-7"], :where(x-grid,[x-grid]) > *[span-y-m="8"] { --grid-re: 8 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+9"], :where(x-grid,[x-grid]) > *[span-y-m$="-8"], :where(x-grid,[x-grid]) > *[span-y-m="9"] { --grid-re: 9 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+10"], :where(x-grid,[x-grid]) > *[span-y-m$="-9"], :where(x-grid,[x-grid]) > *[span-y-m="10"] { --grid-re: 10 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+11"], :where(x-grid,[x-grid]) > *[span-y-m$="-10"], :where(x-grid,[x-grid]) > *[span-y-m="11"] { --grid-re: 11 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="+12"], :where(x-grid,[x-grid]) > *[span-y-m$="-11"], :where(x-grid,[x-grid]) > *[span-y-m="12"] { --grid-re: 12 }
+  :where(x-grid,[x-grid]) > *[span-y-m$="-12"] { --grid-re: 13 }
 
   /* connect vars */
-  x-grid > *[span-y-m] { grid-row-end: span var(--grid-re) }
-  x-grid > *[span-y-m*="+"], x-grid > *[span-y-m*="-"] { grid-row-start: var(--grid-rs) }
-  x-grid > *[span-y-m*="-"] { grid-row-end: var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-m] { grid-row-end: span var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-m*="+"], :where(x-grid,[x-grid]) > *[span-y-m*="-"] { grid-row-start: var(--grid-rs) }
+  :where(x-grid,[x-grid]) > *[span-y-m*="-"] { grid-row-end: var(--grid-re) }
 }
 
 /* [L] for window width >= 1600 */
 @media (min-width: 1599px) {
-  x-grid[columns-l="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  x-grid[columns-l="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
-  x-grid[columns-l="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
-  x-grid[columns-l="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
-  x-grid[columns-l="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
-  x-grid[columns-l="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
-  x-grid[columns-l="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
-  x-grid[columns-l="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
-  x-grid[columns-l="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
-  x-grid[columns-l="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
-  x-grid[columns-l="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
-  x-grid[columns-l="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
+  [columns-l="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  [columns-l="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+  [columns-l="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+  [columns-l="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+  [columns-l="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+  [columns-l="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+  [columns-l="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+  [columns-l="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+  [columns-l="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+  [columns-l="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+  [columns-l="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+  [columns-l="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
 
-  x-grid[columns-l="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
-  x-grid[columns-l="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-  x-grid[columns-l="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  x-grid[columns-l="1f"] > * { grid-column: 1 / -1 }
+  [columns-l="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+  [columns-l="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+  [columns-l="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+  [columns-l="1f"] > * { grid-column: 1 / -1 }
 
   /*** Grid Column - X axis */
-  x-grid > *[span-l^="1"] { --grid-cs: 1 }
-  x-grid > *[span-l^="2"] { --grid-cs: 2 }
-  x-grid > *[span-l^="3"] { --grid-cs: 3 }
-  x-grid > *[span-l^="4"] { --grid-cs: 4 }
-  x-grid > *[span-l^="5"] { --grid-cs: 5 }
-  x-grid > *[span-l^="6"] { --grid-cs: 6 }
-  x-grid > *[span-l^="7"] { --grid-cs: 7 }
-  x-grid > *[span-l^="8"] { --grid-cs: 8 }
-  x-grid > *[span-l^="9"] { --grid-cs: 9 }
-  x-grid > *[span-l^="10"] { --grid-cs: 10 }
-  x-grid > *[span-l^="11"] { --grid-cs: 11 }
-  x-grid > *[span-l^="12"] { --grid-cs: 12 }
+  :where(x-grid,[x-grid]) > *[span-l^="1"] { --grid-cs: 1 }
+  :where(x-grid,[x-grid]) > *[span-l^="2"] { --grid-cs: 2 }
+  :where(x-grid,[x-grid]) > *[span-l^="3"] { --grid-cs: 3 }
+  :where(x-grid,[x-grid]) > *[span-l^="4"] { --grid-cs: 4 }
+  :where(x-grid,[x-grid]) > *[span-l^="5"] { --grid-cs: 5 }
+  :where(x-grid,[x-grid]) > *[span-l^="6"] { --grid-cs: 6 }
+  :where(x-grid,[x-grid]) > *[span-l^="7"] { --grid-cs: 7 }
+  :where(x-grid,[x-grid]) > *[span-l^="8"] { --grid-cs: 8 }
+  :where(x-grid,[x-grid]) > *[span-l^="9"] { --grid-cs: 9 }
+  :where(x-grid,[x-grid]) > *[span-l^="10"] { --grid-cs: 10 }
+  :where(x-grid,[x-grid]) > *[span-l^="11"] { --grid-cs: 11 }
+  :where(x-grid,[x-grid]) > *[span-l^="12"] { --grid-cs: 12 }
 
-  x-grid > *[span-l$="+1"], x-grid > *[span-l="1"] { --grid-ce: 1 }
-  x-grid > *[span-l$="+2"], x-grid > *[span-l$="-1"], x-grid > *[span-l="2"] { --grid-ce: 2 }
-  x-grid > *[span-l$="+3"], x-grid > *[span-l$="-2"], x-grid > *[span-l="3"] { --grid-ce: 3 }
-  x-grid > *[span-l$="+4"], x-grid > *[span-l$="-3"], x-grid > *[span-l="4"] { --grid-ce: 4 }
-  x-grid > *[span-l$="+5"], x-grid > *[span-l$="-4"], x-grid > *[span-l="5"] { --grid-ce: 5 }
-  x-grid > *[span-l$="+6"], x-grid > *[span-l$="-5"], x-grid > *[span-l="6"] { --grid-ce: 6 }
-  x-grid > *[span-l$="+7"], x-grid > *[span-l$="-6"], x-grid > *[span-l="7"] { --grid-ce: 7 }
-  x-grid > *[span-l$="+8"], x-grid > *[span-l$="-7"], x-grid > *[span-l="8"] { --grid-ce: 8 }
-  x-grid > *[span-l$="+9"], x-grid > *[span-l$="-8"], x-grid > *[span-l="9"] { --grid-ce: 9 }
-  x-grid > *[span-l$="+10"], x-grid > *[span-l$="-9"], x-grid > *[span-l="10"] { --grid-ce: 10 }
-  x-grid > *[span-l$="+11"], x-grid > *[span-l$="-10"], x-grid > *[span-l="11"] { --grid-ce: 11 }
-  x-grid > *[span-l$="+12"], x-grid > *[span-l$="-11"], x-grid > *[span-l="12"] { --grid-ce: 12 }
-  x-grid > *[span-l$="-12"] { --grid-ce: 13 }
+  :where(x-grid,[x-grid]) > *[span-l$="+1"], :where(x-grid,[x-grid]) > *[span-l="1"] { --grid-ce: 1 }
+  :where(x-grid,[x-grid]) > *[span-l$="+2"], :where(x-grid,[x-grid]) > *[span-l$="-1"], :where(x-grid,[x-grid]) > *[span-l="2"] { --grid-ce: 2 }
+  :where(x-grid,[x-grid]) > *[span-l$="+3"], :where(x-grid,[x-grid]) > *[span-l$="-2"], :where(x-grid,[x-grid]) > *[span-l="3"] { --grid-ce: 3 }
+  :where(x-grid,[x-grid]) > *[span-l$="+4"], :where(x-grid,[x-grid]) > *[span-l$="-3"], :where(x-grid,[x-grid]) > *[span-l="4"] { --grid-ce: 4 }
+  :where(x-grid,[x-grid]) > *[span-l$="+5"], :where(x-grid,[x-grid]) > *[span-l$="-4"], :where(x-grid,[x-grid]) > *[span-l="5"] { --grid-ce: 5 }
+  :where(x-grid,[x-grid]) > *[span-l$="+6"], :where(x-grid,[x-grid]) > *[span-l$="-5"], :where(x-grid,[x-grid]) > *[span-l="6"] { --grid-ce: 6 }
+  :where(x-grid,[x-grid]) > *[span-l$="+7"], :where(x-grid,[x-grid]) > *[span-l$="-6"], :where(x-grid,[x-grid]) > *[span-l="7"] { --grid-ce: 7 }
+  :where(x-grid,[x-grid]) > *[span-l$="+8"], :where(x-grid,[x-grid]) > *[span-l$="-7"], :where(x-grid,[x-grid]) > *[span-l="8"] { --grid-ce: 8 }
+  :where(x-grid,[x-grid]) > *[span-l$="+9"], :where(x-grid,[x-grid]) > *[span-l$="-8"], :where(x-grid,[x-grid]) > *[span-l="9"] { --grid-ce: 9 }
+  :where(x-grid,[x-grid]) > *[span-l$="+10"], :where(x-grid,[x-grid]) > *[span-l$="-9"], :where(x-grid,[x-grid]) > *[span-l="10"] { --grid-ce: 10 }
+  :where(x-grid,[x-grid]) > *[span-l$="+11"], :where(x-grid,[x-grid]) > *[span-l$="-10"], :where(x-grid,[x-grid]) > *[span-l="11"] { --grid-ce: 11 }
+  :where(x-grid,[x-grid]) > *[span-l$="+12"], :where(x-grid,[x-grid]) > *[span-l$="-11"], :where(x-grid,[x-grid]) > *[span-l="12"] { --grid-ce: 12 }
+  :where(x-grid,[x-grid]) > *[span-l$="-12"] { --grid-ce: 13 }
 
   /* connect vars */
-  x-grid > *[span-l] { grid-column-end: span var(--grid-ce) }
-  x-grid > *[span-l*="+"], x-grid > *[span-l*="-"], x-grid > *[span-l*=".."] { grid-column-start: var(--grid-cs) }
-  x-grid > *[span-l*="-"], x-grid > *[span-l*=".."] { grid-column-end: var(--grid-ce) }
-  x-grid > *[span-l="row"] { grid-column: 1 / -1 }
+  :where(x-grid,[x-grid]) > *[span-l] { grid-column-end: span var(--grid-ce) }
+  :where(x-grid,[x-grid]) > *[span-l*="+"], :where(x-grid,[x-grid]) > *[span-l*="-"], :where(x-grid,[x-grid]) > *[span-l*=".."] { grid-column-start: var(--grid-cs) }
+  :where(x-grid,[x-grid]) > *[span-l*="-"], :where(x-grid,[x-grid]) > *[span-l*=".."] { grid-column-end: var(--grid-ce) }
+  :where(x-grid,[x-grid]) > *[span-l="row"] { grid-column: 1 / -1 }
 
   /*** Grid Row - Y axis */
-  x-grid > *[span-y-l^="1"] { --grid-rs: 1 }
-  x-grid > *[span-y-l^="2"] { --grid-rs: 2 }
-  x-grid > *[span-y-l^="3"] { --grid-rs: 3 }
-  x-grid > *[span-y-l^="4"] { --grid-rs: 4 }
-  x-grid > *[span-y-l^="5"] { --grid-rs: 5 }
-  x-grid > *[span-y-l^="6"] { --grid-rs: 6 }
-  x-grid > *[span-y-l^="7"] { --grid-rs: 7 }
-  x-grid > *[span-y-l^="8"] { --grid-rs: 8 }
-  x-grid > *[span-y-l^="9"] { --grid-rs: 9 }
-  x-grid > *[span-y-l^="10"] { --grid-rs: 10 }
-  x-grid > *[span-y-l^="11"] { --grid-rs: 11 }
-  x-grid > *[span-y-l^="12"] { --grid-rs: 12 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="1"] { --grid-rs: 1 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="2"] { --grid-rs: 2 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="3"] { --grid-rs: 3 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="4"] { --grid-rs: 4 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="5"] { --grid-rs: 5 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="6"] { --grid-rs: 6 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="7"] { --grid-rs: 7 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="8"] { --grid-rs: 8 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="9"] { --grid-rs: 9 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="10"] { --grid-rs: 10 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="11"] { --grid-rs: 11 }
+  :where(x-grid,[x-grid]) > *[span-y-l^="12"] { --grid-rs: 12 }
 
-  x-grid > *[span-y-l$="+1"], x-grid > *[span-y-l="1"] { --grid-re: 1 }
-  x-grid > *[span-y-l$="+2"], x-grid > *[span-y-l$="-1"], x-grid > *[span-y-l="2"] { --grid-re: 2 }
-  x-grid > *[span-y-l$="+3"], x-grid > *[span-y-l$="-2"], x-grid > *[span-y-l="3"] { --grid-re: 3 }
-  x-grid > *[span-y-l$="+4"], x-grid > *[span-y-l$="-3"], x-grid > *[span-y-l="4"] { --grid-re: 4 }
-  x-grid > *[span-y-l$="+5"], x-grid > *[span-y-l$="-4"], x-grid > *[span-y-l="5"] { --grid-re: 5 }
-  x-grid > *[span-y-l$="+6"], x-grid > *[span-y-l$="-5"], x-grid > *[span-y-l="6"] { --grid-re: 6 }
-  x-grid > *[span-y-l$="+7"], x-grid > *[span-y-l$="-6"], x-grid > *[span-y-l="7"] { --grid-re: 7 }
-  x-grid > *[span-y-l$="+8"], x-grid > *[span-y-l$="-7"], x-grid > *[span-y-l="8"] { --grid-re: 8 }
-  x-grid > *[span-y-l$="+9"], x-grid > *[span-y-l$="-8"], x-grid > *[span-y-l="9"] { --grid-re: 9 }
-  x-grid > *[span-y-l$="+10"], x-grid > *[span-y-l$="-9"], x-grid > *[span-y-l="10"] { --grid-re: 10 }
-  x-grid > *[span-y-l$="+11"], x-grid > *[span-y-l$="-10"], x-grid > *[span-y-l="11"] { --grid-re: 11 }
-  x-grid > *[span-y-l$="+12"], x-grid > *[span-y-l$="-11"], x-grid > *[span-y-l="12"] { --grid-re: 12 }
-  x-grid > *[span-y-l$="-12"] { --grid-re: 13 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+1"], :where(x-grid,[x-grid]) > *[span-y-l="1"] { --grid-re: 1 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+2"], :where(x-grid,[x-grid]) > *[span-y-l$="-1"], :where(x-grid,[x-grid]) > *[span-y-l="2"] { --grid-re: 2 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+3"], :where(x-grid,[x-grid]) > *[span-y-l$="-2"], :where(x-grid,[x-grid]) > *[span-y-l="3"] { --grid-re: 3 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+4"], :where(x-grid,[x-grid]) > *[span-y-l$="-3"], :where(x-grid,[x-grid]) > *[span-y-l="4"] { --grid-re: 4 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+5"], :where(x-grid,[x-grid]) > *[span-y-l$="-4"], :where(x-grid,[x-grid]) > *[span-y-l="5"] { --grid-re: 5 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+6"], :where(x-grid,[x-grid]) > *[span-y-l$="-5"], :where(x-grid,[x-grid]) > *[span-y-l="6"] { --grid-re: 6 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+7"], :where(x-grid,[x-grid]) > *[span-y-l$="-6"], :where(x-grid,[x-grid]) > *[span-y-l="7"] { --grid-re: 7 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+8"], :where(x-grid,[x-grid]) > *[span-y-l$="-7"], :where(x-grid,[x-grid]) > *[span-y-l="8"] { --grid-re: 8 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+9"], :where(x-grid,[x-grid]) > *[span-y-l$="-8"], :where(x-grid,[x-grid]) > *[span-y-l="9"] { --grid-re: 9 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+10"], :where(x-grid,[x-grid]) > *[span-y-l$="-9"], :where(x-grid,[x-grid]) > *[span-y-l="10"] { --grid-re: 10 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+11"], :where(x-grid,[x-grid]) > *[span-y-l$="-10"], :where(x-grid,[x-grid]) > *[span-y-l="11"] { --grid-re: 11 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="+12"], :where(x-grid,[x-grid]) > *[span-y-l$="-11"], :where(x-grid,[x-grid]) > *[span-y-l="12"] { --grid-re: 12 }
+  :where(x-grid,[x-grid]) > *[span-y-l$="-12"] { --grid-re: 13 }
 
   /* connect vars */
-  x-grid > *[span-y-l] { grid-row-end: span var(--grid-re) }
-  x-grid > *[span-y-l*="+"], x-grid > *[span-y-l*="-"] { grid-row-start: var(--grid-rs) }
-  x-grid > *[span-y-l*="-"] { grid-row-end: var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-l] { grid-row-end: span var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-l*="+"], :where(x-grid,[x-grid]) > *[span-y-l*="-"] { grid-row-start: var(--grid-rs) }
+  :where(x-grid,[x-grid]) > *[span-y-l*="-"] { grid-row-end: var(--grid-re) }
 }
 
 /* ------------------
   flexbox
 ------------------ */
 /*  Flex Container */
-x-flex, [x-flex] { display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
-x-flex > * { flex: 0 1 auto; width: auto; appearance: none }
-x-flex.even > * { width: 100% }
-x-flex img { object-fit: contain; max-width: 100% }
+:where(x-flex,[x-flex]) { display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
+:where(x-flex,[x-flex]) > * { flex: 0 1 auto; width: auto; appearance: none }
+:where(x-flex,[x-flex]).even > * { width: 100% }
+:where(x-flex,[x-flex]) img { object-fit: contain; max-width: 100% }
 
 /*  Flex Direction */
 [direction="column"] { flex-direction: column }
