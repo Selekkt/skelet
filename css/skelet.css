@@ -1,4 +1,4 @@
-/*! Skelet. v3.4.5 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.4.6 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,*::before,*::after {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -1433,7 +1433,7 @@ table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
     [direction-s="row-reverse"] { flex-direction: row-reverse }
 
     /* WRAPPING */
-    [wrap],[wrap-s="wrap"] { flex-wrap: wrap }
+    [wrap-s],[wrap-s="wrap"] { flex-wrap: wrap }
     [wrap-s="nowrap"] { flex-wrap: nowrap }
     [wrap-s="reverse"] { flex-wrap: wrap-reverse }
 }
@@ -1447,7 +1447,7 @@ table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
     [direction-m="row-reverse"] { flex-direction: row-reverse }
 
     /* WRAPPING */
-    [wrap],[wrap-m="wrap"] { flex-wrap: wrap }
+    [wrap-m],[wrap-m="wrap"] { flex-wrap: wrap }
     [wrap-m="nowrap"] { flex-wrap: nowrap }
     [wrap-m="reverse"] { flex-wrap: wrap-reverse }
 }
@@ -1461,7 +1461,7 @@ table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
     [direction-l="row-reverse"] { flex-direction: row-reverse }
 
     /* WRAPPING */
-    [wrap],[wrap-l="wrap"] { flex-wrap: wrap }
+    [wrap-l],[wrap-l="wrap"] { flex-wrap: wrap }
     [wrap-l="nowrap"] { flex-wrap: nowrap }
     [wrap-l="reverse"] { flex-wrap: wrap-reverse }
 }
