@@ -41,6 +41,14 @@ npm i selekkt-skelet
 
 ---
 
+##### Development branch: "next"
+
+``` 
+https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet.css
+``` 
+
+---
+
 ### Directory structure
 This is the dir structure of Skelet. `docs` & `layouts` could be deleted if not needed.
 ``` 

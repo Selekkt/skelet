@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HTML5 Test Page</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
     <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
   </head>
@@ -193,12 +193,288 @@
                 </tr>
               </tbody>
             </table>
+
+            <h3>Sticky head</h3>
+            <p>If sticky head or foot is active the table will overflow on smaller screens.</p>
+            <br>
+              <table class="is-sticky-head">
+                <thead>
+                  <tr>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            <h3>No head</h3>
+
+            <table>
+              <tbody>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>No foot</h3>            
+
+            <p>
+            <table>
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+            <h3>is-striped</h3>            
+
+            <p>
+            <table class="is-striped">
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+            <h3>is-hover</h3>            
+
+            <p>
+            <table class="is-hover">
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+            <h3>Column borders</h3>            
+
+            <p>
+            <table class="has-borders">
+              <tbody>
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="text__code">
             <header><h1>Code</h1></header>
             <div>
-              <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+
+            <p><kbd>`</kbd><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><kbd>5</kbd><kbd>6</kbd><kbd>7</kbd><kbd>8</kbd><kbd>9</kbd><kbd>0</kbd><kbd>-</kbd><kbd>=</kbd><kbd>Bkspc</kbd></p>
+
+            <p><kbd>Tab</kbd><kbd>q</kbd><kbd>w</kbd><kbd>e</kbd><kbd>r</kbd><kbd>t</kbd><kbd>y</kbd><kbd>u</kbd><kbd>i</kbd><kbd>o</kbd><kbd>p</kbd><kbd>[</kbd><kbd>]</kbd><kbd>\</kbd></p>
+
+            <p><kbd>Caps</kbd><kbd>a</kbd><kbd>s</kbd><kbd>d</kbd><kbd>f</kbd><kbd>g</kbd><kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd><kbd>;</kbd><kbd>'</kbd><kbd>Enter</kbd></p>
+
+            <p><kbd>Shift</kbd><kbd>z</kbd><kbd>x</kbd><kbd>c</kbd><kbd>v</kbd><kbd>b</kbd><kbd>n</kbd><kbd>m</kbd><kbd>,</kbd><kbd>.</kbd><kbd>/</kbd><kbd>Shift</kbd></p>
+
+            <p><kbd>Ctrl</kbd><kbd>⌥ Alt</kbd><kbd>⌘ Cmd</kbd><kbd style="min-width:215px">Space</kbd><kbd>⌘</kbd><kbd>⌥</kbd></p>
+
               <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
               <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
               <h2>Pre-formatted text</h2>
@@ -267,17 +543,27 @@
           </article>
           <article id="embedded__audio">
             <header><h2>Audio</h2></header>
-            <div><audio controls="">audio</audio></div>
+            <div>
+            <audio controls>
+              <source src="https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__video">
             <header><h2>Video</h2></header>
-            <div><video controls="">video</video></div>
+            <div>
+            <video controls>
+              <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+            </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__canvas">
             <header><h2>Canvas</h2></header>
-            <div><x-cellanvas>canvas</canvas></div>
+            <div><canvas>canvas</canvas></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__meter">
@@ -292,7 +578,7 @@
           </article>
           <article id="embedded__svg">
             <header><h2>Inline SVG</h2></header>
-            <div><svg width="100px" height="100px"><x-cellircle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+            <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__iframe">
@@ -306,6 +592,10 @@
           <form>
             <fieldset id="forms__input">
               <legend>Input fields</legend>
+              <p>
+                <label for="input__notype">Input no type</label>
+                <input id="input__notype" placeholder="No type Input">
+              </p>
               <p>
                 <label for="input__text">Text Input</label>
                 <input id="input__text" type="text" placeholder="Text Input">
@@ -548,11 +838,6 @@
                       <i class="fab fa-github"></i>
                   </button>
                   <hr>
-                  <button class="is-yellow has-shadow">button has-shadow</button>
-                  <button class="is-black is-pill has-shadow">button is-black has-shadow</button>
-                  <button class="is-green is-outline has-shadow">button is-outline has-shadow</button>
-                  <button class="is-circle is-large has-shadow"><i class="fas fa-bold"></i></button>
-                  <hr>
                   <button class="is-white">button is-white</button>
                   <button class="is-light">button is-light</button>
                   <button class="is-black">button is-black</button>
@@ -580,12 +865,118 @@
             <p><a href="#top">[Top]</a></p>
           </form>
         </section>
-            <fieldset id="flow">
-              <legend>Flow Columns</legend>
-                <p flow-col="3">
-                A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
+
+<fieldset id="stack">
+    <legend>.stack</legend>
+    <div class="stack">
+        <input type="text" placeholder="Input">
+        <button class="is-primary">Button</button>
+    </div>
+</fieldset>
+<a href="#stack">url</a>
+
+<style>
+.stack.my-style { border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor); border-radius: var(--inputRadius); }
+.stack.my-style:focus-within { background: var(--inputBg); border-color: var(--inputActive) }
+</style>
+<fieldset id="stack-no-style">
+    <legend>.stack.no-style</legend>
+    <div class="stack no-style my-style">
+        <input type="text" placeholder="Input" class="is-blank">
+        <button class="is-primary">Button</button>
+    </div>
+</fieldset>
+<a href="#stack-no-style">url</a>
+
+<section id="presuffix">
+<fieldset>
+    <legend>Prefix and suffix</legend>
+    <div class="stack presuffix">
+        <input type="text" placeholder="https://selekkt.dk" class="is-blank">
+        <span>/skelet/v3</span>
+    </div>
+    <code>class="stack presuffix"</code>
+<br>
+    <div class="stack no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="selekkt.dk/skelet/v3" class="is-blank">
+    </div>
+    <code>class="stack no-style presuffix"</code>
+<br>
+    <div class="stack no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="skelet" class="is-blank">
+        <span>.dk</span>
+    </div>
+    <code>class="stack no-style presuffix"</code>
+<br>
+    <div class="stack no-style presuffix">
+        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button>Search</button>
+    </div>
+    <code>class="stack no-style presuffix"</code>
+<br>
+    <div class="stack no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button class="text-uppercase"><i class="fa-regular fa-circle-xmark"></i></button>
+    </div>
+    <code>class="stack no-style presuffix"</code>
+<br>
+    <div class="stack no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <span class="is-loading"></span>
+    </div>
+    <code>class="stack no-style presuffix"</code>
+</fieldset>
+<a href="#presuffix">url</a>
+</section>
+
+            <fieldset id="badge">
+              <legend>.badge</legend>
+              <p>
+                <div><code>class="badge"</code></div>
+                <span class="badge">1</span>
+                <span class="badge">10</span>
+                <span class="badge">100</span>
+                <span class="badge">1000</span>
+                <span class="badge">New</span>
+                <span class="badge">Hot</span>
+                <span class="badge">WOW</span>
+              </p>
+
+              <p>
+                <div><code>class="badge is-circle"</code></div>
+                <span class="badge is-circle">1</span>
+                <span class="badge is-circle">10</span>
+                <span class="badge is-circle">100</span>
+              </p>
+
+              <p>
+                <div><code>class="badge is-outline"</code></div>
+                <span class="badge is-outline">HOT</span>
+                <span class="badge is-outline">🔥 New</span>
+                <span class="badge is-circle is-outline">🌴</span>
+              </p>
+
+              <p>
+                <div><code>class="badge is-large"</code></div>
+                <span class="badge is-large">HOT</span>
+                <span class="badge is-large">🔥 New</span>
+                <span class="badge is-circle is-large">🌴</span>
+              </p>
+
+              <p>
+                <div><code>class="badge is-green"</code></div>
+                <span class="badge is-green">green</span>
+                <span class="badge is-outline is-red">RED</span>
+                <span class="badge is-yellow">yellow</span>
+                <span class="badge is-circle is-blue">1</span>
+              </p>
             </fieldset>
+            <a href="#badge">url</a>
 
            <div id="tooltips">
               <legend>Tooltips</legend>
@@ -752,5 +1143,25 @@
     
       </main>
     </div>
+    <style>
+      #light {
+        position: fixed;
+        top: var(--margin);
+        right: var(--margin);
+        z-index: 999;
+        cursor: pointer;
+        aspect-ratio: 1/1;
+        background: var(--color);
+        height: 30px;
+        border-radius: 100vw;
+      }
+    </style>
+    <div id="light"></div>
   </body>
+  <script>
+    let lightBulb = document.querySelector('#light');
+    lightBulb.addEventListener("click", () => {
+      document.body.toggleAttribute("dark-mode");
+    }, false);
+  </script>
 </html>

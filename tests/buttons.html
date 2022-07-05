@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+    <title>Buttons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  <!-- browse the icons: https://fontawesome.com/v6.0/icons?m=free -->
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="../css/skelet.css">
@@ -33,21 +33,57 @@
 </div>
 <hr>
 <fieldset>
-    <legend>.group-input-button</legend>
-    <div class="group-input-button">
+    <legend>.stack</legend>
+    <div class="stack">
         <input type="text" placeholder="Input">
         <button class="is-primary">Button</button>
     </div>
 </fieldset>
 <style>
-.group-input-button.my-style { border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor); border-radius: var(--inputRadius); }
-.group-input-button.my-style:focus-within { background: var(--inputBg); border-color: var(--inputActive) }
+.stack.my-style { border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor); border-radius: var(--inputRadius); }
+.stack.my-style:focus-within { background: var(--inputBg); border-color: var(--inputActive) }
 </style>
 <fieldset>
-    <legend>.group-input-button.no-style</legend>
-    <div class="group-input-button no-style my-style">
+    <legend>.stack.no-style</legend>
+    <div class="stack no-style my-style">
         <input type="text" placeholder="Input" class="is-blank">
         <button class="is-primary">Button</button>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Prefix and suffix</legend>
+    <div class="stack presuffix">
+        <input type="text" placeholder="https://selekkt.dk" class="is-blank">
+        <span>/skelet/v3</span>
+    </div>
+<br>
+    <div class="stack no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="selekkt.dk/skelet/v3" class="is-blank">
+    </div>
+<br>
+    <div class="stack no-style presuffix">
+        <span>https://</span>
+        <input type="text" placeholder="skelet" class="is-blank">
+        <span>.dk</span>
+    </div>
+<br>
+    <div class="stack no-style presuffix">
+        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button>Search</button>
+    </div>
+<br>
+    <div class="stack no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <button class="text-uppercase"><i class="fa-regular fa-circle-xmark"></i></button>
+    </div>
+<br>
+    <div class="stack no-style presuffix">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search" class="is-blank">
+        <span class="is-loading"></span>
     </div>
 </fieldset>
 <hr>
@@ -68,7 +104,7 @@
 <hr>
 <button class="is-loading"></button>
 <button class="is-loading is-yellow"></button>
-<button class="is-loading">loading</button>
+<button class="is-loading" disabled>loading</button>
 <button class="is-loading is-outline is-small"></button>
 <hr>
 <button class="button has-icon">
@@ -85,11 +121,6 @@
     <i class="fab fa-github"></i>
 </button>
 <hr>
-<button class="is-yellow has-shadow">button has-shadow</button>
-<button class="is-black is-pill has-shadow">button is-black has-shadow</button>
-<button class="is-green is-outline has-shadow">button is-outline has-shadow</button>
-<button class="is-circle is-large has-shadow"><i class="fas fa-bold"></i></button>
-<hr>
 <button class="is-white">button is-white</button>
 <button class="is-light">button is-light</button>
 <button class="is-black">button is-black</button>
@@ -100,6 +131,8 @@
 <button class="is-green">button is-green</button>
 <button class="is-yellow">button is-yellow</button>
 <button class="is-red">button is-red</button>
+<button class="is-orange">button is-orange</button>
+<button class="is-purple">button is-purple</button>
 <hr>
 <button class="is-outline is-white">button is-outline is-white</button>
 <button class="is-outline is-black">button is-outline is-black</button>
@@ -174,6 +207,8 @@
 <button class="is-green">button is-green</button>
 <button class="is-yellow">button is-yellow</button>
 <button class="is-red">button is-red</button>
+<button class="is-orange">button is-orange</button>
+<button class="is-purple">button is-purple</button>
 <hr>
 <button class="is-outline is-white">button is-outline is-white</button>
 <button class="is-outline is-black">button is-outline is-black</button>
@@ -182,6 +217,8 @@
 <button class="is-outline is-outline is-green">button is-outline is-green</button>
 <button class="is-outline is-yellow">button is-outline is-yellow</button>
 <button class="is-outline is-red">button is-outline is-red</button>
+<button class="is-outline is-orange">button is-orange</button>
+<button class="is-outline is-purple">button is-purple</button>
 <hr>
 <a href="" class="button">a.button</a>
 <a href="" class="button disabled">a.button.disabled</a>
