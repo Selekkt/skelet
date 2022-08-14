@@ -1,4 +1,4 @@
-/*! Skelet. v3.4.6 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.4.7 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,*::before,*::after {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -207,7 +207,7 @@ dd {margin-inline-start:4rem}
 figure {margin:0;width:fit-content}
 figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
 [hidden],[type="hidden"],.hidden {display:none!important;outline:0}
-[disabled],[disabled]:hover,.disabled { filter: grayscale(100%); opacity:0.7!important; cursor:not-allowed!important; --buttonColor: var(--white); --buttonColorHover: var(--white) }
+[disabled],[disabled]:hover,.disabled { filter: grayscale(100%); opacity: 0.7!important; cursor: not-allowed!important; --buttonColor:var(--white); --buttonColorHover: var(--white) }
 
 /* ------------------
   basics
@@ -215,7 +215,7 @@ figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
 ::selection { background: var(--selectionBg); color: var(--selectionText) }
 ::-moz-selection { background: var(--selectionBg); color: var(--selectionText) }
 
-html { height: 100%; font-size: 62.5%; scroll-behavior: smooth }
+html { height: 100%; font-size: 62.5%; scroll-behavior: var(--scrollBehavior, smooth); scroll-padding-top: var(--scrollPadding, auto) }
 body { background: var(--bgColor); color: var(--color); font-size: var(--fontSize); line-height: var(--fontLine); letter-spacing: var(--fontSpace); font-weight: var(--fontWeight); font-style: var(--fontStyle); font-family: var(--fontFamily) }
 
 #app { display: flex; flex-direction: column; min-height: 100vh }
@@ -351,9 +351,10 @@ kbd {
 .is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
 /** Group inputs */
-.stack { --buttonMargin: auto; --buttonHeight: 100%; display: inline-flex; justify-content: center; align-items: center }
+.stack { --buttonMargin: auto; --buttonHeight: 100%; display: var(--stackDisplay, inline-flex); justify-content: var(--stack-jc, center); align-items: var(--stack-ai, center); height: var(--stackHeight, auto) }
 .stack.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
-.stack:where(.no-style,.presuffix) > *:focus { box-shadow: none; outline: none!important }
+.stack.no-style > *:is(:hover,:focus) { border:none }
+.stack:where(.no-style, .presuffix) *:focus { box-shadow: none; outline: none!important; border-color: none!important }
 
 .stack.presuffix {
     --buttonColor: currentColor;
@@ -638,7 +639,7 @@ kbd {
 /* ------------------
   buttons
 ------------------ */
-button,.button,[type=button],[type=submit],[type=reset] {
+button,.button,[type="button"],[type="submit"],[type="reset"] {
     padding: var(--buttonPadding);
     margin: var(--buttonMargin);
     border-radius: var(--buttonRadius);
@@ -664,22 +665,22 @@ button,.button,[type=button],[type=submit],[type=reset] {
     user-select: none;
 }
 
-:where(button,.button,[type=button],[type=submit],[type=reset]):hover { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover) }
+:where(button,.button,[type="button"],[type="submit"],[type="reset"]):hover { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover) }
 
-.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) { display:inline-flex; align-items:center; justify-content:center }
-.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) i { font-size: max(15px, var(--buttonFontSize)) }
+.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { display:inline-flex; align-items:center; justify-content:center }
+.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i { font-size: max(15px, var(--buttonFontSize)) }
 
-.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) i:first-child:not(:last-child) { padding-right:1rem }
-.has-icon:where(button,.button,[type=button],[type=submit],[type=reset]) i:last-child:not(:first-child) { padding-left:1rem }
+.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:first-child:not(:last-child) { padding-right:1rem }
+.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:last-child:not(:first-child) { padding-left:1rem }
 
-.is-small:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonFontSize: min(0.75em, 1.4rem) }
-.is-large:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonFontSize:1.45em }
+.is-small:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonFontSize: min(0.75em, 1.4rem) }
+.is-large:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonFontSize:1.45em }
 
-.is-pill:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:100vw }
-.is-circle:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:100vw; padding:1em; width:1em; height:1em }
-.is-square:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonRadius:0 }
+.is-pill:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:100vw }
+.is-circle:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:100vw; padding:1em; width:1em; height:1em }
+.is-square:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:0 }
 
-.is-loading:where(span,button,.button,[type=button],[type=submit],[type=reset]):after {
+.is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):after {
     content: "";
     animation: loading 500ms infinite linear;
     border: 2px solid var(--buttonColor);
@@ -692,36 +693,36 @@ button,.button,[type=button],[type=submit],[type=reset] {
     position: relative;
 }
 
-.is-loading:where(span,button,.button,[type=button],[type=submit],[type=reset]):not(:empty):after { margin-left: 1rem }
+.is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):not(:empty):after { margin-left: 1rem }
 
 .is-unset { all: unset }
-.is-blank:where(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
-.is-custom:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor }
+.is-blank:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
+.is-custom:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor }
 
-.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg) }
-.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--buttonColorHover) }
+.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg) }
+.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--buttonColorHover) }
 
-.is-white:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonBg:var(--white); --buttonBgHover:var(--buttonBg); --buttonColor:var(--black); 
+.is-white:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonBg:var(--white); --buttonBgHover:var(--buttonBg); --buttonColor:var(--black); 
     --buttonColorHover: var(--black) }
-.is-black:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonBg:var(--black); --buttonBgHover:var(--buttonBg); --buttonColor:var(--white) }
+.is-black:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonBg:var(--black); --buttonBgHover:var(--buttonBg); --buttonColor:var(--white) }
 
-.is-currentcolor.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: currentColor; --buttonBorderColor: var(--buttonColor); --buttonColorHover: var(--buttonColor);  --buttonBorderHover: var(--buttonColor) }
-.is-white.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--white); --buttonBorderColor: var(--white);--buttonColorHover: var(--white);  --buttonBorderHover: var(--white) }
-.is-black.is-outline:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--black); --buttonBorderColor: var(--black); --buttonColorHover: var(--black); --buttonBorderHover: var(--black) }
+.is-currentcolor.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: currentColor; --buttonBorderColor: var(--buttonColor); --buttonColorHover: var(--buttonColor);  --buttonBorderHover: var(--buttonColor) }
+.is-white.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--white); --buttonBorderColor: var(--white);--buttonColorHover: var(--white);  --buttonBorderHover: var(--white) }
+.is-black.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--black); --buttonBorderColor: var(--black); --buttonColorHover: var(--black); --buttonBorderHover: var(--black) }
 
-:where(.is-primary,.is-blue,.is-green,.is-yellow,.is-red,.is-orange,.is-purple):where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg) }
-:where(.is-green,.is-yellow,.is-red,.is-orange):where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonColor: var(--black) }
+:where(.is-primary,.is-blue,.is-green,.is-yellow,.is-red,.is-orange,.is-purple):where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg) }
+:where(.is-green,.is-yellow,.is-red,.is-orange):where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--black) }
 
 
-.is-primary:where(button,.button,[type=button],[type=submit],[type=reset]) { --buttonBg: var(--primary) }
-.is-blue:where(button,.button,[type=button],[type=submit],[type=reset])    { --buttonBg: var(--blue); --buttonColorHover: var(--white) }
-.is-green:where(button,.button,[type=button],[type=submit],[type=reset])   { --buttonBg: var(--green); --buttonColorHover: var(--black) }
-.is-yellow:where(button,.button,[type=button],[type=submit],[type=reset])  { --buttonBg: var(--yellow); --buttonColorHover: var(--black) }
-.is-red:where(button,.button,[type=button],[type=submit],[type=reset])     { --buttonBg: var(--red); --buttonColorHover: var(--black) }
-.is-orange:where(button,.button,[type=button],[type=submit],[type=reset])  { --buttonBg: var(--orange); --buttonColorHover: var(--black) }
-.is-purple:where(button,.button,[type=button],[type=submit],[type=reset])  { --buttonBg: var(--purple) }
+.is-primary:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: var(--primary) }
+.is-blue:where(button,.button,[type="button"],[type="submit"],[type="reset"])    { --buttonBg: var(--blue); --buttonColorHover: var(--white) }
+.is-green:where(button,.button,[type="button"],[type="submit"],[type="reset"])   { --buttonBg: var(--green); --buttonColorHover: var(--black) }
+.is-yellow:where(button,.button,[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--yellow); --buttonColorHover: var(--black) }
+.is-red:where(button,.button,[type="button"],[type="submit"],[type="reset"])     { --buttonBg: var(--red); --buttonColorHover: var(--black) }
+.is-orange:where(button,.button,[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--orange); --buttonColorHover: var(--black) }
+.is-purple:where(button,.button,[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--purple) }
 
-.is-blue:where(button,.button,[type=button],[type=submit],[type=reset]):not(.is-outline) { --buttonColor: var(--white) }
+.is-blue:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonColor: var(--white) }
 
 /** Radio checkbox switch */
 input[type="checkbox"],
@@ -907,17 +908,17 @@ textarea:focus {
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderActive, var(--inputBorderHover));
 }
 
-input[type=color] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
+input[type="color"] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
 
-input[type=file] { --inputBorderWidth: 2px; --inputBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
-input[type=file]::file-selector-button { border: 0; border-right: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100% }
+input[type="file"] { --inputBorderWidth: 2px; --inputBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
+input[type="file"]::file-selector-button { border: 0; border-right: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100% }
 
-input[type=range] { height: 25px; margin: 10px 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none }
-input[type=range]::-moz-range-track              { width: 100%; height: 5px; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
-input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 5px; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
+input[type="range"] { height: 25px; margin: 10px 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none }
+input[type="range"]::-moz-range-track              { width: 100%; height: 5px; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
+input[type="range"]::-webkit-slider-runnable-track { width: 100%; height: 5px; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
 
-input[type=range]::-moz-range-thumb     { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px }
-input[type=range]::-webkit-slider-thumb { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px }
+input[type="range"]::-moz-range-thumb     { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px }
+input[type="range"]::-webkit-slider-thumb { border: 1px solid rgba(0,0,0,.5); height: 18px; width: 18px; border-radius: 25px; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-top: -7px }
 
 textarea { min-height: 6.5rem; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius)) }
 textarea.resize-vertical { resize: vertical }
@@ -2449,7 +2450,7 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
     animation-name: var(--animation-name, fadeIn); /* default animation: fadeIn */
     animation-duration: var(--duration, 1s);  /* default duration: 1s */
     animation-delay: var(--delay, 0s); /* default delay: 0s */
-    animation-timing-function: var(--ease, easeInOutCubic); /* default ease: easeInOutCubic */
+    animation-timing-function: var(--ease, var(--easeInOutCubic)); /* default ease: easeInOutCubic */
 }
 
 /*** Cubic Bezier for ANIMATIONS • examples at: https://easings.net/ */
