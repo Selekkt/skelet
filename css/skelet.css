@@ -1054,7 +1054,7 @@ table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
 }
 
 :where(x-grid,[x-grid]) img { object-fit: contain; max-width: 100% }
-:where(x-grid,[x-grid]) > * { display: block; appearance: none; -webkit-appearance: none }
+:where(x-grid,[x-grid]) > * { appearance: none; -webkit-appearance: none }
 
 [columns="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
 [columns="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
