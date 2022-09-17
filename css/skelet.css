@@ -166,7 +166,7 @@ summary{display:list-item}
 }
 
 /*** Dark Mode */
-.dark-mode, [dark-mode], [color-scheme=dark] {
+.dark-mode, [dark-mode], [color-scheme="dark"] {
     color-scheme: dark;
 
     --bgColor: #000;
@@ -516,6 +516,7 @@ kbd {
     --scrollType: mandatory;
     --scrollAlign: start;
     --scrollMargin: 1rem;
+    --scrollPadding: 0;
     --scrollStop: normal;
     --scrollJustifyContent: start;
     --scrollAlignItems: center;
@@ -538,11 +539,12 @@ kbd {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
     scroll-margin: var(--scrollMargin);
+    scroll-padding: var(--scrollPadding);
     scroll-snap-stop: var(--scrollStop);
     scroll-snap-type: var(--scrollDirection) var(--scrollType);
 }
 
-.scroll-snap > * { width: var(--scrollWidth); flex: none; scroll-snap-align: var(--scrollAlign) }
+.scroll-snap > * { flex: none; width: var(--scrollWidth); scroll-snap-align: var(--scrollAlign) }
 .scroll-snap.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll; } 
 .scroll-snap.mandatory { --scrollType: mandatory } /* default */
 .scroll-snap.proximity { --scrollType: proximity }
