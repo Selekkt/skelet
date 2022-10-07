@@ -1020,8 +1020,7 @@
             </div>
 
             <style>
-                .box-row { color: var(--white); background-color: var(--primary); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
-                x-cell { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
+                x-cell, #cssgrid span { color: var(--white); padding: var(--padding); border-radius: var(--radius); }
             </style>
 
             <fieldset id="cssgrid">
@@ -1094,51 +1093,44 @@
                   <x-cell span="row">Footer</x-cell>
                 </x-grid>
 
-                <span class="text-hr">Grid not inside x-grid</span>
-                <style>
-                    .grid {
-                  display: grid;
-                  grid-template-columns: 10% 20% auto 30% 10%;
-                  grid-template-rows: 25% 100px auto;
-                  grid-gap: 1rem;
-                }
-                .grid > span { padding: 2rem; border-radius: 3px; }
-                </style>
-                <div class="grid debug" align="stretch">
-                  <span class="c" align="center">Box 1</span>
+                <span class="text-hr">Multidimensional grid</span>
+
+                <x-grid class="debug" columns="10">
+                  <x-cell span="1+2" span-y="1-3">cell 1</x-cell>
+                  <x-cell span="3+2">cell 2</x-cell>
+                  <x-cell span="5+4">cell 3</x-cell>
+                  <x-cell span="9+2">cell 4</x-cell>
+
+                  <x-cell span="3+4">cell 5</x-cell>
+                  <x-cell span="7+4" span-y="2-3">cell 6</x-cell>
+                  <x-cell span="3-6">cell 7</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Div with [x-grid] and spans instead of x-cell</span>
+                <div class="debug" x-grid align="stretch">
+                  <span span="2">Box 1</span>
                   <span>Box 2</span>
                   <span>Box 3</span>
+
                   <span>Box 4</span>
-                  <span span="row">Box 5</span>
+                  <span span="2">Box 5</span>
+                  <span>Box 6</span>
+
+                  <span span="row">Box 7</span>
                 </div>
             </fieldset>
 
             <fieldset class="flexbox">
-              <legend>CSS Grid</legend>
+              <legend>Flex</legend>
 
-              <x-flex class="debug">
+              <x-flex jc="between" class="debug">
                   <x-cell>Box 1</x-cell>
                   <x-cell>Box 2</x-cell>
                   <x-cell>Box 3</x-cell>
                   <x-cell>Box 4</x-cell>
-                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
               </x-flex>
 
-              <x-flex class="debug even">
-                  <x-cell>Box 1</x-cell>
-                  <x-cell>Box 2</x-cell>
-                  <x-cell>Box 3</x-cell>
-                  <x-cell>Box 4</x-cell>
-                  <x-cell>Box 4</x-cell>
-              </x-flex>
-
-              <x-flex class="debug" pc="center evenly">
-                  <x-cell>Box 1</x-cell>
-                  <x-cell>Box 2</x-cell>
-                  <x-cell>Box 3</x-cell>
-                  <x-cell>Box 4</x-cell>
-                  <x-cell>Box 4</x-cell>
-              </x-flex>
             </fieldset>
     
       </main>
