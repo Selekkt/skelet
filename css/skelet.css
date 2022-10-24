@@ -1,4 +1,4 @@
-/*! Skelet. v3.4.7 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet. v3.4.8 | MIT License | (c) 2022 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,*::before,*::after {box-sizing:border-box}
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -99,6 +99,7 @@ summary{display:list-item}
     --hSpace: normal;
     --hWeight: 600;
     --hStyle: normal;
+    --hMargin: 0 0 0.7rem;
 
     /* other */
     --padding: 1rem;
@@ -200,8 +201,8 @@ summary{display:list-item}
   more resets
 ------------------ */
 :not(pre) > code,:not(pre) > kbd,:not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
-img,svg,canvas,video,iframe,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
-iframe{width:100%;border:0}
+img,svg,canvas,video,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
+iframe{display:block;border:0;max-width:100%}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0;width:fit-content}
@@ -233,7 +234,7 @@ h1, h2, h3, h4, h5, h6,
     line-height: var(--hLine); 
     letter-spacing: var(--hSpace); 
     color: var(--hColor); 
-    margin-top: 0; margin-bottom: 0.7rem; 
+    margin: var(--hMargin); 
 }
 
 h1,.h1 { --hSize: var(--h1Size); --hLine: var(--h1Line) }
