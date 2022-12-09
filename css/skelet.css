@@ -232,7 +232,9 @@ h1, h2, h3, h4, h5, h6,
     font-weight: var(--hWeight); 
     font-style: var(--hStyle);
     line-height: var(--hLine); 
-    letter-spacing: var(--hSpace); 
+    letter-spacing: var(--hSpace);
+    text-transform: var(--hTransform);
+    text-align: var(--hAlign);
     color: var(--hColor); 
     margin: var(--hMargin); 
 }
@@ -880,7 +882,6 @@ textarea {
     color: var(--inputColor);
     text-align: var(--inputAlign, start);
     width: var(--inputWidth, 100%);
-    height: var(--inputHeight);
     transition: border 200ms ease-out;
     -webkit-appearance: none;
     appearance: none;
@@ -1433,6 +1434,7 @@ table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
 /*  Flex Container */
 :where(x-flex,[x-flex]) { display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
 :where(x-flex,[x-flex]) > * { flex: 0 1 auto; width: auto; appearance: none }
+:where(x-flex,[x-flex]).fullflex { flex: 1 1 auto }
 :where(x-flex,[x-flex]).even > * { width: 100% }
 :where(x-flex,[x-flex]) img { object-fit: contain; max-width: 100% }
 
