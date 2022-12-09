@@ -515,8 +515,11 @@ kbd {
 .mob-scroller { display: flex; flex-wrap: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch }
 @media (max-width: 1024px) { .mob-scroller::-webkit-scrollbar { display:none } }
 
-@media (max-width: 777px) { .large-only, .only-large  { display:none!important } }
-@media (min-width: 778px) { .small-only, .only-small  { display:none!important } }
+@media (min-width: 1024px) { .small-medium { display: none!important } }
+@media (max-width: 1024px) { .medium-large { display: none!important } }
+
+@media (max-width: 777px) { .large-only  { display:none!important } }
+@media (min-width: 778px) { .small-only  { display:none!important } }
 
 .no-scrollbars { scrollbar-width:none; -ms-overflow-style:none }
 .no-scrollbars::-webkit-scrollbar { display:none }
