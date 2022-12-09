@@ -652,8 +652,10 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
     font-size: var(--buttonFontSize);
     font-weight: var(--buttonFontWeight);
     color: var(--buttonColor);
+    text-align: var(--buttonAlign, center);
+    height: var(--buttonHeight, fit-content);
+    width: var(--buttonWidth);
     letter-spacing: .03em;
-    text-align: center;
     white-space: nowrap;
     line-height: 1;
     font-style: inherit;
@@ -663,7 +665,6 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    height: var(--buttonHeight, fit-content);
     cursor: pointer;
     user-select: none;
 }
@@ -853,15 +854,18 @@ input[type="color"],
 input[inputmode],
 select,
 textarea {
-    width: 100%;
     padding: var(--inputPadding);
     margin: var(--inputMargin);
     border-radius: var(--inputRadius);
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
-    background-color: var(--inputBg);
-    font-size: var(--inputFontSize);
-    color: var(--inputColor);
     box-shadow: var(--inputShadow);
+    background: var(--inputBg);
+    font-size: var(--inputFontSize);
+    font-weight: var(--inputFontWeight);
+    color: var(--inputColor);
+    text-align: var(--inputAlign, start);
+    width: var(--inputWidth, 100%);
+    height: var(--inputHeight);
     transition: border 200ms ease-out;
     -webkit-appearance: none;
     appearance: none;
@@ -885,7 +889,7 @@ input[type="color"]:hover,
 input[inputmode]:hover,
 select:hover,
 textarea:hover {
-    background-color: var(--inputBgHover);
+    background: var(--inputBgHover);
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderHover);
 }
 
@@ -907,7 +911,7 @@ input[type="color"]:focus,
 input[inputmode]:focus,
 select:focus, 
 textarea:focus {
-    background-color: var(--inputBgActive);
+    background: var(--inputBgActive);
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderActive, var(--inputBorderHover));
 }
 
