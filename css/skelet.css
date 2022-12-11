@@ -453,6 +453,7 @@ kbd {
 :where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
 :where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
 
+.visibility-hidden { visibility: hidden }
 .visually-hidden,.visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 
 .is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
@@ -905,7 +906,7 @@ input[type="color"]:hover,
 input[inputmode]:hover,
 select:hover,
 textarea:hover {
-    background: var(--inputBgHover);
+    background-color: var(--inputBgHover);
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderHover);
 }
 
@@ -927,7 +928,7 @@ input[type="color"]:focus,
 input[inputmode]:focus,
 select:focus, 
 textarea:focus {
-    background: var(--inputBgActive);
+    background-color: var(--inputBgActive);
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderActive, var(--inputBorderHover));
 }
 
