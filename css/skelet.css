@@ -268,9 +268,9 @@ h6,.h6 { --hSize: var(--h6Size); --hLine: var(--h6Line) }
 p {margin:var(--pMargin)}
 blockquote { max-width: 90%; margin: 2rem auto; font-style: italic }
 
-a:not(.button) { color:var(--linkColor); cursor:pointer }
-a:not(.button):hover { color:var(--linkHover) }
-a.no-style { text-decoration:none }
+a:not(.button) { color: var(--linkColor); cursor: pointer; text-decoration: var(--linkDecoration, auto) }
+a:not(.button):hover { color: var(--linkHover); text-decoration: var(--linkHoverDecoration, auto) }
+a.no-style { text-decoration: none }
 
 /*** Accessibility */
 *:focus { outline: 0 }
