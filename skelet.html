@@ -50,6 +50,8 @@
     <style></style>
 </head>
 <body>
+<a href="#mainContent" class="button is-primary visually-hidden-focus">Skip to content</a>
+
 <div id="app">
     <header>
         <!-- Remove this -->
@@ -65,7 +67,7 @@
         <!-- / -->
     </header>
 
-    <main>
+    <main id="mainContent">
         <!-- Remove this -->
         <article>
         <x-grid columns="2" style="max-width: 750px; margin:0 auto; padding:2rem"> 
@@ -104,17 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // JS code
 });
 </script>
-    
-<!-- Google Analytics -->
-<!-- change all G-XXXXXXXXX with your ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXX'); // change G-XXXXXXXXX with your ID
-</script>
-<!-- End Google Analytics -->
 
 </body>
 </html>
