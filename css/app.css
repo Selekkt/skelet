@@ -3,6 +3,10 @@
 /*** CSS variables */
 :root { 
 	--focus: transparent; /* disable buttons outline:; or change its color */
+
+	--fontScale: 1.0; /* change body font size */
+	--hScale: 1.0; /* change headings font size */
+	--globalScale: 1.0; /* change both body & headings font size */
 }
 
 /*** Dark mode */
@@ -23,8 +27,8 @@ a, a:hover { text-decoration: none; } /* remove underline from links */
 
 /*** Responsive */
 /** Skelet. BREAKING POINTS */
-@media (max-width: 600px) {} /* Grid SMALL becomes active */
-@media (min-width: 601px) and (max-width: 1024px) {} /* Grid MEDIUM becomes active */
+@media (max-width: 777px) {} /* Grid SMALL becomes active */
+@media (min-width: 778px) and (max-width: 1024px) {} /* Grid MEDIUM becomes active */
 @media (min-width: 1599px) {} /* Grid LARGE becomes active */
 
 /** General breaking points */

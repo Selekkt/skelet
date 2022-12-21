@@ -75,20 +75,24 @@ summary{display:list-item}
     --fontMono: "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono","Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     --hFontFamily: var(--fontFamily);
 
-    --fontSize: 1.7rem;
-    --fontLine: 1.6;
+    --globalScale: 1.0;
+
+    --fontScale: var(--globalScale);
+    --fontSize: clamp(calc(var(--fontScale) * var(--fontSizeS, 1.5rem)), 1.7vw, calc(var(--fontScale) * var(--fontSizeL, 1.7rem)));
+    --fontLine: calc(1 + 0.7 / var(--fontScale));
     --fontSpace: normal;
     --fontWeight: 400;
     --fontStyle: normal;
 
-    --h1Size: 4.0rem;
-    --h2Size: 3.2rem;
-    --h3Size: 2.8rem;
-    --h4Size: 2.4rem;
-    --h5Size: 2rem;
-    --h6Size: 1.6rem;
+    --hScale: var(--globalScale);
+    --h1Size: clamp(calc(var(--hScale) * var(--h1SizeS, 3.1rem)), 4vw, calc(var(--hScale) * var(--h1SizeL, 4rem)));
+    --h2Size: clamp(calc(var(--hScale) * var(--h2SizeS, 2.7rem)), 3.2vw, calc(var(--hScale) * var(--h2SizeL, 3.2rem)));
+    --h3Size: clamp(calc(var(--hScale) * var(--h3SizeS, 2.4rem)), 2.8vw, calc(var(--hScale) * var(--h3SizeL, 2.8rem)));
+    --h4Size: clamp(calc(var(--hScale) * var(--h4SizeS, 2.2rem)), 2.4vw, calc(var(--hScale) * var(--h4SizeL, 2.4rem)));
+    --h5Size: clamp(calc(var(--hScale) * var(--h5SizeS, 2rem)), 2.2vw, calc(var(--hScale) * var(--h5SizeL, 2.2rem)));
+    --h6Size: clamp(calc(var(--hScale) * var(--h6SizeS, 1.6rem)), 1.7vw, calc(var(--hScale) * var(--h6SizeL, 1.7rem)));
 
-    --hLine: 1.5;
+    --hLine: calc(1 + 0.5 / var(--hScale));
     --h1Line: var(--hLine);
     --h2Line: var(--hLine);
     --h3Line: var(--hLine);
@@ -217,7 +221,7 @@ figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
 ::-moz-selection { background: var(--selectionBg); color: var(--selectionText) }
 
 html { height: 100%; font-size: 62.5%; scroll-behavior: var(--scrollBehavior, smooth); scroll-padding-top: var(--scrollPadding, auto) }
-body { background: var(--bgColor); color: var(--color); font-size: var(--fontSize); line-height: var(--fontLine); letter-spacing: var(--fontSpace); font-weight: var(--fontWeight); font-style: var(--fontStyle); font-family: var(--fontFamily) }
+body { background: var(--bgColor); color: var(--color); font: var(--fontStyle) var(--fontWeight) var(--fontSize) var(--fontFamily); line-height: var(--fontLine); letter-spacing: var(--fontSpace) }
 
 #app { display: flex; flex-direction: column; min-height: 100vh }
 main { flex: 1 }
@@ -227,16 +231,13 @@ main { flex: 1 }
 ------------------ */
 h1, h2, h3, h4, h5, h6, 
 .h1,.h2,.h3,.h4,.h5,.h6 { 
-    font-family: var(--hFontFamily); 
-    font-size: var(--hSize); 
-    font-weight: var(--hWeight); 
-    font-style: var(--hStyle);
+    font: var(--hStyle) var(--hWeight) var(--hSize) var(--hFontFamily);
     line-height: var(--hLine); 
     letter-spacing: var(--hSpace);
     text-transform: var(--hTransform);
     text-align: var(--hAlign);
     color: var(--hColor); 
-    margin: var(--hMargin); 
+    margin: var(--hMargin);
 }
 
 h1,.h1 { --hSize: var(--h1Size); --hLine: var(--h1Line) }
@@ -245,25 +246,6 @@ h3,.h3 { --hSize: var(--h3Size); --hLine: var(--h3Line) }
 h4,.h4 { --hSize: var(--h4Size); --hLine: var(--h4Line) }
 h5,.h5 { --hSize: var(--h5Size); --hLine: var(--h5Line) }
 h6,.h6 { --hSize: var(--h6Size); --hLine: var(--h6Line) }
-
-@media (max-width: 777px) {
-    :root {
-        --h1Size: 3.1rem;
-        --h2Size: 2.7rem;
-        --h3Size: 2.4rem;
-        --h4Size: 2.2rem;
-        --h5Size: 2rem;
-        --h6Size: 1.6rem;
-
-        --hLine: 1.2;
-        --h1Line: var(--hLine);
-        --h2Line: var(--hLine);
-        --h3Line: var(--hLine);
-        --h4Line: var(--hLine);
-        --h5Line: var(--hLine);
-        --h6Line: var(--hLine);
-    }
-}
 
 p {margin:var(--pMargin)}
 blockquote { max-width: 90%; margin: 2rem auto; font-style: italic }
