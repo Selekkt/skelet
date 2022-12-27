@@ -234,8 +234,8 @@ h1, h2, h3, h4, h5, h6,
     font: var(--hStyle) var(--hWeight) var(--hSize) var(--hFontFamily);
     line-height: var(--hLine); 
     letter-spacing: var(--hSpace);
-    text-transform: var(--hTransform);
-    text-align: var(--hAlign);
+    text-transform: var(--hTransform, inherit);
+    text-align: var(--hAlign, start);
     color: var(--hColor); 
     margin: var(--hMargin);
 }
@@ -255,7 +255,7 @@ a:not(.button):hover { color: var(--linkHover); text-decoration: var(--linkHover
 a.no-style { text-decoration: none }
 
 /*** Accessibility */
-*:focus { outline: 0 }
+*:focus { outline: 0; box-shadow: none }
 .a11y *:focus, .a11y a:focus { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px }
 .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 
@@ -459,8 +459,8 @@ kbd {
 .stack.presuffix:hover { border-color: var(--inputBorderHover); background: var(--inputBgHover) }
 .stack.presuffix:focus-within { border-color: var(--inputBorderActive); background: var(--inputBgActive) }
 .stack.presuffix > * { padding: var(--inputPadding) }
-.stack.presuffix > span:first-child { border-right: inherit }
-.stack.presuffix > span:last-child { border-left: inherit }
+.stack.presuffix > span:first-child { border-inline-end: inherit }
+.stack.presuffix > span:last-child { border-inline-start: inherit }
 
 /* Badge */
 .badge {
@@ -624,11 +624,11 @@ kbd {
 [tooltip-pos="left"]:hover:after, [tooltip-pos="left"][tooltip-visible]:after, [tooltip-pos="right"]:hover:after, [tooltip-pos="right"][tooltip-visible]:after { transform: translate(0, -50%) }
 [tooltip-pos="left"]:hover:before, [tooltip-pos="left"][tooltip-visible]:before, [tooltip-pos="right"]:hover:before, [tooltip-pos="right"][tooltip-visible]:before { transform: translate(0, -50%) }
 [tooltip-pos="left"]:after, [tooltip-pos="left"]:before { right: 100%; top: 50%; transform: translate(var(--tooltipMove), -50%) }
-[tooltip-pos="left"]:after { margin-right: 10px }
+[tooltip-pos="left"]:after { margin-inline-end: 10px }
 [tooltip-pos="left"]:before { width: 0; height: 0; border: 5px solid transparent; border-left-color: var(--tooltipBg) }
 
 [tooltip-pos="right"]:after, [tooltip-pos="right"]:before { left: 100%; top: 50%; transform: translate(calc(var(--tooltipMove) * -1), -50%) }
-[tooltip-pos="right"]:after { margin-left: 10px }
+[tooltip-pos="right"]:after { margin-inline-start: 10px }
 [tooltip-pos="right"]:before { width: 0; height: 0; border: 5px solid transparent; border-right-color: var(--tooltipBg) }
 
 [tooltip-length]:after { white-space: normal }
@@ -674,8 +674,8 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
 .has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { display:inline-flex; align-items:center; justify-content:center }
 .has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i { font-size: max(15px, var(--buttonFontSize)) }
 
-.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:first-child:not(:last-child) { padding-right:1rem }
-.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:last-child:not(:first-child) { padding-left:1rem }
+.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:first-child:not(:last-child) { padding-inline-end: 1rem }
+.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:last-child:not(:first-child) { padding-inline-start: 1rem }
 
 .is-small:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonFontSize: min(0.75em, 1.4rem) }
 .is-large:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonFontSize:1.45em }
@@ -697,7 +697,7 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
     position: relative;
 }
 
-.is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):not(:empty):after { margin-left: 1rem }
+.is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):not(:empty):after { margin-inline-start: 1rem }
 
 .is-unset { all: unset }
 .is-blank:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
@@ -784,7 +784,7 @@ input[type="radio"] + label {
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
-    margin-left: 4px;
+    margin-inline-start: 4px;
     user-select: none;
 }
 
@@ -917,7 +917,7 @@ textarea:focus {
 input[type="color"] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5rem; display:block; width:auto; cursor:pointer }
 
 input[type="file"] { --inputBorderWidth: 2px; --inputBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
-input[type="file"]::file-selector-button { border: 0; border-right: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-right: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100% }
+input[type="file"]::file-selector-button { border: 0; border-inline-end: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-inline-end: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100% }
 
 input[type="range"] { height: 25px; margin: 10px 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none }
 input[type="range"]::-moz-range-track              { width: 100%; height: 5px; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
@@ -942,8 +942,10 @@ select {
     background-size: 5px 5px, 5px 5px, 1px 100%;
     background-repeat: no-repeat;
     color: var(--inputColor);
-    padding-right: 45px;
+    padding-inline-end: 45px;
 }
+
+[dir="rtl"] select { padding-inline-start: 53px }
 
 select:required:invalid { color:var(--inputPlaceholderColor) }
 select:hover { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderHover) 50%), linear-gradient(135deg, var(--inputBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderHover), var(--inputBorderHover)) }
@@ -955,7 +957,7 @@ select:-moz-focusring { color:transparent; text-shadow: 0 0 0 var(--color) }
 ------------------ */
 ul { list-style: disc inside }
 ol { list-style: decimal inside }
-ul, ol { padding-left: 0; margin-top: 0 }
+ul, ol { padding-inline-start: 0; margin-top: 0 }
 ul ul, ul ol, ol ol, ol ul { margin: 1.5rem 0 1.5rem 3rem; font-size: 100% }
 li { margin-bottom: var(--margin) }
 
@@ -984,8 +986,8 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
 /* Line w/ text: --- text --- */
 .text-hr { display: flex; align-items: center; text-align: center; margin: calc(var(--margin) * 1) auto }
 .text-hr::before, .text-hr::after { content: ""; flex: 1; border-bottom: 1px solid var(--inputBorderColor) }
-.text-hr::before { margin-right: var(--padding) }
-.text-hr::after { margin-left: var(--padding) }
+.text-hr::before { margin-inline-end: var(--padding) }
+.text-hr::after { margin-inline-start: var(--padding) }
 
 /* ------------------
   tables
@@ -1018,7 +1020,7 @@ table th {
     color: var(--tableColor);
     text-transform: uppercase;
     padding: var(--tablePadding);
-    text-align: left;
+    text-align: start;
     vertical-align: middle;
     border-top: var(--tableBorder);
     border-bottom: var(--tableBorder);
@@ -1028,8 +1030,8 @@ table th {
 }
 
 table thead th { background: var(--tableBg) }
-table th:first-child { border-radius: var(--radius) 0 0 var(--radius); border-left: var(--tableBorder) }
-table th:last-child { border-radius: 0 var(--radius) var(--radius) 0; border-right: var(--tableBorder) }
+table th:first-child { border-radius: var(--radius) 0 0 var(--radius); border-inline-start: var(--tableBorder) }
+table th:last-child { border-radius: 0 var(--radius) var(--radius) 0; border-inline-end: var(--tableBorder) }
 
 table.is-striped tr { border:0 }
 table.is-striped tbody tr:nth-child(2n) td { background: var(--tableStrip); }
@@ -1042,7 +1044,7 @@ table.is-sticky-foot tfoot { position: sticky; bottom: var(--sticky, .2rem); z-i
 
 table.has-borders { border: var(--tableBorder) }
 table.has-borders th { border-radius: 0; border:0 }
-table.has-borders td:not(:last-of-type) { border-right: var(--tableBorder) }
+table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) }
 
 /* ------------------
   css grid
