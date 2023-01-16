@@ -1,214 +1,214 @@
 <x-grid columns="8">
 <!-- Accessibility -->
-    <x-col span="row"><span class="text-hr">Accessibility</span></x-col>
-    <x-col span="3.." span-s="row">
+    <x-cell span="row"><span class="text-hr">Accessibility</span></x-cell>
+    <x-cell span="3.." span-s="row">
         <p>Accessibility (element outline) can be activated on all elements supporting it by adding <code>class="a11y"</code> to your <code>&lt;body class="a11y"&gt;</code> or just to a specific element: <code>&lt;footer class="a11y"&gt;</code>.
         </p>
-    </x-col>
+    </x-cell>
 
-    <x-col span="row"><span class="margin20"></span></x-col>
+    <x-cell span="row"><span class="margin20"></span></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.a11y</code></x-col>
-    <x-col span="5..">Default one using browsers defaults.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.a11y</code></x-cell>
+    <x-cell span="5..">Default one using browsers defaults.</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.a11y--custom</code></x-col>
-    <x-col span="5..">Customizable one using <code>box-shadow:;</code></x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.a11y--custom</code></x-cell>
+    <x-cell span="5..">Customizable one using <code>box-shadow</code></x-cell>
 
-    <x-col span="1-4" span-s="1-3">
+    <x-cell span="1-4" span-s="1-3">
 <pre><code>:root {
     --a11yStyle: 0 0 0 0.2rem;
     --a11yColor: rgba(0, 126, 252, 0.6);
     /* ^ this will convert in: box-shadow: 0 0 0 0.2rem rgba(0, 126, 252, 0.6); */
 }</pre></code>
         
-    </x-col>
-    <x-col span="5..">
+    </x-cell>
+    <x-cell span="5..">
         <p>Since we're using "box-shadow" for <code>.a11y--custom</code> you can easily personalize the look of the outline.</p>
-    </x-col>
+    </x-cell>
 
 <!-- Dark mode -->
-    <x-col span="row"><span class="text-hr">Dark mode</span></x-col>
-    <x-col span="1.." span-s="row">
+    <x-cell span="row"><span class="text-hr">Dark mode</span></x-cell>
+    <x-cell span="1.." span-s="row">
         <p>In case you're building a Dark website, you can set Skelet. automatically in dark mode, doing so you'll have everything set in darker shades instead of light.</p>
         <p>To activate "<em>Dark mode</em>" you need to add one of the options below to <code>&lt;body&gt;</code> tag</p>
         <button class="is-primary lightsoff">Try it</button>
-    </x-col>
+    </x-cell>
 
-    <x-col span="row"><span class="margin20"></span></x-col>
+    <x-cell span="row"><span class="margin20"></span></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>dark-mode</code></x-col>
-    <x-col span="5.."><p>This is way two of activating Dark mode</p></x-col>
+    <x-cell span="1-4" span-s="1-3"><code>dark-mode</code></x-cell>
+    <x-cell span="5.."><p>This is way two of activating Dark mode</p></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>data-mode="dark"</code></x-col>
-    <x-col span="5.."><p>This is one way of activating Dark mode</p></x-col>
+    <x-cell span="1-4" span-s="1-3"><code>data-mode="dark"</code></x-cell>
+    <x-cell span="5.."><p>This is one way of activating Dark mode</p></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.dark-mode</code></x-col>
-    <x-col span="5.."><p>This is way three of activating Dark mode</p></x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.dark-mode</code></x-cell>
+    <x-cell span="5.."><p>This is way three of activating Dark mode</p></x-cell>
 
 <!-- Elements -->
-    <x-col span="row"><span class="text-hr">Elements</span></x-col>
+    <x-cell span="row"><span class="text-hr">Elements</span></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.center-axyz</code></x-col>
-    <x-col span="5.."><p>Center your elements both horizontally and vertically</p> <small>you need to create a parent container to which the objects will be aligned.</small></x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.center-axyz</code></x-cell>
+    <x-cell span="5.."><p>Center your elements both horizontally and vertically</p> <small>you need to create a parent container to which the objects will be aligned.</small></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.center-axyz.full</code></x-col>
-    <x-col span="5..">Same as above, but full</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.center-axyz.full</code></x-cell>
+    <x-cell span="5..">Same as above, but full</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.fullwidth</code></x-col>
-    <x-col span="5..">Make element full width</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.fullwidth</code></x-cell>
+    <x-cell span="5..">Make element full width</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.fullwidth-max</code></x-col>
-    <x-col span="5..">Make all elements fit their container</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.fullwidth-max</code></x-cell>
+    <x-cell span="5..">Make all elements fit their container</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.fullheight</code></x-col>
-    <x-col span="5..">Make element full height</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.fullheight</code></x-cell>
+    <x-cell span="5..">Make element full height</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.fullheight-max</code></x-col>
-    <x-col span="5..">Make all elements fit their container</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.fullheight-max</code></x-cell>
+    <x-cell span="5..">Make all elements fit their container</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.float-left</code></x-col>
-    <x-col span="5..">Float elements left</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.float-left</code></x-cell>
+    <x-cell span="5..">Float elements left</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.float-right</code></x-col>
-    <x-col span="5..">Float elements right</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.float-right</code></x-cell>
+    <x-cell span="5..">Float elements right</x-cell>
     
-    <x-col span="1-4" span-s="1-3"><code>.float-none</code></x-col>
-    <x-col span="5..">No Float to element</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.float-none</code></x-cell>
+    <x-cell span="5..">No Float to element</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.block</code></x-col>
-    <x-col span="5..">Display element block</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.block</code></x-cell>
+    <x-cell span="5..">Display element block</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.inline</code></x-col>
-    <x-col span="5..">Display elements inline</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.inline</code></x-cell>
+    <x-cell span="5..">Display elements inline</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.inline-block</code></x-col>
-    <x-col span="5..">Display elements inline-block</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.inline-block</code></x-cell>
+    <x-cell span="5..">Display elements inline-block</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.center</code></x-col>
-    <x-col span="5..">Center the elements</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.center</code></x-cell>
+    <x-cell span="5..">Center the elements</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.sticky</code></x-col>
-    <x-col span="5..">Make element sticky</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.sticky</code></x-cell>
+    <x-cell span="5..">Make element sticky</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.sticky-bottom</code></x-col>
-    <x-col span="5..">Make element sticky to bottom</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.sticky-bottom</code></x-cell>
+    <x-cell span="5..">Make element sticky to bottom</x-cell>
     
-    <x-col span="1-4" span-s="1-3"><code>.sticky-none</code></x-col>
-    <x-col span="5..">Make element un-sticky</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.sticky-none</code></x-cell>
+    <x-cell span="5..">Make element un-sticky</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.large-only</code></x-col>
-    <x-col span="5..">Element only visible on above: 600px</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.large-only</code></x-cell>
+    <x-cell span="5..">Element only visible on above: 777px</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.small-only</code></x-col>
-    <x-col span="5..">Element only visible below: 600px</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.small-only</code></x-cell>
+    <x-cell span="5..">Element only visible below: 777px</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.mob-scroller</code></x-col>
-    <x-col span="5..">This creates an element with horizontal scrollers and has all child elements inline</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.mob-scroller</code></x-cell>
+    <x-cell span="5..">This creates an element with horizontal scrollers and has all child elements inline</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.no-scrollbars</code></x-col>
-    <x-col span="5..">This hides the scrollbars without preventing scrolling.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.no-scrollbars</code></x-cell>
+    <x-cell span="5..">This hides the scrollbars without preventing scrolling.</x-cell>
 
 <!-- Scroll snap -->
-    <x-col span="row"><span class="text-hr">Scroll snap</span></x-col>
+    <x-cell span="row"><span class="text-hr">Scroll snap</span></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.scroll-snap</code></x-col>
-    <x-col span="5..">This feature allows you to create well-controlled scroll experiences by declaring scroll snapping positions.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.scroll-snap</code></x-cell>
+    <x-cell span="5..">This feature allows you to create well-controlled scroll experiences by declaring scroll snapping positions.</x-cell>
 
-    <x-col span="row" class="margin10">&nbsp;</x-col>
+    <x-cell span="row" class="margin10">&nbsp;</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.y</code></x-col>
-    <x-col span="5..">The scroll container snaps in its vertical axis only.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.y</code></x-cell>
+    <x-cell span="5..">The scroll container snaps in its vertical axis only.</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.mandatory</code></x-col>
-    <x-col span="5..">This property enables specific strict value that go to the specific scroll position when there is no scrolling.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.mandatory</code></x-cell>
+    <x-cell span="5..">This property enables specific strict value that go to the specific scroll position when there is no scrolling.</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.proximity</code></x-col>
-    <x-col span="5..">This property enables specific strict value that go to the specific scroll position. If scrolling action gets pretty close to a snap position if not close then it will act normally and should not snap at all.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.proximity</code></x-cell>
+    <x-cell span="5..">This property enables specific strict value that go to the specific scroll position. If scrolling action gets pretty close to a snap position if not close then it will act normally and should not snap at all.</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.align-start</code></x-col>
-    <x-col span="5..">The start and end alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.align-start</code></x-cell>
+    <x-cell span="5..">The start and end alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.align-center</code></x-col>
-    <x-col span="5..">The center alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.align-center</code></x-cell>
+    <x-cell span="5..">The center alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.align-end</code></x-col>
-    <x-col span="5..">The end alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.align-end</code></x-cell>
+    <x-cell span="5..">The end alignment of this box's scroll snap area, within the scroll container's snapport is a snap position in this axis.</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.stop-always</code></x-col>
-    <x-col span="5..">The scroll container must not "pass over" a possible snap position; and must snap to the first of this elements' snap positions.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.stop-always</code></x-cell>
+    <x-cell span="5..">The scroll container must not "pass over" a possible snap position; and must snap to the first of this elements' snap positions.</x-cell>
 
-    <x-col span="1-4" span-s="1-3">
+    <x-cell span="1-4" span-s="1-3">
     <pre><code>&lt;div class="scroll-snap y mandatory align-center stop-always"&gt;</pre></code>
-    </x-col>
-    <x-col span="5..">
+    </x-cell>
+    <x-cell span="5..">
         <p>To make a scroll-snap element start with <code>.scroll-snap</code> and customize with the properties above if you need to.</p>
-    </x-col>
+    </x-cell>
 
 <!-- Text -->
-    <x-col span="row"><span class="text-hr">Text</span></x-col>
+    <x-cell span="row"><span class="text-hr">Text</span></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.nowrap</code></x-col>
-    <x-col span="5..">Prevent text from wrapping</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.nowrap</code></x-cell>
+    <x-cell span="5..">Prevent text from wrapping</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.text-start</code></x-col>
-    <x-col span="5..">Align text on left</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-start</code></x-cell>
+    <x-cell span="5..">Align text on left</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.text-center</code></x-col>
-    <x-col span="5..">Align text on center</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-center</code></x-cell>
+    <x-cell span="5..">Align text on center</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.text-end</code></x-col>
-    <x-col span="5..">Align text on center</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-end</code></x-cell>
+    <x-cell span="5..">Align text on center</x-cell>
     
-    <x-col span="1-4" span-s="1-3"><code>.text-justify</code></x-col>
-    <x-col span="5..">Justify text</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-justify</code></x-cell>
+    <x-cell span="5..">Justify text</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.text-normal</code></x-col>
-    <x-col span="5..">Sets font-weight to 400</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-normal</code></x-cell>
+    <x-cell span="5..">Sets font-weight to 400</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.text-uppercase</code></x-col>
-    <x-col span="5..">Transforms text to uppercase</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-uppercase</code></x-cell>
+    <x-cell span="5..">Transforms text to uppercase</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.text-lowercase</code></x-col>
-    <x-col span="5..">Transforms text to lowercase</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-lowercase</code></x-cell>
+    <x-cell span="5..">Transforms text to lowercase</x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.text-capitalize</code></x-col>
-    <x-col span="5..">Transforms text to capitalize</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.text-capitalize</code></x-cell>
+    <x-cell span="5..">Transforms text to capitalize</x-cell>
 
 <!-- Floats -->
-    <x-col span="row"><span class="text-hr">Floats</span></x-col>
+    <x-cell span="row"><span class="text-hr">Floats</span></x-cell>
 
-    <x-col span="1-4" span-s="1-3"><code>.float-right</code></x-col>
-    <x-col span="5..">Sets float to right</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.float-right</code></x-cell>
+    <x-cell span="5..">Sets float to right</x-cell>
     
-    <x-col span="1-4" span-s="1-3"><code>.float-left</code></x-col>
-    <x-col span="5..">Sets float to left</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.float-left</code></x-cell>
+    <x-cell span="5..">Sets float to left</x-cell>
     
-    <x-col span="1-4" span-s="1-3"><code>.float-none</code></x-col>
-    <x-col span="5..">Sets float to none</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.float-none</code></x-cell>
+    <x-cell span="5..">Sets float to none</x-cell>
     
-    <x-col span="1-4" span-s="1-3"><code>.clearfix</code></x-col>
-    <x-col span="5..">Prevents element overflow outside of its container.</x-col>
+    <x-cell span="1-4" span-s="1-3"><code>.clearfix</code></x-cell>
+    <x-cell span="5..">Prevents element overflow outside of its container.</x-cell>
 </x-grid>
 
 <!-- Media query -->
 <x-grid columns="8" class="margin20">
-    <x-col span="3.." span-s="row">
+    <x-cell span="3.." span-s="row">
         <h3 class="title">Media query</h3>
         <p>Media Queries you can use.</p>
-    </x-col>
+    </x-cell>
 
-    <x-col span="1-4" span-s="row">
+    <x-cell span="1-4" span-s="row">
         <ul class="no-style">
-            <li><code>@media (max-width: 600px){}</code></li>
-            <li><code>@media (min-width: 601px) and (max-width: 1024px) {}</code></li>
+            <li><code>@media (max-width: 777px){}</code></li>
+            <li><code>@media (min-width: 778px) and (max-width: 1024px) {}</code></li>
             <li><code>@media (min-width: 1599px){}</code></li>
             <li><code>@media (prefers-color-scheme: dark){}</code></li>
             <li><code>@media (prefers-color-scheme: light) {}</code></li>
             <li><code>@media (prefers-reduced-motion) {}</code></li>
         </ul>
-    </x-col>
+    </x-cell>
 
-    <x-col span="6.." class="large-only">
+    <x-cell span="6.." class="large-only">
         <ul class="no-style">
             <li>Grid <em>small</em> becomes active</li>
             <li>Grid <em>medium</em> becomes active</li>
@@ -217,18 +217,20 @@
             <li>If OS in <em>light</em> mode</li>
             <li>Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects.</li>
         </ul>
-    </x-col>
+    </x-cell>
 
 </x-grid>
 
 <!-- Tooltips -->
 <x-grid columns="8" class="margin20 large-only">
-    <x-col span="3.." span-s="row">
+    <x-cell span="3.." span-s="row">
         <h3 class="title">Tooltips</h3>
-        <p>To use Tooltips simply insert your text inside <code>data-tooltip</code> and use one of the <code>tooltip-pos</code> from the list below to position your tooltip. You can also control its dimensions.</p>
-    </x-col>
+        <p>To use Tooltips simply include the <code>https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet-tooltips.css</code> in your file.</p>
 
-    <x-col span="1-4" span-s="1-2">
+        <p>Then add your text inside <code>data-tooltip</code> and use one of the <code>tooltip-pos</code> from the list below to position your tooltip. You can also control its dimensions.</p>
+    </x-cell>
+
+    <x-cell span="1-4" span-s="1-2">
         <ul class="no-style">
             <li><code>tooltip-pos=up</code></li>
             <li><code>tooltip-pos=right</code></li>
@@ -251,9 +253,9 @@
             <li><code>tooltip-length=xlarge</code></li>
             <li><code>tooltip-length=fit</code></li>
         </ul>
-    </x-col>
+    </x-cell>
 
-    <x-col span="5.." class="only-large">
+    <x-cell span="5.." class="only-large">
         <ul class="no-style">
             <li><span data-tooltip="Skelet." tooltip-pos=up>Tooltip Up</span></li>
             <li><span data-tooltip="Skelet." tooltip-pos=right>Tooltip Right</span></li>
@@ -276,6 +278,6 @@
             <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." tooltip-length=xlarge tooltip-pos=up>Extra Large Tooltip</span></li>
             <li><span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." tooltip-length=fit tooltip-pos=up>Fit element width Tooltip</span></li>
         </ul>
-    </x-col>
+    </x-cell>
 
 </x-grid>

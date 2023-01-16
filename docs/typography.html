@@ -1,12 +1,12 @@
 <x-grid columns="8">
-    <x-col span="4.." span-s="row">
+    <x-cell span="4.." span-s="row">
         <h3 class="title">Typeface</h3>
         <p>Skelet. makes use of The <a href="https://rsms.me/inter/" target="_blank" rel="nofollow">Inter</a> typeface family.</p>
         <p>Skelet. includes Inter through creator's provided <a href="https://rsms.me/inter/#faq-cdn" target="_blank" rel="nofollow">CDN</a>. If you need to host the font on your own server, head over <a href="https://rsms.me/inter/#usage" target="_blank" rel="nofollow">here</a>.</p>
         <p>If you use <code>skelet.css</code> <a href="#via-cdn">via CDN</a> you need to include Inter in your <code>&lt;head&gt;</code> as well.</p>
-    </x-col>
+    </x-cell>
 
-    <x-col span="1-3" span-s="row">
+    <x-cell span="1-3" span-s="row">
         <h3 class="title">Headings</h3>
         <ul class="no-style">
             <li><h1>Heading 1</h1></li>
@@ -16,9 +16,9 @@
             <li><h5>Heading 5</h5></li>
             <li><h6>Heading 6</h6></li>
         </ul>
-    </x-col>
+    </x-cell>
 
-    <x-col span="4.." span-s="row">
+    <x-cell span="4.." span-s="row">
         <h3 class="title">Inline elements</h3>
         <ul>
             <li><a href="#!">This is a text link</a>.<code>&lt;a&gt;</code></li>
@@ -35,7 +35,7 @@
             <li><small>This small text is small for for fine print, etc.</small><code>&lt;small&gt;</code></li>
             <li>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr><code>&lt;abbr&gt;</code></li>
             <li><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q><code>&lt;q&gt;</code></li>
-            <li><x-colite>This is a citation.</cite><code>&lt;cite&gt;</code></li>
+            <li><x-cellite>This is a citation.</cite><code>&lt;cite&gt;</code></li>
             <li>The <dfn>dfn element</dfn> indicates a definition.<code>&lt;dfn&gt;</code></li>
             <li>The
                 <mark>mark element</mark> indicates a highlight.<code>&lt;mark&gt;</code></li>
@@ -43,86 +43,44 @@
             <li>The time element:
                 <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time><code>&lt;time&gt;</code></li>
         </ul>
-    </x-col>
+    </x-cell>
 
-    <x-col span="4.." span-s="row">
+    <x-cell span="4.." span-s="row">
         <h3 class="title">Blockquote</h3>
         <blockquote>
             Lorem ipsum<sup><a>[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.
             <br> Sub<sub>script</sub> works as well!
         </blockquote>
-    </x-col>
+    </x-cell>
 
-    <x-col span="4.." span-s="row">
+    <x-cell span="4.." span-s="row">
         <h3 class="title">Paragraph</h3>
         <p>
             A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
         </p>
-    </x-col>
+    </x-cell>
 
-    <x-col span="4.." span-s="row">
+    <x-cell span="4.." span-s="row">
         <h3 class="title">Horizontal rules</h3>
         <p>You can add one of the classes below to the <code>&lt;hr&gt;</code> tag to style it.</p>
-    </x-col>
+    </x-cell>
 
-    <x-col span="4-5" span-s="1-3"><code>.full</code></x-col>
-    <x-col span="6.." span-s="5..">Makes hr full-width</x-col>
+    <x-cell span="4-5" span-s="1-3"><code>.full</code></x-cell>
+    <x-cell span="6.." span-s="5..">Makes hr full-width</x-cell>
     
-    <x-col span="4-5" span-s="1-3"><code>.gradient</code></x-col>
-    <x-col span="6.." span-s="5..">Makes the hr line dim on the edges.</x-col>
+    <x-cell span="4-5" span-s="1-3"><code>.gradient</code></x-cell>
+    <x-cell span="6.." span-s="5..">Makes the hr line dim on the edges.</x-cell>
 
-    <x-col span="4-5" span-s="1-3"><code>style="--hrMargin: 5px"</code></x-col>
-    <x-col span="6.." span-s="5..">Control yourself the top & bottom margins <sub>[no need to include .space]</sub></x-col>
+    <x-cell span="4-5" span-s="1-3"><code>style="--hrMargin: 5px"</code></x-cell>
+    <x-cell span="6.." span-s="5..">Control yourself the top & bottom margins <sub>[no need to include .space]</sub></x-cell>
 
-    <x-col span="4-5" span-s="1-3"><code>&lt;hr size="5"&gt;</code></x-col>
-    <x-col span="6.." span-s="5..">You can define the thickness of hr</x-col>
+    <x-cell span="4-5" span-s="1-3"><code>&lt;hr size="5"&gt;</code></x-cell>
+    <x-cell span="6.." span-s="5..">You can define the thickness of hr</x-cell>
 
-    <x-col span="4-5" span-s="1-3"><code>style="--hrColor: blue"</code></x-col>
-    <x-col span="6.." span-s="5..">You can define the color of hr</x-col>
+    <x-cell span="4-5" span-s="1-3"><code>style="--hrColor: blue"</code></x-cell>
+    <x-cell span="6.." span-s="5..">You can define the color of hr</x-cell>
 
-    <x-col span="4-5" span-s="1-3"><code>&lt;span class="text-hr"&gt;</code></x-col>
-    <x-col span="6.." span-s="5..">To create a hr with text inside</x-col>
+    <x-cell span="4-5" span-s="1-3"><code>&lt;span class="text-hr"&gt;</code></x-cell>
+    <x-cell span="6.." span-s="5..">To create a hr with text inside</x-cell>
 
-    <x-col span="row">
-        <hr>
-    </x-col>
-
-    <x-col span="1-4" span-s="row">
-        <h3 class="title">Fluid text</h3>
-        <p>Here's an example of how to make text change while resizing the viewport.</p>
-        <h2 class="skelet">.skelet</h2>
-        <h3 class="heading">.heading</h4>
-        <h4 class="title">.title</h4>
-    </x-col>
-    <x-col span="5.." span-s="row">
-    <pre><code>:root { 
-    --fontSize: calc(100vw / 80); 
-    --hSkelet: 3.5vw;
-    --hHeading: 3vw;
-    --hTitle: 2.5vw;
-}
-
-.skelet { font-size: var(--hSkelet); }
-.heading { font-size: var(--hHeading); letter-spacing: 0 }
-.title { font-size: var(--hTitle); letter-spacing: 0 }
-
-@media (max-width: 600px) { 
-    :root {
-        --fontSize: 1.3rem; 
-        --hSkelet: 4rem;
-        --hHeading: 3rem;
-        --hTitle: 2.5rem; 
-    } 
-}
-
-@media only screen and (min-width: 1599px) {
-    :root { 
-        --percentage: 15%; 
-        --fontSize: 1.8rem; 
-        --hSkelet: 5rem; 
-        --hHeading: 4rem; 
-        --hTitle: 3rem;
-    }
-}</code></pre>
-    </x-col>
 </x-grid>

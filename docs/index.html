@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet-tooltips.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@docs/docs/assets/app.min.css">
 </head>
 <body class="a11y--custom">
@@ -45,7 +46,6 @@
                         <li><a href="https://github.com/Selekkt/skelet/archive/master.zip" class="button is-large is-outline is-currentcolor is-pill" tabindex="0">Download ↓</a></li>
                         <li data-tooltip="Documentation" data-tooltip-pos="up"><a href="#start" class="button has-icon is-circle is-outline is-currentcolor" title="Documentation" tabindex="0"><i class="fas fa-book"></i></a></li>
                         <li data-tooltip="Github" data-tooltip-pos="up"><a href="https://github.com/Selekkt/skelet/" class="button has-icon is-circle is-outline is-currentcolor" title="Github" tabindex="0"><i class="fab fa-github"></i></a></li>
-                        <li data-tooltip="Donate" data-tooltip-pos="up"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NQRBUKWFJ57V4&source=url" class="button has-icon is-circle is-outline is-currentcolor" title="Donate" tabindex="0"><i class="fa fa-donate"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -53,7 +53,6 @@
 
         <nav class="backdrop">
             <div class="scroll-snap no-scrollbars-s">
-                <span><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NQRBUKWFJ57V4&source=url" class="button has-icon is-blank is-large" target="_blank" title="Make a small donation" tabindex="0"><i class="fa fa-donate"></i><span>Donate</span></a></span>
                 <span><a href="#customization" class="button has-icon is-blank is-large" tabindex="0"><i class="fa fa-pencil-ruler"></i><span>Customization</span></a></span>
                 <span><a href="#typography" class="button has-icon is-blank is-large" tabindex="0"><i class="fa fa-heading"></i><span>Typography</span></a></span>
                 <span><a href="#miscellaneous" class="button has-icon is-blank is-large" tabindex="0"><i class="fa fa-tools"></i><span>Misc</span></a></span>
@@ -68,10 +67,10 @@
         </nav>
 
         <x-grid columns="2" class="start" id="start">
-            <x-col span="row">
+            <x-cell span="row">
                 <h3>Quick start</h3>
-            </x-col>
-            <x-col span-s="row" style="min-width: 0">
+            </x-cell>
+            <x-cell span-s="row" style="min-width: 0">
                 <ul class="no-style">
                     <li><h6><span class="numbers">1</span> <a href="https://github.com/Selekkt/skelet/archive/master.zip" class="button is-primary is-pill" tabindex="0">Download ↓</a> the file.</h6></li>
                     <li><h6><span class="numbers">2</span> Unzip <u>skelet-master.zip</u></h6></li>
@@ -96,9 +95,9 @@
                 <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.min.css"&gt;</code></pre>
                 <span class="text-hr">with npm</span>
                 <pre><code>npm i selekkt-skelet</code></pre>
-            </x-col>
+            </x-cell>
 
-            <x-col span-s="row" style="min-width: 0">
+            <x-cell span-s="row" style="min-width: 0">
                 <h6>Directory structure</h6>
                 <p>Skelet. comes with a directory structure that you can use for your project.</p>
                 <pre><code>.
@@ -116,20 +115,20 @@
     ├── LICENSE
     ├── README.md
     └── skelet.html (HTML5 boilerplate)</code></pre>
-            </x-col>
+            </x-cell>
         </x-grid>
 
         <main>
             <section id="customization" class="loadsection" data-docs="custom.html">
                 <div class="meta">
                     <x-grid columns="2" ai="center">
-                        <x-col span-s="row">
+                        <x-cell span-s="row">
                             <sup><a href="#customization">#</a></sup>
                             <h2 class="heading">Custom</h2>
-                        </x-col>
-                        <x-col span-s="row">
-                            <p>Find out how you can customize Skelet. for your needs. Easy customozation via CSS variables.</p>
-                        </x-col>
+                        </x-cell>
+                        <x-cell span-s="row">
+                            <p>Learn how to tailor Skelet. to your specific requirements. CSS variables allow for simple customization..</p>
+                        </x-cell>
                     </x-grid>
                 </div>
 
@@ -139,13 +138,13 @@
             <section id="typography" class="loadsection" data-docs="typography.html">
                 <div class="meta">
                     <x-grid columns="2" ai="center">
-                        <x-col span-s="row">
+                        <x-cell span-s="row">
                             <sup><a href="#typography">#</a></sup>
                             <h2 class="heading">Typography</h2>
-                        </x-col>
-                        <x-col span-s="row">
+                        </x-cell>
+                        <x-cell span-s="row">
                             <p>HTML is set to 62.5% so that all the REM measurements throughout Skelet. are based on 10px sizing, over 1.6 line height (24px). So basically 1.5rem = 15px.</p>
-                        </x-col>
+                        </x-cell>
                     </x-grid>
                 </div>
 
@@ -155,13 +154,13 @@
             <section id="miscellaneous" class="loadsection" data-docs="misc.html">
                 <div class="meta">
                     <x-grid columns="2" ai="center">
-                        <x-col span-s="row">
+                        <x-cell span-s="row">
                             <sup><a href="#miscellaneous">#</a></sup>
                             <h2 class="heading">Misc</h2>
-                        </x-col>
-                        <x-col span-s="row">
-                            <p>A number of small utility classes that act as easy-to-use helpers. Sometimes it's better to use a utility class than create a whole new class just to float an element.</p>
-                        </x-col>
+                        </x-cell>
+                        <x-cell span-s="row">
+                            <p>A collection of small utility classes that serve as simple helpers. It is sometimes preferable to use a utility class rather than create an entirely new class just to float an element.</p>
+                        </x-cell>
                     </x-grid>
                 </div>
 
@@ -171,13 +170,13 @@
             <section id="elements" class="loadsection" data-docs="elements.html">
                 <div class="meta">
                     <x-grid columns="2" ai="center">
-                        <x-col span-s="row">
+                        <x-cell span-s="row">
                             <sup><a href="#elements">#</a></sup>
                             <h2 class="heading">Elements</h2>
-                        </x-col>
-                        <x-col span-s="row">
-                            <p>Buttons, Input fields, Select menus, Checkboxes, Radio buttons, Textareas it's all here!</p>
-                        </x-col>
+                        </x-cell>
+                        <x-cell span-s="row">
+                            <p>Buttons, input fields, dropdown menus, checkboxes, radio buttons, and textareas are all available!</p>
+                        </x-cell>
                     </x-grid>
                 </div>
 
@@ -187,13 +186,13 @@
             <section id="animation" class="loadsection" data-docs="animation.html">
                 <div class="meta">
                     <x-grid columns="2" ai="center">
-                        <x-col span-s="row">
+                        <x-cell span-s="row">
                             <sup><a href="#animation">#</a></sup>
                             <h2 class="heading">Animation</h2>
-                        </x-col>
-                        <x-col span-s="row">
-                            <p>Skelet. has some basic animations you can use right away.</p>
-                        </x-col>
+                        </x-cell>
+                        <x-cell span-s="row">
+                            <p>Skelet. comes with some basic animations that you can use right away.</p>
+                        </x-cell>
                     </x-grid>
                 </div>
 
@@ -203,13 +202,13 @@
             <section id="grids" class="loadsection" data-docs="grids.html">
                 <div class="meta">
                     <x-grid columns="2" ai="center">
-                        <x-col span-s="row">
+                        <x-cell span-s="row">
                             <sup><a href="#grids">#</a></sup>
                             <h2 class="heading">Grids</h2>
-                        </x-col>
-                        <x-col span-s="row">
-                            <p>Minimal and straight-forward 16-column CSS grid system utilizing descriptive HTML rather than semantic CSS.</p>
-                        </x-col>
+                        </x-cell>
+                        <x-cell span-s="row">
+                            <p>A simple 12-column CSS grid system that relies on descriptive HTML rather than semantic CSS.</p>
+                        </x-cell>
                     </x-grid>
                 </div>
 
@@ -219,13 +218,13 @@
             <section id="flexbox" class="loadsection" data-docs="flexbox.html">
                 <div class="meta">
                     <x-grid columns="2" ai="center">
-                        <x-col span-s="row">
+                        <x-cell span-s="row">
                             <sup><a href="#flexbox">#</a></sup>
                             <h2 class="heading">Flexbox</h2>
-                        </x-col>
-                        <x-col span-s="row">
-                            <p>Minimal and straight-forward Flexbox utilizing descriptive HTML.</p>
-                        </x-col>
+                        </x-cell>
+                        <x-cell span-s="row">
+                            <p>Flexbox with a simple and straightforward design that makes use of descriptive HTML.</p>
+                        </x-cell>
                     </x-grid>
                 </div>
 
@@ -235,12 +234,12 @@
             <section id="examples">
                 <div class="meta">
                     <x-grid columns="8">
-                        <x-col span="1-5" span-s="row">
+                        <x-cell span="1-5" span-s="row">
                             <sup><a href="#examples">#</a></sup>
                             <h2 class="heading">Examples</h2>
-                            <p>A list of layout examples to see Skelet. in action.</p>
-                        </x-col>
-                        <x-col span="7.." span-s="row">
+                            <p>A collection of layout examples that show Skelet. in action.</p>
+                        </x-cell>
+                        <x-cell span="7.." span-s="row">
                             <ul class="no-style">
                                 <li><h3 class="title"><a href="https://selekkt.dk/skelet/v3/example?id=1" target="_blank">Layout 1</a></h3></li>
                                 <li><h3 class="title"><a href="https://selekkt.dk/skelet/v3/example?id=2" target="_blank">Layout 2</a></h3></li>
@@ -254,7 +253,7 @@
                                 <li><h3 class="title"><a href="https://selekkt.dk/skelet/v3/example?id=10" target="_blank">Layout 10</a></h3></li>
                                 <li>more to come...</li>
                             </ul>
-                        </x-col>
+                        </x-cell>
                     </x-grid>
                 </div>
             </section>
@@ -262,69 +261,65 @@
             <section id="ads">
                 <div class="meta">
                     <x-grid columns="1">
-                        <x-col span="row"><h2 class="heading">Skelet. themes</h2></x-col>
-                        <x-col span="row">
+                        <x-cell span="row"><h2 class="heading">Skelet. themes</h2></x-cell>
+                        <x-cell span="row">
                             <p>Skelet. is also available as blank, barebone theme for WordPress, Grav. It's the perfect way to build your next website more quickly and efficiently using your favorite CMS.</p>
-                        </x-col>
+                        </x-cell>
                     </x-grid>
                 </div>
 
                 <x-grid columns="2" ai="center" style="--columnGap:1.5rem;">
-                    <x-col span-s="row" class="frame">
+                    <x-cell span-s="row" class="frame">
                         <ul class="no-style">
                             <li><h3 class="title">WordPress</h3></li>
                             <li><p>wp-Skelet. is a highly optimized HTML5 Blank WordPress boilerplate theme. That serve as a starting point for developing your own custom theme. Pre-loaded with time saving features in <em>functions.php</em>. Most importantly <em>skelet.css</em> already included, for a quick start.</p></li>
                             <li class="foot"><a href="https://selekkt.dk/git/wp-skelet" class="button fullwidth is-outline is-pill is-currentcolor" tabindex="0">Get wp-Skelet</a></li>
                         </ul>
-                    </x-col>
-                    <x-col span="row" class="small-only"><hr></x-col>
-                    <x-col span-s="row" class="frame">
+                    </x-cell>
+                    <x-cell span="row" class="small-only"><hr></x-cell>
+                    <x-cell span-s="row" class="frame">
                         <ul class="no-style">
                             <li><h3 class="title">Grav</h3></li>
                             <li><p>grav-Skelet. A blank and minimal theme for Grav. No dependencies. Improved directory structure. Optimized build process and freedom to create. It's basically Skelet. for Grav CMS.</p></li>
                             <li class="foot"><a href="https://selekkt.dk/git/grav-skelet" class="button fullwidth is-outline is-pill is-currentcolor" tabindex="0">Get grav-Skelet</a></li>
                         </ul>
-                    </x-col>
+                    </x-cell>
                 </x-grid>
             </section>
         </main>
 
         <footer>
             <x-grid columns="2">
-                <x-col>
+                <x-cell>
                     <span>Sēlekkt. presents</span>
                     <h1 class="skelet">Skelet.<sup><small>3</small></sup></h1>
-                </x-col>
-                <x-col>
+                </x-cell>
+                <x-cell>
                     <x-grid columns="3" columns-s="1">
-                        <x-col>
+                        <x-cell>
                             <ul class="no-style">
                                 <li><a href="https://selekkt.dk/git" class="no-style">GitHub</a></li>
                                 <li><a href="https://selekkt.dk/git/skelet/blob/master/LICENSE" class="no-style">License</a></li>
                                 <li><a href="https://selekkt.dk/git/skelet/issues" class="no-style">Issues</a></li>
                                 <li><a href="https://selekkt.dk/skelet/v3/colophon.txt" class="no-style">Colophon</a></li>
                             </ul>
-                        </x-col>
-                        <x-col>
+                        </x-cell>
+                        <x-cell>
                             <ul class="no-style">
                                 <li><a href="https://selekkt.dk/git/wp-skelet" class="no-style">wp-Skelet.</a></li>
                                 <li><a href="https://selekkt.dk/git/grav-skelet" class="no-style">grav-Skelet.</a></li>
                             </ul>
-                        </x-col>
-                        <x-col>
+                        </x-cell>
+                        <x-cell>
                             <ul class="no-style">
                                 <li><a href="https://selekkt.dk/skelet/v2/docs" class="no-style">Skēlet.<sup>v2</sup> docs</a></li>
                             </ul>
-                        </x-col>
+                        </x-cell>
                     </x-grid>
-                </x-col>
-                <x-col>
+                </x-cell>
+                <x-cell>
                     <span class="button is-blank">&copy; <script>today = new Date().getFullYear(); document.write(today);</script></span> <a href="https://selekkt.dk/?ref=skelet" target="_blank" class="button is-blank">Sēlekkt. Studio</a>
-                </x-col>
-                <x-col span="2..">
-                    <p>If you found <u><em>Skelet.</em></u> useful<br>and want to support its future</p>
-                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NQRBUKWFJ57V4&source=url" class="button is-green" target="_blank" tabindex="0">Donate</a>
-                </x-col>
+                </x-cell>
             </x-grid>
         </footer>
     </div>

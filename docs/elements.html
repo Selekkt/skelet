@@ -1,5 +1,5 @@
 <x-grid columns="3" columns-s="1">
-    <x-col>
+    <x-cell>
         <fieldset>
             <legend>Checkboxes</legend>
 
@@ -22,9 +22,9 @@
                 </li>
             </ul>
         </fieldset>
-    </x-col>
+    </x-cell>
 
-    <x-col>
+    <x-cell>
         <fieldset>
             <legend>Radio buttons</legend>
 
@@ -47,9 +47,9 @@
                 </li>
             </ul>
         </fieldset>
-    </x-col>
+    </x-cell>
 
-    <x-col>
+    <x-cell>
         <fieldset>
             <legend>Switch</legend>
 
@@ -74,116 +74,116 @@
             <span class="text-hr" style="margin-bottom:1rem">Turn checkbox into switch</span>
             <p><code>&lt;input type="checkbox" class="switch"&gt;</code></p>
         </fieldset>
-    </x-col>
+    </x-cell>
 </x-grid>
 
 <x-grid columns="8">
-    <x-col span="row">
+    <x-cell span="row">
         <fieldset>
             <legend>Contact form</legend>
             <form>
                 <x-grid columns="8" class="margin20">
-                    <x-col span="1-4" span-s="row">
+                    <x-cell span="1-4" span-s="row">
                         <label for="exampleEmailInput">Your email</label>
                         <input class="fullwidth" placeholder="your@email.address" id="exampleEmailInput" type="email">
-                    </x-col>
+                    </x-cell>
 
-                    <x-col span="5.." span-s="row">
+                    <x-cell span="5.." span-s="row">
                         <label for="exampleRecipientInput">Subject</label>
                         <select class="fullwidth" id="exampleRecipientInput">
                             <option selected="" disabled="" value="Option 1">-- Select --</option>
                             <option value="Option 2">Sarude</option>
                             <option value="Option 3">Dancestorm</option>
                         </select>
-                    </x-col>
+                    </x-cell>
                 </x-grid>
                 <x-grid>
-                    <x-col span="row">
+                    <x-cell span="row">
                         <label class="float fullwidth" for="exampleMessage">
                             <textarea class="fullwidth" placeholder="Comment..." id="exampleMessage"></textarea>
                             <span>Comment</span>
                         </label>
-                    </x-col>
+                    </x-cell>
                 </x-grid>
                 <x-grid columns="8" class="margin20">
-                    <x-col span="1-2" ps="center start">
+                    <x-cell span="1-2" ps="center start">
                         <input class="button is-primary" value="Submit" type="submit">
-                    </x-col>
-                    <x-col span="3.." ps="center end">
+                    </x-cell>
+                    <x-cell span="3.." ps="center end">
                         <label>
                             <input type="checkbox"><span>I agree with the term of use</span>
                         </label>
-                    </x-col>
+                    </x-cell>
                 </x-grid>
             </form>
         </fieldset>
-    </x-col>
+    </x-cell>
 </x-grid>
 
 <x-grid columns="8" class="margin20">
-    <x-col span="row"><h3 class="title">Labels</h3></x-col>
+    <x-cell span="row"><h3 class="title">Labels</h3></x-cell>
 
-    <x-col span="row"><span class="text-hr" style="margin-bottom:1rem">Floating label</span></x-col>
-    <x-col span="1-4" span-s="row">
+    <x-cell span="row"><span class="text-hr" style="margin-bottom:1rem">Floating label</span></x-cell>
+    <x-cell span="1-4" span-s="row">
 <pre><code>&lt;label class="float"&gt;
 &lt;input type="text" placeholder="Name"&gt;
 &lt;span>Name&lt;/span&gt;
 &lt;/label&gt;</code></pre>
-    </x-col>
-    <x-col span="6.." span-s="row" js-s="center" as="center">
+    </x-cell>
+    <x-cell span="6.." span-s="row" js-s="center" as="center">
         <label class="float">
             <input type="text" placeholder="Name" >
             <span>Name</span>
         </label>
-    </x-col>
+    </x-cell>
 
-    <x-col span="row"><span class="text-hr" style="margin-bottom:1rem">Inline label</span></x-col>
-    <x-col span="1-4" span-s="row">
+    <x-cell span="row"><span class="text-hr" style="margin-bottom:1rem">Inline label</span></x-cell>
+    <x-cell span="1-4" span-s="row">
 <pre><code>&lt;label&gt;&lt;span&gt;Left&lt;/span&gt;&lt;/label&gt;
 &lt;input type="text" placeholder="Name" style="width:auto"&gt;
 &lt;label&gt;&lt;span&gt;Right&lt;/span&gt;&lt;/label&gt;</code></pre>
-    </x-col>
-    <x-col span="6.." span-s="row" js-s="center" as="center">
+    </x-cell>
+    <x-cell span="6.." span-s="row" js-s="center" as="center">
         <label><span>Left</span></label>
         <input type="text" placeholder="Name" style="width:auto">
         <label><span>Right</span></label>
-    </x-col>
+    </x-cell>
 </x-grid>
 
 <x-grid columns="8" class="margin20">
-    <x-col span="row"><h3 class="title">Action buttons</h3></x-col>
+    <x-cell span="row"><h3 class="title">Action buttons</h3></x-cell>
 
-    <x-col span="1-4"><code>&lt;button&gt;</code></x-col>
-    <x-col span="6.."><button>Button</button></x-col>
+    <x-cell span="1-4"><code>&lt;button&gt;</code></x-cell>
+    <x-cell span="6.."><button>Button</button></x-cell>
 
-    <x-col span="1-4"><code>&lt;button disabled&gt;</code></x-col>
-    <x-col span="6.."><button disabled>Disabled</button></x-col>
+    <x-cell span="1-4"><code>&lt;button disabled&gt;</code></x-cell>
+    <x-cell span="6.."><button disabled>Disabled</button></x-cell>
 
-    <x-col span="1-4"><code>&lt;input type=button&gt;</code></x-col>
-    <x-col span="6.."><input type="button" value="Input button" class="is-primary"></x-col>
+    <x-cell span="1-4"><code>&lt;input type=button&gt;</code></x-cell>
+    <x-cell span="6.."><input type="button" value="Input button" class="is-primary"></x-cell>
 
-    <x-col span="1-4"><code>&lt;button class="is-primary"&gt;</code></x-col>
-    <x-col span="6.."><button class="is-primary">Primary</button></x-col>
+    <x-cell span="1-4"><code>&lt;button class="is-primary"&gt;</code></x-cell>
+    <x-cell span="6.."><button class="is-primary">Primary</button></x-cell>
 
-    <x-col span="1-4"><code>&lt;a href="#" class="button"&gt;</code></x-col>
-    <x-col span="6.."><a href="#" class="button">Link</a></x-col>
+    <x-cell span="1-4"><code>&lt;a href="#" class="button"&gt;</code></x-cell>
+    <x-cell span="6.."><a href="#" class="button">Link</a></x-cell>
 </x-grid>
 
 <x-grid columns="8" class="margin20">
-    <x-col span="1-4" span-s="6.." class="large-only">
+    <x-cell span="1-4" span-s="6.." class="large-only">
         <pre><code>&lt;a class="button is-white"&gt;White&lt;/a&gt;
 &lt;a class="button is-black"&gt;Black&lt;/a&gt;
 &lt;a class="button is-link"&gt;Link&lt;/a&gt;</code></pre>
-    </x-col>
-    <x-col span="6.." span-s="row" align="self" style="--align-self: center;">
+    </x-cell>
+    <x-cell span="6.." span-s="row" align="self" style="--align-self: center;">
         <a class="button is-white">White</a>
         <a class="button is-black">Black</a>
         <a class="button is-link">Link</a>
-    </x-col>
+    </x-cell>
 </x-grid>
 
 <x-grid columns="8" class="margin20">
-    <x-col span="1-4" span-s="6.." class="large-only">
+    <x-cell span="1-4" span-s="6.." class="large-only">
         <pre><code>&lt;button&gt;Normal&lt;/button&gt;
 &lt;button disabled&gt;Button disabled&lt;/button&gt;
 &lt;input type=&quot;button&quot; value=&quot;input button&quot;&gt;
@@ -232,8 +232,8 @@
 &lt;a href=&quot;&quot; class=&quot;button&quot;&gt;a.button&lt;/a&gt;
 &lt;a href=&quot;&quot; class=&quot;button disabled&quot;&gt;a.button.disabled&lt;/a&gt;
 &lt;a href=&quot;&quot; class=&quot;button is-loading is-green&quot;&gt;is-loading is-outline is-small&lt;/a&gt;</code></pre>
-    </x-col>
-    <x-col span="6.." span-s="row" as="center">
+    </x-cell>
+    <x-cell span="6.." span-s="row" as="center">
         <button>Normal</button>
         <button disabled>Button disabled</button>
         <hr>
@@ -303,13 +303,13 @@
         <a href="" class="button">a.button</a>
         <a href="" class="button disabled">a.button.disabled</a>
         <a href="" class="button is-loading is-green">is-loading is-outline is-small</a>
-    </x-col>
+    </x-cell>
 </x-grid>
 
 <x-grid columns="8" class="margin20">
-    <x-col span="row">
-        <h3 class="title">Lists</h3></x-col>
-    <x-col span="1-4" span-s="row">
+    <x-cell span="row">
+        <h3 class="title">Lists</h3></x-cell>
+    <x-cell span="1-4" span-s="row">
         <span class="text-hr" style="margin-bottom:1rem">Unordered list</span>
         <p>&nbsp;</p>
         <ul>
@@ -335,8 +335,8 @@
             </li>
             <li>Item 3</li>
         </ol>
-    </x-col>
-    <x-col span="5.." span-s="row">
+    </x-cell>
+    <x-cell span="5.." span-s="row">
         <span class="text-hr" style="margin-bottom:1rem">No style list</span>
         <p>Add<code>.no-style</code> to <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code></p>
 
@@ -361,13 +361,13 @@
             <li>Item 3</li>
             <li>Item 4</li>
         </ul>
-    </x-col>
+    </x-cell>
 </x-grid>
 
 <x-grid columns="8" class="margin20">
-    <x-col span="row">
-        <h3 class="title">Tabular data</h3></x-col>
-    <x-col span="1-4" span-s="row">
+    <x-cell span="row">
+        <h3 class="title">Tabular data</h3></x-cell>
+    <x-cell span="1-4" span-s="row">
         <table>
             <caption>Default table</caption>
             <thead>
@@ -391,8 +391,8 @@
                 </tr>
             </tbody>
         </table>
-    </x-col>
-    <x-col span="5.." span-s="row">
+    </x-cell>
+    <x-cell span="5.." span-s="row">
         <table class="is-bordered">
             <caption>Bordedered table</caption>
             <thead>
@@ -416,8 +416,8 @@
                 </tr>
             </tbody>
         </table>
-    </x-col>
-    <x-col span="row" span-s="row">
+    </x-cell>
+    <x-cell span="row" span-s="row">
         <table class="is-striped">
             <caption>Striped table</caption>
             <thead>
@@ -451,5 +451,5 @@
                 </tr>
             </tbody>
         </table>
-    </x-col>
+    </x-cell>
 </x-grid>
