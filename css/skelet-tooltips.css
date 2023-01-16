@@ -1,0 +1,94 @@
+/* ------------------
+  tooltips
+------------------ */
+:root {
+    --tooltipRadius: 0.5rem;
+    --tooltipFontSize: 1.2rem;
+    --tooltipMove: 4px; 
+    --tooltipDuration: 190ms;
+
+    --tooltipBg: var(--dark);
+    --tooltipColor: var(--white);
+}
+
+[data-tooltip] { overflow: visible; position: relative; cursor: pointer; z-index: 1 }
+[data-tooltip]:hover { z-index: 2 }
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    box-sizing: border-box;
+    background-color: var(--tooltipBg);
+    border-radius: var(--tooltipRadius);
+    color: var(--tooltipColor);
+    font-family: var(--fontFamily);
+    font-size: var(--tooltipFontSize)!important;
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: none;
+    text-indent: 0;
+    text-transform: initial;
+    text-align: center;
+    letter-spacing: normal;
+    line-height: 1.3;
+    white-space: nowrap;
+    transition: all var(--tooltipDuration) ease-in-out var(--tooltipDuration);
+}
+
+[data-tooltip]::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: var(--tooltipBg);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--tooltipDuration) ease-in-out var(--tooltipDuration);
+}
+[data-tooltip]:hover:before,[data-tooltip]:hover:after,[data-tooltip][tooltip-visible]:before,[data-tooltip][tooltip-visible]:after,[data-tooltip]:not([tooltip-nofocus]):focus:before,[data-tooltip]:not([tooltip-nofocus]):focus:after { opacity: 1; pointer-events: none }
+[data-tooltip].font-awesome:after { font-family: FontAwesome, var(--fontFamily) }
+
+[tooltip-break]:after { white-space: pre }
+[tooltip-break][tooltip-length]:after { white-space: pre-line; overflow-wrap: break-word; width: fit-content }
+[tooltip-blunt]:before, [tooltip-blunt]:after { transition: none }
+
+[tooltip-pos="up"]:hover:after,[tooltip-pos="up"][tooltip-visible]:after,[tooltip-pos="down"]:hover:after, [tooltip-pos="down"][tooltip-visible]:after { transform: translate(-50%, 0) }
+[tooltip-pos="up"]:hover:before,[tooltip-pos="up"][tooltip-visible]:before,[tooltip-pos="down"]:hover:before, [tooltip-pos="down"][tooltip-visible]:before { transform: translate(-50%, 0) }
+
+[tooltip-pos*="-left"]:after { left: 0 }
+[tooltip-pos*="-left"]:before { left: 5px }
+[tooltip-pos*="-right"]:after { right: 0 }
+[tooltip-pos*="-right"]:before { right: 5px }
+[tooltip-pos*="-left"]:hover:after, [tooltip-pos*="-left"][tooltip-visible]:after,[tooltip-pos*="-right"]:hover:after,[tooltip-pos*="-right"][tooltip-visible]:after { transform: translate(0, 0) }
+[tooltip-pos*="-left"]:hover:before, [tooltip-pos*="-left"][tooltip-visible]:before,[tooltip-pos*="-right"]:hover:before,[tooltip-pos*="-right"][tooltip-visible]:before { transform: translate(0, 0) }
+
+[tooltip-pos^="up"]:before, [tooltip-pos^="up"]:after { bottom: 100%; transform-origin: top; transform: translate(0, var(--tooltipMove)) }
+[tooltip-pos^="up"]:after { margin-bottom: 10px }
+[tooltip-pos="up"]:before, [tooltip-pos="up"]:after { left: 50%; transform: translate(-50%, var(--tooltipMove)) }
+
+[tooltip-pos^="down"]:before, [tooltip-pos^="down"]:after { top: 100%; transform: translate(0, calc(var(--tooltipMove) * -1)) }
+[tooltip-pos^="down"]:after { margin-top: 10px }
+[tooltip-pos^="down"]:before { width: 0; height: 0; border: 5px solid transparent; border-bottom-color: var(--tooltipBg) }
+[tooltip-pos="down"]:after, [tooltip-pos="down"]:before { left: 50%; transform: translate(-50%, calc(var(--tooltipMove) * -1)) }
+
+[tooltip-pos="left"]:hover:after, [tooltip-pos="left"][tooltip-visible]:after, [tooltip-pos="right"]:hover:after, [tooltip-pos="right"][tooltip-visible]:after { transform: translate(0, -50%) }
+[tooltip-pos="left"]:hover:before, [tooltip-pos="left"][tooltip-visible]:before, [tooltip-pos="right"]:hover:before, [tooltip-pos="right"][tooltip-visible]:before { transform: translate(0, -50%) }
+[tooltip-pos="left"]:after, [tooltip-pos="left"]:before { right: 100%; top: 50%; transform: translate(var(--tooltipMove), -50%) }
+[tooltip-pos="left"]:after { margin-inline-end: 10px }
+[tooltip-pos="left"]:before { width: 0; height: 0; border: 5px solid transparent; border-left-color: var(--tooltipBg) }
+
+[tooltip-pos="right"]:after, [tooltip-pos="right"]:before { left: 100%; top: 50%; transform: translate(calc(var(--tooltipMove) * -1), -50%) }
+[tooltip-pos="right"]:after { margin-inline-start: 10px }
+[tooltip-pos="right"]:before { width: 0; height: 0; border: 5px solid transparent; border-right-color: var(--tooltipBg) }
+
+[tooltip-length]:after { white-space: normal }
+[tooltip-length="small"]:after { width: 80px }
+[tooltip-length="medium"]:after { width: 150px }
+[tooltip-length="large"]:after { width: 260px }
+[tooltip-length="xlarge"]:after { width: 380px }
+[tooltip-length="fit"]:after { width: fit-content }
+@media (max-width: 1024px) { [tooltip-length="xlarge"]:after { width: 90vw }  }

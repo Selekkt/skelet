@@ -1,7 +1,7 @@
 /*! Skelet.css - v3.5.0 | MIT License | (c) 2023 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,*::before,*::after {box-sizing:border-box}
 
-/* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* normalize */
 html{line-height:1.15;-webkit-text-size-adjust:100%}
 body{margin:0}
 hr{box-sizing:content-box;overflow:visible}
@@ -159,15 +159,6 @@ summary{display:list-item}
     /* grids */
     --columnGap: 1rem;
     --rowGap: 1rem;
-
-    /* tooltip */
-    --tooltipRadius: 0.5rem;
-    --tooltipFontSize: 1.2rem;
-    --tooltipMove: 4px; 
-    --tooltipDuration: 190ms;
-
-    --tooltipBg: var(--dark);
-    --tooltipColor: var(--white);
 }
 
 /*** Dark Mode */
@@ -441,27 +432,6 @@ kbd {
 .is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
 .is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
-/** Group inputs */
-.stack { --buttonMargin: auto; --buttonHeight: 100%; display: var(--stackDisplay, inline-flex); justify-content: var(--stack-jc, center); align-items: var(--stack-ai, center); height: var(--stackHeight, auto) }
-.stack.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
-.stack.no-style > *:is(:hover,:focus) { border:none }
-.stack:where(.no-style, .presuffix) *:focus { box-shadow: none; outline: none!important; border-color: none!important }
-
-.stack.presuffix {
-    --buttonColor: currentColor;
-    background: var(--inputBg);
-    color: var(--inputColor);
-    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
-    border-radius: var(--inputRadius);
-    margin: var(--inputMargin)
-}
-
-.stack.presuffix:hover { border-color: var(--inputBorderHover); background: var(--inputBgHover) }
-.stack.presuffix:focus-within { border-color: var(--inputBorderActive); background: var(--inputBgActive) }
-.stack.presuffix > * { padding: var(--inputPadding) }
-.stack.presuffix > span:first-child { border-inline-end: inherit }
-.stack.presuffix > span:last-child { border-inline-start: inherit }
-
 /* Badge */
 .badge {
     display: inline-grid;
@@ -554,90 +524,26 @@ kbd {
 .scroll-snap.align-end { --scrollAlign: end }
 .scroll-snap.stop-always { --scrollStop: always } /* default */
 
-/* ------------------
-  tooltips
------------------- */
-[data-tooltip] { overflow: visible; position: relative; cursor: pointer; z-index: 1 }
-[data-tooltip]:hover { z-index: 2 }
+/** Group inputs */
+.stack { --buttonMargin: auto; --buttonHeight: 100%; display: var(--stackDisplay, inline-flex); justify-content: var(--stack-jc, center); align-items: var(--stack-ai, center); height: var(--stackHeight, auto) }
+.stack.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
+.stack.no-style > *:is(:hover,:focus) { border:none }
+.stack:where(.no-style, .presuffix) *:focus { box-shadow: none; outline: none!important; border-color: none!important }
 
-[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    padding: 1rem;
-    opacity: 0;
-    pointer-events: none;
-    box-sizing: border-box;
-    background-color: var(--tooltipBg);
-    border-radius: var(--tooltipRadius);
-    color: var(--tooltipColor);
-    font-family: var(--fontFamily);
-    font-size: var(--tooltipFontSize)!important;
-    font-weight: normal;
-    font-style: normal;
-    text-shadow: none;
-    text-indent: 0;
-    text-transform: initial;
-    text-align: center;
-    letter-spacing: normal;
-    line-height: 1.3;
-    white-space: nowrap;
-    transition: all var(--tooltipDuration) ease-in-out var(--tooltipDuration);
+.stack.presuffix {
+    --buttonColor: currentColor;
+    background: var(--inputBg);
+    color: var(--inputColor);
+    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
+    border-radius: var(--inputRadius);
+    margin: var(--inputMargin)
 }
 
-[data-tooltip]::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 5px solid transparent;
-    border-top-color: var(--tooltipBg);
-    opacity: 0;
-    pointer-events: none;
-    transition: all var(--tooltipDuration) ease-in-out var(--tooltipDuration);
-}
-[data-tooltip]:hover:before,[data-tooltip]:hover:after,[data-tooltip][tooltip-visible]:before,[data-tooltip][tooltip-visible]:after,[data-tooltip]:not([tooltip-nofocus]):focus:before,[data-tooltip]:not([tooltip-nofocus]):focus:after { opacity: 1; pointer-events: none }
-[data-tooltip].font-awesome:after { font-family: FontAwesome, var(--fontFamily) }
-
-[tooltip-break]:after { white-space: pre }
-[tooltip-break][tooltip-length]:after { white-space: pre-line; overflow-wrap: break-word; width: fit-content }
-[tooltip-blunt]:before, [tooltip-blunt]:after { transition: none }
-
-[tooltip-pos="up"]:hover:after,[tooltip-pos="up"][tooltip-visible]:after,[tooltip-pos="down"]:hover:after, [tooltip-pos="down"][tooltip-visible]:after { transform: translate(-50%, 0) }
-[tooltip-pos="up"]:hover:before,[tooltip-pos="up"][tooltip-visible]:before,[tooltip-pos="down"]:hover:before, [tooltip-pos="down"][tooltip-visible]:before { transform: translate(-50%, 0) }
-
-[tooltip-pos*="-left"]:after { left: 0 }
-[tooltip-pos*="-left"]:before { left: 5px }
-[tooltip-pos*="-right"]:after { right: 0 }
-[tooltip-pos*="-right"]:before { right: 5px }
-[tooltip-pos*="-left"]:hover:after, [tooltip-pos*="-left"][tooltip-visible]:after,[tooltip-pos*="-right"]:hover:after,[tooltip-pos*="-right"][tooltip-visible]:after { transform: translate(0, 0) }
-[tooltip-pos*="-left"]:hover:before, [tooltip-pos*="-left"][tooltip-visible]:before,[tooltip-pos*="-right"]:hover:before,[tooltip-pos*="-right"][tooltip-visible]:before { transform: translate(0, 0) }
-
-[tooltip-pos^="up"]:before, [tooltip-pos^="up"]:after { bottom: 100%; transform-origin: top; transform: translate(0, var(--tooltipMove)) }
-[tooltip-pos^="up"]:after { margin-bottom: 10px }
-[tooltip-pos="up"]:before, [tooltip-pos="up"]:after { left: 50%; transform: translate(-50%, var(--tooltipMove)) }
-
-[tooltip-pos^="down"]:before, [tooltip-pos^="down"]:after { top: 100%; transform: translate(0, calc(var(--tooltipMove) * -1)) }
-[tooltip-pos^="down"]:after { margin-top: 10px }
-[tooltip-pos^="down"]:before { width: 0; height: 0; border: 5px solid transparent; border-bottom-color: var(--tooltipBg) }
-[tooltip-pos="down"]:after, [tooltip-pos="down"]:before { left: 50%; transform: translate(-50%, calc(var(--tooltipMove) * -1)) }
-
-[tooltip-pos="left"]:hover:after, [tooltip-pos="left"][tooltip-visible]:after, [tooltip-pos="right"]:hover:after, [tooltip-pos="right"][tooltip-visible]:after { transform: translate(0, -50%) }
-[tooltip-pos="left"]:hover:before, [tooltip-pos="left"][tooltip-visible]:before, [tooltip-pos="right"]:hover:before, [tooltip-pos="right"][tooltip-visible]:before { transform: translate(0, -50%) }
-[tooltip-pos="left"]:after, [tooltip-pos="left"]:before { right: 100%; top: 50%; transform: translate(var(--tooltipMove), -50%) }
-[tooltip-pos="left"]:after { margin-inline-end: 10px }
-[tooltip-pos="left"]:before { width: 0; height: 0; border: 5px solid transparent; border-left-color: var(--tooltipBg) }
-
-[tooltip-pos="right"]:after, [tooltip-pos="right"]:before { left: 100%; top: 50%; transform: translate(calc(var(--tooltipMove) * -1), -50%) }
-[tooltip-pos="right"]:after { margin-inline-start: 10px }
-[tooltip-pos="right"]:before { width: 0; height: 0; border: 5px solid transparent; border-right-color: var(--tooltipBg) }
-
-[tooltip-length]:after { white-space: normal }
-[tooltip-length="small"]:after { width: 80px }
-[tooltip-length="medium"]:after { width: 150px }
-[tooltip-length="large"]:after { width: 260px }
-[tooltip-length="xlarge"]:after { width: 380px }
-[tooltip-length="fit"]:after { width: fit-content }
-@media (max-width: 1024px) { [tooltip-length="xlarge"]:after { width: 90vw }  }
+.stack.presuffix:hover { border-color: var(--inputBorderHover); background: var(--inputBgHover) }
+.stack.presuffix:focus-within { border-color: var(--inputBorderActive); background: var(--inputBgActive) }
+.stack.presuffix > * { padding: var(--inputPadding) }
+.stack.presuffix > span:first-child { border-inline-end: inherit }
+.stack.presuffix > span:last-child { border-inline-start: inherit }
 
 /* ------------------
   buttons
@@ -2410,6 +2316,7 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
 /*
  * Can be used both in transition:; & animation:;
  * Example: transition: all 1s var(--easeInOutQuad);
+ * examples at: https://easings.net/
 */
 :root {
     --easeInSine: cubic-bezier(0.12, 0, 0.39, 0);
