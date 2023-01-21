@@ -1,4 +1,4 @@
-/*! Skelet.css - v3.5.0 | MIT License | (c) 2023 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet.css - v4.0.0 | MIT License | (c) 2023 Selekkt. | https://selekkt.dk/skelet/v3/ */
 *,*::before,*::after {box-sizing:border-box}
 
 /* normalize */
@@ -1054,6 +1054,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 :where(x-grid,[x-grid]) > *[span-y] { grid-row-end: span var(--grid-re) }
 :where(x-grid,[x-grid]) > *[span-y*="+"], :where(x-grid,[x-grid]) > *[span-y*="-"] { grid-row-start: var(--grid-rs) }
 :where(x-grid,[x-grid]) > *[span-y*="-"] { grid-row-end: var(--grid-re) }
+:where(x-grid,[x-grid]) > *[span-y="1f"]  { grid-row: 1 / -1 }
 
 /* [S] for window width <= 777px */
 @media (max-width: 777px) {
@@ -1141,6 +1142,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
   :where(x-grid,[x-grid]) > *[span-y-s] { grid-row-end: span var(--grid-re) }
   :where(x-grid,[x-grid]) > *[span-y-s*="+"], :where(x-grid,[x-grid]) > *[span-y-s*="-"] { grid-row-start: var(--grid-rs) }
   :where(x-grid,[x-grid]) > *[span-y-s*="-"] { grid-row-end: var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-s="1f"]  { grid-row: 1 / -1 }
 }
 
 /* [M] for window width 778px <> 1024px */
@@ -1229,6 +1231,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
   :where(x-grid,[x-grid]) > *[span-y-m] { grid-row-end: span var(--grid-re) }
   :where(x-grid,[x-grid]) > *[span-y-m*="+"], :where(x-grid,[x-grid]) > *[span-y-m*="-"] { grid-row-start: var(--grid-rs) }
   :where(x-grid,[x-grid]) > *[span-y-m*="-"] { grid-row-end: var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-m="1f"]  { grid-row: 1 / -1 }
 }
 
 /* [L] for window width >= 1600 */
@@ -1317,6 +1320,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
   :where(x-grid,[x-grid]) > *[span-y-l] { grid-row-end: span var(--grid-re) }
   :where(x-grid,[x-grid]) > *[span-y-l*="+"], :where(x-grid,[x-grid]) > *[span-y-l*="-"] { grid-row-start: var(--grid-rs) }
   :where(x-grid,[x-grid]) > *[span-y-l*="-"] { grid-row-end: var(--grid-re) }
+  :where(x-grid,[x-grid]) > *[span-y-l="1f"]  { grid-row: 1 / -1 }
 }
 
 /* ------------------
