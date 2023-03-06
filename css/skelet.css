@@ -528,7 +528,7 @@ kbd {
 .stack { --buttonMargin: auto; --buttonHeight: 100%; display: var(--stackDisplay, inline-flex); justify-content: var(--stack-jc, center); align-items: var(--stack-ai, center); height: var(--stackHeight, auto) }
 .stack.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
 .stack.no-style > *:is(:hover,:focus) { border:none }
-.stack:where(.no-style, .presuffix) *:focus { box-shadow: none; outline: none!important; border-color: none!important }
+.stack:where(.no-style,.presuffix) *:focus { box-shadow: none; outline: none!important; border-color: none!important }
 
 .stack.presuffix {
     --buttonColor: currentColor;
@@ -542,8 +542,9 @@ kbd {
 .stack.presuffix:hover { border-color: var(--inputBorderHover); background: var(--inputBgHover) }
 .stack.presuffix:focus-within { border-color: var(--inputBorderActive); background: var(--inputBgActive) }
 .stack.presuffix > * { padding: var(--inputPadding) }
-.stack.presuffix > span:first-child { border-inline-end: inherit }
-.stack.presuffix > span:last-child { border-inline-start: inherit }
+.stack.presuffix > label { white-space: nowrap; font-weight: normal }
+.stack.presuffix > :where(label,button,span):first-child { border-inline-end: inherit }
+.stack.presuffix > :where(label,button,span):last-child { border-inline-start: inherit }
 
 /* ------------------
   buttons
