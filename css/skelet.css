@@ -1,44 +1,11 @@
 /*! Skelet.css - v4.0.0 | MIT License | (c) 2023 Selekkt. | https://selekkt.dk/skelet/v3/ */
-*,*::before,*::after {box-sizing:border-box}
-
-/* normalize */
-html{line-height:1.15;-webkit-text-size-adjust:100%}
-body{margin:0}
-hr{box-sizing:content-box;overflow:visible}
-pre{font-family:monospace,monospace;font-size:1em;display:grid}
-a{background:transparent}
-abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
-b,strong{font-weight:bolder}
-code,kbd,samp{font-family:monospace,monospace;font-size:1em}
-small{font-size:80%}
-sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
-sub{bottom:-.25em}
-sup{top:-.5em}
-img{border-style:none}
-button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}
-button,input{overflow:visible}
-button,select{text-transform:none}
-button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}
-button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}
-button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}
-fieldset{padding:.35em .75em .625em}
-legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}
-progress{vertical-align:baseline}
-textarea{overflow:auto}
-[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
-[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}
-[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}
-[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
-::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
-details{display:block}
-summary{display:list-item}
 
 /* ------------------
-  css variables
+    variables
 ------------------ */
 :root {
 /** Colors */
-    --primary: #409cff;
+    --primary: #006EF1;
     --red: #ff6961;
     --orange: #FFB340;
     --yellow: #FFD426;
@@ -145,8 +112,8 @@ summary{display:list-item}
     --buttonRadius: var(--radius);
     --buttonBorderWidth: var(--borderWidth);
     --buttonBorderStyle: var(--borderStyle);
-    --buttonFontSize: var(--fontSize);
-    --buttonFontWeight: 600;
+    --buttonSize: var(--fontSize);
+    --buttonWeight: 600;
 
     --buttonBg: var(--primary);
     --buttonBgHover: var(--linkHover);
@@ -193,26 +160,33 @@ summary{display:list-item}
 }
 
 /* ------------------
-  more resets
+    resets
 ------------------ */
+*,*::before,*::after {box-sizing:border-box}
 :not(pre) > code,:not(pre) > kbd,:not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
-img,svg,canvas,video,embed,object,dd { display: block; vertical-align: middle; box-sizing: border-box; max-width: 100%; height: auto }
+img,svg,canvas,video,embed,object,dd { display: block; box-sizing: border-box; max-width: 100%; height: auto }
 iframe{display:block;border:0;max-width:100%}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0;width:fit-content}
 figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
+button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}
+[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
+[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}
+[type="search"]{-webkit-appearance:textfield;appearance:textfield;outline-offset:-2px}
+[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 [hidden],[type="hidden"],.hidden {display:none!important;outline:0}
 [disabled],[disabled]:hover,.disabled { filter: grayscale(100%); opacity: 0.7!important; cursor: not-allowed!important; --buttonColor:var(--white); --buttonColorHover: var(--white) }
 
 /* ------------------
-  basics
+    basics
 ------------------ */
 ::selection { background: var(--selectionBg); color: var(--selectionText) }
 ::-moz-selection { background: var(--selectionBg); color: var(--selectionText) }
 
-html { height: 100%; font-size: 62.5%; scroll-behavior: var(--scrollBehavior, smooth); scroll-padding-top: var(--scrollPadding, auto) }
-body { background: var(--bgColor); color: var(--color); font: var(--fontStyle) var(--fontWeight) var(--fontSize) var(--fontFamily); line-height: var(--fontLine); letter-spacing: var(--fontSpace) }
+html { height: 100%; font-size: 62.5%; line-height: 1.15; -webkit-text-size-adjust: 100%; scroll-behavior: var(--scrollBehavior, smooth); scroll-padding-top: var(--scrollPadding, auto) }
+body { margin: 0; background: var(--bgColor); color: var(--color); font: var(--fontStyle) var(--fontWeight) var(--fontSize) var(--fontFamily); line-height: var(--fontLine); letter-spacing: var(--fontSpace) }
 
 #app { display: flex; flex-direction: column; min-height: 100vh }
 main { flex: 1 }
@@ -227,6 +201,7 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: var(--hSpace);
     text-transform: var(--hTransform, inherit);
     text-align: var(--hAlign, start);
+    text-wrap: balance;
     color: var(--hColor); 
     margin: var(--hMargin);
 }
@@ -243,17 +218,29 @@ blockquote { max-width: 90%; margin: 2rem auto; font-style: italic }
 
 a:not(.button) { color: var(--linkColor); cursor: pointer; text-decoration: var(--linkDecoration, auto) }
 a:not(.button):hover { color: var(--linkHover); text-decoration: var(--linkHoverDecoration, auto) }
+
+a:not(.button):focus { color: var(--linkFocus, inherit); text-decoration: var(--linkFocusDecoration, auto) }
+a:not(.button):active { color: var(--linkActive, inherit); text-decoration: var(--linkActiveDecoration, auto) }
+a:not(.button):visited { color: var(--linkVisited, inherit); text-decoration: var(--linkVisitedDecoration, auto) }
+
 a.no-style { text-decoration: none }
 
 /*** Accessibility */
-*:focus { outline: 0; box-shadow: none }
-.a11y *:focus, .a11y a:focus { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px }
+.a11y-off *:focus { outline: 0; box-shadow: none }
 .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 
 @supports selector(:focus-visible) {
-    .a11y *:focus-visible, .a11y a:focus-visible { outline: 2px solid var(--a11yColor, var(--inputFocus)); outline-offset: 1px }
-    .a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
+    .a11y-off *:focus-visible { outline: 0; box-shadow: none }
+    .a11y-custom *:focus-visible, .a11y-custom a:focus-visible { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent }
 }
+
+.visibility-hidden { visibility: hidden }
+.sr-only, .visually-hidden, .visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
+.skipTo { position: fixed; z-index: 999; top: var(--padding); left: var(--padding) }
+
+/* if JS active show el w/ .js -- if JS disabled show el w/ .no-js */
+:where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
+:where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
 
 code, samp {
     padding: var(--inputPadding);
@@ -288,7 +275,7 @@ kbd {
 /* ------------------
   utilities
 ------------------ */
-.fullwidth { width: 100% }
+.fullwidth { --buttonWidth: 100%; --inputWidth: 100%; width: 100% }
 .fullwidth-max { max-width: 100% }
 .fullheight { height: 100% }
 .fullheight-max { max-height: 100% }
@@ -303,7 +290,7 @@ kbd {
 .inline-block { display: inline-block; margin: 0 }
 .center { display: block; text-align: center; margin: 0 auto }
 
-.text-truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.text-clip { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
 .text-start { text-align: start }
 .text-center { text-align: center }
 .text-end { text-align: end }
@@ -315,13 +302,14 @@ kbd {
 .text-underline { border-bottom: 1px solid currentColor }
 .text-line-through { text-decoration: line-through }
 .text-break-word { overflow-wrap: break-word }
+.text-balance { text-wrap: balance }
 
 .sticky { position: sticky; top: var(--sticky, 0) }
 .sticky-bottom { position: sticky; bottom: var(--sticky, 0) }
 .sticky-none { position: inherit }
 
 @media (max-width: 777px) { 
-    .fullwidth-s { width: 100% }
+    .fullwidth-s { --buttonWidth: 100%; --inputWidth: 100%; width: 100% }
     .fullwidth-max-s { max-width: 100% }
     .fullheight-s { height: 100% }
     .fullheight-max-s { max-height: 100% }
@@ -336,7 +324,7 @@ kbd {
     .inline-block-s { display: inline-block; margin: 0 }
     .center-s { display: block; text-align: center; margin: 0 auto }
 
-    .text-truncate-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-clip-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
     .text-start-s { text-align: start }
     .text-center-s { text-align: center }
     .text-end-s { text-align: end }
@@ -348,6 +336,7 @@ kbd {
     .text-underline-s { border-bottom: 1px solid currentColor }
     .text-line-through-s { text-decoration: line-through }
     .text-break-word-s { overflow-wrap: break-word }
+    .text-balance-s { text-wrap: balance }
 
     .sticky-s { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-s { position: sticky; bottom: var(--sticky, 0) }
@@ -355,7 +344,7 @@ kbd {
 }
 
 @media (min-width: 778px) and (max-width: 1024px) {
-    .fullwidth-m { width: 100% }
+    .fullwidth-m { --buttonWidth: 100%; --inputWidth: 100%; width: 100% }
     .fullwidth-max-m { max-width: 100% }
     .fullheight-m { height: 100% }
     .fullheight-max-m { max-height: 100% }
@@ -370,7 +359,7 @@ kbd {
     .inline-block-m { display: inline-block; margin: 0 }
     .center-m { display: block; text-align: center; margin: 0 auto }
 
-    .text-truncate-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-clip-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
     .text-start-m { text-align: start }
     .text-center-m { text-align: center }
     .text-end-m { text-align: end }
@@ -382,6 +371,7 @@ kbd {
     .text-underline-m { border-bottom: 1px solid currentColor }
     .text-line-through-m { text-decoration: line-through }
     .text-break-word-m { overflow-wrap: break-word }
+    .text-balance-m { text-wrap: balance }
 
     .sticky-m { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-m { position: sticky; bottom: var(--sticky, 0) }
@@ -389,7 +379,7 @@ kbd {
 }
 
 @media (min-width: 1599px) { 
-    .fullwidth-l { width: 100% }
+    .fullwidth-l { --buttonWidth: 100%; --inputWidth: 100%; width: 100% }
     .fullwidth-max-l { max-width: 100% }
     .fullheight-l { height: 100% }
     .fullheight-max-l { max-height: 100% }
@@ -404,7 +394,7 @@ kbd {
     .inline-block-l { display: inline-block; margin: 0 }
     .center-l { display: block; text-align: center; margin: 0 auto }
 
-    .text-truncate-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-clip-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
     .text-start-l { text-align: start }
     .text-center-l { text-align: center }
     .text-end-l { text-align: end }
@@ -416,49 +406,15 @@ kbd {
     .text-underline-l { border-bottom: 1px solid currentColor }
     .text-line-through-l { text-decoration: line-through }
     .text-break-word-l { overflow-wrap: break-word }
+    .text-balance-l { text-wrap: balance }
 
     .sticky-l { position: sticky; top: var(--sticky, 0) }
     .sticky-bottom-l { position: sticky; bottom: var(--sticky, 0) }
     .sticky-none-l { position: inherit }
 }
 
-/* if JS active show el w/ .js -- if JS disabled show el w/ .no-js */
-:where(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inline-block)!important } 
-:where(html.js .no-js, html.no-js .js):not(html) { display:none!important }
-
-.visibility-hidden { visibility: hidden }
-.sr-only, .visually-hidden, .visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
-
 .is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
 .is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
-
-/* Badge */
-.badge {
-    display: inline-grid;
-    place-items: center;
-    color: var(--badgeColor, var(--inputColor));
-    background: var(--badgeBg, var(--inputBg));
-    border: 1px solid var(--badgeBorder, var(--inputBorderColor));
-    border-radius: var(--badgeRadius, 100vw);
-    font-size: var(--badgeSize, 1.3rem);
-    padding: var(--badgePadding, .2em .7em);
-    font-weight: 500;
-    line-height: 1;
-    cursor: inherit;
-    font-feature-settings: "tnum";
-    font-variant: tabular-nums;
-    text-transform: capitalize;
-    white-space: nowrap
-}
-
-.badge.is-large { --badgeSize: 1.4em }
-.badge.is-circle { aspect-ratio: 1/1 }
-.badge.is-outline { --badgeBg: transparent }
-
-.badge.is-red { --badgeColor: var(--red); --badgeBorder: var(--red) }
-.badge.is-green { --badgeColor: var(--green); --badgeBorder: var(--green) }
-.badge.is-yellow { --badgeColor: var(--yellow); --badgeBorder: var(--yellow) }
-.badge.is-blue { --badgeColor: var(--blue); --badgeBorder: var(--blue) }
 
 /* Vertical and Horizontal align */
 .center-axyz { display: grid; place-items: center }
@@ -527,8 +483,8 @@ kbd {
 /** Group inputs */
 .stack { --buttonMargin: auto; --buttonHeight: 100%; display: var(--stackDisplay, inline-flex); justify-content: var(--stack-jc, center); align-items: var(--stack-ai, center); height: var(--stackHeight, auto) }
 .stack.no-style > * { border: 0; margin: 0; border-radius: 0; height: auto; background: transparent!important; color: currentColor }
-.stack.no-style > *:is(:hover,:focus) { border:none }
-.stack:where(.no-style,.presuffix) *:focus { box-shadow: none; outline: none!important; border-color: none!important }
+.stack.no-style > input:is(:hover,:focus) { border:none }
+.stack:where(.no-style,.presuffix) input:focus { box-shadow: none; outline: none!important; border-color: transparent!important }
 
 .stack.presuffix {
     --buttonColor: currentColor;
@@ -558,12 +514,13 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
     border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
     box-shadow: var(--buttonShadow);
     background: var(--buttonBg);
-    font-size: var(--buttonFontSize);
-    font-weight: var(--buttonFontWeight);
+    font-size: var(--buttonSize);
+    font-weight: var(--buttonWeight);
     letter-spacing: var(--buttonSpacing, .03em);
     line-height: var(--buttonLineHeight, 1);
     color: var(--buttonColor);
     text-align: var(--buttonAlign, center);
+    text-transform: var(--buttonTextTransform, inherit);
     white-space: nowrap;
     font-style: inherit;
     text-decoration: none;
@@ -578,14 +535,11 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
 
 :where(button,.button,[type="button"],[type="submit"],[type="reset"]):hover { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover) }
 
-.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { display:inline-flex; align-items:center; justify-content:center }
-.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i { font-size: max(15px, var(--buttonFontSize)) }
+.has-icon { display:inline-flex; align-items:center; justify-content:center; gap:1rem }
+.has-icon i { font-size: max(15px, var(--buttonSize)); pointer-events: none }
 
-.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:first-child:not(:last-child) { padding-inline-end: 1rem }
-.has-icon:where(button,.button,[type="button"],[type="submit"],[type="reset"]) i:last-child:not(:first-child) { padding-inline-start: 1rem }
-
-.is-small:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonFontSize: min(0.75em, 1.4rem) }
-.is-large:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonFontSize:1.45em }
+.is-small:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonSize: min(0.75em, 1.4rem) }
+.is-large:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonSize:1.45em }
 
 .is-pill:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:100vw }
 .is-circle:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:100vw; padding:1em; width:1em; height:1em }
@@ -607,6 +561,7 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
 .is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):not(:empty):after { margin-inline-start: 1rem }
 
 .is-unset { all: unset }
+.is-link:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: var(--fontSize) }
 .is-blank:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
 .is-custom:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor }
 
@@ -1330,7 +1285,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 /*  Flex Container */
 :where(x-flex,[x-flex]) { display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
 :where(x-flex,[x-flex]) > * { flex: 0 1 auto; width: auto; appearance: none }
-:where(x-flex,[x-flex]).fullflex { flex: 1 1 auto }
+:where(x-flex,[x-flex]) .fullflex { flex: 1 1 auto }
 :where(x-flex,[x-flex]).even > * { width: 100% }
 :where(x-flex,[x-flex]) img { object-fit: contain; max-width: 100% }
 
