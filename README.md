@@ -1,56 +1,63 @@
-# Skelet.<sup>3</sup>
-#### Skelet. is a contemporary CSS framework which gives you the foundations to start building your next project right away.
+# Skelet.css &mdash; a contemporary CSS framework that combines modern design principles with a forward-thinking approach.
 
-Skelet. provides a simple, minimal yet solid starting point for websites.
+Lightweight and easy to use. You can get started quickly by using the included _HTML5 template_ or by including the _CSS file_ in your project.
 
-Get started quickly with the HTML5 template, or just include skelet.css in your own project.
+The benefits of using Skelet.css:
 
----
+- **Solid foundation**: `Skelet.css` provides a solid foundation for your next project, so you can focus on creating great web designs.
+- **Modern design**: `Skelet.css` uses modern design principles to create a clean and responsive user interface.
+- **Forward-thinking approach**: `Skelet.css` is constantly being updated to keep up with the latest trends in web design and CSS standards.
 
-### Getting started
-
-1. [DOWNLOAD ↓](https://github.com/Selekkt/skelet/archive/master.zip) the file.
-2. Unzip skelet-master.zip
-3. Two files to pay attenion to:
-	- `skelet.html` = is the the HTML5 boilerplate
-	- `css/skelet.css` = is the CSS framework
-
----
-
-##### skelet.css via CDN 
-If you need `skelet.css`, just add this tag in the `<head>`.
-``` 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.min.css">
-``` 
+If you're looking for a modern, lightweight, and easy-to-use CSS framework, Skelet.css is a great option.
 
 
-or
+# Get started
+
+## via ZIP
+
+1. [DOWNLOAD ↓](https://github.com/Selekkt/skelet/archive/master.zip) Skelet.
+2. Unzip `skelet-master.zip`
+3. Files to pay attenion to:
+	- `skelet.html` = HTML5 boilerplate
+	- `css/skelet.css` = CSS framework
+	- `css/tooltips.css` = CSS tooltips
 
 
-``` 
-https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.min.css
-https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.css
-``` 
-
----
-
-##### Skelet on npm 
+## via NPM
 ``` 
 npm i selekkt-skelet
-``` 
+```
 
----
 
-##### Development branch: "next"
+## via CDN
+
+### → DEV
+> Use these CDN links only for development; do not use in production, as breaking changes may be introduced at any time with new major versions and break your website.
+
+#### Unminified
+```
+https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.css
+```
+
+#### Minified
+```
+https://cdn.jsdelivr.net/npm/selekkt-skelet@latest/css/skelet.min.css
+```
+
+### → PROD
+> For production is reccomended to use a specific version from the link below.
+
+[CDN for production](https://www.jsdelivr.com/package/npm/selekkt-skelet)
+
+## → Development branch: "next"
+> Future in the making. Where all the new features first appear.
 
 ``` 
 https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet.css
 ``` 
 
----
-
-### Directory structure
-This is the dir structure of Skelet. `docs` & `layouts` could be deleted if not needed.
+## Directory structure
+This is the dir structure of Skelet.
 ``` 
 .
 └── skelet/
@@ -69,20 +76,10 @@ This is the dir structure of Skelet. `docs` & `layouts` could be deleted if not 
     └── skelet.html (HTML5 boilerplate)
 ``` 
 
----
+# Documentation
 
 ### View the [Full Documentation →](https://selekkt.dk/skelet/v3/)
 ### View [Examples →](https://selekkt.dk/skelet/v3/#examples)
-
----
-
-#### Skelet. is also available as themes for [Grav →](https://selekkt.dk/git/grav-skelet) and [WordPress →](https://selekkt.dk/git/wp-skelet)
-
----
-
-### Built something you're proud of using Skelet.?
-[Submit →](https://selekkt.dk/git/skelet/issues)
-
 
 ---
 [![](https://data.jsdelivr.com/v1/package/npm/selekkt-skelet/badge)](https://www.jsdelivr.com/package/npm/selekkt-skelet)
