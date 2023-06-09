@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
+    <link rel="stylesheet" href="../css/skelet-tooltips.css">
     <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
   </head>
   <body dark-mode class="a11y-custom">
@@ -898,22 +899,22 @@
     <code>class="stack presuffix"</code>
 <br>
     <div class="stack no-style presuffix">
-        <span>https://</span>
-        <input type="text" placeholder="selekkt.dk/skelet/v3" class="is-blank">
+        <label for="full-url">https://</label>
+        <input id="full-url" type="text" placeholder="selekkt.dk/skelet/v3" class="is-blank">
     </div>
     <code>class="stack no-style presuffix"</code>
 <br>
     <div class="stack no-style presuffix">
-        <span>https://</span>
-        <input type="text" placeholder="skelet" class="is-blank">
+        <label for="part-url">https://</label>
+        <input id="part-url" type="text" placeholder="skelet" class="is-blank">
         <span>.dk</span>
     </div>
     <code>class="stack no-style presuffix"</code>
 <br>
     <div class="stack no-style presuffix">
-        <span><i class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" placeholder="Search" class="is-blank">
-        <button>Search</button>
+        <label for="searchbox"><i class="fa-solid fa-magnifying-glass"></i></label>
+        <input id="searchbox" type="text" placeholder="Search" class="is-blank">
+        <button class="text-normal">Clear</button>
     </div>
     <code>class="stack no-style presuffix"</code>
 <br>
@@ -933,50 +934,6 @@
 </fieldset>
 <a href="#presuffix">url</a>
 </section>
-
-            <fieldset id="badge">
-              <legend>.badge</legend>
-              <p>
-                <div><code>class="badge"</code></div>
-                <span class="badge">1</span>
-                <span class="badge">10</span>
-                <span class="badge">100</span>
-                <span class="badge">1000</span>
-                <span class="badge">New</span>
-                <span class="badge">Hot</span>
-                <span class="badge">WOW</span>
-              </p>
-
-              <p>
-                <div><code>class="badge is-circle"</code></div>
-                <span class="badge is-circle">1</span>
-                <span class="badge is-circle">10</span>
-                <span class="badge is-circle">100</span>
-              </p>
-
-              <p>
-                <div><code>class="badge is-outline"</code></div>
-                <span class="badge is-outline">HOT</span>
-                <span class="badge is-outline">🔥 New</span>
-                <span class="badge is-circle is-outline">🌴</span>
-              </p>
-
-              <p>
-                <div><code>class="badge is-large"</code></div>
-                <span class="badge is-large">HOT</span>
-                <span class="badge is-large">🔥 New</span>
-                <span class="badge is-circle is-large">🌴</span>
-              </p>
-
-              <p>
-                <div><code>class="badge is-green"</code></div>
-                <span class="badge is-green">green</span>
-                <span class="badge is-outline is-red">RED</span>
-                <span class="badge is-yellow">yellow</span>
-                <span class="badge is-circle is-blue">1</span>
-              </p>
-            </fieldset>
-            <a href="#badge">url</a>
 
            <div id="tooltips">
               <legend>Tooltips</legend>
@@ -1020,8 +977,7 @@
             </div>
 
             <style>
-                .box-row { color: var(--white); background-color: var(--primary); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
-                x-cell { color: var(--white); padding: var(--padding); margin: var(--margin); border-radius: var(--radius); }
+                x-cell, #cssgrid span { color: var(--white); padding: var(--padding); border-radius: var(--radius); }
             </style>
 
             <fieldset id="cssgrid">
@@ -1094,51 +1050,44 @@
                   <x-cell span="row">Footer</x-cell>
                 </x-grid>
 
-                <span class="text-hr">Grid not inside x-grid</span>
-                <style>
-                    .grid {
-                  display: grid;
-                  grid-template-columns: 10% 20% auto 30% 10%;
-                  grid-template-rows: 25% 100px auto;
-                  grid-gap: 1rem;
-                }
-                .grid > span { padding: 2rem; border-radius: 3px; }
-                </style>
-                <div class="grid debug" align="stretch">
-                  <span class="c" align="center">Box 1</span>
+                <span class="text-hr">Multidimensional grid</span>
+
+                <x-grid class="debug" columns="10">
+                  <x-cell span="1+2" span-y="1-3">cell 1</x-cell>
+                  <x-cell span="3+2">cell 2</x-cell>
+                  <x-cell span="5+4">cell 3</x-cell>
+                  <x-cell span="9+2">cell 4</x-cell>
+
+                  <x-cell span="3+4">cell 5</x-cell>
+                  <x-cell span="7+4" span-y="2-3">cell 6</x-cell>
+                  <x-cell span="3-6">cell 7</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Div with [x-grid] and spans instead of x-cell</span>
+                <div class="debug" x-grid align="stretch">
+                  <span span="2">Box 1</span>
                   <span>Box 2</span>
                   <span>Box 3</span>
+
                   <span>Box 4</span>
-                  <span span="row">Box 5</span>
+                  <span span="2">Box 5</span>
+                  <span>Box 6</span>
+
+                  <span span="row">Box 7</span>
                 </div>
             </fieldset>
 
             <fieldset class="flexbox">
-              <legend>CSS Grid</legend>
+              <legend>Flex</legend>
 
-              <x-flex class="debug">
+              <x-flex jc="between" class="debug">
                   <x-cell>Box 1</x-cell>
                   <x-cell>Box 2</x-cell>
                   <x-cell>Box 3</x-cell>
                   <x-cell>Box 4</x-cell>
-                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
               </x-flex>
 
-              <x-flex class="debug even">
-                  <x-cell>Box 1</x-cell>
-                  <x-cell>Box 2</x-cell>
-                  <x-cell>Box 3</x-cell>
-                  <x-cell>Box 4</x-cell>
-                  <x-cell>Box 4</x-cell>
-              </x-flex>
-
-              <x-flex class="debug" pc="center evenly">
-                  <x-cell>Box 1</x-cell>
-                  <x-cell>Box 2</x-cell>
-                  <x-cell>Box 3</x-cell>
-                  <x-cell>Box 4</x-cell>
-                  <x-cell>Box 4</x-cell>
-              </x-flex>
             </fieldset>
     
       </main>

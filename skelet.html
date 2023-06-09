@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <link rel="stylesheet" href="css/skelet.css"> <!-- include Skelet -->
+    <!-- <link rel="stylesheet" href="css/skelet-tooltips.css"> -->
     <link rel="stylesheet" href="css/app.css">  <!-- write all of your CSS styles here -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
@@ -50,6 +51,8 @@
     <style></style>
 </head>
 <body>
+<a href="#mainContent" class="button is-primary visually-hidden-focus skipTo">Skip to content</a>
+
 <div id="app">
     <header>
         <!-- Remove this -->
@@ -65,7 +68,7 @@
         <!-- / -->
     </header>
 
-    <main>
+    <main id="mainContent">
         <!-- Remove this -->
         <article>
         <x-grid columns="2" style="max-width: 750px; margin:0 auto; padding:2rem"> 
@@ -104,17 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // JS code
 });
 </script>
-    
-<!-- Google Analytics -->
-<!-- change all G-XXXXXXXXX with your ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXX'); // change G-XXXXXXXXX with your ID
-</script>
-<!-- End Google Analytics -->
 
 </body>
 </html>
