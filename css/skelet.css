@@ -1,4 +1,4 @@
-/*! Skelet.css - v4.0.0 | MIT License | (c) 2023 Selekkt. | https://selekkt.dk/skelet/v3/ */
+/*! Skelet.css - v4.1.0 | MIT License | (c) 2023 Selekkt. | https://selekkt.dk/skelet/v3/ */
 
 /* ------------------
     variables
@@ -44,33 +44,11 @@
 
     --globalScale: 1.0;
 
-    --fontScale: var(--globalScale);
-    --fontSize: clamp(calc(var(--fontScale) * var(--fontSizeS, 1.5rem)), 1.7vw, calc(var(--fontScale) * var(--fontSizeL, 1.7rem)));
-    --fontLine: calc(1 + 0.7 / var(--fontScale));
+    --fontSize: clamp(calc(var(--globalScale) * var(--fontSizeMin, 1.6rem)), calc(var(--globalScale) * var(--fontSizeVal, 0.2vw + 1.6rem)), calc(var(--globalScale) * var(--fontSizeMax, 1.7rem)));
+    --fontLine: calc(2px + 2ex + 2px);
     --fontSpace: normal;
     --fontWeight: 400;
     --fontStyle: normal;
-
-    --hScale: var(--globalScale);
-    --h1Size: clamp(calc(var(--hScale) * var(--h1SizeS, 3.1rem)), 4vw, calc(var(--hScale) * var(--h1SizeL, 4rem)));
-    --h2Size: clamp(calc(var(--hScale) * var(--h2SizeS, 2.7rem)), 3.2vw, calc(var(--hScale) * var(--h2SizeL, 3.2rem)));
-    --h3Size: clamp(calc(var(--hScale) * var(--h3SizeS, 2.4rem)), 2.8vw, calc(var(--hScale) * var(--h3SizeL, 2.8rem)));
-    --h4Size: clamp(calc(var(--hScale) * var(--h4SizeS, 2.2rem)), 2.4vw, calc(var(--hScale) * var(--h4SizeL, 2.4rem)));
-    --h5Size: clamp(calc(var(--hScale) * var(--h5SizeS, 2rem)), 2.2vw, calc(var(--hScale) * var(--h5SizeL, 2.2rem)));
-    --h6Size: clamp(calc(var(--hScale) * var(--h6SizeS, 1.6rem)), 1.7vw, calc(var(--hScale) * var(--h6SizeL, 1.7rem)));
-
-    --hLine: calc(1 + 0.5 / var(--hScale));
-    --h1Line: var(--hLine);
-    --h2Line: var(--hLine);
-    --h3Line: var(--hLine);
-    --h4Line: var(--hLine);
-    --h5Line: var(--hLine);
-    --h6Line: var(--hLine);
-
-    --hSpace: normal;
-    --hWeight: 600;
-    --hStyle: normal;
-    --hMargin: 0 0 0.7rem;
 
     /* other */
     --padding: 1rem;
@@ -87,7 +65,7 @@
     --inputRadius: var(--radius);
     --inputBorderWidth: var(--borderWidth);
     --inputBorderStyle: var(--borderStyle);
-    --inputFontSize: var(--fontSize);
+    --inputFontSize: inherit;
     --inputHeight: 21px;
 
     --inputBg: #F8F8F8;
@@ -112,8 +90,9 @@
     --buttonRadius: var(--radius);
     --buttonBorderWidth: var(--borderWidth);
     --buttonBorderStyle: var(--borderStyle);
-    --buttonSize: var(--fontSize);
+    --buttonSize: inherit;
     --buttonWeight: 600;
+    --buttonWidth: fit-content;
 
     --buttonBg: var(--primary);
     --buttonBgHover: var(--linkHover);
@@ -195,27 +174,49 @@ main { flex: 1 }
   typography
 ------------------ */
 h1, h2, h3, h4, h5, h6, 
+.h1,.h2,.h3,.h4,.h5,.h6,
+:root {
+    --hStyle: normal;
+    --hWeight: 600;
+    --hLine: var(--fontLine);
+    --hScale: var(--globalScale);
+    --hMargin: 0 0 0.65em;
+
+    --h1Size: clamp(calc(var(--hScale) * var(--h1SizeMin, 3.1rem)), calc(var(--hScale) * var(--h1Val, 1.6vw + 2.7rem)), calc(var(--hScale) * var(--h1SizeMax, 4rem)));
+    --h2Size: clamp(calc(var(--hScale) * var(--h2SizeMin, 2.7rem)), calc(var(--hScale) * var(--h2Val, 0.9vw + 2.5rem)), calc(var(--hScale) * var(--h2SizeMax, 3.2rem)));
+    --h3Size: clamp(calc(var(--hScale) * var(--h3SizeMin, 2.4rem)), calc(var(--hScale) * var(--h3Val, 0.7vw + 2.2rem)), calc(var(--hScale) * var(--h3SizeMax, 2.8rem)));
+    --h4Size: clamp(calc(var(--hScale) * var(--h4SizeMin, 2.2rem)), calc(var(--hScale) * var(--h4Val, 0.3vw + 2.1rem)), calc(var(--hScale) * var(--h4SizeMax, 2.4rem)));
+    --h5Size: clamp(calc(var(--hScale) * var(--h5SizeMin, 2rem)),   calc(var(--hScale) * var(--h5Val, 0.3vw + 1.9rem)), calc(var(--hScale) * var(--h5SizeMax, 2.2rem)));
+    --h6Size: clamp(calc(var(--hScale) * var(--h6SizeMin, 1.6rem)), calc(var(--hScale) * var(--h6Val, 0.2vw + 1.6rem)), calc(var(--hScale) * var(--h6SizeMax, 1.7rem)));
+}
+
+h1, h2, h3, h4, h5, h6, 
 .h1,.h2,.h3,.h4,.h5,.h6 { 
     font: var(--hStyle) var(--hWeight) var(--hSize) var(--hFontFamily);
     line-height: var(--hLine); 
-    letter-spacing: var(--hSpace);
+    letter-spacing: var(--hSpace, normal);
     text-transform: var(--hTransform, inherit);
     text-align: var(--hAlign, start);
     text-wrap: balance;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
     color: var(--hColor); 
     margin: var(--hMargin);
 }
 
-h1,.h1 { --hSize: var(--h1Size); --hLine: var(--h1Line) }
-h2,.h2 { --hSize: var(--h2Size); --hLine: var(--h2Line) }
-h3,.h3 { --hSize: var(--h3Size); --hLine: var(--h3Line) }
-h4,.h4 { --hSize: var(--h4Size); --hLine: var(--h4Line) }
-h5,.h5 { --hSize: var(--h5Size); --hLine: var(--h5Line) }
-h6,.h6 { --hSize: var(--h6Size); --hLine: var(--h6Line) }
+h1,.h1 { --hSize: var(--h1Size); --hLine: var(--h1Line, var(--fontLine)); --hSpace: var(--h1Space) }
+h2,.h2 { --hSize: var(--h2Size); --hLine: var(--h2Line, var(--fontLine)); --hSpace: var(--h2Space) }
+h3,.h3 { --hSize: var(--h3Size); --hLine: var(--h3Line, var(--fontLine)); --hSpace: var(--h3Space) }
+h4,.h4 { --hSize: var(--h4Size); --hLine: var(--h4Line, var(--fontLine)); --hSpace: var(--h4Space) }
+h5,.h5 { --hSize: var(--h5Size); --hLine: var(--h5Line, var(--fontLine)); --hSpace: var(--h5Space) }
+h6,.h6 { --hSize: var(--h6Size); --hLine: var(--h6Line, var(--fontLine)); --hSpace: var(--h6Space) }
 
 p {margin:var(--pMargin)}
 blockquote { max-width: 90%; margin: 2rem auto; font-style: italic }
 
+a:not([href]) { cursor: not-allowed }
 a:not(.button) { color: var(--linkColor); cursor: pointer; text-decoration: var(--linkDecoration, auto) }
 a:not(.button):hover { color: var(--linkHover); text-decoration: var(--linkHoverDecoration, auto) }
 
@@ -561,7 +562,7 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
 .is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):not(:empty):after { margin-inline-start: 1rem }
 
 .is-unset { all: unset }
-.is-link:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: var(--fontSize) }
+.is-link:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: inherit }
 .is-blank:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
 .is-custom:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor }
 
@@ -911,16 +912,17 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 /* ------------------
   css grid
 ------------------ */
-:where(x-grid,[x-grid]) { display: grid; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
-
-:where(x-grid,[x-grid]) {
-    grid-template-columns: var(--grid-tc); /* default columns */ 
+:where(x-grid,[x-grid]) { 
     --grid-mm: 200px, 1fr; /* auto-fit/fill minmax */
     --grid-tc: repeat(4, minmax(0,1fr)); /* template columns */
     --grid-cs: 1; /* column start */
     --grid-ce: -1; /* column end */
     --grid-rs: 1; /* row start */
     --grid-re: -1; /* row end */
+
+    display: grid; 
+    gap: var(--rowGap, 1rem) var(--columnGap, 1rem);
+    grid-template-columns: var(--grid-tc); /* default columns */ 
 }
 
 :where(x-grid,[x-grid]) img { object-fit: contain; max-width: 100% }
