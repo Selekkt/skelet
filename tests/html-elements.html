@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTML5 Test Page</title>
+    <title>Skelet.css - HTML5 elements test page</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
     <link rel="stylesheet" href="../css/skelet-tooltips.css">
     <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
   </head>
-  <body dark-mode class="a11y-custom">
+  <body dark-mode>
     <div id="top" class="page" role="document">
       <header role="banner">
         <h1>HTML5 Test Page</h1>
@@ -137,7 +137,9 @@
               <hr class="full">
               <hr class="gradient">
               <hr class="space">
-              <span class="text-hr">hr with text</span>
+              <span class="text-hr">hr w/ text</span>
+              <span class="text-hrs">hr w/ text start</span>
+              <span class="text-hre">hr w/ text end</span>
             </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
@@ -647,6 +649,18 @@
                   </optgroup>
                 </select>
               </p>
+
+              <p>
+                <label for="myBrowser">Choose a browser from this list:</label>
+                <input list="browsers" id="myBrowser" name="myBrowser">
+                <datalist id="browsers">
+                  <option value="Chrome"></option>
+                  <option value="Firefox"></option>
+                  <option value="Opera"></option>
+                  <option value="Safari"></option>
+                  <option value="Microsoft Edge"></option>
+                </datalist>             
+              </p>
             </fieldset>
             <p><a href="#top">[Top]</a></p>
             <fieldset id="forms__checkbox">
@@ -817,7 +831,11 @@
                   <button class="is-outline">button is-outline</button>
                   <button class="is-square">button is-square</button>
                   <button class="is-pill">button is-pill</button>
+
+                  <button class="is-circle">5000</button>
                   <button class="is-circle has-icon"><i class="fas fa-bomb"></i></button>
+                  <button class="is-circle has-icon"><i class="g-xcircle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 9L9 15M9 9L15 15M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"></path></svg></i></button>
+
                   <button class="is-outline is-pill">button is-outline is-pill</button>
                   <hr>
                   <button class="is-loading"></button>
@@ -838,6 +856,12 @@
                       <span>text + icon</span>
                       <i class="fab fa-github"></i>
                   </button>
+
+                <button type="reset" class="is-circle has-icon">
+                    <span class="visually-hidden">Close</span>
+                    <i class="g-xcircle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 9L9 15M9 9L15 15M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"></path></svg></i>
+                </button>
+
                   <hr>
                   <button class="is-white">button is-white</button>
                   <button class="is-light">button is-light</button>
@@ -977,7 +1001,7 @@
             </div>
 
             <style>
-                x-cell, #cssgrid span { color: var(--white); padding: var(--padding); border-radius: var(--radius); }
+                x-cell, #cssgrid span:not(.text-hr) { color: var(--white); padding: var(--padding); border-radius: var(--radius); }
             </style>
 
             <fieldset id="cssgrid">
@@ -1031,14 +1055,28 @@
                   <x-cell span="3.." span-s="2..">span 3..</x-cell>
                 </x-grid>
 
-                <span class="text-hr">Fluid grid</span>
+                <span class="text-hr">Auto grid &mdash; columns="fill"</span>
                 
-                <x-grid columns="fill" min="300" class="debug">
+                <x-grid columns="fill" class="debug">
+                    <x-cell>Box 1</x-cell>
+                    <x-cell>Box 2</x-cell>
+                    <x-cell>Box 3</x-cell>
+                    <x-cell>Box 4</x-cell>
+                    <x-cell>Box 5</x-cell>
+                    <x-cell>Box 6</x-cell>
+                    <x-cell span="2">Box 7</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Auto grid &mdash; columns="fit"</span>
+                
+                <x-grid columns="fit" class="debug">
                   <x-cell>Box 1</x-cell>
                   <x-cell>Box 2</x-cell>
                   <x-cell>Box 3</x-cell>
                   <x-cell>Box 4</x-cell>
-                  <x-cell span="row">Box 5</x-cell>
+                  <x-cell>Box 5</x-cell>
+                  <x-cell>Box 6</x-cell>
+                  <x-cell span="2">Box 7</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Site layout</span>
@@ -1080,12 +1118,54 @@
             <fieldset class="flexbox">
               <legend>Flex</legend>
 
-              <x-flex jc="between" class="debug">
+            <x-flex class="debug">
+                <x-cell>Box 1</x-cell>
+                <x-cell>Box 2</x-cell>
+                <x-cell>Box 3</x-cell>
+                <x-cell>Box 4</x-cell>
+                <x-cell>Box 5</x-cell>
+            </x-flex>
+
+            <span class="text-hr">Flex with span="#"</span>
+
+              <x-flex class="debug">
+                  <x-cell span="2">span="2"</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell span="4">span="4"</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
+              </x-flex>
+
+              <span class="text-hr">Flex with .even</span>
+
+              <x-flex jc="between" class="debug even">
                   <x-cell>Box 1</x-cell>
                   <x-cell>Box 2</x-cell>
                   <x-cell>Box 3</x-cell>
                   <x-cell>Box 4</x-cell>
                   <x-cell>Box 5</x-cell>
+              </x-flex>
+
+              <span class="text-hr">Flex with span="row"</span>
+
+              <x-flex wrap="wrap" class="debug">
+                  <x-cell span="row">span="row"</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
+                  <x-cell span="3">span="3"</x-cell>
+              </x-flex>
+
+              <span class="text-hr">Flex with .fullflex</span>
+
+              <x-flex wrap="wrap" class="debug">
+                  <x-cell class="fullflex">.fullflex</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
+                  <x-cell span="3">span="3"</x-cell>
               </x-flex>
 
             </fieldset>
@@ -1107,10 +1187,5 @@
     </style>
     <div id="light"></div>
   </body>
-  <script>
-    let lightBulb = document.querySelector('#light');
-    lightBulb.addEventListener("click", () => {
-      document.body.toggleAttribute("dark-mode");
-    }, false);
-  </script>
+  <script>document.querySelector('#light').addEventListener("click", () => { document.body.toggleAttribute("dark-mode") }, false);</script>
 </html>
