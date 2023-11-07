@@ -149,6 +149,29 @@ x-grid,[x-grid],x-subgrid,[x-subgrid] {
 </head>
 <body>
 
+<style>
+:where(x-flex,[x-flex]) > [span="1"] { flex: 1 }
+:where(x-flex,[x-flex]) > [span="2"] { flex: 2 }
+:where(x-flex,[x-flex]) > [span="3"] { flex: 3 }
+:where(x-flex,[x-flex]) > [span="4"] { flex: 4 }
+:where(x-flex,[x-flex]) > [span="5"] { flex: 5 }
+:where(x-flex,[x-flex]) > [span="6"] { flex: 6 }
+:where(x-flex,[x-flex]) > [span="7"] { flex: 7 }
+:where(x-flex,[x-flex]) > [span="8"] { flex: 8 }
+:where(x-flex,[x-flex]) > [span="9"] { flex: 9 }
+:where(x-flex,[x-flex]) > [span="10"] { flex: 10 }
+:where(x-flex,[x-flex]) > [span="11"] { flex: 11 }
+:where(x-flex,[x-flex]) > [span="12"] { flex: 12 }
+</style>
+
+<x-flex class="debug">
+    <x-cell span="10">Skelet.css</x-cell>
+    <x-cell span="3">Selekkt.dk</x-cell>
+    <x-cell span="1">Skelet</x-cell>
+    <x-cell span="5">Selekkt</x-cell>
+</x-flex>
+
+
 <h1>CSS Subgrid</h1>
 
 <x-grid columns="12" class="debug">
