@@ -2083,8 +2083,6 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
   Cubic Beziers
 ------------------ */
 /*
- * Can be used both in transition:; & animation:;
- * Example: transition: all 1s var(--easeInOutQuad);
  * examples at: https://easings.net/
 */
 :root {
@@ -2124,85 +2122,6 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
 /* ------------------
   animations
 ------------------ */
-/*
- * To make it work you need: START | ANIMATION TYPE | DURATION | DELAY (optional) | CUBIC BEZIER (optional)
- * Example: <h1 start animation="fadein" ease="easeInOutCubic" style="--duration: 1s">example</h1>
-*/
-
-/** ANIMATION */
-.animate {
-    animation-fill-mode: both; 
-    animation-name: var(--animation-name, fadeIn); /* default animation: fadeIn */
-    animation-duration: var(--duration, 1s);  /* default duration: 1s */
-    animation-delay: var(--delay, 0s); /* default delay: 0s */
-    animation-timing-function: var(--ease, var(--easeInOutCubic)); /* default ease: easeInOutCubic */
-}
-
-/*** Cubic Bezier for ANIMATIONS • examples at: https://easings.net/ */
-[ease="easeInSine"]     { --ease: var(--easeInSine) }
-[ease="easeOutSine"]    { --ease: var(--easeOutSine) }
-[ease="easeInOutSine"]  { --ease: var(--easeInOutSine) }
-
-[ease="easeInQuad"]     { --ease: var(--easeInQuad) }
-[ease="easeOutQuad"]    { --ease: var(--easeOutQuad) }
-[ease="easeInOutQuad"]  { --ease: var(--easeInOutQuad) }
-
-[ease="easeInCubic"]    { --ease: var(--easeInCubic) }
-[ease="easeOutCubic"]   { --ease: var(--easeOutCubic) }
-[ease="easeInOutCubic"] { --ease: var(--easeInOutCubic) }
-
-[ease="easeInQuart"]    { --ease: var(--easeInQuart) }
-[ease="easeOutQuart"]   { --ease: var(--easeOutQuart) }
-[ease="easeInOutQuart"] { --ease: var(--easeInOutQuart) }
-
-[ease="easeInQuint"]    { --ease: var(--easeInQuint) }
-[ease="easeOutQuint"]   { --ease: var(--easeOutQuint) }
-[ease="easeInOutQuint"] { --ease: var(--easeInOutQuint) }
-
-[ease="easeInExpo"]     { --ease: var(--easeInExpo) }
-[ease="easeOutExpo"]    { --ease: var(--easeOutExpo) }
-[ease="easeInOutExpo"]  { --ease: var(--easeInOutExpo) }
-
-[ease="easeInCirc"]     { --ease: var(--easeInCirc) }
-[ease="easeOutCirc"]    { --ease: var(--easeOutCirc) }
-[ease="easeInOutCirc"]  { --ease: var(--easeInOutCirc) }
-
-[ease="easeInBack"]     { --ease: var(--easeInBack) }
-[ease="easeOutBack"]    { --ease: var(--easeOutBack) }
-[ease="easeInOutBack"]  { --ease: var(--easeInOutBack) }
-
-.invisible, .hide { opacity: 0 }
-.infinite, .loop { animation-iteration-count: infinite }
-.reverse { animation-direction: reverse }
-.alternate { animation-direction: alternate }
-.alternate-reverse { animation-direction: alternate-reverse }
-
-[animation="fadein"] { --animation-name: fadeIn }
-[animation="fadein-up"] { --animation-name: fadeInUp }
-[animation="fadein-down"] { --animation-name: fadeInDown }
-[animation="fadein-right"] { --animation-name: fadeInRight }
-[animation="fadein-left"] { --animation-name: fadeInLeft }
-[animation="fadeout"] { --animation-name: fadeOut }
-[animation="fadeout-down"] { --animation-name: fadeOutDown }
-[animation="flash"] { --animation-name: flash }
-[animation="loading"] { --animation-name: loading }
-[animation="pulse"] { --animation-name: pulse }
-[animation="wobble"] { --animation-name: wobble }
-[animation="shake"] { --animation-name: shake }
-[animation="rollin"] { --animation-name: rollIn }
-[animation="rollout"] { --animation-name: rollOut }
-[animation="zoomin"] { --animation-name: zoomIn }
-[animation="zoomout"] { --animation-name: zoomIn; animation-direction: reverse }
-[animation="zoomin-down"] { --animation-name: zoomInDown }
-[animation="bounce"] { --animation-name: bounce; transform-origin: center bottom }
-[animation="bouncein"] { --animation-name: bounceIn }
-[animation="scalein"] { --animation-name: scaleIn; backface-visibility: hidden; transform: translateZ(0px) }
-[animation="flip"] { --animation-name: flip; backface-visibility:visible }
-[animation="flipin-x"] { --animation-name: flipInX; backface-visibility:visible  }
-[animation="flipout-x"] { --animation-name: flipOutX; backface-visibility:visible }
-[animation="flipin-y"] { --animation-name: flipInY; backface-visibility:visible}
-[animation="flipout-y"] { --animation-name: flipOutY; backface-visibility:visible }
-
 /**** Keyframes x Animations */
 @keyframes fadeIn { 0% { opacity: 0 } 100% { opacity: 1 } }
 @keyframes fadeInUp { 0% { opacity: 0; transform: translate3d(0, 20%, 0) } 100% { opacity: 1; transform: none } }
