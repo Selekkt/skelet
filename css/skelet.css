@@ -540,7 +540,7 @@ kbd {
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
     border-radius: var(--inputRadius);
     margin: var(--inputMargin);
-    width: var(--inputWidth, 100%);
+    width: var(--inputWidth, auto);
 }
 
 .stack.presuffix:hover { border-color: var(--inputBorderHover); color: var(--inputColorHover); background: var(--inputBgHover) }
