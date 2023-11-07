@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="../css/skelet.css">
+
+<style>
+x-grid {
+  border-radius: 1rem;
+  overflow: hidden;
+  min-height: 150px;
+}
+
+</style>
+
+<style>
+    /* ------------------
+      css grid
+    ------------------ */
+    x-grid,[x-grid],[x-subgrid] { 
+        --grid-mm: 200px, 1fr; /* MinMax or auto-fit, auto-fill */
+        --grid-tc: repeat(4, minmax(0,1fr)); /* Template Columns */
+        --grid-cs: 1; /* Column Start */
+        --grid-ce: -1; /* Column End */
+        --grid-rs: 1; /* Row Start */
+        --grid-re: -1; /* Row End */
+    
+        display: grid;
+        gap: var(--rowGap, 1rem) var(--columnGap, 1rem);
+        grid-template-columns: var(--grid-tc); /* default columns */ 
+    }
+
+    [x-subgrid],[x-subgrid="column"] { grid-template-columns: subgrid }
+    [x-subgrid="row"]  { grid-template-rows: subgrid }
+    [x-subgrid="both"] { grid: subgrid / subgrid  }
+    
+    :where(x-grid,[x-grid],[x-subgrid]) img { object-fit: contain; max-width: 100% }
+    :where(x-grid,[x-grid],[x-subgrid]) > * { appearance: none; -webkit-appearance: none }
+    
+    [columns="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+    [columns="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
+    [columns="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
+    [columns="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
+    [columns="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
+    [columns="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
+    [columns="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
+    [columns="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
+    [columns="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
+    [columns="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
+    [columns="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
+    [columns="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
+    
+    [columns="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
+    [columns="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
+    [columns="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
+    [columns="1f"] > * { grid-column: 1 / -1 }
+    
+    /*** Grid Column - X axis */
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="1"] { --grid-cs: 1 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="2"] { --grid-cs: 2 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="3"] { --grid-cs: 3 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="4"] { --grid-cs: 4 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="5"] { --grid-cs: 5 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="6"] { --grid-cs: 6 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="7"] { --grid-cs: 7 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="8"] { --grid-cs: 8 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="9"] { --grid-cs: 9 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="10"] { --grid-cs: 10 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="11"] { --grid-cs: 11 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span^="12"] { --grid-cs: 12 }
+    
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+1"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="1"] { --grid-ce: 1 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+2"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-1"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="2"] { --grid-ce: 2 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+3"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-2"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="3"] { --grid-ce: 3 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+4"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-3"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="4"] { --grid-ce: 4 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+5"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-4"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="5"] { --grid-ce: 5 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+6"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-5"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="6"] { --grid-ce: 6 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+7"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-6"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="7"] { --grid-ce: 7 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+8"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-7"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="8"] { --grid-ce: 8 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+9"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-8"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="9"] { --grid-ce: 9 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+10"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-9"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="10"] { --grid-ce: 10 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+11"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-10"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="11"] { --grid-ce: 11 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="+12"], :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-11"], :where(x-grid,[x-grid],[x-subgrid]) > *[span="12"] { --grid-ce: 12 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span$="-12"] { --grid-ce: 13 }
+    
+    /* connect vars */
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span] { grid-column-end: span var(--grid-ce) }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span*="+"], :where(x-grid,[x-grid],[x-subgrid]) > *[span*="-"], :where(x-grid,[x-grid],[x-subgrid]) > *[span*=".."] { grid-column-start: var(--grid-cs) }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span*="-"], :where(x-grid,[x-grid],[x-subgrid]) > *[span*=".."] { grid-column-end: var(--grid-ce) }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span="row"] { grid-column: 1 / -1 }
+    
+    /*** Grid Row - Y axis */
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="1"] { --grid-rs: 1 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="2"] { --grid-rs: 2 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="3"] { --grid-rs: 3 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="4"] { --grid-rs: 4 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="5"] { --grid-rs: 5 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="6"] { --grid-rs: 6 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="7"] { --grid-rs: 7 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="8"] { --grid-rs: 8 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="9"] { --grid-rs: 9 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="10"] { --grid-rs: 10 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="11"] { --grid-rs: 11 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y^="12"] { --grid-rs: 12 }
+    
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+1"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="1"] { --grid-re: 1 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+2"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-1"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="2"] { --grid-re: 2 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+3"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-2"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="3"] { --grid-re: 3 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+4"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-3"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="4"] { --grid-re: 4 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+5"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-4"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="5"] { --grid-re: 5 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+6"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-5"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="6"] { --grid-re: 6 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+7"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-6"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="7"] { --grid-re: 7 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+8"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-7"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="8"] { --grid-re: 8 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+9"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-8"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="9"] { --grid-re: 9 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+10"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-9"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="10"] { --grid-re: 10 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+11"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-10"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="11"] { --grid-re: 11 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="+12"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-11"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="12"] { --grid-re: 12 }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y$="-12"] { --grid-re: 13 }
+    
+    /* connect vars */
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y] { grid-row-end: span var(--grid-re) }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y*="+"], :where(x-grid,[x-grid],[x-subgrid]) > *[span-y*="-"] { grid-row-start: var(--grid-rs) }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y*="-"] { grid-row-end: var(--grid-re) }
+    :where(x-grid,[x-grid],[x-subgrid]) > *[span-y="1f"]  { grid-row: 1 / -1 }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+
+    <h1>CSS Subgrid</h1>
+
+    <x-grid columns="8" class="">
+        <x-cell span="row" x-subgrid class="header debug">
+            <x-cell><h1>LOGO</h1></x-cell>
+            <nav span="4..">
+                <ul class="inline">
+                    <li><a href="#!">Home</a></li>
+                    <li><a href="#!">About us</a></li>
+                    <li><a href="#!">Contact us</a></li>
+                    <li><a href="#!">Products</a></li>
+                    <li><a href="#!">Skelet.css</a></li>
+                </ul>
+            </nav>
+        </x-cell>
+        <x-cell class="content debug" span="row" x-subgrid="both">
+            <aside span="2" span-y="2"><h2>left</h2></aside>
+            <x-cell span="4">
+                <img src="https://placehold.co/1600x800?text=Skelet.css" alt="">
+            </x-cell>
+            <aside span="2"><h2>right</h2></aside>
+        </x-cell>
+        <x-cell class="footer">
+
+        </x-cell>
+    </x-grid>
+
+
+    <hr>
+
+    <span class="text-hr">[x-subgrid]</span>
+    <x-grid columns="8" class="debug">
+        <x-cell span="2">Selekkt.</x-cell>
+        <x-cell x-subgrid span="3">
+            <x-cell span="1-4">Skelet.css</x-cell>
+        </x-cell>
+        <x-cell span="4">Skelet.css</x-cell>
+    </x-grid>
+    
+    <span class="text-hr">&lt;x-subgrid&gt;</span>
+    <x-grid columns="5" class="debug">
+        <x-cell span="2">Selekkt.</x-cell>
+        <x-subgrid span="5">
+            &lt;x-subgrid&gt;
+        </x-subgrid>
+        <x-cell span="5">Skelet.css</x-cell>
+    </x-grid>
+    
+    <hr>
+    
+    <x-grid columns="8" class="debug">
+        <x-cell span="2">Selekkt.</x-cell>
+        <x-subgrid>
+            &lt;x-subgrid&gt;
+        </x-subgrid>
+        <x-cell span="4">Skelet.css</x-cell>
+    </x-grid>
+
+    <span class="text-hr">This will not work</span>
+    <x-grid columns="8" class="debug">
+        <x-cell>Selekkt.</x-cell>
+        <x-cell span="5">
+            <x-subgrid>
+                x-cell > x-subgrid
+            </x-subgrid>
+        </x-cell>
+        <x-cell>Skelet.css</x-cell>
+    </x-grid>
+
+
+
+
+</div>
+
+<style>
+     #app2 :is(x-grid,[x-grid],[x-subgrid]) { gap: 1px }
+    
+    #app2 { 
+        display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh; 
+        background:black; 
+    }
+    
+    #app2 :where(header,main,footer) {
+        background-color: white;
+        padding: var(--padding);
+    }
+    </style>
+    
+    <div id="app2" x-grid columns="8">
+    
+        
+    
+        <header span="row" x-subgrid ai="center">
+    
+            <div class="logo" span="1-2">
+                <h1>Skelet.<sup>4</sup></h1>
+            </div>
+    
+            <nav span="3..">
+                <ul class="inline">
+                    <li><a href="https://selekkt.dk/skelet/v3" class="button">Home</a></li>
+                </ul>
+            </nav>
+    
+        </header>
+    
+        <main id="mainContent" span="row" x-subgrid class="debug">
+    
+            <x-cell></x-cell>
+            <x-cell></x-cell>
+            <x-cell></x-cell>
+            <x-cell></x-cell>
+            <x-cell></x-cell>
+            <x-cell></x-cell>
+            <x-cell></x-cell>
+            <x-cell></x-cell>
+    
+    
+    
+        </main>
+    
+        <footer span="row">
+            <!-- Remove this -->
+            <center>
+                <ul class="inline">
+                    <li><a href="https://selekkt.dk/" class="button">Sēlekkt.</a></li>
+                    <li><a href="https://selekkt.dk/skelet/v3/" class="button is-blank">Documentation</a></li>
+                    <li><a href="https://selekkt.dk/git/wp-skelet" class="button is-blank">wp-Skelet</a></li>
+                    <li><a href="https://selekkt.dk/git/grav-skelet" class="button is-blank">grav-Skelet</a></li>
+                    <li><a href="https://selekkt.dk/git/astro-skelet" class="button is-blank">astro-Skelet</a></li>
+                </ul>
+                <p>&nbsp;</p>
+            </center>
+            <!-- / -->
+        </footer>
+    </div>
+
+</body>
+</html>
