@@ -1,4 +1,4 @@
-/*! Skelet.css - v4.2.2 | MIT License | (c) 2023 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v5.0.0 | MIT License | (c) 2024 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -16,7 +16,7 @@
     --black: #000;
     --light: #EFEFEF;
     --dark: #181818;
-    --shadow: rgba(10, 10, 10, 0.1);
+    --shadow: rgb(10 10 10 / 0.1);
 
     --linkColor: var(--primary);
     --linkHover: #2997ff;
@@ -364,42 +364,6 @@ kbd {
     .sticky-none-m { position: inherit }
 }
 
-@media (min-width: 1599px) { 
-    .fullwidth-l { --buttonWidth: 100%; --inputWidth: 100%; width: 100% }
-    .fullwidth-max-l { max-width: 100% }
-    .fullheight-l { height: 100% }
-    .fullheight-max-l { max-height: 100% }
-    .full-l { width: 100%; height: 100% }
-    .full-max-l { max-width: 100%; max-height: 100% }
-
-    .fitcontent-l { width: fit-content }
-    .fitcontent-height-l { height: fit-content }
-
-    .block-l { display: block }
-    .inline-l { display: inline; margin: 0 }
-    .inline-block-l { display: inline-block; margin: 0 }
-    .center-l { display: block; text-align: center; margin: 0 auto }
-
-    .text-clip-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-    .text-start-l { text-align: start }
-    .text-center-l { text-align: center }
-    .text-end-l { text-align: end }
-    .text-justify-l { text-align: justify }
-    .text-normal-l { font-weight: 400 }
-    .text-bold-l { font-weight: 600 }
-    .text-uppercase-l { text-transform:uppercase }
-    .text-lowercase-l { text-transform:lowercase }
-    .text-capitalize-l { text-transform:capitalize }
-    .text-underline-l { border-block-end: 1px solid currentColor }
-    .text-line-through-l { text-decoration: line-through }
-    .text-break-word-l { overflow-wrap: break-word }
-    .text-balance-l { text-wrap: balance }
-
-    .sticky-l { position: sticky; top: var(--sticky, 0) }
-    .sticky-bottom-l { position: sticky; bottom: var(--sticky, 0) }
-    .sticky-none-l { position: inherit }
-}
-
 .is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
 .is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
@@ -408,7 +372,6 @@ kbd {
 .center-axyz.full { min-height: 100vh; width: 100% }
 @media (max-width: 777px) { .center-axyz-s { display: grid; place-items: center } .center-axyz-s.full-s  { min-height: 100vh; width: 100% } }
 @media (min-width: 1024px) { .center-axyz-m { display: grid; place-items: center } .center-axyz-m.full-m { min-height: 100vh; width: 100% } }
-@media (min-width: 1599px) { .center-axyz-l { display: grid; place-items: center } .center-axyz-l.full-l { min-height: 100vh; width: 100% } }
 
 .mob-scroller { display: flex; flex-wrap: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch }
 @media (max-width: 1024px) { .mob-scroller::-webkit-scrollbar { display:none } }
@@ -419,12 +382,11 @@ kbd {
 @media (max-width: 777px) { .large-only  { display:none!important } }
 @media (min-width: 778px) { .small-only  { display:none!important } }
 
-.no-scrollbars { scrollbar-width:none; -ms-overflow-style:none }
-.no-scrollbars::-webkit-scrollbar { display:none }
+.no-scrollbars { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars::-webkit-scrollbar { display:none }
 @media (max-width: 777px)  { .no-scrollbars-s { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars-s::-webkit-scrollbar { display: none } }
 @media (min-width: 1024px) { .no-scrollbars-m { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars-m::-webkit-scrollbar { display: none } }
-@media (min-width: 1599px) { .no-scrollbars-l { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars-l::-webkit-scrollbar { display: none } }
 
+/** Scroll snap */
 .scroll-snap {
     --scrollDirection: x;
     --scrollType: mandatory;
@@ -466,6 +428,94 @@ kbd {
 .scroll-snap.align-center { --scrollAlign: center }
 .scroll-snap.align-end { --scrollAlign: end }
 .scroll-snap.stop-always { --scrollStop: always } /* default */
+
+@media (max-width: 777px)  {
+    .scroll-snap-s {
+        --scrollDirection: x;
+        --scrollType: mandatory;
+        --scrollAlign: start;
+        --scrollMargin: 1rem;
+        --scrollPadding: 0;
+        --scrollStop: normal;
+        --scrollJustifyContent: start;
+        --scrollAlignItems: center;
+        --scrollFlexFlow: row nowrap;
+        --scrollChildHeight: auto;
+        --scrollChildWidth: 100%;
+        --scrollChildMinWidth: 100%;
+        --scrollOverflowX: scroll;
+        --scrollOverflowY: hidden;
+        display: flex;
+        flex-flow: var(--scrollFlexFlow);
+        gap: var(--scrollMargin);
+        justify-content: var(--scrollJustifyContent);
+        align-items: var(--scrollAlignItems);
+        height: 100%;
+        min-height: var(--scrollHeight);
+        overflow-x: var(--scrollOverflowX);
+        overflow-y: var(--scrollOverflowY);
+        counter-reset: item;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        scroll-margin: var(--scrollMargin);
+        scroll-padding: var(--scrollPadding);
+        scroll-snap-stop: var(--scrollStop);
+        scroll-snap-type: var(--scrollDirection) var(--scrollType);
+    }
+
+    .scroll-snap-s > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign) }
+    .scroll-snap-s.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll; } 
+    .scroll-snap-s.mandatory { --scrollType: mandatory } /* default */
+    .scroll-snap-s.proximity { --scrollType: proximity }
+    .scroll-snap-s.align-start { --scrollAlign: start }
+    .scroll-snap-s.align-center { --scrollAlign: center }
+    .scroll-snap-s.align-end { --scrollAlign: end }
+    .scroll-snap-s.stop-always { --scrollStop: always } /* default */
+}
+
+@media (min-width: 1024px) {
+    .scroll-snap-m {
+        --scrollDirection: x;
+        --scrollType: mandatory;
+        --scrollAlign: start;
+        --scrollMargin: 1rem;
+        --scrollPadding: 0;
+        --scrollStop: normal;
+        --scrollJustifyContent: start;
+        --scrollAlignItems: center;
+        --scrollFlexFlow: row nowrap;
+        --scrollChildHeight: auto;
+        --scrollChildWidth: 100%;
+        --scrollChildMinWidth: 100%;
+        --scrollOverflowX: scroll;
+        --scrollOverflowY: hidden;
+        display: flex;
+        flex-flow: var(--scrollFlexFlow);
+        gap: var(--scrollMargin);
+        justify-content: var(--scrollJustifyContent);
+        align-items: var(--scrollAlignItems);
+        height: 100%;
+        min-height: var(--scrollHeight);
+        overflow-x: var(--scrollOverflowX);
+        overflow-y: var(--scrollOverflowY);
+        counter-reset: item;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        scroll-margin: var(--scrollMargin);
+        scroll-padding: var(--scrollPadding);
+        scroll-snap-stop: var(--scrollStop);
+        scroll-snap-type: var(--scrollDirection) var(--scrollType);
+    }
+
+    .scroll-snap-m > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign) }
+    .scroll-snap-m.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll; } 
+    .scroll-snap-m.mandatory { --scrollType: mandatory } /* default */
+    .scroll-snap-m.proximity { --scrollType: proximity }
+    .scroll-snap-m.align-start { --scrollAlign: start }
+    .scroll-snap-m.align-center { --scrollAlign: center }
+    .scroll-snap-m.align-end { --scrollAlign: end }
+    .scroll-snap-m.stop-always { --scrollStop: always } /* default */
+}
 
 /** Group inputs */
 .stack { 
@@ -1208,98 +1258,6 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
   :where(x-grid,[x-grid]) > *[span-y-m="1f"]  { grid-row: 1 / -1 }
 }
 
-/* [L] for window width >= 1600 */
-@media (min-width: 1599px) {
-  [columns-l="1"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  [columns-l="2"] { --grid-tc: repeat(2, minmax(0,1fr)) }
-  [columns-l="3"] { --grid-tc: repeat(3, minmax(0,1fr)) }
-  [columns-l="4"] { --grid-tc: repeat(4, minmax(0,1fr)) }
-  [columns-l="5"] { --grid-tc: repeat(5, minmax(0,1fr)) }
-  [columns-l="6"] { --grid-tc: repeat(6, minmax(0,1fr)) }
-  [columns-l="7"] { --grid-tc: repeat(7, minmax(0,1fr)) }
-  [columns-l="8"] { --grid-tc: repeat(8, minmax(0,1fr)) }
-  [columns-l="9"] { --grid-tc: repeat(9, minmax(0,1fr)) }
-  [columns-l="10"] { --grid-tc: repeat(10, minmax(0,1fr)) }
-  [columns-l="11"] { --grid-tc: repeat(11, minmax(0,1fr)) }
-  [columns-l="12"] { --grid-tc: repeat(12, minmax(0,1fr)) }
-
-  [columns-l="fit"] { --grid-tc: repeat(auto-fit, minmax(var(--grid-mm))) }
-  [columns-l="fill"] { --grid-tc: repeat(auto-fill, minmax(var(--grid-mm))) }
-  [columns-l="1f"] { --grid-tc: repeat(1, minmax(0,1fr)) }
-  [columns-l="1f"] > * { grid-column: 1 / -1 }
-  [columns-l="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr }
-  [columns-l="stack"] > * { position: relative; grid-row: 1; grid-column: 1 }
-  [columns-l="stack"] > *:first-child { z-index: 1 }
-
-  /*** Grid Column - X axis */
-  :where(x-grid,[x-grid]) > *[span-l^="1"] { --grid-cs: 1 }
-  :where(x-grid,[x-grid]) > *[span-l^="2"] { --grid-cs: 2 }
-  :where(x-grid,[x-grid]) > *[span-l^="3"] { --grid-cs: 3 }
-  :where(x-grid,[x-grid]) > *[span-l^="4"] { --grid-cs: 4 }
-  :where(x-grid,[x-grid]) > *[span-l^="5"] { --grid-cs: 5 }
-  :where(x-grid,[x-grid]) > *[span-l^="6"] { --grid-cs: 6 }
-  :where(x-grid,[x-grid]) > *[span-l^="7"] { --grid-cs: 7 }
-  :where(x-grid,[x-grid]) > *[span-l^="8"] { --grid-cs: 8 }
-  :where(x-grid,[x-grid]) > *[span-l^="9"] { --grid-cs: 9 }
-  :where(x-grid,[x-grid]) > *[span-l^="10"] { --grid-cs: 10 }
-  :where(x-grid,[x-grid]) > *[span-l^="11"] { --grid-cs: 11 }
-  :where(x-grid,[x-grid]) > *[span-l^="12"] { --grid-cs: 12 }
-
-  :where(x-grid,[x-grid]) > *[span-l$="+1"], :where(x-grid,[x-grid]) > *[span-l="1"] { --grid-ce: 1 }
-  :where(x-grid,[x-grid]) > *[span-l$="+2"], :where(x-grid,[x-grid]) > *[span-l$="-1"], :where(x-grid,[x-grid]) > *[span-l="2"] { --grid-ce: 2 }
-  :where(x-grid,[x-grid]) > *[span-l$="+3"], :where(x-grid,[x-grid]) > *[span-l$="-2"], :where(x-grid,[x-grid]) > *[span-l="3"] { --grid-ce: 3 }
-  :where(x-grid,[x-grid]) > *[span-l$="+4"], :where(x-grid,[x-grid]) > *[span-l$="-3"], :where(x-grid,[x-grid]) > *[span-l="4"] { --grid-ce: 4 }
-  :where(x-grid,[x-grid]) > *[span-l$="+5"], :where(x-grid,[x-grid]) > *[span-l$="-4"], :where(x-grid,[x-grid]) > *[span-l="5"] { --grid-ce: 5 }
-  :where(x-grid,[x-grid]) > *[span-l$="+6"], :where(x-grid,[x-grid]) > *[span-l$="-5"], :where(x-grid,[x-grid]) > *[span-l="6"] { --grid-ce: 6 }
-  :where(x-grid,[x-grid]) > *[span-l$="+7"], :where(x-grid,[x-grid]) > *[span-l$="-6"], :where(x-grid,[x-grid]) > *[span-l="7"] { --grid-ce: 7 }
-  :where(x-grid,[x-grid]) > *[span-l$="+8"], :where(x-grid,[x-grid]) > *[span-l$="-7"], :where(x-grid,[x-grid]) > *[span-l="8"] { --grid-ce: 8 }
-  :where(x-grid,[x-grid]) > *[span-l$="+9"], :where(x-grid,[x-grid]) > *[span-l$="-8"], :where(x-grid,[x-grid]) > *[span-l="9"] { --grid-ce: 9 }
-  :where(x-grid,[x-grid]) > *[span-l$="+10"], :where(x-grid,[x-grid]) > *[span-l$="-9"], :where(x-grid,[x-grid]) > *[span-l="10"] { --grid-ce: 10 }
-  :where(x-grid,[x-grid]) > *[span-l$="+11"], :where(x-grid,[x-grid]) > *[span-l$="-10"], :where(x-grid,[x-grid]) > *[span-l="11"] { --grid-ce: 11 }
-  :where(x-grid,[x-grid]) > *[span-l$="+12"], :where(x-grid,[x-grid]) > *[span-l$="-11"], :where(x-grid,[x-grid]) > *[span-l="12"] { --grid-ce: 12 }
-  :where(x-grid,[x-grid]) > *[span-l$="-12"] { --grid-ce: 13 }
-
-  /* connect vars */
-  :where(x-grid,[x-grid]) > *[span-l] { grid-column-end: span var(--grid-ce) }
-  :where(x-grid,[x-grid]) > *[span-l*="+"], :where(x-grid,[x-grid]) > *[span-l*="-"], :where(x-grid,[x-grid]) > *[span-l*=".."] { grid-column-start: var(--grid-cs) }
-  :where(x-grid,[x-grid]) > *[span-l*="-"], :where(x-grid,[x-grid]) > *[span-l*=".."] { grid-column-end: var(--grid-ce) }
-  :where(x-grid,[x-grid]) > *[span-l="row"] { grid-column: 1 / -1 }
-
-  /*** Grid Row - Y axis */
-  :where(x-grid,[x-grid]) > *[span-y-l^="1"] { --grid-rs: 1 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="2"] { --grid-rs: 2 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="3"] { --grid-rs: 3 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="4"] { --grid-rs: 4 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="5"] { --grid-rs: 5 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="6"] { --grid-rs: 6 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="7"] { --grid-rs: 7 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="8"] { --grid-rs: 8 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="9"] { --grid-rs: 9 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="10"] { --grid-rs: 10 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="11"] { --grid-rs: 11 }
-  :where(x-grid,[x-grid]) > *[span-y-l^="12"] { --grid-rs: 12 }
-
-  :where(x-grid,[x-grid]) > *[span-y-l$="+1"], :where(x-grid,[x-grid]) > *[span-y-l="1"] { --grid-re: 1 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+2"], :where(x-grid,[x-grid]) > *[span-y-l$="-1"], :where(x-grid,[x-grid]) > *[span-y-l="2"] { --grid-re: 2 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+3"], :where(x-grid,[x-grid]) > *[span-y-l$="-2"], :where(x-grid,[x-grid]) > *[span-y-l="3"] { --grid-re: 3 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+4"], :where(x-grid,[x-grid]) > *[span-y-l$="-3"], :where(x-grid,[x-grid]) > *[span-y-l="4"] { --grid-re: 4 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+5"], :where(x-grid,[x-grid]) > *[span-y-l$="-4"], :where(x-grid,[x-grid]) > *[span-y-l="5"] { --grid-re: 5 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+6"], :where(x-grid,[x-grid]) > *[span-y-l$="-5"], :where(x-grid,[x-grid]) > *[span-y-l="6"] { --grid-re: 6 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+7"], :where(x-grid,[x-grid]) > *[span-y-l$="-6"], :where(x-grid,[x-grid]) > *[span-y-l="7"] { --grid-re: 7 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+8"], :where(x-grid,[x-grid]) > *[span-y-l$="-7"], :where(x-grid,[x-grid]) > *[span-y-l="8"] { --grid-re: 8 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+9"], :where(x-grid,[x-grid]) > *[span-y-l$="-8"], :where(x-grid,[x-grid]) > *[span-y-l="9"] { --grid-re: 9 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+10"], :where(x-grid,[x-grid]) > *[span-y-l$="-9"], :where(x-grid,[x-grid]) > *[span-y-l="10"] { --grid-re: 10 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+11"], :where(x-grid,[x-grid]) > *[span-y-l$="-10"], :where(x-grid,[x-grid]) > *[span-y-l="11"] { --grid-re: 11 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="+12"], :where(x-grid,[x-grid]) > *[span-y-l$="-11"], :where(x-grid,[x-grid]) > *[span-y-l="12"] { --grid-re: 12 }
-  :where(x-grid,[x-grid]) > *[span-y-l$="-12"] { --grid-re: 13 }
-
-  /* connect vars */
-  :where(x-grid,[x-grid]) > *[span-y-l] { grid-row-end: span var(--grid-re) }
-  :where(x-grid,[x-grid]) > *[span-y-l*="+"], :where(x-grid,[x-grid]) > *[span-y-l*="-"] { grid-row-start: var(--grid-rs) }
-  :where(x-grid,[x-grid]) > *[span-y-l*="-"] { grid-row-end: var(--grid-re) }
-  :where(x-grid,[x-grid]) > *[span-y-l="1f"]  { grid-row: 1 / -1 }
-}
-
 /* ------------------
   flexbox
 ------------------ */
@@ -1393,35 +1351,6 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     :where(x-flex,[x-flex]) > *[span-m="11"] { flex: 11 }
     :where(x-flex,[x-flex]) > *[span-m="12"] { flex: 12 }
     :where(x-flex,[x-flex]) > *[span-m="row"] { flex-basis: 100% }
-}
-
-/* for window width >= 1600 */
-@media (min-width: 1599px) {
-    /*  Flex Direction */
-    [direction-l="column"] { flex-direction: column }
-    [direction-l="column-reverse"] { flex-direction: column-reverse }
-    [direction-l="row"] { flex-direction: row }
-    [direction-l="row-reverse"] { flex-direction: row-reverse }
-
-    /* Wrap */
-    [wrap-l],[wrap-l="wrap"] { flex-wrap: wrap }
-    [wrap-l="nowrap"] { flex-wrap: nowrap }
-    [wrap-l="reverse"] { flex-wrap: wrap-reverse }
-
-    /* Flex span */
-    :where(x-flex,[x-flex]) > *[span-l="1"]  { flex: 1 }
-    :where(x-flex,[x-flex]) > *[span-l="2"]  { flex: 2 }
-    :where(x-flex,[x-flex]) > *[span-l="3"]  { flex: 3 }
-    :where(x-flex,[x-flex]) > *[span-l="4"]  { flex: 4 }
-    :where(x-flex,[x-flex]) > *[span-l="5"]  { flex: 5 }
-    :where(x-flex,[x-flex]) > *[span-l="6"]  { flex: 6 }
-    :where(x-flex,[x-flex]) > *[span-l="7"]  { flex: 7 }
-    :where(x-flex,[x-flex]) > *[span-l="8"]  { flex: 8 }
-    :where(x-flex,[x-flex]) > *[span-l="9"]  { flex: 9 }
-    :where(x-flex,[x-flex]) > *[span-l="10"] { flex: 10 }
-    :where(x-flex,[x-flex]) > *[span-l="11"] { flex: 11 }
-    :where(x-flex,[x-flex]) > *[span-l="12"] { flex: 12 }
-    :where(x-flex,[x-flex]) > *[span-l="row"] { flex-basis: 100% }
 }
 
 /* ------------------------
@@ -2138,244 +2067,6 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
     [order-m="last"] { order: 99 }
 }
 
-/*** [L] for window width >= 1600 */
-@media (min-width: 1599px) {
-    /* Justify CONTENT */
-    [jc-l="start"] { justify-content: start } 
-    [jc-l="center"] { justify-content: center }
-    [jc-l="end"] { justify-content: end } 
-    [jc-l="stretch"] { justify-content: stretch }
-    [jc-l="around"] { justify-content: space-around }
-    [jc-l="between"] { justify-content: space-between }
-    [jc-l="evenly"] { justify-content: space-evenly }
-
-    /* Justify ITEMS */
-    [ji-l="start"] { justify-items: start }
-    [ji-l="center"] { justify-items: center }
-    [ji-l="end"] { justify-items: end }
-    [ji-l="stretch"] { justify-items: stretch }
-
-    /* Align ITEMS */
-    [ai-l="start"] { align-items: start } 
-    [ai-l="center"] { align-items: center }
-    [ai-l="end"] { align-items: end } 
-    [ai-l="stretch"] { align-items: stretch }
-
-    /* Align CONTENT */
-    [ac-l="start"] { align-content: start } 
-    [ac-l="center"] { align-content: center }
-    [ac-l="end"] { align-content: end } 
-    [ac-l="stretch"] { align-content: stretch }
-    [ac-l="around"] { align-content: space-around }
-    [ac-l="between"] { align-content: space-between }
-    [ac-l="evenly"] { align-content: space-evenly }
-
-    /* Align SELF */
-    [as-l="start"] { align-self: start } 
-    [as-l="center"] { align-self: center }
-    [as-l="end"] { align-self: end } 
-    [as-l="stretch"] { align-self: stretch }
-
-    /* Justify SELF */
-    [js-l="start"] { justify-self: start }
-    [js-l="center"] { justify-self: center }
-    [js-l="end"] { justify-self: end }
-    [js-l="stretch"] { justify-self: stretch }
-
-    /* Place ITEMS – place-items: align-items justify-items; */
-    [pi-l="start"] { place-items: start }
-    [pi-l="center"] { place-items: center }
-    [pi-l="end"] { place-items: end }
-    [pi-l="stretch"] { place-items: stretch }
-
-    [pi-l="start center"] { place-items: start center }
-    [pi-l="start end"] { place-items: start end }
-    [pi-l="start stretch"] { place-items: start stretch }
-
-    [pi-l="center start"] { place-items: center start }
-    [pi-l="center end"] { place-items: center end }
-    [pi-l="center stretch"] { place-items: center stretch }
-
-    [pi-l="end start"] { place-items: end start }
-    [pi-l="end center"] { place-items: end center }
-    [pi-l="end stretch"] { place-items: end stretch }
-
-    [pi-l="stretch start"] { place-items: stretch start }
-    [pi-l="stretch center"] { place-items: stretch center }
-    [pi-l="stretch end"] { place-items: stretch end }
-
-    /* Place CONTENT - place-content: align-content justify-content */
-    [pc-l="start"] { place-content: start }
-    [pc-l="center"] { place-content: center }
-    [pc-l="end"] { place-content: end }
-    [pc-l="stretch"] { place-content: stretch }
-    [pc-l="around"] { place-content: space-around }
-    [pc-l="between"] { place-content: space-between }
-    [pc-l="evenly"] { place-content: space-evenly }
-
-    [pc-l="start center"] { place-content: start center }
-    [pc-l="start end"] { place-content: start end }
-    [pc-l="start stretch"] { place-content: start stretch }
-    [pc-l="start around"] { place-content: start space-around }
-    [pc-l="start between"] { place-content: start space-between }
-    [pc-l="start evenly"] { place-content: start space-evenly }
-
-    [pc-l="center start"] { place-content: center start }
-    [pc-l="center end"] { place-content: center end }
-    [pc-l="center stretch"] { place-content: center stretch }
-    [pc-l="center around"] { place-content: center space-around }
-    [pc-l="center between"] { place-content: center space-between }
-    [pc-l="center evenly"] { place-content: center space-evenly }
-
-    [pc-l="end start"] { place-content: end start }
-    [pc-l="end center"] { place-content: end center }
-    [pc-l="end stretch"] { place-content: end stretch }
-    [pc-l="end around"] { place-content: end space-around }
-    [pc-l="end between"] { place-content: end space-between }
-    [pc-l="end evenly"] { place-content: end space-evenly }
-
-    [pc-l="stretch start"] { place-content: stretch start }
-    [pc-l="stretch center"] { place-content: stretch center }
-    [pc-l="stretch end"] { place-content: stretch end }
-    [pc-l="stretch around"] { place-content: stretch space-around }
-    [pc-l="stretch between"] { place-content: stretch space-between }
-    [pc-l="stretch evenly"] { place-content: stretch space-evenly }
-
-    [pc-l="around start"] { place-content: space-around start }
-    [pc-l="around center"] { place-content: space-around center }
-    [pc-l="around end"] { place-content: space-around end }
-    [pc-l="around stretch"] { place-content: space-around stretch }
-    [pc-l="around between"] { place-content: space-around space-between }
-    [pc-l="around evenly"] { place-content: space-around space-evenly }
-
-    [pc-l="between start"] { place-content: space-between start }
-    [pc-l="between center"] { place-content: space-between center }
-    [pc-l="between end"] { place-content: space-between end }
-    [pc-l="between stretch"] { place-content: space-between stretch }
-    [pc-l="between around"] { place-content: space-between space-around }
-    [pc-l="between evenly"] { place-content: space-between space-evenly }
-
-    [pc-l="evenly start"] { place-content: space-evenly start }
-    [pc-l="evenly center"] { place-content: space-evenly center }
-    [pc-l="evenly end"] { place-content: space-evenly end }
-    [pc-l="evenly stretch"] { place-content: space-evenly stretch }
-    [pc-l="evenly around"] { place-content: space-evenly space-around }
-    [pc-l="evenly between"] { place-content: space-evenly space-between }
-
-    /* Place SELF - place-self: align-self justify-self; */
-    [ps-l="start"] { place-self: start }
-    [ps-l="center"] { place-self: center }
-    [ps-l="end"] { place-self: end }
-    [ps-l="stretch"] { place-self: stretch }
-
-    [ps-l="start center"] { place-self: start center }
-    [ps-l="start end"] { place-self: start end }
-    [ps-l="start stretch"] { place-self: start stretch }
-
-    [ps-l="center start"] { place-self: center start }
-    [ps-l="center end"] { place-self: center end }
-    [ps-l="center stretch"] { place-self: center stretch }
-
-    [ps-l="end start"] { place-self: end start }
-    [ps-l="end center"] { place-self: end center }
-    [ps-l="end stretch"] { place-self: end stretch }
-
-    [ps-l="stretch start"] { place-self: stretch start }
-    [ps-l="stretch center"] { place-self: stretch center }
-    [ps-l="stretch end"] { place-self: stretch end }
-
-    /* flex-* start & end for flexbox (needed for safari) */
-    x-flex[jc-l="start"] { justify-content: flex-start }
-    x-flex[jc-l="center"] { justify-content: center }
-    x-flex[jc-l="end"] { justify-content: flex-end }
-    x-flex[ji-l="start"] { justify-items: flex-start }
-    x-flex[ji-l="center"] { justify-items: center }
-    x-flex[ji-l="end"] { justify-items: flex-end }
-    x-flex[ai-l="start"] { align-items: flex-start }
-    x-flex[ai-l="center"] { align-items: center }
-    x-flex[ai-l="end"] { align-items: flex-end }
-    x-flex[ac-l="start"] { align-content: flex-start }
-    x-flex[ac-l="center"] { align-content: center }
-    x-flex[ac-l="end"] { align-content: flex-end }
-    x-flex[as-l="start"] { align-self: flex-start }
-    x-flex[as-l="center"] { align-self: center }
-    x-flex[as-l="end"] { align-self: flex-end }
-    x-flex[js-l="start"] { justify-self: flex-start }
-    x-flex[js-l="center"] { justify-self: center }
-    x-flex[js-l="end"] { justify-self: flex-end }
-    x-flex[pi-l="start"] { place-items: flex-start }
-    x-flex[pi-l="center"] { place-items: center }
-    x-flex[pi-l="end"] { place-items: flex-end }
-    x-flex[pi-l="start center"] { place-items: flex-start center }
-    x-flex[pi-l="start end"] { place-items: flex-start flex-end }
-    x-flex[pi-l="start stretch"] { place-items: flex-start stretch }
-    x-flex[pi-l="center start"] { place-items: center flex-start }
-    x-flex[pi-l="center end"] { place-items: center flex-end }
-    x-flex[pi-l="end start"] { place-items: flex-end flex-start }
-    x-flex[pi-l="end center"] { place-items: flex-end center }
-    x-flex[pi-l="end stretch"] { place-items: flex-end stretch }
-    x-flex[pi-l="stretch start"] { place-items: stretch flex-start }
-    x-flex[pi-l="stretch end"] { place-items: stretch flex-end }
-    x-flex[pc-l="start"] { place-content: flex-start }
-    x-flex[pc-l="center"] { place-content: center }
-    x-flex[pc-l="end"] { place-content: flex-end }
-    x-flex[pc-l="start center"] { place-content: flex-start center }
-    x-flex[pc-l="start end"] { place-content: flex-start flex-end }
-    x-flex[pc-l="start stretch"] { place-content: flex-start stretch }
-    x-flex[pc-l="start around"] { place-content: flex-start space-around }
-    x-flex[pc-l="start between"] { place-content: flex-start space-between }
-    x-flex[pc-l="start evenly"] { place-content: flex-start space-evenly }
-    x-flex[pc-l="center start"] { place-content: center flex-start }
-    x-flex[pc-l="center end"] { place-content: center flex-end }
-    x-flex[pc-l="end start"] { place-content: flex-end flex-start }
-    x-flex[pc-l="end center"] { place-content: flex-end center }
-    x-flex[pc-l="end stretch"] { place-content: flex-end stretch }
-    x-flex[pc-l="end around"] { place-content: flex-end space-around }
-    x-flex[pc-l="end between"] { place-content: flex-end space-between }
-    x-flex[pc-l="end evenly"] { place-content: flex-end space-evenly }
-    x-flex[pc-l="stretch start"] { place-content: stretch flex-start }
-    x-flex[pc-l="stretch end"] { place-content: stretch flex-end }
-    x-flex[pc-l="around start"] { place-content: space-around flex-start }
-    x-flex[pc-l="around end"] { place-content: space-around flex-end }
-    x-flex[pc-l="between start"] { place-content: space-between flex-start }
-    x-flex[pc-l="between end"] { place-content: space-between flex-end }
-    x-flex[pc-l="evenly start"] { place-content: space-evenly flex-start }
-    x-flex[pc-l="evenly end"] { place-content: space-evenly flex-end }
-    x-flex[ps-l="start"] { place-self: flex-start }
-    x-flex[ps-l="center"] { place-self: center }
-    x-flex[ps-l="end"] { place-self: flex-end }
-    x-flex[ps-l="start center"] { place-self: flex-start center }
-    x-flex[ps-l="start end"] { place-self: flex-start flex-end }
-    x-flex[ps-l="start stretch"] { place-self: flex-start stretch }
-    x-flex[ps-l="center start"] { place-self: center flex-start }    
-    x-flex[ps-l="center end"] { place-self: center flex-end }    
-    x-flex[ps-l="end start"] { place-self: flex-end flex-start }    
-    x-flex[ps-l="end center"] { place-self: flex-end center }    
-    x-flex[ps-l="end stretch"] { place-self:flex-end stretch }    
-    x-flex[ps-l="stretch start"] { place-self: stretch flex-start }    
-    x-flex[ps-l="stretch end"] { place-self: stretch flex-end }
-
-    /* VISUAL ORDER */
-    [order-l="first"] { order: -1 }
-    [order-l="1"] { order: 1 }
-    [order-l="2"] { order: 2 }
-    [order-l="3"] { order: 3 }
-    [order-l="4"] { order: 4 }
-    [order-l="5"] { order: 5 }
-    [order-l="6"] { order: 6 }
-    [order-l="7"] { order: 7 }
-    [order-l="8"] { order: 8 }
-    [order-l="9"] { order: 9 }
-    [order-l="10"] { order: 10 }
-    [order-l="11"] { order: 11 }
-    [order-l="12"] { order: 12 }
-    [order-l="13"] { order: 13 }
-    [order-l="14"] { order: 14 }
-    [order-l="15"] { order: 15 }
-    [order-l="16"] { order: 16 }
-    [order-l="last"] { order: 99 }
-}
-
 /* Debug */
 .debug > * { --dc:rgba(248,110,91,0.8); background: var(--dc) }
 .debug>:nth-child(6n+2){ --dc:rgb(103,126,208,.8) }
@@ -2439,7 +2130,7 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
 */
 
 /** ANIMATION */
-[start], .animate {
+.animate {
     animation-fill-mode: both; 
     animation-name: var(--animation-name, fadeIn); /* default animation: fadeIn */
     animation-duration: var(--duration, 1s);  /* default duration: 1s */
@@ -2535,7 +2226,7 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
 }
 
 @keyframes shake  { 
-  from, to { transform: translate3d(0,0,0) }
+  0%, 100% { transform: translate3d(0,0,0) }
   10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px,0,0) }
   20%, 40%, 60%, 80% { transform: translate3d(10px,0,0) }
 }
