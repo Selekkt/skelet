@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Container queries + grid & flexbox</title>
+  <link rel="stylesheet" href="../css/skelet.css">
+
+    <style>
+
+
+    </style>
+
+</head>
+<body>
+
+
+<style>
+.cards > * {
+    container: card / inline-size;
+}
+
+@container (max-width: 450px) {
+    .cards > * > * {
+        --grid-tc: repeat(1, minmax(0,1fr))!important
+    }
+}
+</style>
+
+
+
+<div id="app">
+
+    <header span="row" >
+        <h1 class="text-center">Container queries</h1>
+
+    </header>
+
+    <main id="mainContent">
+
+        <x-grid columns="4" class="cards">
+            <x-cell>
+                <x-grid columns="2">
+                    <h2>Title</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, eos impedit ex accusantium illum quos libero maxime natus earum quo.</p>
+                </x-grid>
+            </x-cell>
+
+            <x-cell>
+                <x-grid columns="2">
+                    <h2>Title</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, eos impedit ex accusantium illum quos libero maxime natus earum quo.</p>
+                </x-grid>
+            </x-cell>
+
+        </x-grid>
+
+    </main>
+
+    <footer span="row">
+
+    </footer>
+</div>
+    
+
+</body>
+</html>
