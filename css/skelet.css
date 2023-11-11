@@ -175,24 +175,43 @@ main { flex: 1 }
 /* ------------------
   typography
 ------------------ */
-h1,.h1 { --hSize: clamp(calc(var(--hScale) * var(--h1SizeMin, 3.1rem)), calc(var(--hScale) * var(--h1Val, 1.6vw + 2.7rem)), calc(var(--hScale) * var(--h1SizeMax, 4rem)));   line-height: var(--h1Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h1Space, var(--hSpace)) }
-h2,.h2 { --hSize: clamp(calc(var(--hScale) * var(--h2SizeMin, 2.7rem)), calc(var(--hScale) * var(--h2Val, 0.9vw + 2.5rem)), calc(var(--hScale) * var(--h2SizeMax, 3.2rem))); line-height: var(--h2Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h2Space, var(--hSpace)) }
-h3,.h3 { --hSize: clamp(calc(var(--hScale) * var(--h3SizeMin, 2.4rem)), calc(var(--hScale) * var(--h3Val, 0.7vw + 2.2rem)), calc(var(--hScale) * var(--h3SizeMax, 2.8rem))); line-height: var(--h3Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h3Space, var(--hSpace)) }
-h4,.h4 { --hSize: clamp(calc(var(--hScale) * var(--h4SizeMin, 2.2rem)), calc(var(--hScale) * var(--h4Val, 0.3vw + 2.1rem)), calc(var(--hScale) * var(--h4SizeMax, 2.4rem))); line-height: var(--h4Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h4Space, var(--hSpace)) }
-h5,.h5 { --hSize: clamp(calc(var(--hScale) * var(--h5SizeMin, 2rem)),   calc(var(--hScale) * var(--h5Val, 0.3vw + 1.9rem)), calc(var(--hScale) * var(--h5SizeMax, 2.2rem))); line-height: var(--h5Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h5Space, var(--hSpace)) }
-h6,.h6 { --hSize: clamp(calc(var(--hScale) * var(--h6SizeMin, 1.6rem)), calc(var(--hScale) * var(--h6Val, 0.2vw + 1.6rem)), calc(var(--hScale) * var(--h6SizeMax, 1.7rem))); line-height: var(--h6Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h6Space, var(--hSpace)) }
+:root {
+    --hStyle: normal;
+    --hWeight: 600;
+    --hTransform: inherit;
+    --hAlign: inherit;
+    --hColor: currentColor;
+    --hMargin: 0 0 0.65em;
+    --hTextWrap: balance;
+
+    --h1Size: clamp(calc(var(--hScale) * var(--h1SizeMin, 3.1rem)), calc(var(--hScale) * var(--h1Val, 1.6vw + 2.7rem)), calc(var(--hScale) * var(--h1SizeMax, 4rem)));
+    --h2Size: clamp(calc(var(--hScale) * var(--h2SizeMin, 2.7rem)), calc(var(--hScale) * var(--h2Val, 0.9vw + 2.5rem)), calc(var(--hScale) * var(--h2SizeMax, 3.2rem)));
+    --h3Size: clamp(calc(var(--hScale) * var(--h3SizeMin, 2.4rem)), calc(var(--hScale) * var(--h3Val, 0.7vw + 2.2rem)), calc(var(--hScale) * var(--h3SizeMax, 2.8rem)));
+    --h4Size: clamp(calc(var(--hScale) * var(--h4SizeMin, 2.2rem)), calc(var(--hScale) * var(--h4Val, 0.3vw + 2.1rem)), calc(var(--hScale) * var(--h4SizeMax, 2.4rem)));
+    --h5Size: clamp(calc(var(--hScale) * var(--h5SizeMin, 2rem)),   calc(var(--hScale) * var(--h5Val, 0.3vw + 1.9rem)), calc(var(--hScale) * var(--h5SizeMax, 2.2rem)));
+    --h6Size: clamp(calc(var(--hScale) * var(--h6SizeMin, 1.6rem)), calc(var(--hScale) * var(--h6Val, 0.2vw + 1.6rem)), calc(var(--hScale) * var(--h6SizeMax, 1.7rem)));
+}
+
+h1,.h1 { font-size: var(--hSize, var(--h1Size)); line-height: var(--h1Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h1Space, var(--hSpace)) }
+h2,.h2 { font-size: var(--hSize, var(--h2Size)); line-height: var(--h2Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h2Space, var(--hSpace)) }
+h3,.h3 { font-size: var(--hSize, var(--h3Size)); line-height: var(--h3Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h3Space, var(--hSpace)) }
+h4,.h4 { font-size: var(--hSize, var(--h4Size)); line-height: var(--h4Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h4Space, var(--hSpace)) }
+h5,.h5 { font-size: var(--hSize, var(--h5Size)); line-height: var(--h5Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h5Space, var(--hSpace)) }
+h6,.h6 { font-size: var(--hSize, var(--h6Size)); line-height: var(--h6Line, var(--hLine, var(--fontLine))); letter-spacing: var(--h6Space, var(--hSpace)) }
 
 h1,h2,h3,h4,h5,h6, 
 .h1,.h2,.h3,.h4,.h5,.h6,.hx { 
-    font: var(--hStyle, normal) var(--hWeight, 600) var(--hSize) var(--hFontFamily);
-    text-transform: var(--hTransform, inherit);
-    text-align: var(--hAlign, inherit);
-    text-wrap: balance;
-    color: var(--hColor, currentColor); 
-    margin: var(--hMargin, 0 0 0.65em);
+    font-family: var(--hFontFamily);
+    font-weight: var(--hWeight);
+    font-style: var(--hStyle);
+    text-transform: var(--hTransform);
+    text-align: var(--hAlign);
+    text-wrap: var(--hTextWrap);
+    color: var(--hColor);
+    margin: var(--hMargin);
 }
 
-.hx { text-wrap: inherit; margin: 0 }
+.hx { --hTextWrap: inherit; --hMargin: 0; font-size: var(--hxSize, inherit); line-height: var(--hxLine, var(--hLine, var(--fontLine))); letter-spacing: var(--hxSpace, var(--hSpace)) }
 
 p { margin:var(--pMargin) }
 blockquote { max-width: 90%; margin: 2rem auto; font-style: italic }
@@ -399,7 +418,7 @@ kbd {
     --scrollFlexFlow: row nowrap;
     --scrollChildHeight: auto;
     --scrollChildWidth: 100%;
-    --scrollChildMinWidth: 100%;
+    --scrollChildMinWidth: fit-content;
     --scrollOverflowX: scroll;
     --scrollOverflowY: hidden;
     display: flex;
