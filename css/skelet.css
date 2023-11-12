@@ -157,8 +157,8 @@ button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-he
 [type="search"]{-webkit-appearance:textfield;appearance:textfield;outline-offset:-2px}
 [type="search"]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
-[hidden],[type="hidden"],.hidden {display:none!important;outline:0}
-[disabled],[disabled]:hover,.disabled { filter: grayscale(100%); opacity: 0.7!important; cursor: not-allowed!important; --buttonColor:var(--white); --buttonColorHover: var(--white) }
+:is([hidden],[type="hidden"],.hidden) {display:none!important;outline:0}
+:is([disabled],[disabled]:hover,.disabled) { filter: grayscale(100%); opacity: 0.7!important; cursor: not-allowed!important; --buttonColor:var(--white); --buttonColorHover: var(--white) }
 
 /* ------------------
     basics
