@@ -1,0 +1,17 @@
+# WP + Grav
+group:
+  repos: |
+    selekkt/wp-Skelet@master
+    selekkt/grav-Skelet@master
+  files: 
+    - source: css/skelet.css
+      dest: assets/css/skelet.css
+    - source: css/app.css
+      dest: assets/css/app.css
+
+# Astro
+selekkt/astro-Skelet@master:
+  - source: css/skelet.css
+    dest: public/css/skelet.css
+  - source: css/app.css
+    dest: public/css/app.css
