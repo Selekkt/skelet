@@ -871,7 +871,6 @@ label, legend { display: inline-flex; gap: 0.7rem; margin-block-end: var(--input
 fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--inputRadius) }
 legend { padding: var(--inputPadding) }
 option { padding: 5px; color: var(--inputColor) }
-label span { color: var(--color); margin: 0 0.5rem; font-weight: normal }
 :is(input,textarea).is-blank { border:none!important; background:transparent }
 
 select {
