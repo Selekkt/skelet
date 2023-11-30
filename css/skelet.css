@@ -763,6 +763,71 @@ input[type="radio"]:after {
 
 input[type="radio"]:checked { --s: .5 }
 
+/**** 
+ * Toggle token
+ * */
+.toggle-token, .toggle-token legend { all: unset }
+.toggle-token input:where([type="radio"],[type="checkbox"]) { clip: rect(0,0,0,0)!important; position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; white-space: nowrap!important; border: 0!important }
+
+.toggle-token {
+    --tokenBg: var(--buttonBg);
+    --tokenColor: var(--buttonColor);
+    --tokenBorder: var(--buttonBorderColor);
+    --tokenRadius: var(--buttonRadius);
+    --tokenPadding: var(--buttonPadding);
+    --tokenMargin: var(--buttonMargin);
+
+    --tokenBgHover: var(--buttonBgHover);
+    --tokenColorHover: var(--buttonColorHover);
+    --tokenBorderHover: var(--buttonBorderHover);
+
+    --tokenBgActive: var(--buttonColor);
+    --tokenColorActive: var(--buttonBg);
+    --tokenBorderActive: var(--inputBorderActive);
+}
+
+.toggle-token label,
+.toggle-token input:where([type="radio"],[type="checkbox"]) + label {
+    display: var(--tokenDisplay, inline-flex);
+    flex-direction: var(--tokenDirection, row);
+    background: var(--tokenBg);
+    color: var(--tokenColor);
+    font-size: inherit;
+    font-weight: var(--tokenFontWeight, 400);
+    letter-spacing: var(--tokenSpace, var(--fontSpace));
+    line-height: var(--tokenLine, var(--fontLine));
+    border: 1px solid var(--tokenBorder);
+    border-radius: var(--tokenRadius, 100vw);
+    padding: var(--tokenPadding); 
+    margin: var(--tokenMargin);
+    cursor: pointer;
+    position: relative;
+}
+
+.toggle-token label:hover,
+.toggle-token input:where([type="radio"],[type="checkbox"]):hover + label { 
+    background: var(--tokenBgHover); 
+    color: var(--tokenColorHover); 
+    border-color: var(--tokenBorderHover)
+}
+
+.toggle-token label:has(input:where([type="radio"],[type="checkbox"]):checked),
+.toggle-token input:where([type="radio"],[type="checkbox"]):checked + label { 
+    background: var(--tokenBgActive); 
+    color: var(--tokenColorActive); 
+    border-color: var(--tokenBorderActive); 
+    font-weight: var(--tokenFontWeight)
+}
+
+.toggle-token label:has(input:where([type="radio"],[type="checkbox"]):where(:disabled,.disabled)),
+.toggle-token input:where([type="radio"],[type="checkbox"]):where(:disabled,.disabled) + label {
+    filter: grayscale(100%); 
+    cursor: not-allowed; 
+    opacity: var(--tokenOpacity, 0.3);
+    text-decoration: var(--tokenTextDec, line-through);
+    pointer-events: none;
+}
+
 /* ------------------
   forms
 ------------------ */

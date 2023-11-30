@@ -6,7 +6,7 @@
     <title>Project Title</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/">
 
     <meta name="theme-color" content="#FFFFFF">
 
@@ -56,44 +56,47 @@
 <div id="app">
     <header>
         <!-- Remove this -->
-        <div class="logo">
-            <h1>Skelet.<sup>3</sup></h1>
-        </div>
+        <div style="max-width: 900px; margin: 0 auto; padding: var(--padding)" x-flex ai="center" jc="between">
+            <h1 class="logo">Skelet.css</h1>
 
-        <nav>
-            <ul class="inline">
-                <li><a href="https://selekkt.dk/skelet/v3">Home</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul class="inline">
+                    <li>&nbsp;</li>
+                </ul>
+            </nav>
+        </div>
         <!-- / -->
     </header>
 
     <main id="mainContent">
         <!-- Remove this -->
-        <article>
-        <x-grid columns="2" style="max-width: 750px; margin:0 auto; padding:2rem"> 
-            <x-col span-s="row"><h1>Hallo Daar!!!</h1></x-col>
-            <x-col span="2+1" span-s="row">
-                <p>Thank you for chosing <u>Skelet.</u> as your starting point for you next project.</p>
-                <p>Take a look at the <a href="https://selekkt.dk/skelet/v3/" target="_blank">documentation</a> for more.</p>
-            </x-col>
-        </x-grid>
-        </article>
+        <x-flex direction="column" style="max-width: 900px; margin: 0 auto; padding: var(--padding)">
+            <x-cell><h2 class="h1">We're thrilled you've chosen Skelet.css to kickstart your next big idea!</h2></x-cell>
+            <x-cell><h3 class="h2">Skelet. aims to empower your creativity to bring any vision to life.</h3></x-cell>
+            <x-cell>
+                <h4 class="h5 text-normal">Be sure to explore the in-depth documentation for guides, references, options, and more as you build out your next project.</h4>
+                <a href="https://selekkt.dk/skelet/" class="button is-black is-pill" target="_blank">Documentation</a>
+                <a href="tests/html-elements.html" class="button is-outline is-black is-pill is-small" target="_blank">HTML elements</a>
+            <x-cell>
+        </x-flex>
         <!-- / -->
     </main>
 
     <footer>
         <!-- Remove this -->
-        <center>
-        <ul class="inline">
-            <li><a href="https://selekkt.dk/" class="button">Sēlekkt.</a></li>
-            <li><a href="https://selekkt.dk/skelet/v3/" class="button is-blank">Documentation</a></li>
-            <li><a href="https://selekkt.dk/git/wp-skelet" class="button is-blank">wp-Skelet</a></li>
-            <li><a href="https://selekkt.dk/git/grav-skelet" class="button is-blank">grav-Skelet</a></li>
-            <li><a href="https://selekkt.dk/git/astro-skelet" class="button is-blank">astro-Skelet</a></li>
-        </ul>
-        <p>&nbsp;</p>
-        </center>
+        <div style="max-width: 900px; margin: 0 auto; padding: var(--margin); padding: var(--padding)">
+            <ul class="inline">
+                <li>
+                    <a href="https://selekkt.dk/" class="button is-black is-pill" target="_blank">Sēlekkt.</a>
+                </li>
+                <li>
+                    <a href="https://selekkt.dk/skelet/" class="button is-outline is-pill is-black" target="_blank">Documentation</a>
+                </li>
+                <li>
+                    <a href="https://selekkt.dk/git/skelet/" class="button is-outline is-pill is-black" target="_blank">GitHub</a></li>
+            </ul>
+            <p>&nbsp;</p>
+        </div>
         <!-- / -->
     </footer>
 </div>

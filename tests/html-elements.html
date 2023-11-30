@@ -22,8 +22,7 @@
   <body dark-mode class="all-states">
     <div id="top" class="page" role="document">
       <header role="banner">
-        <h1>HTML5 Test Page</h1>
-        <p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+        <h1 class="h2 text-normal" style="max-width: 35ch; margin-block: 5rem">This is a test page that provides visual feedback on how <strong>Skelet.css</strong> styles common HTML elements.</h1>
       </header>
       <nav role="navigation">
         <ul>
@@ -62,6 +61,7 @@
               <li><a href="#forms__checkbox">Checkboxes</a></li>
               <li><a href="#forms__checkbox">Radio buttons</a></li>
               <li><a href="#forms__checkbox">Switch buttons</a></li>
+              <li><a href="#forms__checkbox">Toggle tokens</a></li>
               <li><a href="#forms__textareas">Textareas</a></li>
               <li><a href="#forms__html5">HTML5 inputs</a></li>
               <li><a href="#forms__action">Action buttons</a></li>
@@ -130,6 +130,13 @@
                 <li>List Item 2</li>
                 <li>List Item 3</li>
               </ul>
+              <h3>Unordered List no bullet and no styles inside</h3>
+              <ul class="no-style inside">
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ul>
+              <br>
               <h3>Inline</h3>
               <ul class="inline">
                 <li>List Item 1</li>
@@ -702,7 +709,41 @@
   <li><input id="c1" type="checkbox"></li>
   <li><input id="r1" type="radio" name="radio" value="1"></li>
   <li><input id="s1" type="checkbox" class="switch"></li>
+
+  <li>
+    <input id="c50" type="checkbox">
+    <label for="c50">Checkbox</label>
+  </li>
+
+  <li>
+    <x-flex wrap ai="center" style="gap:0">
+      <span class="toggle-token">
+          <label for="toggle-token-1">
+              <input id="toggle-token-1" type="checkbox" name="toggleToken" value="toggleToken">
+              <span>Token 1</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <input id="toggle-token-2" type="checkbox" name="toggleToken" value="toggleToken">
+          <label for="toggle-token-2"><span>Token 2</span></label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-3">
+              <input id="toggle-token-3" type="checkbox" name="toggleToken" value="toggleToken" checked>
+              <span>Token 3</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-4">
+              <input id="toggle-token-4" type="checkbox" name="toggleToken" value="toggleToken">
+              <span>Token 4</span>
+          </label>
+      </span>
+    </x-flex>
+  </li>
+
 </ul>
+
 <p class="text-hr">Disabled state</p>
 <ul class="no-style">
   <li>
@@ -728,6 +769,33 @@
   <li>
     <input id="s2d" type="checkbox" class="switch" checked disabled>
     <label for="s2d">Switch</label>
+  </li>
+
+  <li>
+    <x-flex wrap ai="center" style="gap:0">
+      <span class="toggle-token">
+          <label for="toggle-token-1-dis">
+              <input id="toggle-token-1-dis" type="radio" name="toggleToken" value="toggleToken" disabled>
+              <span>Token 1</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <input id="toggle-token-2-dis" type="radio" name="toggleToken" value="toggleToken" disabled>
+          <label for="toggle-token-2-dis"><span>Token 2</span></label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-3-dis">
+              <input id="toggle-token-3-dis" type="radio" name="toggleToken" value="toggleToken" disabled>
+              <span>Token 3</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-4-dis">
+              <input id="toggle-token-4-dis" type="radio" name="toggleToken" value="toggleToken" disabled checked>
+              <span>Token 4</span>
+          </label>
+      </span>
+    </x-flex>
   </li>
 </ul>
             </fieldset>
