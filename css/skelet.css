@@ -238,7 +238,7 @@ a.no-style { text-decoration: none }
 
 .visibility-hidden { visibility: hidden }
 .sr-only, .visually-hidden, .visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
-.skipTo { position: fixed; z-index: 999; top: var(--padding); left: var(--padding) }
+.skipTo { position: fixed; z-index: 999; inset-block-start: var(--padding); inset-inline-start: var(--padding) }
 
 /* if JS Active show el w/ .js -- if JS Disabled show el w/ .no-js */
 :is(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inherit)!important } 
@@ -307,8 +307,8 @@ kbd {
 .text-break-word { overflow-wrap: break-word }
 .text-balance { text-wrap: balance }
 
-.sticky { position: sticky; top: var(--sticky, 0) }
-.sticky-bottom { position: sticky; bottom: var(--sticky, 0) }
+.sticky { position: sticky; inset-block-start: var(--sticky, 0) }
+.sticky-bottom { position: sticky; inset-block-end: var(--sticky, 0) }
 .sticky-none { position: inherit }
 
 @media (max-width: 777px) { 
@@ -342,8 +342,8 @@ kbd {
     .text-break-word-s { overflow-wrap: break-word }
     .text-balance-s { text-wrap: balance }
 
-    .sticky-s { position: sticky; top: var(--sticky, 0) }
-    .sticky-bottom-s { position: sticky; bottom: var(--sticky, 0) }
+    .sticky-s { position: sticky; inset-block-start: var(--sticky, 0) }
+    .sticky-bottom-s { position: sticky; inset-block-end: var(--sticky, 0) }
     .sticky-none-s { position: inherit }
 }
 
@@ -378,13 +378,13 @@ kbd {
     .text-break-word-m { overflow-wrap: break-word }
     .text-balance-m { text-wrap: balance }
 
-    .sticky-m { position: sticky; top: var(--sticky, 0) }
-    .sticky-bottom-m { position: sticky; bottom: var(--sticky, 0) }
+    .sticky-m { position: sticky; inset-block-start: var(--sticky, 0) }
+    .sticky-bottom-m { position: sticky; inset-block-end: var(--sticky, 0) }
     .sticky-none-m { position: inherit }
 }
 
 .is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
-.is-red, input:not(:placeholder-shown):invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
+.is-red, input:not(:placeholder-shown):user-invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
 /* Vertical and Horizontal align */
 .center-axyz { display: grid; place-items: center }
@@ -949,7 +949,7 @@ select {
 
 [dir="rtl"] select { padding-inline-start: 53px }
 
-select:required:invalid { color:var(--inputPlaceholderColor) }
+select:required:user-invalid { color: var(--inputPlaceholderColor) }
 select:hover { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderHover) 50%), linear-gradient(135deg, var(--inputBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderHover), var(--inputBorderHover)) }
 select:focus { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderActive, var(--inputBorderHover)) 50%), linear-gradient(135deg, var(--inputBorderActive, var(--inputBorderHover)) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderActive, var(--inputBorderHover)), var(--inputBorderActive)) }
 select:-moz-focusring { color:transparent; text-shadow: 0 0 0 var(--color) }
@@ -1041,8 +1041,8 @@ table.is-striped tbody tr:nth-child(2n) td { background: var(--tableStrip); }
 table.is-hover tbody tr:hover { background: var(--tableBg); border-radius: var(--radius) }
 
 table:where(.is-sticky-head,.is-sticky-foot) { overflow: unset }
-table.is-sticky-head thead { position: sticky; top: var(--sticky, .2rem); z-index: 2 }
-table.is-sticky-foot tfoot { position: sticky; bottom: var(--sticky, .2rem); z-index: 1; background: var(--bgColor) }
+table.is-sticky-head thead { position: sticky; inset-block-start: var(--sticky, .2rem); z-index: 2 }
+table.is-sticky-foot tfoot { position: sticky; inset-block-end: var(--sticky, .2rem); z-index: 1; background: var(--bgColor) }
 
 table.has-borders { border: var(--tableBorder) }
 table.has-borders th { border-radius: 0; border:0 }
