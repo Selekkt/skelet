@@ -25,20 +25,22 @@
     --color: #000;
     --colorInverse: #FFF;
 
-    --selectionBg: rgba(0,0,0,.95);
+    --selectionBg: rgb(0 0 0 / .90);
     --selectionText: #FFF;
 
     --codeBg: #F8F8F8;
     --codeColor: var(--blue);
 
     --hrColor: var(--inputBorderColor);
-    --hrGradient: rgba(255, 255, 255, 0);
+    --hrGradient: rgb(255 255 255 / 0);
 
     /* typography */
-    --fontFallback: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    --fontFallback: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, HelveticaNeue, "Helvetica Neue", "Helvetica", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --fontMono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --fontSerif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
     --fontFamily: "Inter", var(--fontFallback);
     --fontFamilyVar: "Inter var", var(--fontFallback);
-    --fontMono: "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono","Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     --hFontFamily: var(--fontFamily);
 
     --globalScale: 1.0;
@@ -241,8 +243,8 @@ a.no-style { text-decoration: none }
 .skipTo { position: fixed; z-index: 999; inset-block-start: var(--padding); inset-inline-start: var(--padding) }
 
 /* if JS Active show el w/ .js -- if JS Disabled show el w/ .no-js */
-:is(html.js .js, html.no-js .no-js):not(html) { display:var(--jsDisplay, inherit)!important } 
-:is(html.js .no-js, html.no-js .js):not(html) { display:none!important }
+:is(html.js .js, html.no-js .no-js):not(html) { display: var(--jsDisplay, inherit)!important } 
+:is(html.js .no-js, html.no-js .js):not(html) { display: none!important }
 
 code, samp {
     padding: var(--inputPadding);
@@ -286,6 +288,8 @@ kbd {
 
 .fitcontent { width: fit-content }
 .fitcontent-height { height: fit-content }
+
+.field-sizing { field-sizing: content } /* to be used on: input, textarea, select */
 
 .block { display:block }
 .inline { display: inline; margin: 0 }
@@ -1051,7 +1055,8 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 /* ------------------
   css grid
 ------------------ */
-:where(x-grid,[x-grid]) { 
+:where(x-grid,[x-grid]) {
+    --jsDisplay: grid;
     --grid-mm: 200px, 1fr; /* auto-fit/fill minmax */
     --grid-tc: repeat(4, minmax(0,1fr)); /* template columns */
     --grid-cs: 1; /* column start */
@@ -1345,7 +1350,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
   flexbox
 ------------------ */
 /*  Flex Container */
-:where(x-flex,[x-flex]) { display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
+:where(x-flex,[x-flex]) { --jsDisplay: flex; display: flex; gap: var(--rowGap, 1rem) var(--columnGap, 1rem) }
 :where(x-flex,[x-flex]) > * { flex: 0 1 auto; width: auto; appearance: none }
 :where(x-flex,[x-flex]) .fullflex { flex: 1 1 auto }
 :where(x-flex,[x-flex]).even > * { width: 100% }
