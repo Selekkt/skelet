@@ -2,64 +2,79 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTML5 Test Page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
+
+    <meta name="theme-color" content="#181818">
+
+    <meta name="description" content="">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+
+    <title>Skelet.css - HTML5 elements test page</title>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
     <link rel="stylesheet" href="../css/skelet-tooltips.css">
     <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
+
+    <script>document.documentElement.className='js'</script>
   </head>
-  <body dark-mode class="a11y-custom">
+  <body dark-mode class="all-states">
     <div id="top" class="page" role="document">
-      <header role="banner">
-        <h1>HTML5 Test Page</h1>
-        <p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-      </header>
-      <nav role="navigation">
-        <ul>
-          <li>
-            <a href="#text">Text</a>
-            <ul>
-              <li><a href="#text__headings">Headings</a></li>
-              <li><a href="#text__paragraphs">Paragraphs</a></li>
-              <li><a href="#text__blockquotes">Blockquotes</a></li>
-              <li><a href="#text__lists">Lists</a></li>
-              <li><a href="#text__hr">Horizontal rules</a></li>
-              <li><a href="#text__tables">Tabular data</a></li>
-              <li><a href="#text__code">Code</a></li>
-              <li><a href="#text__inline">Inline elements</a></li>
-              <li><a href="#text__comments">HTML Comments</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#embedded">Embedded content</a>
-            <ul>
-              <li><a href="#embedded__images">Images</a></li>
-              <li><a href="#embedded__audio">Audio</a></li>
-              <li><a href="#embedded__video">Video</a></li>
-              <li><a href="#embedded__canvas">Canvas</a></li>
-              <li><a href="#embedded__meter">Meter</a></li>
-              <li><a href="#embedded__progress">Progress</a></li>
-              <li><a href="#embedded__svg">Inline SVG</a></li>
-              <li><a href="#embedded__iframe">IFrames</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#forms">Form elements</a>
-            <ul>
-              <li><a href="#forms__input">Input fields</a></li>
-              <li><a href="#forms__select">Select menus</a></li>
-              <li><a href="#forms__checkbox">Checkboxes</a></li>
-              <li><a href="#forms__checkbox">Radio buttons</a></li>
-              <li><a href="#forms__checkbox">Switch buttons</a></li>
-              <li><a href="#forms__textareas">Textareas</a></li>
-              <li><a href="#forms__html5">HTML5 inputs</a></li>
-              <li><a href="#forms__action">Action buttons</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+      <x-grid columns="3">
+        <header role="banner" span="2">
+          <h1 class="h2 text-normal" style="margin-block: 5rem">This is a test page that provides visual feedback on how <strong>Skelet.css</strong> styles common HTML elements.</h1>
+        </header>
+        <nav role="navigation" style="padding-block:5rem">
+          <ul>
+            <li>
+              <a href="#text">Text</a>
+              <ul>
+                <li><a href="#text__headings">Headings</a></li>
+                <li><a href="#text__paragraphs">Paragraphs</a></li>
+                <li><a href="#text__blockquotes">Blockquotes</a></li>
+                <li><a href="#text__lists">Lists</a></li>
+                <li><a href="#text__hr">Horizontal rules</a></li>
+                <li><a href="#text__tables">Tabular data</a></li>
+                <li><a href="#text__code">Code</a></li>
+                <li><a href="#text__inline">Inline elements</a></li>
+                <li><a href="#text__comments">HTML Comments</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#embedded">Embedded content</a>
+              <ul>
+                <li><a href="#embedded__images">Images</a></li>
+                <li><a href="#embedded__audio">Audio</a></li>
+                <li><a href="#embedded__video">Video</a></li>
+                <li><a href="#embedded__canvas">Canvas</a></li>
+                <li><a href="#embedded__meter">Meter</a></li>
+                <li><a href="#embedded__progress">Progress</a></li>
+                <li><a href="#embedded__svg">Inline SVG</a></li>
+                <li><a href="#embedded__iframe">IFrames</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#forms">Form elements</a>
+              <ul>
+                <li><a href="#forms__input">Input fields</a></li>
+                <li><a href="#forms__select">Select menus</a></li>
+                <li><a href="#forms__checkbox">Checkboxes</a></li>
+                <li><a href="#forms__checkbox">Radio buttons</a></li>
+                <li><a href="#forms__checkbox">Switch buttons</a></li>
+                <li><a href="#forms__checkbox">Toggle tokens</a></li>
+                <li><a href="#forms__textareas">Textareas</a></li>
+                <li><a href="#forms__html5">HTML5 inputs</a></li>
+                <li><a href="#forms__action">Action buttons</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#cssgrid">Grid elements</a>
+            </li>
+          </ul>
+        </nav>
+      </x-grid>
+      <hr>
       <main role="main">
         <section id="text">
           <header><h1>Text</h1></header>
@@ -121,6 +136,13 @@
                 <li>List Item 2</li>
                 <li>List Item 3</li>
               </ul>
+              <h3>Unordered List no bullet and no styles inside</h3>
+              <ul class="no-style inside">
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ul>
+              <br>
               <h3>Inline</h3>
               <ul class="inline">
                 <li>List Item 1</li>
@@ -137,7 +159,9 @@
               <hr class="full">
               <hr class="gradient">
               <hr class="space">
-              <span class="text-hr">hr with text</span>
+              <span class="text-hr">hr w/ text</span>
+              <span class="text-hrs">hr w/ text start</span>
+              <span class="text-hre">hr w/ text end</span>
             </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
@@ -531,12 +555,12 @@
             <header><h2>Images</h2></header>
             <div>
               <h3>No <code>&lt;figure&gt;</code> element</h3>
-              <p><img src="http://placekitten.com/480/480" alt="Image alt text"></p>
+              <p><img src="https://placehold.co/600x600/7A43C4/FFFFFF?text=Skelet.css" alt="Image alt text"></p>
               <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code></h3>
-              <figure><img src="http://placekitten.com/420/420" alt="Image alt text"></figure>
+              <figure><img src="https://placehold.co/600x600/7A43C4/FFFFFF?text=Skelet.css" alt="Image alt text"></figure>
               <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h3>
               <figure>
-                <img src="http://placekitten.com/420/420" alt="Image alt text">
+                <img src="https://placehold.co/600x600/7A43C4/FFFFFF?text=Skelet.css" alt="Image alt text">
                 <figcaption>Here is a caption for this image.</figcaption>
               </figure>
             </div>
@@ -556,7 +580,7 @@
             <header><h2>Video</h2></header>
             <div>
             <video controls>
-              <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4">
+              <source src="https://placehold.co/3840x2160.mp4?text=Skelet.css" type="video/mp4">
             Your browser does not support the video tag.
             </video>
             </div>
@@ -647,6 +671,18 @@
                   </optgroup>
                 </select>
               </p>
+
+              <p>
+                <label for="myBrowser">Choose a browser from this list:</label>
+                <input list="browsers" id="myBrowser" name="myBrowser">
+                <datalist id="browsers">
+                  <option value="Chrome"></option>
+                  <option value="Firefox"></option>
+                  <option value="Opera"></option>
+                  <option value="Safari"></option>
+                  <option value="Microsoft Edge"></option>
+                </datalist>             
+              </p>
             </fieldset>
             <p><a href="#top">[Top]</a></p>
             <fieldset id="forms__checkbox">
@@ -679,7 +715,41 @@
   <li><input id="c1" type="checkbox"></li>
   <li><input id="r1" type="radio" name="radio" value="1"></li>
   <li><input id="s1" type="checkbox" class="switch"></li>
+
+  <li>
+    <input id="c50" type="checkbox">
+    <label for="c50">Checkbox</label>
+  </li>
+
+  <li>
+    <x-flex wrap ai="center" style="gap:0">
+      <span class="toggle-token">
+          <label for="toggle-token-1">
+              <input id="toggle-token-1" type="checkbox" name="toggleToken" value="toggleToken">
+              <span>Token 1</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <input id="toggle-token-2" type="checkbox" name="toggleToken" value="toggleToken">
+          <label for="toggle-token-2"><span>Token 2</span></label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-3">
+              <input id="toggle-token-3" type="checkbox" name="toggleToken" value="toggleToken" checked>
+              <span>Token 3</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-4">
+              <input id="toggle-token-4" type="checkbox" name="toggleToken" value="toggleToken">
+              <span>Token 4</span>
+          </label>
+      </span>
+    </x-flex>
+  </li>
+
 </ul>
+
 <p class="text-hr">Disabled state</p>
 <ul class="no-style">
   <li>
@@ -705,6 +775,33 @@
   <li>
     <input id="s2d" type="checkbox" class="switch" checked disabled>
     <label for="s2d">Switch</label>
+  </li>
+
+  <li>
+    <x-flex wrap ai="center" style="gap:0">
+      <span class="toggle-token">
+          <label for="toggle-token-1-dis">
+              <input id="toggle-token-1-dis" type="radio" name="toggleToken" value="toggleToken" disabled>
+              <span>Token 1</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <input id="toggle-token-2-dis" type="radio" name="toggleToken" value="toggleToken" disabled>
+          <label for="toggle-token-2-dis"><span>Token 2</span></label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-3-dis">
+              <input id="toggle-token-3-dis" type="radio" name="toggleToken" value="toggleToken" disabled>
+              <span>Token 3</span>
+          </label>
+      </span>
+      <span class="toggle-token">
+          <label for="toggle-token-4-dis">
+              <input id="toggle-token-4-dis" type="radio" name="toggleToken" value="toggleToken" disabled checked>
+              <span>Token 4</span>
+          </label>
+      </span>
+    </x-flex>
   </li>
 </ul>
             </fieldset>
@@ -817,7 +914,11 @@
                   <button class="is-outline">button is-outline</button>
                   <button class="is-square">button is-square</button>
                   <button class="is-pill">button is-pill</button>
+
+                  <button class="is-circle">5000</button>
                   <button class="is-circle has-icon"><i class="fas fa-bomb"></i></button>
+                  <button class="is-circle has-icon"><i class="g-xcircle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 9L9 15M9 9L15 15M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"></path></svg></i></button>
+
                   <button class="is-outline is-pill">button is-outline is-pill</button>
                   <hr>
                   <button class="is-loading"></button>
@@ -838,6 +939,12 @@
                       <span>text + icon</span>
                       <i class="fab fa-github"></i>
                   </button>
+
+                <button type="reset" class="is-circle has-icon">
+                    <span class="visually-hidden">Close</span>
+                    <i class="g-xcircle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 9L9 15M9 9L15 15M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"></path></svg></i>
+                </button>
+
                   <hr>
                   <button class="is-white">button is-white</button>
                   <button class="is-light">button is-light</button>
@@ -977,7 +1084,7 @@
             </div>
 
             <style>
-                x-cell, #cssgrid span { color: var(--white); padding: var(--padding); border-radius: var(--radius); }
+                x-cell, #cssgrid span:not(.text-hr) { color: var(--white); padding: var(--padding); border-radius: var(--radius); }
             </style>
 
             <fieldset id="cssgrid">
@@ -1031,14 +1138,28 @@
                   <x-cell span="3.." span-s="2..">span 3..</x-cell>
                 </x-grid>
 
-                <span class="text-hr">Fluid grid</span>
+                <span class="text-hr">Auto grid &mdash; columns="fill"</span>
                 
-                <x-grid columns="fill" min="300" class="debug">
+                <x-grid columns="fill" class="debug">
+                    <x-cell>Box 1</x-cell>
+                    <x-cell>Box 2</x-cell>
+                    <x-cell>Box 3</x-cell>
+                    <x-cell>Box 4</x-cell>
+                    <x-cell>Box 5</x-cell>
+                    <x-cell>Box 6</x-cell>
+                    <x-cell span="2">Box 7</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Auto grid &mdash; columns="fit"</span>
+                
+                <x-grid columns="fit" class="debug">
                   <x-cell>Box 1</x-cell>
                   <x-cell>Box 2</x-cell>
                   <x-cell>Box 3</x-cell>
                   <x-cell>Box 4</x-cell>
-                  <x-cell span="row">Box 5</x-cell>
+                  <x-cell>Box 5</x-cell>
+                  <x-cell>Box 6</x-cell>
+                  <x-cell span="2">Box 7</x-cell>
                 </x-grid>
 
                 <span class="text-hr">Site layout</span>
@@ -1080,12 +1201,54 @@
             <fieldset class="flexbox">
               <legend>Flex</legend>
 
-              <x-flex jc="between" class="debug">
+            <x-flex class="debug">
+                <x-cell>Box 1</x-cell>
+                <x-cell>Box 2</x-cell>
+                <x-cell>Box 3</x-cell>
+                <x-cell>Box 4</x-cell>
+                <x-cell>Box 5</x-cell>
+            </x-flex>
+
+            <span class="text-hr">Flex with span="#"</span>
+
+              <x-flex class="debug">
+                  <x-cell span="2">span="2"</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell span="4">span="4"</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
+              </x-flex>
+
+              <span class="text-hr">Flex with .even</span>
+
+              <x-flex jc="between" class="debug even">
                   <x-cell>Box 1</x-cell>
                   <x-cell>Box 2</x-cell>
                   <x-cell>Box 3</x-cell>
                   <x-cell>Box 4</x-cell>
                   <x-cell>Box 5</x-cell>
+              </x-flex>
+
+              <span class="text-hr">Flex with span="row"</span>
+
+              <x-flex wrap="wrap" class="debug">
+                  <x-cell span="row">span="row"</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
+                  <x-cell span="3">span="3"</x-cell>
+              </x-flex>
+
+              <span class="text-hr">Flex with .fullflex</span>
+
+              <x-flex wrap="wrap" class="debug">
+                  <x-cell class="fullflex">.fullflex</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
+                  <x-cell span="3">span="3"</x-cell>
               </x-flex>
 
             </fieldset>
@@ -1107,10 +1270,5 @@
     </style>
     <div id="light"></div>
   </body>
-  <script>
-    let lightBulb = document.querySelector('#light');
-    lightBulb.addEventListener("click", () => {
-      document.body.toggleAttribute("dark-mode");
-    }, false);
-  </script>
+  <script>document.querySelector('#light').addEventListener("click", () => { document.body.toggleAttribute("dark-mode") }, false);</script>
 </html>

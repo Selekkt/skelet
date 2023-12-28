@@ -1,0 +1,198 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Skelet.css tests</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
+
+    <meta name="theme-color" content="#FFFFFF">
+
+    <link rel="stylesheet" href="../css/skelet.css"> 
+    <script>document.documentElement.className='js'</script>
+    <style>
+        main { margin: var(--margin) auto; }
+
+/*        .oldLineHeight > * { line-height: calc(1 + 0.5 / var(--hScale)); }
+        .newLineHeight > * { line-height: calc(2px + 2ex + 2px);  }
+
+        .newLineHeight .h6{ clamp(1.6rem, 0.33vw + 1.48rem, 1.9rem); }
+        .newLineHeight .h5{ clamp(2rem, 0.58vw + 1.79rem, 2.53rem); }
+        .newLineHeight .h4{ clamp(2.5rem, 0.95vw + 2.16rem, 3.38rem); }
+        .newLineHeight .h3{ clamp(3.13rem, 1.49vw + 2.59rem, 4.5rem); }
+        .newLineHeight .h2{ clamp(3.91rem, 2.27vw + 3.09rem, 6rem); }
+        .newLineHeight .h1{ clamp(4.88rem, 3.38vw + 3.66rem, 8rem); }
+
+        h1 {font-size: clamp(3.1rem, 1.6vw + 2.7rem, 4rem);}
+
+        .test-1 {
+            --hFontFamily: serif
+        }
+
+        .test-2 {
+            --hFontFamily: monospace
+        }*/
+
+        #app { margin: var(--margin) 10vw }
+
+        :root {
+            --globalScale: 1;
+            --hScale: 1;
+        }
+    </style>
+</head>
+<body dark-mode>
+<div id="app">
+
+    <main>
+
+    <div>
+        <x-flex direction="row">
+            <small>h1</small>
+            <div>
+                <small>letter-spacing</small>
+                <h1 style="--hSpace:-0.1em">Supercalifragilisticexpialidocious</h1>
+                <h1 style="--hSpace:-2px">Supercalifragilisticexpialidocious</h1>
+            </div>
+            
+        </x-flex>
+
+        <x-flex direction="row">
+            <small>h1</small>
+            <h1>Supercalifragilisticexpialidocious Everything is blurry, but the feelings are real.</h1>
+        </x-flex>
+
+        <x-flex direction="row">
+            <small>h1</small>
+            <h1>Everything is blurry, but the feelings are real.</h1>
+        </x-flex>
+        
+        <x-flex direction="row">
+            <small>h2</small>
+            <h2>Everything is blurry, but the feelings are real.</h2>
+        </x-flex>
+
+        <x-flex direction="row">
+            <small>h3</small>
+            <h3>Everything is blurry, but the feelings are real.</h3>
+        </x-flex>
+
+        <x-flex direction="row">
+            <small>h4</small>
+            <h4>Everything is blurry, but the feelings are real.</h4>
+        </x-flex>
+
+        <x-flex direction="row">
+            <small>h5</small>
+            <h5>Everything is blurry, but the feelings are real.</h5>
+        </x-flex>
+
+        <x-flex direction="row">
+            <small>h6</small>
+            <h6>Everything is blurry, but the feelings are real.</h6>
+        </x-flex>
+
+        <x-flex direction="row">
+            <small>p</small>
+            <p>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Deleniti, delectus cumque et assumenda enim illo cupiditate praesentium fuga beatae aliquam eaque, id nihil dolorem quo cum voluptatibus ipsum quis provident officia velit corrupti nisi nemo? Libero blanditiis incidunt cum obcaecati fugiat, praesentium sunt itaque repellendus hic magni, sint perspiciatis ad.</p>
+        </x-flex>
+    </div>
+
+    <div style="min-height:100vw"></div>
+
+
+    <x-grid columns="2">
+        <x-cell span="row" class="newLineHeight">
+
+            <h1>h1: Everything is blurry, but the feelings are real.</h1>
+            <h2>h2: Everything is blurry, but the feelings are real.</h2>
+            <h3>h3: Everything is blurry, but the feelings are real.</h3>
+            <h4>h4: Everything is blurry, but the feelings are real.</h4>
+            <h5>h5: Everything is blurry, but the feelings are real.</h5>
+            <h6>h6: Everything is blurry, but the feelings are real.</h6>
+
+        </x-cell>
+
+        <hr>
+
+        <x-cell span="row" class="oldLineHeight">
+
+            <h1>h1: Everything is blurry, but the feelings are real.</h1>
+            <h2>h2: Everything is blurry, but the feelings are real.</h2>
+            <h3>h3: Everything is blurry, but the feelings are real.</h3>
+            <h4>h4: Everything is blurry, but the feelings are real.</h4>
+            <h5>h5: Everything is blurry, but the feelings are real.</h5>
+            <h6>h6: Everything is blurry, but the feelings are real.</h6>
+
+        </x-cell>
+
+        <x-cell span="row"><hr></x-cell>
+
+        <x-cell class="newLineHeight">
+            <h1>NEW line-height calc</h1>
+            <hr>
+
+            <h1>h1: Everything is blurry, but the feelings are real.</h1>
+            <h2>h2: Everything is blurry, but the feelings are real.</h2>
+            <h3>h3: Everything is blurry, but the feelings are real.</h3>
+            <h4>h4: Everything is blurry, but the feelings are real.</h4>
+            <h5>h5: Everything is blurry, but the feelings are real.</h5>
+            <h6>h6: Everything is blurry, but the feelings are real.</h6>
+            <hr>
+            <div class="test-1">
+                <h1>h1: Everything is blurry, but the feelings are real.</h1>
+                <h2>h2: Everything is blurry, but the feelings are real.</h2>
+                <h3>h3: Everything is blurry, but the feelings are real.</h3>
+                <h4>h4: Everything is blurry, but the feelings are real.</h4>
+                <h5>h5: Everything is blurry, but the feelings are real.</h5>
+                <h6>h6: Everything is blurry, but the feelings are real.</h6>
+            </div>
+            <hr>
+            <div class="test-2">
+                <h1>h1: Everything is blurry, but the feelings are real.</h1>
+                <h2>h2: Everything is blurry, but the feelings are real.</h2>
+                <h3>h3: Everything is blurry, but the feelings are real.</h3>
+                <h4>h4: Everything is blurry, but the feelings are real.</h4>
+                <h5>h5: Everything is blurry, but the feelings are real.</h5>
+                <h6>h6: Everything is blurry, but the feelings are real.</h6>
+            </div>
+        </x-cell>
+
+        <x-cell class="oldLineHeight">
+            <h1>OLD line-height calc</h1>
+            <hr>
+
+            <h1>h1: Everything is blurry, but the feelings are real.</h1>
+            <h2>h2: Everything is blurry, but the feelings are real.</h2>
+            <h3>h3: Everything is blurry, but the feelings are real.</h3>
+            <h4>h4: Everything is blurry, but the feelings are real.</h4>
+            <h5>h5: Everything is blurry, but the feelings are real.</h5>
+            <h6>h6: Everything is blurry, but the feelings are real.</h6>
+            <hr>
+            <div class="test-1">
+                <h1>h1: Everything is blurry, but the feelings are real.</h1>
+                <h2>h2: Everything is blurry, but the feelings are real.</h2>
+                <h3>h3: Everything is blurry, but the feelings are real.</h3>
+                <h4>h4: Everything is blurry, but the feelings are real.</h4>
+                <h5>h5: Everything is blurry, but the feelings are real.</h5>
+                <h6>h6: Everything is blurry, but the feelings are real.</h6>
+            </div>
+            <hr>
+            <div class="test-2">
+                <h1>h1: Everything is blurry, but the feelings are real.</h1>
+                <h2>h2: Everything is blurry, but the feelings are real.</h2>
+                <h3>h3: Everything is blurry, but the feelings are real.</h3>
+                <h4>h4: Everything is blurry, but the feelings are real.</h4>
+                <h5>h5: Everything is blurry, but the feelings are real.</h5>
+                <h6>h6: Everything is blurry, but the feelings are real.</h6>
+            </div>
+        </x-cell>
+    </x-grid>
+
+
+    </main>
+
+</div>
+</body>
+</html>
