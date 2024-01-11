@@ -1,4 +1,4 @@
-/*! Skelet.css - v5.0.0 | MIT License | (c) 2024 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v5.1.0 | MIT License | (c) 2024 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -165,6 +165,8 @@ button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-he
 /* ------------------
     basics
 ------------------ */
+[dir="rtl"] { direction: rtl }
+
 ::selection { background: var(--selectionBg); color: var(--selectionText) }
 ::-moz-selection { background: var(--selectionBg); color: var(--selectionText) }
 
@@ -219,12 +221,12 @@ p { margin:var(--pMargin) }
 blockquote { max-width: 90%; margin: 2rem auto; font-style: italic }
 
 a:not([href]) { cursor: not-allowed }
-a:not(.button) { color: var(--linkColor); cursor: pointer; text-decoration: var(--linkDecoration, auto) }
-a:not(.button):hover { color: var(--linkHover); text-decoration: var(--linkHoverDecoration, auto) }
+a:not(.button,[role="button"]) { color: var(--linkColor); cursor: pointer; text-decoration: var(--linkDecoration, auto) }
+a:not(.button,[role="button"]):hover { color: var(--linkHover); text-decoration: var(--linkHoverDecoration, auto) }
 
-.all-states a:not(.button):focus { color: var(--linkFocus, inherit); text-decoration: var(--linkFocusDecoration, auto) }
-.all-states a:not(.button):active { color: var(--linkActive, inherit); text-decoration: var(--linkActiveDecoration, auto) }
-.all-states a:not(.button):not(:hover):visited { color: var(--linkVisited, inherit); text-decoration: var(--linkVisitedDecoration, auto) }
+.all-states a:not(.button,[role="button"]):focus { color: var(--linkFocus, inherit); text-decoration: var(--linkFocusDecoration, auto) }
+.all-states a:not(.button,[role="button"]):active { color: var(--linkActive, inherit); text-decoration: var(--linkActiveDecoration, auto) }
+.all-states a:not(.button,[role="button"]):not(:hover):visited { color: var(--linkVisited, inherit); text-decoration: var(--linkVisitedDecoration, auto) }
 
 a.no-style { text-decoration: none }
 
@@ -576,7 +578,7 @@ kbd {
 /* ------------------
   buttons
 ------------------ */
-button,.button,[type="button"],[type="submit"],[type="reset"] {
+button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"] {
     padding: var(--buttonPadding);
     margin: var(--buttonMargin);
     height: var(--buttonHeight, fit-content);
@@ -604,23 +606,23 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
     user-select: none;
 }
 
-:where(button,.button,[type="button"],[type="submit"],[type="reset"]):hover { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover) }
+:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]):hover { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover) }
 
 .has-icon { display: inline-flex; align-items: center; justify-content: center; gap: var(--buttonPadding) }
 .has-icon i { display: grid; place-items: center; font-size: max(15px, var(--buttonSize)); pointer-events: none }
 .has-icon i > svg { display: inline; height: var(--icoSizeW, var(--icoSize)); width: var(--icoSizeW, var(--icoSize)) }
 
-.is-small:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonSize: min(0.75em, 1.4rem) }
-.is-large:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonSize:1.45em }
+.is-small:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonSize: min(0.75em, 1.4rem) }
+.is-large:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonSize:1.45em }
 
-.is-pill:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:100vw }
+.is-pill:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:100vw }
 
-.is-circle:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius: 100vw; aspect-ratio: 1 / 1; }
-.is-circle:not(.has-icon):where(button,.button,[type="button"],[type="submit"],[type="reset"]) { padding: 1em; width: 1em; height: 1em }
+.is-circle:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonRadius: 100vw; aspect-ratio: 1 / 1; }
+.is-circle:not(.has-icon):where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { padding: 1em; width: 1em; height: 1em }
 
-.is-square:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:0 }
+.is-square:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonRadius:0 }
 
-.is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):after {
+:where(.is-loading,[aria-busy="true"]):where(span,button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]):after {
     content: "";
     animation: loading 500ms infinite linear;
     border: 2px solid var(--buttonColor);
@@ -633,36 +635,36 @@ button,.button,[type="button"],[type="submit"],[type="reset"] {
     position: relative;
 }
 
-.is-loading:where(span,button,.button,[type="button"],[type="submit"],[type="reset"]):not(:empty):after { margin-inline-start: 1rem }
+:where(.is-loading,[aria-busy="true"]):where(span,button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]):not(:empty):after { margin-inline-start: 1rem }
 
 .is-unset { all: unset }
-.is-link:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonColor: currentColor; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: inherit; --buttonSize: inherit }
-.is-blank:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
-.is-custom:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor }
+.is-link:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonColor: currentColor; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: inherit; --buttonSize: inherit }
+.is-blank:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
+.is-custom:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor }
 
-.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: currentColor }
-.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--buttonColorHover) }
+.is-outline:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: currentColor }
+.is-outline:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]):not(.is-white,.is-black,.is-currentcolor):hover { background: var(--buttonBg); --buttonColor: var(--buttonColorHover) }
 
-.is-white:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonBg:var(--white); --buttonBgHover:var(--buttonBg); --buttonColor:var(--black); 
+.is-white:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonBg:var(--white); --buttonBgHover:var(--buttonBg); --buttonColor:var(--black); 
     --buttonColorHover: var(--black) }
-.is-black:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonBg:var(--black); --buttonBgHover:var(--buttonBg); --buttonColor:var(--white) }
+.is-black:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonBg:var(--black); --buttonBgHover:var(--buttonBg); --buttonColor:var(--white) }
 
-.is-currentcolor.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: currentColor; --buttonBorderColor: var(--buttonColor); --buttonColorHover: var(--buttonColor);  --buttonBorderHover: var(--buttonColor) }
-.is-white.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--white); --buttonBorderColor: var(--white);--buttonColorHover: var(--white);  --buttonBorderHover: var(--white) }
-.is-black.is-outline:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--black); --buttonBorderColor: var(--black); --buttonColorHover: var(--black); --buttonBorderHover: var(--black) }
+.is-currentcolor.is-outline:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonColor: currentColor; --buttonBorderColor: var(--buttonColor); --buttonColorHover: var(--buttonColor);  --buttonBorderHover: var(--buttonColor) }
+.is-white.is-outline:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--white); --buttonBorderColor: var(--white);--buttonColorHover: var(--white);  --buttonBorderHover: var(--white) }
+.is-black.is-outline:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--black); --buttonBorderColor: var(--black); --buttonColorHover: var(--black); --buttonBorderHover: var(--black) }
 
-:where(.is-primary,.is-blue,.is-green,.is-yellow,.is-red,.is-orange,.is-purple):where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg) }
-:where(.is-green,.is-yellow,.is-red,.is-orange):where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--black) }
+:where(.is-primary,.is-blue,.is-green,.is-yellow,.is-red,.is-orange,.is-purple):where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonBg:var(--primary); --buttonBgHover:var(--buttonBg); --buttonBorderColor:var(--buttonBg); --buttonBorderColorHover:var(--buttonBg) }
+:where(.is-green,.is-yellow,.is-red,.is-orange):where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonColor: var(--black) }
 
-.is-primary:where(button,.button,[type="button"],[type="submit"],[type="reset"]) { --buttonBg: var(--primary) }
-.is-blue:where(button,.button,[type="button"],[type="submit"],[type="reset"])    { --buttonBg: var(--blue); --buttonColorHover: var(--white) }
-.is-green:where(button,.button,[type="button"],[type="submit"],[type="reset"])   { --buttonBg: var(--green); --buttonColorHover: var(--black) }
-.is-yellow:where(button,.button,[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--yellow); --buttonColorHover: var(--black) }
-.is-red:where(button,.button,[type="button"],[type="submit"],[type="reset"])     { --buttonBg: var(--red); --buttonColorHover: var(--black) }
-.is-orange:where(button,.button,[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--orange); --buttonColorHover: var(--black) }
-.is-purple:where(button,.button,[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--purple) }
+.is-primary:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonBg: var(--primary) }
+.is-blue:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"])    { --buttonBg: var(--blue); --buttonColorHover: var(--white) }
+.is-green:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"])   { --buttonBg: var(--green); --buttonColorHover: var(--black) }
+.is-yellow:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--yellow); --buttonColorHover: var(--black) }
+.is-red:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"])     { --buttonBg: var(--red); --buttonColorHover: var(--black) }
+.is-orange:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--orange); --buttonColorHover: var(--black) }
+.is-purple:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"])  { --buttonBg: var(--purple) }
 
-.is-blue:where(button,.button,[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonColor: var(--white) }
+.is-blue:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]):not(.is-outline) { --buttonColor: var(--white) }
 
 /** Radio checkbox switch */
 input[type="checkbox"],
@@ -710,8 +712,8 @@ input[type="checkbox"]:hover:not(:checked):not(:disabled),
 input[type="radio"]:hover:not(:checked):not(:disabled) { --bc: var(--inputBorderHover) }
 
 input[type="checkbox"]:focus, input[type="radio"]:focus { box-shadow: 0 0 0 2px var(--inputFocus) }  
-input[type="checkbox"]:not(.switch):after, input[type="radio"]:not(.switch):after { opacity: var(--o, 0) }  
-input[type="checkbox"]:not(.switch):checked, input[type="radio"]:not(.switch):checked { --o: 1 }
+input[type="checkbox"]:not([role="switch"]):after, input[type="radio"]:not([role="switch"]):after { opacity: var(--o, 0) }  
+input[type="checkbox"]:not([role="switch"]):checked, input[type="radio"]:not([role="switch"]):checked { --o: 1 }
   
 input[type="checkbox"] + label,
 input[type="radio"] + label {
@@ -724,9 +726,9 @@ input[type="radio"] + label {
     user-select: none;
 }
 
-input[type="checkbox"]:not(.switch) { border-radius: 3px }
+input[type="checkbox"]:not([role="switch"]) { border-radius: 3px }
 
-input[type="checkbox"]:not(.switch):after {
+input[type="checkbox"]:not([role="switch"]):after {
     width: 5px;
     height: 9px;
     border: 1px solid var(--inputActiveInner);
@@ -738,9 +740,9 @@ input[type="checkbox"]:not(.switch):after {
 }
 
 /* Switch */
-input[type="checkbox"].switch { width: 38px; border-radius: 11px }
+input[type="checkbox"][role="switch"] { width: 38px; border-radius: 11px }
 
-input[type="checkbox"].switch:after {
+input[type="checkbox"][role="switch"]:after {
     left: 2px;
     top: 2px;
     border-radius: 100vw;
@@ -750,8 +752,8 @@ input[type="checkbox"].switch:after {
     transform: translateX(var(--x, 0));
 }
 
-input[type="checkbox"].switch:checked { --ab: var(--inputActiveInner); --x: 17px }
-input[type="checkbox"].switch:disabled:not(:checked):after { opacity: .7 }
+input[type="checkbox"][role="switch"]:checked { --ab: var(--inputActiveInner); --x: 17px }
+input[type="checkbox"][role="switch"]:disabled:not(:checked):after { opacity: .7 }
 
 /* Radio */
 input[type="radio"] { border-radius: 100vw }

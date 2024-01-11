@@ -705,16 +705,16 @@
     <label for="r2">Radio</label>
   </li>
   <li>
-    <input id="s1" type="checkbox" class="switch">
+    <input id="s1" type="checkbox" role="switch">
     <label for="s1">Switch</label>
   </li>
   <li>
-    <input id="s2" type="checkbox" class="switch" checked>
+    <input id="s2" type="checkbox" role="switch" checked>
     <label for="s2">Switch</label>
   </li>
   <li><input id="c1" type="checkbox"></li>
   <li><input id="r1" type="radio" name="radio" value="1"></li>
-  <li><input id="s1" type="checkbox" class="switch"></li>
+  <li><input id="s1" type="checkbox" role="switch"></li>
 
   <li>
     <input id="c50" type="checkbox">
@@ -769,11 +769,11 @@
     <label for="r2d">Radio</label>
   </li>
   <li>
-    <input id="s1d" type="checkbox" class="switch" disabled>
+    <input id="s1d" type="checkbox" role="switch" disabled>
     <label for="s1d">Switch</label>
   </li>
   <li>
-    <input id="s2d" type="checkbox" class="switch" checked disabled>
+    <input id="s2d" type="checkbox" role="switch" checked disabled>
     <label for="s2d">Switch</label>
   </li>
 
@@ -926,16 +926,16 @@
                   <button class="is-loading">loading</button>
                   <button class="is-loading is-outline is-small"></button>
                   <hr>
-                  <button class="button has-icon">
+                  <button class="has-icon">
                       <i class="fas fa-bold"></i>
                   </button>
 
-                  <button class="button has-icon">
+                  <button class="has-icon">
                       <i class="fab fa-github"></i>
                       <span>icon + text</span>
                   </button>
 
-                  <button class="button has-icon">
+                  <button class="has-icon">
                       <span>text + icon</span>
                       <i class="fab fa-github"></i>
                   </button>
@@ -965,9 +965,13 @@
                   <button class="is-outline is-yellow">button is-outline is-yellow</button>
                   <button class="is-outline is-red">button is-outline is-red</button>
                   <hr>
-                  <a href="" class="button">a.button</a>
-                  <a href="" class="button disabled">a.button.disabled</a>
-                  <a href="" class="button is-loading is-green">is-loading is-outline is-small</a>
+                  <a href="#" role="button">a[role="button"]</a>
+                  <a href="#" role="button" disabled>a[role="button"][disabled]</a>
+                  <a href="#" role="button" aria-busy="true" class="is-green">a[role="button"][aria-busy="true"].is-green</a>
+                  <hr>
+                  <a href="#" class="button">a.button</a>
+                  <a href="#" class="button disabled">a.button.disabled</a>
+                  <a href="#" class="button is-loading is-green">a.button.is-loading.is-green</a>
               </p>
             </fieldset>
             <p><a href="#top">[Top]</a></p>
