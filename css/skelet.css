@@ -1,4 +1,4 @@
-/*! Skelet.css - v5.1.1 | MIT License | (c) 2024 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v5.2.0 | MIT License | (c) 2024 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -56,7 +56,7 @@
     /* other */
     --padding: 1rem;
     --margin: 1.5rem;
-    --radius: 0.5rem;
+    --radius: .75rem;
     --borderWidth: 1px;
     --borderStyle: solid;
     --hrMargin: var(--margin);
@@ -104,7 +104,7 @@
     --buttonBorderColor: transparent;
     --buttonBorderHover: transparent;
     --buttonShadow: 0 0 0 0 rgba(0,0,0,0);
-    --icoSize: var(--fontSize);
+    --iconSize: var(--fontSize);
 
     /* grids */
     --columnGap: 1rem;
@@ -231,22 +231,19 @@ a:not(.button,[role="button"]):hover { color: var(--linkHover); text-decoration:
 a.no-style { text-decoration: none }
 
 /*** Accessibility */
-*:focus-visible, *:focus { outline-offset: var(--a11yOffset, 2px) }
-.a11y-off *:focus { outline: 0; box-shadow: none }
-.a11y-custom *:focus, .a11y-custom a:focus { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent; outline-offset: var(--a11yOffset, 2px) }
+*:focus-visible { outline-color: var(--inputFocus); outline-offset: var(--a11yOffset, 3px) }
+.a11y-off *:focus-visible { outline: 0; box-shadow: none }
+.a11y-inputs-off :where(select,input,textarea):focus-visible { outline: 0; box-shadow: none }
+.a11y-custom :where(*,a):focus-visible { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent; outline-offset: var(--a11yOffset, 2px) }
 
-@supports selector(:focus-visible) {
-    .a11y-off *:focus-visible { outline: 0; box-shadow: none }
-    .a11y-custom *:focus-visible, .a11y-custom a:focus-visible { box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); outline: 2px solid transparent; outline-offset: var(--a11yOffset, 2px) }
-}
 
 .visibility-hidden { visibility: hidden }
 .sr-only, .visually-hidden, .visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 .skipTo { position: fixed; z-index: 999; inset-block-start: var(--padding); inset-inline-start: var(--padding) }
 
-/* if JS Active show el w/ .js -- if JS Disabled show el w/ .no-js */
+/* if JS Active show el w/ .js -- if JS Disabled show el w/ .no-js -- if JS Disabled *hide* el /w .no-js-hidden */
 :is(html.js .js, html.no-js .no-js):not(html) { display: var(--jsDisplay, inherit)!important } 
-:is(html.js .no-js, html.no-js .js):not(html) { display: none!important }
+:is(html.js .no-js, html.no-js .js, html.no-js .no-js-hidden):not(html) { display: none!important }
 
 code, samp {
     padding: var(--inputPadding);
@@ -278,8 +275,8 @@ kbd {
     min-width: 3rem;
 }
 
-.is-green { border-color: var(--green)!important; --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
-.is-red, input:not(:placeholder-shown):user-invalid { border-color: var(--red)!important; --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
+.is-green { border-color: var(--green)!important; --inputFocus: var(--green); --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
+.is-red, input:not(:placeholder-shown):user-invalid { border-color: var(--red)!important; --inputFocus: var(--red); --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
 /* Vertical and Horizontal align */
 .center-axyz { display: grid; place-items: center }
@@ -499,7 +496,7 @@ button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"] {
 
 .has-icon { display: inline-flex; align-items: center; justify-content: center; gap: var(--buttonPadding) }
 .has-icon i { display: grid; place-items: center; font-size: max(15px, var(--buttonSize)); pointer-events: none }
-.has-icon i > svg { display: inline; height: var(--icoSizeW, var(--icoSize)); width: var(--icoSizeW, var(--icoSize)) }
+.has-icon i > svg { display: inline; height: var(--iconSizeW, var(--iconSize)); width: var(--iconSizeW, var(--iconSize)) }
 
 .is-small:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonSize: min(0.75em, 1.4rem) }
 .is-large:where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) { --buttonSize:1.45em }
@@ -699,7 +696,7 @@ input[type="radio"]:checked { --s: .5 }
     position: relative;
 }
 
-.toggle-token label:hover,
+.toggle-token label:where(:hover,:focus,:focus-visible,:focus-within),
 .toggle-token input:where([type="radio"],[type="checkbox"]):hover + label { 
     background: var(--tokenBgHover); 
     color: var(--tokenColorHover); 
@@ -748,6 +745,7 @@ input[inputmode],
 input[list],
 select,
 textarea {
+    display: var(--inputDisplay, block);
     padding: var(--inputPadding);
     margin: var(--inputMargin);
     border-radius: var(--inputRadius);
@@ -834,7 +832,7 @@ option { padding: 5px; color: var(--inputColor) }
 :is(input,textarea).is-blank { border:none!important; background:transparent }
 
 select {
-    background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderColor) 50%), linear-gradient(135deg, var(--inputBorderColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderColor), var(--inputBorderColor));
+    background-image: linear-gradient(45deg, transparent 50%, var(--inputColor) 50%), linear-gradient(135deg, var(--inputColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderColor), var(--inputBorderColor));
     background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%, calc(100% - 40px) 50%;
     background-size: 5px 5px, 5px 5px, 1px 100%;
     background-repeat: no-repeat;
@@ -845,8 +843,8 @@ select {
 [dir="rtl"] select { padding-inline-start: 53px }
 
 select:required:user-invalid { color: var(--inputPlaceholderColor) }
-select:hover { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderHover) 50%), linear-gradient(135deg, var(--inputBorderHover) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderHover), var(--inputBorderHover)) }
-select:focus { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputBorderActive, var(--inputBorderHover)) 50%), linear-gradient(135deg, var(--inputBorderActive, var(--inputBorderHover)) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderActive, var(--inputBorderHover)), var(--inputBorderActive)) }
+select:hover { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputColor) 50%), linear-gradient(135deg, var(--inputColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderHover), var(--inputBorderHover)) }
+select:focus { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputColor) 50%), linear-gradient(135deg, var(--inputColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderActive, var(--inputBorderHover)), var(--inputBorderActive)) }
 select:-moz-focusring { color:transparent; text-shadow: 0 0 0 var(--color) }
 
 /* ------------------
@@ -2072,6 +2070,7 @@ x-flex[ps="stretch end"] { place-self: stretch flex-end }
 .fitcontent-height { height: fit-content }
 
 .field-sizing { field-sizing: content } /* to be used on: input, textarea, select */
+.flow > * + * { margin-top: var(--flow-space, 1em) } /* to be used on: containers w/ <p>s <h>s etc. */
 
 .block { display:block }
 .inline { display: inline; margin: 0 }
