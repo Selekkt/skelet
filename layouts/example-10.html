@@ -33,128 +33,175 @@
     <link rel="apple-touch-icon-precomposed" href="img/touch.png">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@master/css/skelet.css">
-<style>
-/* OpenThinking Slider */
-.otSlider { 
-    position: relative; 
-    --ots-bpos: 10px; /* position */
-    --ots-bsize: 1.5rem; /* box size */
-    --ots-bbgc: white; /* bg color */
-}
-
-.otSlider :is(.ot-prev,.ot-next) { 
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-100%);
-    width: var(--ots-bsize);
-    height: var(--ots-bsize);
-
-    box-shadow: 0 0 6px 0px rgba(0,0,0,.1);
-    background: var(--ots-bbgc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 16 16'%3E%3Cpath d='M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z'/%3E%3C/svg%3E") center center no-repeat;
-}
-.otSlider .ot-prev { left: var(--ots-bpos); transform: translateY(-100%) rotate(-180deg); }
-.otSlider .ot-next { right: var(--ots-bpos); }
-</style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Selekkt/skelet@next/css/skelet.css">
 
 <style>
-/* this are only for styling purposes */
-.slide {
-    background: pink;
-    width: 100%;
-    height: 70vh;
-    display: grid;
-    place-items: center;
+x-scroll { 
+    timeline-scope: --carousel;
+    max-width: 100vw;
+
+        .card img { max-width: 500px }
+        .scroll-snap { scroll-timeline: --carousel inline }
+
+        button[data-next] { animation: auto next ease forwards; animation-timeline: --carousel }
+        button[data-previous] { animation: auto prev ease forwards; animation-timeline: --carousel }    
 }
-.otSlider { max-width: 500px; margin: 3rem;}
-.otSlider img { width: 400px; height: 100%; object-fit: contain; }
-@media (max-width: 777px) { .otSlider :is(.ot-prev,.ot-next) { display: none; } }
-footer { margin: 3rem; }
+
+@keyframes prev { from { visibility: hidden } }
+@keyframes next { to { visibility: hidden } }
 </style>
+
 </head>
-<body>
+<body dark-mode>
 <div id="app">
-    <header></header>
-    <main class="center-axyz">
-    <x-flex direction-s="column">
-        <x-col>
-        <!-- slider -->
-        <div class="otSlider">
-            <ul class="scroll-snap no-style">
-                <li class="slide"><img src="https://picsum.photos/1201.jpg" alt="Img"></li>
-                <li class="slide"><img src="https://picsum.photos/1202.jpg" alt="Img"></li>
-                <li class="slide"><img src="https://picsum.photos/1203.jpg" alt="Img"></li>
-                <li class="slide"><img src="https://picsum.photos/1204.jpg" alt="Img"></li>
-                 <li class="slide"><img src="https://picsum.photos/1205.jpg" alt="Img"></li>
-            </ul>
-            <button class="is-custom is-circle ot-prev" aria-label="previous">&nbsp;</button>
-            <button class="is-custom is-circle ot-next" aria-label="next">&nbsp;</button>
-        </div>
-        <!-- /slider -->
-        </x-col>
+    <header x-grid columns="2" style="padding: var(--margin)">
+        <h1 style="--hMargin:0">Skelet.css</h1>
+        <x-cell>.scroll-snap + web component.</x-cell>
+    </header>
 
-        <x-col>
-        <!-- slider -->
-        <div class="otSlider">
+    <main class="center-axyz">
+        <h2>Skelet version</h2>
+        <x-scroll>
             <ul class="scroll-snap no-style">
-                <li class="slide"><img src="https://picsum.photos/1205.webp" alt=""></li>
-                <li class="slide"><img src="https://picsum.photos/1204.webp" alt=""></li>
-                <li class="slide"><img src="https://picsum.photos/1203.webp" alt=""></li>
-                <li class="slide"><img src="https://picsum.photos/1202.webp" alt=""></li>
-                <li class="slide"><img src="https://picsum.photos/1201.webp" alt=""></li>
+                <li class="card">
+                    <img src="https://placehold.co/950x1397/711DB0/FFF/?text=Skelet.css" alt="">
+                </li>
+
+                <li class="card">
+                    <img src="https://placehold.co/950x1397/C21292/FFF/?text=Skelet.css" alt="">
+                </li>
+
+                <li class="card">
+                    <img src="https://placehold.co/950x1397/EF4040/FFF/?text=Skelet.css" alt="">
+                </li>
+
+                <li class="card">
+                    <img src="https://placehold.co/950x1397/FFA732/000/?text=Skelet.css" alt="">
+                </li>
             </ul>
-            <button class="is-custom is-circle ot-prev large-only" aria-label="previous">&nbsp;</button>
-            <button class="is-custom is-circle ot-next large-only" aria-label="next">&nbsp;</button>
-        </div>
-        <!-- /slider -->
-        </x-col>
-    </x-flex>
+
+            <scroll-nav>
+                <button data-previous aria-label="Previous">Prev</button> 
+                <button data-next aria-label="Next">Next</button>
+            </scroll-nav>
+        </x-scroll>
+
+        <hr>
+
+        <!-- Scroller 2 -->
+        <style>
+            x-scroll.customized {
+                --hMargin: 0;
+
+                max-width: 95%;
+                overflow: hidden;
+                margin: var(--margin) 2%;
+
+                scroll-nav { display: block; padding-block: var(--padding) }
+                .scroll-snap { --scrollMargin: .3rem; border-radius: 2rem }
+
+                .card {
+                    &.dark { color: black }
+                    .meta { margin: var(--margin) }
+                }
+
+            }
+        </style>
+        <x-scroll class="customized">
+            <scroll-nav>
+                <x-grid columns="2" ai="center">
+                    <x-cell>
+                        <h2>Customized version</h2>
+                    </x-cell>
+                    <x-cell js="end">
+                        <button data-previous aria-label="Previous" class="is-white is-pill has-icon">
+                            <i><svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /></svg></i>
+                        </button> 
+                        <button data-next aria-label="Next" class="is-white is-pill has-icon">
+                            <i><svg viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg></i>
+                        </button>
+                    </x-cell>
+                </x-grid>
+            </scroll-nav>
+
+            <ul class="scroll-snap align-start no-scrollbars no-style inside">
+                <li class="card">
+                    <x-grid columns="stack">
+                        <x-flex direction="column" class="meta">
+                            <h2>Skelet.css</h2>
+                            <span style="margin-block-start: auto">This is card</span>
+                        </x-flex>
+                        <x-cell class="media">
+                            <img src="https://placehold.co/950x950/371B58/371B58/?text=Skelet.css" alt="">
+                        </x-cell>
+                    </x-grid>
+                </li>
+
+                <li class="card">
+                    <x-grid columns="stack">
+                        <x-flex direction="column" class="meta">
+                            <h2>Skelet.css</h2>
+                            <span style="margin-block-start: auto">Card two</span>
+                        </x-flex>
+                        <x-cell class="media">
+                            <img src="https://placehold.co/950x950/371B58/371B58/?text=Skelet.css" alt="">
+                        </x-cell>
+                    </x-grid>
+                </li>
+
+                <li class="card dark">
+                    <x-grid columns="stack">
+                        <x-flex direction="column" class="meta">
+                            <h2>Skelet.css</h2>
+                            <span style="margin-block-start: auto">Card two</span>
+                        </x-flex>
+                        <x-cell class="media">
+                            <img src="https://placehold.co/950x950/FFF/FFF/?text=Skelet.css" alt="">
+                        </x-cell>
+                    </x-grid>
+                </li>
+
+                <li class="card"><img src="https://placehold.co/950x950/5B4B8A/000/?text=Skelet.css" alt=""></li>
+                <li class="card"><img src="https://placehold.co/950x950/7858A6/000/?text=Skelet.css" alt=""></li>
+                <li class="card"><img src="https://placehold.co/950x950/2E0249/FFF/?text=Skelet.css" alt=""></li>
+                <li class="card"><img src="https://placehold.co/950x950/570A57/FFF/?text=Skelet.css" alt=""></li>
+                <li class="card"><img src="https://placehold.co/950x950/A91079/FFF/?text=Skelet.css" alt=""></li>
+            </ul>
+        </x-scroll>
+
     </main>
 
-    <footer>
-    <x-grid columns="2" columns-s="1" ai="center">
-        <x-col><h1>CSS Slider</h1></x-col>
-        <x-col>
-            <p>A quick css slider built using Skelet.css <code>.scroll-snap</code> and some JS for the buttons (buttons visible on desktop).</p>
-            <p>Safari doesn't support <code>scroll-behavior: smooth</code> so scroll is not  smooth when using the buttons.</p>
-        </x-col>
-    </x-grid>
-    </footer>
 </div>
-<script>
-function otSlider() {
-    const slider = '.otSlider';
 
-    document.querySelectorAll(slider).forEach(el => {
-        const scroller = el.querySelector('.scroll-snap');
-        const nextBtn = el.querySelector('.ot-next');
-        const prevBtn = el.querySelector('.ot-prev');
-        const itemWidth = el.querySelector('.slide').clientWidth;
-
-        nextBtn.addEventListener('click', scrollToNextItem);
-        prevBtn.addEventListener('click', scrollToPrevItem);
-
-        function scrollToNextItem() {
-            if(scroller.scrollLeft < (scroller.scrollWidth - itemWidth))
-                // The scroll position is not at the beginning of last item
-                scroller.scrollBy({left: itemWidth, top: 0, behavior:'smooth'});
-            else
-                // Last item reached. Go back to first item by setting scroll position to 0
-                scroller.scrollTo({left: 0, top: 0, behavior:'smooth'});
-        }
-        function scrollToPrevItem() {
-            if(scroller.scrollLeft != 0)
-                // The scroll position is not at the beginning of first item
-                scroller.scrollBy({left: -itemWidth, top: 0, behavior:'smooth'});
-            else
-                // This is the first item. Go to last item by setting scroll position to scroller width
-                scroller.scrollTo({left: scroller.scrollWidth, top: 0, behavior:'smooth'});
-        }
-    });
+<script type="module">
+// This Web Component makes the scroll-snap move when the buttons are clicked.
+// Since it is a web component you can have infinite instances of it without having to use IDs
+export default class xScroll extends HTMLElement {
+    constructor() { super(); this.initButtons(); }
+        
+    initButtons() {
+        // Find buttons within the component
+        this.buttonPrev = this.querySelector('button[data-previous]');
+        this.buttonNext = this.querySelector('button[data-next]');
+        // Pre-bind methods to keep 'this' context
+        this.prevClickHandler = this.scrollBy.bind(this, -600);
+        this.nextClickHandler = this.scrollBy.bind(this, 600);
+    }
+    
+    connectedCallback() {
+        if (this.buttonPrev) this.buttonPrev.addEventListener('click', this.prevClickHandler);
+        if (this.buttonNext) this.buttonNext.addEventListener('click', this.nextClickHandler);
+    }
+    
+    scrollBy(distance) {
+        // Find the first .scroll-snap element within this custom element to apply the scroll
+        const scroller = this.querySelector('.scroll-snap');
+        if (scroller) scroller.scrollBy({ left: distance, behavior: 'smooth' });
+    }
 }
 
-/*** on DOM ready **/
-document.addEventListener("DOMContentLoaded", () => { otSlider(); });
+if (!customElements.get('x-scroll')) (customElements.define('x-scroll', xScroll));
 </script>
+
 </body>
 </html>
