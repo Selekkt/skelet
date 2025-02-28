@@ -104,6 +104,7 @@
     --borderStyle: solid;
     --hrMargin: var(--margin);
     --pMargin: var(--space-2) 0;
+    --textUnderlineOffset: 0.4rem;
 
     /* input/textarea/tables etc. */
     --inputPadding: var(--space-3);
@@ -226,6 +227,8 @@ i:has(svg) { display: block; line-height: 0 }
 ::selection { background: var(--selectionBg); color: var(--selectionText) }
 ::-moz-selection { background: var(--selectionBg); color: var(--selectionText) }
 
+* { text-underline-offset: var(--textUnderlineOffset) }
+
 html { height: 100%; font-size: 62.5%; line-height: 1.15; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--scrollPadding, auto); interpolate-size: allow-keywords }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: var(--scrollBehavior, smooth) } }
 body { margin: 0; background: var(--bgColor); color: var(--color); font: var(--fontStyle) var(--fontWeight) var(--fontSize) var(--fontFamily); line-height: var(--fontLine); letter-spacing: var(--fontSpace) }
@@ -287,10 +290,10 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 :where(a,[role="link"]).no-style { text-decoration: none }
 
 /*** Accessibility */
-*:focus-visible { outline-color: var(--a11yColor); outline-offset: var(--a11yOffset, 3px) }
+*:focus-visible { outline-color: var(--a11yColor); outline-offset: var(--a11yOffset, 3px); z-index: 1 }
 .a11y-off *:focus-visible { outline: 0; box-shadow: none }
 .a11y-inputs-off :where(select,input,textarea):focus-visible { outline: 0; box-shadow: none }
-.a11y-custom :where(*,a):focus-visible { box-shadow: var(--a11yStyle) var(--a11yColor); outline: var(--a11yOutline); outline-offset: var(--a11yOffset) }
+.a11y-custom :where(*,a):focus-visible { box-shadow: var(--a11yStyle) var(--a11yColor); outline: var(--a11yOutline); outline-offset: var(--a11yOffset); z-index: 1 }
 
 .visibility-hidden { visibility: hidden }
 .sr-only, .visually-hidden, .visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
@@ -495,9 +498,9 @@ x-stack[presuffix]:focus-within {
     outline: 2px solid transparent; outline-offset: var(--a11yOffset, 3px);
 }
 x-stack[presuffix] :is(input,button) { padding: var(--inputPadding); margin: 0!important; font-size: var(--stackFontSize, inherit) }
-x-stack[presuffix] > label { white-space: nowrap; font-weight: normal }
-x-stack[presuffix] > :where(label,button,span):first-child { border: 0; border-inline-end: inherit; border-radius: 0 }
-x-stack[presuffix] > :where(label,button,span):last-child { border: 0; border-inline-start: inherit; border-radius: 0 }
+x-stack[presuffix] > label { white-space: nowrap; font-weight: normal; margin: 0 }
+x-stack[presuffix] > *:first-child { border: 0; border-radius: 0; padding-inline-start: var(--buttonPadding) }
+x-stack[presuffix] > *:last-child { border: 0; border-radius: 0; padding-inline-end: var(--buttonPadding) }
 
 x-stack[no-style] :is(input,button) { border: 0; margin: 0; border-radius: 0; height: auto; background: none!important; color: currentColor; font-size: var(--stackFontSize, inherit) }
 x-stack[no-style] input:is(:hover,:focus,:active) { border: none }
@@ -700,7 +703,7 @@ textarea { min-height: 6.5rem; padding: var(--inputPadding); border-radius: var(
 textarea.resize-block { resize: vertical }
 textarea.resize-inline { resize: horizontal }
 label, legend { display: inline-flex; gap: 0.7rem; margin-block-end: var(--inputMargin); font-weight: var(--labelWeight, 600); align-items: center; color: var(--labelColor, currentColor) }
-fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--inputRadius) }
+fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--fieldsetRadius, var(--inputRadius)) }
 legend { padding: var(--inputPadding) }
 option { padding: 0.5rem; color: var(--inputColor) }
 :is(input,textarea).is-blank { border:none!important; background:transparent!important; color: currentColor }
@@ -761,7 +764,7 @@ input:where([type="checkbox"],[type="radio"]):not([type="switch"]):disabled { fi
 input:where([type="checkbox"],[type="radio"]):not([type="switch"]):disabled:checked { filter: grayscale(100%) }
 input:where([type="checkbox"],[type="radio"]):not([type="switch"]):disabled + label { cursor: not-allowed }
 
-input:where([type="checkbox"],[type="radio"]):not([type="switch"]):hover:not(:checked):not(:disabled) { border-color: var(var(--bcHover), var(--inputBorderHover)) }
+input:where([type="checkbox"],[type="radio"]):not([type="switch"]):hover:not(:checked):not(:disabled) { border-color: var(--bcHover, var(--inputBorderHover)) }
 
 input:where([type="checkbox"],[type="radio"]):focus { box-shadow: 0 0 0 2px var(--inputFocus) }  
 input:where([type="checkbox"],[type="radio"]):not([role="switch"])::after { opacity: var(--o, 0) }  
@@ -841,6 +844,7 @@ input[type="radio"]:checked { --s: .5 }
     --tokenBgActive: var(--buttonColor);
     --tokenColorActive: var(--buttonBg);
     --tokenBorderActive: var(--inputBorderActive);
+    --tokenWeightActive: var(--buttonWeight);
 }
 
 .toggle-token, .toggle-token legend { all: unset }
@@ -870,19 +874,19 @@ input[type="radio"]:checked { --s: .5 }
 }
  
 .toggle-token label:where(:hover,:focus,:focus-visible,:focus-within),
-.toggle-token input:where([type="radio"],[type="checkbox"]):hover + label { 
+.toggle-token input:where([type="radio"],[type="checkbox"]):is(:hover,:focus,:focus-visible) + label { 
     background: var(--tokenBgHover); 
     color: var(--tokenColorHover); 
     border-color: var(--tokenBorderHover);
     text-decoration: var(--tokenDecorationHover);
 }
  
-.toggle-token label:has(input:where([type="radio"],[type="checkbox"]):checked),
-.toggle-token input:where([type="radio"],[type="checkbox"]):checked + label { 
+.toggle-token label:has(input:where([type="radio"],[type="checkbox"]):is(:checked,[checked])),
+.toggle-token input:where([type="radio"],[type="checkbox"]):is(:checked,[checked]) + label { 
     background: var(--tokenBgActive); 
     color: var(--tokenColorActive); 
     border-color: var(--tokenBorderActive); 
-    font-weight: var(--tokenWeight);
+    font-weight: var(--tokenWeightActive);
     text-decoration: var(--tokenDecorationActive);
 }
  
