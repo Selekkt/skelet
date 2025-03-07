@@ -4,6 +4,8 @@
     variables
 ------------------ */
 :root {
+interpolate-size: allow-keywords;
+
 /** Colors */
     --primary: #006EF1;
     --red: #ff6961;
