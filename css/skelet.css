@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.1.0 | MIT License | (c) 2025 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.2.0 | MIT License | (c) 2025 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -942,18 +942,20 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
   tables
 ------------------ */
 :root {
-    --tableColor: currentColor;
-    --tableBg: var(--inputBg);
-    --tableStrip: var(--inputBg);
     --tablePadding: var(--inputPadding);
     --tableMargin: var(--margin);
+    --tableMinWidth: 10rem;
     --tableBorderWidth: var(--inputBorderWidth);
     --tableBorderStyle: var(--inputBorderStyle);
-    --tableBorderColor: var(--inputBorderColor);
     --tableBorder: var(--tableBorderWidth) var(--tableBorderStyle) var(--tableBorderColor);
 }
 
 table {
+    --tableColor: currentColor;
+    --tableBg: var(--inputBg);
+    --tableStrip: var(--inputBg);
+    --tableBorderColor: var(--inputBorderColor);
+
     overflow-x: auto;
     border-spacing: 0;
     font-size: var(--tableSize, inherit);
@@ -961,7 +963,7 @@ table {
 }
 
 table caption { margin: var(--tableMargin) }
-table tr td { padding: var(--tablePadding); min-width: 15rem; vertical-align: middle; border-block-end: var(--tableBorder) }
+table tr td { padding: var(--tablePadding); min-width: var(--tableMinWidth); vertical-align: middle; border-block-end: var(--tableBorder) }
 table tr:last-child td { border-block-end: 0 }
 
 table th {
