@@ -351,7 +351,8 @@ kbd {
 @media (max-width: 1024px) { .medium-large { display: none!important } }
 
 @media (max-width: 777px) { .large-only  { display:none!important } }
-@media (min-width: 778px) { .small-only  { display:none!important } }
+@media (max-width: 777px), (min-width: 1024px) { .medium-only { display: none!important } }
+@media (min-width: 777px) { .small-only  { display:none!important } }
 
 .no-scrollbars { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars::-webkit-scrollbar { display:none }
 @media (max-width: 777px)  { .no-scrollbars-s { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars-s::-webkit-scrollbar { display: none } }
