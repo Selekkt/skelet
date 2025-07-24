@@ -905,8 +905,6 @@ input[type="radio"]:checked { --s: .5 }
 /* ------------------
   lists
 ------------------ */
-ul { list-style: disc inside }
-ol { list-style: decimal inside }
 ul, ol { padding-inline-start: 0; margin-block-start: 0 }
 ul ul, ul ol, ol ol, ol ul { margin: 1.5rem 0 1.5rem 3rem; font-size: 100% }
 li { margin-block-end: var(--liMargin, var(--margin)) }
