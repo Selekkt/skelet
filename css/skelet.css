@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.2.0 | MIT License | (c) 2025 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.3.0 | MIT License | (c) 2025 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -54,7 +54,7 @@ interpolate-size: allow-keywords;
     --fontStyle: normal;
 
     /* Space System */
-    --space-0: 0;
+    --space-0: 0rem;
     --space-1: 0.4rem; /* 4px */
     --space-2: 0.8rem; /* 8px */
     --space-3: 1.2rem; /* 12px */
@@ -167,6 +167,8 @@ interpolate-size: allow-keywords;
 
 /*** Dark Mode */
 .dark-mode, [dark-mode], [color-scheme="dark"] {
+    color-scheme: dark;
+
     --bgColor: #000;
     --color: #FFF;
     --colorInverse: #000;
@@ -191,8 +193,6 @@ interpolate-size: allow-keywords;
 
     --hrColor: var(--inputBorderColor);
     --hrGradient: rgb(0 0 0 / 0);
-
-    color-scheme: dark;
 }
 
 /* ------------------
@@ -950,14 +950,14 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
 }
 
 table {
-    --tableColor: currentColor;
+    --tableColor: var(--color);
     --tableBg: var(--inputBg);
     --tableStrip: var(--inputBg);
     --tableBorderColor: var(--inputBorderColor);
 
     overflow-x: auto;
     border-spacing: 0;
-    font-size: var(--tableSize, inherit);
+    font-size: var(--tableSize, var(--fontSize));
     margin: var(--tableMargin);
 }
 
@@ -1891,7 +1891,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 .overflow { overflow: hidden }
 .contents { display: contents }
 
-.text-clip { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.text-clip { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: normal }
 .text-start { text-align: start }
 .text-center { text-align: center }
 .text-end { text-align: end }
@@ -1930,7 +1930,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .overflow-s { overflow: hidden }
     .contents-s { display: contents }
 
-    .text-clip-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-clip-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: normal }
     .text-start-s { text-align: start }
     .text-center-s { text-align: center }
     .text-end-s { text-align: end }
@@ -1970,7 +1970,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .overflow-m { overflow: hidden }
     .contents-m { display: contents } 
 
-    .text-clip-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .text-clip-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: normal }
     .text-start-m { text-align: start }
     .text-center-m { text-align: center }
     .text-end-m { text-align: end }
