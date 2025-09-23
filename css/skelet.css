@@ -101,7 +101,7 @@ interpolate-size: allow-keywords;
     /* other */
     --padding: var(--space-3);
     --margin: var(--space-4);
-    --radius: var(--space-3);
+    --radius: var(--space-5);
     --borderWidth: 1px;
     --borderStyle: solid;
     --hrMargin: var(--margin);
@@ -159,7 +159,7 @@ interpolate-size: allow-keywords;
 
     /* a11y */
     --a11yStyle: 0 0 0 0.20rem;
-    --a11yColor: var(--inputFocus);
+    --a11yColor: -webkit-focus-ring-color;
     --a11yShadow: var(--a11yStyle) var(--a11yColor);
     --a11yOutline: 2px solid transparent;
     --a11yOffset: 2px;
@@ -231,7 +231,7 @@ i:has(svg) { display: block; line-height: 0 }
 
 * { text-underline-offset: var(--textUnderlineOffset) }
 
-html { height: 100%; font-size: 62.5%; line-height: 1.15; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--scrollPadding, auto); interpolate-size: allow-keywords; scrollbar-gutter: stable; }
+html { height: 100%; font-size: 62.5%; line-height: 1.15; -webkit-text-size-adjust: 100%; scroll-padding-top: var(--scrollPadding, auto); interpolate-size: allow-keywords; scrollbar-gutter: stable }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: var(--scrollBehavior, smooth) } }
 body { margin: 0; background: var(--bgColor); color: var(--color); font: var(--fontStyle) var(--fontWeight) var(--fontSize) var(--fontFamily); line-height: var(--fontLine); letter-spacing: var(--fontSpace) }
 
@@ -497,7 +497,7 @@ x-stack[presuffix]:focus-within {
     border-color: var(--inputBorderActive, inherit); 
     color: var(--inputColorActive); 
     background: var(--inputBgActive);
-    box-shadow: var(--a11yStyle, 0 0 0 0.20rem) var(--a11yColor, var(--inputFocus)); 
+    box-shadow: var(--a11yStyle) var(--a11yColor, var(--inputFocus)); 
     outline: 2px solid transparent; outline-offset: var(--a11yOffset, 3px);
 }
 x-stack[presuffix] :is(input,button) { padding: var(--inputPadding); margin: 0!important; font-size: var(--stackFontSize, inherit) }
@@ -1881,7 +1881,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 .fitcontent-height { height: fit-content }
 
 .field-sizing { field-sizing: content } /* to be used on: input, textarea, select */
-.flow > * + * { margin-top: var(--flow-space, 1em) } /* to be used on: containers w/ <p>s <h>s etc. */
+.flow > * + * { margin-top: var(--flow-space, 1em) } /* to be used on: containers w/ <p>s <headings> etc. */
 
 .block { display: block }
 .inline { display: inline; margin: 0 }
@@ -1890,6 +1890,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 .display-none { display: none }
 .overflow { overflow: hidden }
 .contents { display: contents }
+.ac, .align-center { align-content: center }
 
 .text-clip { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: normal }
 .text-start { text-align: start }
@@ -1929,6 +1930,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .display-none-s { display: none }
     .overflow-s { overflow: hidden }
     .contents-s { display: contents }
+    .ac-s, .align-center-s { align-content: center }
 
     .text-clip-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: normal }
     .text-start-s { text-align: start }
@@ -1968,7 +1970,8 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .center-m { display: block; text-align: center; margin: 0 auto }
     .display-none-m { display: none }
     .overflow-m { overflow: hidden }
-    .contents-m { display: contents } 
+    .contents-m { display: contents }
+    .ac-m, .align-center-m { align-content: center }
 
     .text-clip-m { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: normal }
     .text-start-m { text-align: start }
