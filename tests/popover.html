@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="../css/skelet.css">
+<style>
+[popover].dialog {
+    /* Backdrop */
+    --popoverBackdropBg: rgb(255 255 255 / 0.5);
+    --popoverBackdropBlur: blur(3px);
+    --popoverBackdropAnimationIn: fadeIn 1s ease forwards;
+    --popoverBackdropAnimationOut: fadeOut 1s ease forwards;
+
+    min-width: var(--popoverMinW, 350px);
+    max-width: var(--popoverMaxW, 100%);
+    width: var(--popoverW, fit-content);
+    min-height: var(--popoverMinH);
+    max-height: var(--popoverMaxH, 100%);
+    height: var(--popoverH, fit-content);
+    margin: var(--popoverMargin, auto);
+    padding: var(--popoverPadding, var(--padding));
+    border: var(--popoverBorder, none);
+    border-radius: var(--popoverRadius, var(--radius));
+    background: var(--popoverBg, var(--bgColor));
+    color: var(--popoverColor, var(--color));
+
+    transition: opacity 0.25s, scale 0.25s, overlay 0.25s allow-discrete, display 0.25s allow-discrete;
+    opacity: 0;
+    scale: .5;
+    transform-origin: center;
+
+    &:popover-open {
+        opacity: 1; 
+        scale: 1;
+    }
+
+    @starting-style {
+        &:popover-open {
+          opacity: 0;
+          scale: .5;
+      }
+    }
+
+    &::backdrop {
+        background: var(--popoverBackdropBg);
+        backdrop-filter: var(--popoverBackdropBlur);
+        animation: var(--popoverBackdropAnimationIn);
+    }
+
+}
+</style>
+
+</head>
+<body class="a11y" style="padding:2rem">
+
+<div id="skeletpopover" popover="auto" class="dialog">
+    <h1>👋 Hej!</h1>
+    <p>Dialogs in Skelet.css</p>
+    <p>Click backdrop to close</p>
+    <code>popover="auto"</code>
+    <button class="fullwidth" popovertarget="skeletpopover" popovertargetaction="hide">Nice!</button>
+</div>
+<button popovertarget="skeletpopover">Open popover</button>
+
+<div id="skeletpopover-manual" popover="manual" class="dialog">
+    <h1>👋 Hej!</h1>
+    <p>Dialogs in Skelet.css</p>
+    <button class="fullwidth" popovertarget="skeletpopover-manual" popovertargetaction="hide">Nice!</button>
+</div>
+<button popovertarget="skeletpopover-manual">Open popover</button>
+
+</body>
+</html>
