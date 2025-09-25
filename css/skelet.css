@@ -161,7 +161,7 @@ interpolate-size: allow-keywords;
     --a11yStyle: 0 0 0 0.20rem;
     --a11yColor: -webkit-focus-ring-color;
     --a11yShadow: var(--a11yStyle) var(--a11yColor);
-    --a11yOutline: 2px solid transparent;
+    --a11yOutline: 2px solid var(--a11yColor);
     --a11yOffset: 2px;
 }
 
