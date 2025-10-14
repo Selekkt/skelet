@@ -509,9 +509,10 @@ x-stack[presuffix]:focus-within {
     background-color: var(--inputBgActive);
     color: var(--inputColorActive);
     border-color: var(--inputBorderActive, inherit);
-    outline: var(--a11yOutline);
-    outline-offset: var(--a11yOffset);
 }
+
+body:not(.a11y-inputs-off) x-stack[presuffix]:focus-within { outline: var(--a11yOutline); outline-offset: var(--a11yOffset) }
+
 x-stack[presuffix] :is(input,button) { padding: var(--inputPadding); margin: 0!important; font-size: var(--stackFontSize, inherit) }
 x-stack[presuffix] > label { white-space: nowrap; font-weight: normal; margin: 0 }
 x-stack[presuffix] > *:first-child { border: 0; padding-inline-start: var(--buttonPadding) }
@@ -882,10 +883,14 @@ input[type="radio"] {
     color: var(--tokenColorHover); 
     border-color: var(--tokenBorderHover);
     text-decoration: var(--tokenDecorationHover);
-    outline: var(--a11yOutline);
-    outline-offset: var(--a11yOffset);
 }
- 
+
+.toggle-token label:where(:focus-visible,:focus-within),
+.toggle-token input:where([type="radio"],[type="checkbox"]):focus-visible + label { 
+    outline: var(--a11yOutline); 
+    outline-offset: var(--a11yOffset) 
+}
+
 .toggle-token label:has(input:where([type="radio"],[type="checkbox"]):is(:checked,[checked])),
 .toggle-token input:where([type="radio"],[type="checkbox"]):is(:checked,[checked]) + label { 
     background: var(--tokenBgActive); 
