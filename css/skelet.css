@@ -167,7 +167,7 @@ interpolate-size: allow-keywords;
     --a11yStyle: 0 0 0 0.20rem;
     --a11yColor: -webkit-focus-ring-color;
     --a11yShadow: var(--a11yStyle) var(--a11yColor);
-    --a11yOutline: 1px solid var(--a11yColor);
+    --a11yOutline: 2px solid var(--a11yColor);
     --a11yOffset: 3px;
 }
 
@@ -304,10 +304,10 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 :where(a,[role="link"]).no-style { text-decoration: none }
 
 /*** Accessibility */
-*:focus-visible { outline-color: var(--a11yColor); outline-offset: var(--a11yOffset, 3px); z-index: 1 }
+*:focus-visible { outline-color: var(--a11yColor); outline-offset: var(--a11yOffset); z-index: 1 }
 .a11y-off *:focus-visible { outline: 0; box-shadow: none }
 .a11y-inputs-off :where(input:not([type="checkbox"],[type="radio"],[type="submit"],[type="button"],[type="reset"],[type="range"]),select,textarea):focus-visible { outline: 0; box-shadow: none }
-.a11y-custom :where(*,a):focus-visible { box-shadow: var(--a11yStyle) var(--a11yColor); outline: var(--a11yOutline); outline-offset: var(--a11yOffset); z-index: 1 }
+.a11y-custom *:focus-visible { box-shadow: var(--a11yStyle) var(--a11yColor); outline: var(--a11yOutline); outline-offset: var(--a11yOffset); z-index: 1 }
 
 .visibility-hidden { visibility: hidden }
 .sr-only, .visually-hidden, .visually-hidden-focus:not(:focus-visible):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
@@ -504,12 +504,13 @@ x-stack[presuffix] {
     max-width: 100%;
 }
 
-x-stack[presuffix]:hover { border-color: var(--inputBorderHover); color: var(--inputColorHover); background: var(--inputBgHover) }
+x-stack[presuffix]:hover { background: var(--inputBgHover); color: var(--inputColorHover); border-color: var(--inputBorderHover) }
 x-stack[presuffix]:focus-within {
     background-color: var(--inputBgActive);
     color: var(--inputColorActive);
     border-color: var(--inputBorderActive, inherit);
-    box-shadow: var(--a11yOutline);
+    outline: var(--a11yOutline);
+    outline-offset: var(--a11yOffset);
 }
 x-stack[presuffix] :is(input,button) { padding: var(--inputPadding); margin: 0!important; font-size: var(--stackFontSize, inherit) }
 x-stack[presuffix] > label { white-space: nowrap; font-weight: normal; margin: 0 }
@@ -551,7 +552,7 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
     user-select: none;
 
     /* Hover state */
-    &:hover { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
+    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
 
     /* attribute */
     &.has-icon { 
@@ -881,6 +882,8 @@ input[type="radio"] {
     color: var(--tokenColorHover); 
     border-color: var(--tokenBorderHover);
     text-decoration: var(--tokenDecorationHover);
+    outline: var(--a11yOutline);
+    outline-offset: var(--a11yOffset);
 }
  
 .toggle-token label:has(input:where([type="radio"],[type="checkbox"]):is(:checked,[checked])),
