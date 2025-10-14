@@ -297,7 +297,7 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 }
 
 .all-states :where(a,[role="link"]):not(.button,[role="button"]) {
-    &:focus { color: var(--linkFocus, inherit); text-decoration: var(--linkDecorationFocus, auto) }
+    &:focus-visible { color: var(--linkFocus, inherit); text-decoration: var(--linkDecorationFocus, auto) }
     &:active { color: var(--linkActive, inherit); text-decoration: var(--linkDecorationActive, auto) }
     &:not(:hover):visited { color: var(--linkVisited, inherit); text-decoration: var(--linkDecorationVisited, auto) }
 }
@@ -307,11 +307,11 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 /*** Accessibility */
 *:focus-visible { outline-color: var(--a11yColor); outline-offset: var(--a11yOffset, 3px); z-index: 1 }
 .a11y-off *:focus-visible { outline: 0; box-shadow: none }
-.a11y-inputs-off :where(select,input,textarea):focus-visible { outline: 0; box-shadow: none }
+.a11y-inputs-off :where(input:not([type="checkbox"],[type="submit"],[type="button"],[type="reset"],[type="range"]),select,textarea):focus-visible { outline: 0; box-shadow: none }
 .a11y-custom :where(*,a):focus-visible { box-shadow: var(--a11yStyle) var(--a11yColor); outline: var(--a11yOutline); outline-offset: var(--a11yOffset); z-index: 1 }
 
 .visibility-hidden { visibility: hidden }
-.sr-only, .visually-hidden, .visually-hidden-focus:not(:focus):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
+.sr-only, .visually-hidden, .visually-hidden-focus:not(:focus-visible):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 .button.skipTo { position: fixed; z-index: 9999; inset-block-start: var(--padding); inset-inline-start: var(--padding) }
 
 /* if JS Active show el w/ .js -- if JS Disabled show el w/ .no-js -- if JS Disabled *hide* el /w .no-js-hidden */
@@ -510,17 +510,15 @@ x-stack[presuffix]:focus-within {
     border-color: var(--inputBorderActive, inherit); 
     color: var(--inputColorActive); 
     background: var(--inputBgActive);
-    box-shadow: var(--a11yShadow); 
-    outline: var(--a11yOutline); outline-offset: var(--a11yOffset);
 }
 x-stack[presuffix] :is(input,button) { padding: var(--inputPadding); margin: 0!important; font-size: var(--stackFontSize, inherit) }
 x-stack[presuffix] > label { white-space: nowrap; font-weight: normal; margin: 0 }
-x-stack[presuffix] > *:first-child { border: 0; border-radius: 0; padding-inline-start: var(--buttonPadding) }
-x-stack[presuffix] > *:last-child { border: 0; border-radius: 0; padding-inline-end: var(--buttonPadding) }
+x-stack[presuffix] > *:first-child { border: 0; padding-inline-start: var(--buttonPadding) }
+x-stack[presuffix] > *:last-child { border: 0; padding-inline-end: var(--buttonPadding) }
 
-x-stack[no-style] :is(input,button) { border: 0; margin: 0; border-radius: 0; height: auto; background: none!important; color: currentColor; font-size: var(--stackFontSize, inherit) }
-x-stack[no-style] input:is(:hover,:focus,:active) { border: none }
-x-stack:is([no-style],[presuffix]) input:focus { box-shadow: none; outline: none!important; border: none!important }
+x-stack[no-style] :is(input,button) { border: 0; margin: 0; height: auto; background: none!important; color: currentColor; font-size: var(--stackFontSize, inherit) }
+x-stack[no-style] input:is(:hover,:focus-visible,:active) { border: none }
+x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outline: none!important; border: none!important }
 
 /* ------------------
   buttons
@@ -665,7 +663,7 @@ textarea {
     }
 
     /* Focus state */
-    &:focus {
+    &:focus-visible {
         background-color: var(--inputBgActive);
         color: var(--inputColorActive);
         border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderActive, inherit);
@@ -675,7 +673,7 @@ textarea {
     /* blank */
     &.is-blank { 
         border:none!important; background:transparent!important; color:currentColor; 
-        &:where(:hover,:focus,:active) { border:none!important; background:transparent!important; color:currentColor }
+        &:where(:hover,:focus-visible,:active) { border:none!important; background:transparent!important; color:currentColor }
     }
 
 }
@@ -713,7 +711,7 @@ select {
 
     &:required:user-invalid { color: var(--inputPlaceholderColor) }
     &:hover { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputColor) 50%), linear-gradient(135deg, var(--inputColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderHover), var(--inputBorderHover)) }
-    &:focus { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputColor) 50%), linear-gradient(135deg, var(--inputColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderActive, var(--inputBorderHover)), var(--inputBorderActive)) }
+    &:focus-visible { color: var(--inputColor); background-image: linear-gradient(45deg, transparent 50%, var(--inputColor) 50%), linear-gradient(135deg, var(--inputColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderActive, var(--inputBorderHover)), var(--inputBorderActive)) }
     &:-moz-focusring { color:transparent; text-shadow: 0 0 0 var(--color) }
 }
 
@@ -772,7 +770,7 @@ input:where([type="checkbox"],[type="radio"]):not([type="switch"]) {
     }
 }
 
-input:where([type="checkbox"],[type="radio"]):focus { box-shadow: 0 0 0 2px var(--inputFocus) }  
+input:where([type="checkbox"],[type="radio"]):focus-visible { box-shadow: 0 0 0 2px var(--inputFocus) }  
 input:where([type="checkbox"],[type="radio"]):not([role="switch"])::after { opacity: var(--o, 0) }  
 input:where([type="checkbox"],[type="radio"]):not([role="switch"]):checked { --o: 1 }
   
@@ -877,8 +875,8 @@ input[type="radio"] {
     position: relative;
 }
  
-.toggle-token label:where(:hover,:focus,:focus-visible,:focus-within),
-.toggle-token input:where([type="radio"],[type="checkbox"]):is(:hover,:focus,:focus-visible) + label { 
+.toggle-token label:where(:hover,:focus-visible,:focus-within),
+.toggle-token input:where([type="radio"],[type="checkbox"]):is(:hover,:focus-visible) + label { 
     background: var(--tokenBgHover); 
     color: var(--tokenColorHover); 
     border-color: var(--tokenBorderHover);
