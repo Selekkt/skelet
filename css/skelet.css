@@ -109,7 +109,7 @@ interpolate-size: allow-keywords;
     --textUnderlineOffset: 0.4rem;
 
     /* input/textarea/tables etc. */
-    --inputPadding: var(--space-3);
+    --inputPadding: 0.7em;
     --inputMargin: var(--space-1);
     --inputRadius: var(--radius);
     --inputBorderWidth: var(--borderWidth);
@@ -125,11 +125,11 @@ interpolate-size: allow-keywords;
     --inputColorActive: var(--color);
     --inputPlaceholderColor: color-mix(in oklch, currentColor, transparent 40%);
     --inputBorderColor: #E1E1E1;
-    --inputBorderHover: #BABABA;
+    --inputBorderHover: color-mix(in srgb, var(--inputBorderColor) 80%, var(--color) 12%);
     --inputBorderActive: var(--primary);
 
     --inputShadow: 0 0 0 0 rgb(0 0 0 / 0);
-    --inputShadowHover: var(--inputShadow);
+    --inputShadowHover: 0px 0px 5px 1px rgb(0 0 0 / 0.1);
     --inputShadowActive: var(--inputShadowHover);
 
     --inputTransition: none;
@@ -140,7 +140,7 @@ interpolate-size: allow-keywords;
     --inputFocus: rgb(41 145 248 / .7);
 
     /* buttons */
-    --buttonPadding: var(--space-3);
+    --buttonPadding: 0.7em;
     --buttonMargin: var(--space-1);
     --buttonRadius: var(--radius);
     --buttonBorderWidth: var(--borderWidth);
@@ -158,6 +158,8 @@ interpolate-size: allow-keywords;
     --buttonShadow: 0 0 0 0 rgb(0 0 0 / 0);
     --iconSize: var(--fontSize);
 
+    --buttonTransition: none;
+
     /* x-grid /  */
     --rowGap: var(--space-3);
     --columnGap: var(--space-3);
@@ -168,7 +170,7 @@ interpolate-size: allow-keywords;
     --a11yColor: -webkit-focus-ring-color;
     --a11yShadow: var(--a11yStyle) var(--a11yColor);
     --a11yOutline: 2px solid var(--a11yColor);
-    --a11yOffset: 3px;
+    --a11yOffset: 2px;
 }
 
 /*** Dark Mode */
@@ -183,7 +185,7 @@ interpolate-size: allow-keywords;
     --inputBgHover: var(--inputBg);
     --inputBgActive: var(--inputBg);
     --inputBorderColor: #333;
-    --inputBorderHover: #444;
+    --inputBorderHover: color-mix(in srgb, var(--inputBorderColor) 80%, var(--color) 12%);
     --inputActive: var(--primary);
     --inputColor: var(--color);
     --inputColorHover: var(--color);
@@ -526,29 +528,30 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
   buttons
 ------------------ */
 :where(button,.button,[role="button"],[type="button"],[type="submit"],[type="reset"]) {
-    padding: var(--buttonPadding);
-    margin: var(--buttonMargin);
-    height: var(--buttonHeight, fit-content);
-    width: var(--buttonWidth);
-    border-radius: var(--buttonRadius);
-    border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
-    box-shadow: var(--buttonShadow);
-    background: var(--buttonBg);
-    font-size: var(--buttonSize);
-    font-weight: var(--buttonWeight);
-    letter-spacing: var(--buttonSpacing, .03em);
-    line-height: var(--buttonLineHeight, 1);
-    color: var(--buttonColor);
-    text-align: var(--buttonAlign, center);
-    text-transform: var(--buttonTextTransform, inherit);
-    text-decoration: var(--buttonDecoration, none);
-    white-space: nowrap;
-    font-style: inherit;
-    position: relative;
     display: inline-flex;
     justify-content: var(--buttonAlign, center);
     align-items: center;
     vertical-align: middle;
+    position: relative;
+    margin: var(--buttonMargin);
+    padding: var(--buttonPadding);
+    height: var(--buttonHeight, fit-content);
+    width: var(--buttonWidth);
+    border: var(--buttonBorderWidth) var(--buttonBorderStyle) var(--buttonBorderColor);
+    border-radius: var(--buttonRadius);
+    box-shadow: var(--buttonShadow);
+    background: var(--buttonBg);
+    color: var(--buttonColor);
+    font-size: var(--buttonSize);
+    font-weight: var(--buttonWeight);
+    font-style: inherit;
+    letter-spacing: var(--buttonSpacing, .03em);
+    line-height: var(--buttonLineHeight, 1);
+    text-align: var(--buttonAlign, center);
+    text-transform: var(--buttonTextTransform, inherit);
+    text-decoration: var(--buttonDecoration, none);
+    white-space: nowrap;
+    transition: var(--buttonTransition);
     cursor: pointer;
     user-select: none;
 
@@ -557,7 +560,7 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
 
     /* attribute */
     &.has-icon { 
-        display: inline-flex; align-items: center; gap: var(--buttonGap, var(--buttonPadding)); 
+        gap: var(--buttonGap, var(--buttonPadding)); 
         i { display: grid; place-items: center; font-size: max(15px, var(--buttonSize)); pointer-events: none }
     }
 
@@ -638,20 +641,20 @@ input[list],
 select,
 textarea {
     display: var(--inputDisplay, block);
-    padding: var(--inputPadding);
+    width: var(--inputWidth, 100%);
     margin: var(--inputMargin);
-    border-radius: var(--inputRadius);
+    padding: var(--inputPadding);
     border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
+    border-radius: var(--inputRadius);
     box-shadow: var(--inputShadow);
     background-color: var(--inputBg);
+    color: var(--inputColor);
     font-size: var(--inputFontSize);
     font-weight: var(--inputFontWeight);
-    color: var(--inputColor);
     text-align: var(--inputAlign, start);
-    width: var(--inputWidth, 100%);
     transition: var(--inputTransition);
     -webkit-appearance: none;
-    appearance: none;
+            appearance: none;
 
     /* Placeholder */
     ::placeholder { color: var(--inputPlaceholderColor) }
@@ -906,7 +909,6 @@ input[type="radio"] {
     cursor: not-allowed;
     opacity: var(--tokenOpacity, 0.3);
     text-decoration: var(--tokenTextDec, line-through) !important;
-    pointer-events: none;
 }
 
 /* ------------------
