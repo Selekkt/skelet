@@ -548,7 +548,7 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
     letter-spacing: var(--buttonSpacing, .03em);
     line-height: var(--buttonLineHeight, 1);
     text-align: var(--buttonAlign, center);
-    text-transform: var(--buttonTextTransform, inherit);
+    text-transform: var(--buttonTransform, inherit);
     text-decoration: var(--buttonDecoration, none);
     white-space: nowrap;
     transition: var(--buttonTransition);
@@ -1312,7 +1312,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 :where(x-flex,[x-flex]) img { object-fit: contain; max-width: 100% }
 :where(x-flex,[x-flex]) x-cell:has(svg) { flex-shrink: 0 } /* preventing svg from being cropped */
 
-/*  Flex Direction */
+/* Flex Direction */
 [direction="column"] { flex-direction: column }
 [direction="column-reverse"] { flex-direction: column-reverse }
 [direction="row"] { flex-direction: row }
@@ -1346,7 +1346,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     :where(x-flex,[x-flex]) > [span-s="row"] { flex-basis: 100% }
 }
 
-/* for window width 778px <> 1024px */
+/* for window width 778px <= width <= 1024px */
 @media (min-width: 778px) and (max-width: 1024px) {
     /*  Flex Direction */
     [direction-m="column"] { flex-direction: column }
@@ -1387,6 +1387,22 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 [ai="center"] { align-items: center }
 [ai="end"] { align-items: end }
 [ai="stretch"] { align-items: stretch }
+
+[ai="safe start"] { align-items: safe start }
+[ai="safe center"] { align-items: safe center }
+[ai="safe end"] { align-items: safe end }
+
+[ai="unsafe start"] { align-items: unsafe start }
+[ai="unsafe center"] { align-items: unsafe center }
+[ai="unsafe end"] { align-items: unsafe end }
+
+[ai="self-start"] { align-items: self-start }
+[ai="self-end"] { align-items: self-end }
+[ai="anchor-center"] { align-items: anchor-center }
+
+[ai="baseline"] { align-items: baseline }
+[ai="first baseline"] { align-items: first baseline }
+[ai="last baseline"] { align-items: last baseline }
 
 /* Align CONTENT */
 [ac="start"] { align-content: start }
@@ -1549,10 +1565,26 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     [ji-s="stretch"] { justify-items: stretch }
 
     /* Align ITEMS */
-    [ai-s="start"] { align-items: start } 
+    [ai-s="start"] { align-items: start }
     [ai-s="center"] { align-items: center }
-    [ai-s="end"] { align-items: end } 
+    [ai-s="end"] { align-items: end }
     [ai-s="stretch"] { align-items: stretch }
+
+    [ai-s="safe start"] { align-items: safe start }
+    [ai-s="safe center"] { align-items: safe center }
+    [ai-s="safe end"] { align-items: safe end }
+
+    [ai-s="unsafe start"] { align-items: unsafe start }
+    [ai-s="unsafe center"] { align-items: unsafe center }
+    [ai-s="unsafe end"] { align-items: unsafe end }
+
+    [ai-s="self-start"] { align-items: self-start }
+    [ai-s="self-end"] { align-items: self-end }
+    [ai-s="anchor-center"] { align-items: anchor-center }
+
+    [ai-s="baseline"] { align-items: baseline }
+    [ai-s="first baseline"] { align-items: first baseline }
+    [ai-s="last baseline"] { align-items: last baseline }
 
     /* Align CONTENT */
     [ac-s="start"] { align-content: start } 
@@ -1716,10 +1748,26 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     [ji-m="stretch"] { justify-items: stretch }
 
     /* Align ITEMS */
-    [ai-m="start"] { align-items: start } 
+    [ai-m="start"] { align-items: start }
     [ai-m="center"] { align-items: center }
-    [ai-m="end"] { align-items: end } 
+    [ai-m="end"] { align-items: end }
     [ai-m="stretch"] { align-items: stretch }
+
+    [ai-m="safe start"] { align-items: safe start }
+    [ai-m="safe center"] { align-items: safe center }
+    [ai-m="safe end"] { align-items: safe end }
+
+    [ai-m="unsafe start"] { align-items: unsafe start }
+    [ai-m="unsafe center"] { align-items: unsafe center }
+    [ai-m="unsafe end"] { align-items: unsafe end }
+
+    [ai-m="self-start"] { align-items: self-start }
+    [ai-m="self-end"] { align-items: self-end }
+    [ai-m="anchor-center"] { align-items: anchor-center }
+
+    [ai-m="baseline"] { align-items: baseline }
+    [ai-m="first baseline"] { align-items: first baseline }
+    [ai-m="last baseline"] { align-items: last baseline }
 
     /* Align CONTENT */
     [ac-m="start"] { align-content: start } 
