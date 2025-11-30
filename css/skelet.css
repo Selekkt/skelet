@@ -225,7 +225,7 @@ input[type="number"] { -moz-appearance: textfield }
 [type="search"]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 :is([hidden],[type="hidden"],.hidden) {display:none!important;outline:0}
-:is([[disabled],[disabled]:hover,.disabled) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: not-allowed; user-select: none; pointer-events: none }
+:is([disabled],[disabled]:hover,.disabled) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: not-allowed }
 :is([inert],[inert] *) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: default; user-select: none; pointer-events: none }
 :where(html:has(dialog:modal[open])) { overflow: clip }
 i svg { display: inline; height: var(--iconSizeH, var(--iconSize)); width: var(--iconSizeW, var(--iconSize)) }
@@ -321,17 +321,18 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 :is(html.js .no-js, html.no-js .js, html.no-js .no-js-hidden):not(html) { display: none!important }
 
 code, samp {
+    display: inline-block;
+    overflow: clip;
     padding: var(--space-1) var(--space-3);
     margin: var(--inputMargin);
     font-size: 90%;
+    text-transform: none;
     white-space: nowrap;
     vertical-align: middle;
     background-color: var(--codeBg);
-    border: 1px solid var(--codeBorderColor, var(--inputBorderColor));
     color: var(--codeColor);
+    border: 1px solid var(--codeBorderColor, var(--inputBorderColor));
     border-radius: var(--inputRadius);
-    overflow:hidden;
-    display: inline-block;
 }
 
 code:hover { overflow:auto }
@@ -708,7 +709,7 @@ fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--field
 legend { padding: var(--space-2); line-height: 1 }
 option { padding: var(--space-1); color: var(--inputColor) }
 
-select {
+select:not([multiple]) {
     background-image: linear-gradient(45deg, transparent 50%, var(--inputColor) 50%), linear-gradient(135deg, var(--inputColor) 50%, transparent 50%), linear-gradient(to right, var(--inputBorderColor), var(--inputBorderColor));
     background-position: calc(100% - 2rem) 50%, calc(100% - 1.5rem) 50%, calc(100% - 4rem) 50%;
     background-size: 0.5rem 0.5rem, 0.5rem 0.5rem, 0.1rem 100%;
@@ -979,7 +980,7 @@ table tr:last-child td { border-block-end: 0 }
 table th {
     position: relative;
     color: var(--tableColor);
-    text-transform: var(--tableTextTransform, capitalize);
+    text-transform: var(--tableTextTransform);
     padding: var(--tablePadding);
     text-align: start;
     vertical-align: middle;
