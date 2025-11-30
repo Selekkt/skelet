@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.5.0 | MIT License | (c) 2025 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.5.3 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -225,7 +225,8 @@ input[type="number"] { -moz-appearance: textfield }
 [type="search"]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 :is([hidden],[type="hidden"],.hidden) {display:none!important;outline:0}
-:is([disabled],[disabled]:hover,.disabled) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: not-allowed }
+:is([[disabled],[disabled]:hover,.disabled) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: not-allowed; user-select: none; pointer-events: none }
+:is([inert],[inert] *) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: default; user-select: none; pointer-events: none }
 :where(html:has(dialog:modal[open])) { overflow: clip }
 i svg { display: inline; height: var(--iconSizeH, var(--iconSize)); width: var(--iconSizeW, var(--iconSize)) }
 i:has(svg) { display: block; line-height: 0 }
@@ -699,6 +700,7 @@ textarea {
     min-height: 6lh; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius)); 
     &.resize-block { resize: vertical }
     &.resize-inline { resize: horizontal }
+    &.resize-none { resize: none }
 }
 
 label, legend { display: inline-flex; gap: 0.7rem; font-weight: var(--labelWeight, 600); align-items: center; color: var(--labelColor, currentColor) }
