@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- <link rel="stylesheet" href="../css/skelet.css"> -->
+
+<style>
+.debug > * { --dc:rgb(248 110 91 / 0.8); background: var(--dc) }
+.debug > :nth-child(6n+2){ --dc:rgb(103 126 208 / 0.8) }
+.debug > :nth-child(6n+3){ --dc:rgb(224 174 72 / 0.8) }
+.debug > :nth-child(6n+4){ --dc:rgb(77 214 115 / 0.8) }
+.debug > :nth-child(6n+5){ --dc:rgb(217 103 219 / 0.8) }
+.debug > :nth-child(6n+6){ --dc:rgb(94 204 211 / 0.8) }
+.debug > :nth-child(6n+7){ --dc:rgb(248 110 91 / 0.8) }
+.debug.outline { outline: 1px dashed red }
+.debug.outline > * { outline: 1px dashed var(--dc); background: none }
+</style>
+
+    <style>
+/* ------------------
+  css grid
+------------------ */
+:is(x-grid,[x-grid]) {
+    --grid-mm: 0px, 1fr;                 /* MinMax */
+    --grid-tc-ln: 4;                     /* Template Columns Line count */
+    --grid-tc: repeat(var(--grid-tc-ln), minmax(var(--grid-mm)));
+    --grid-cs: 1;                        /* Column Start */
+    --grid-ce: -1;                       /* Column End (line) */
+    --grid-rs: 1;                        /* Row Start */
+    --grid-re: -1;                       /* Row End (line) */
+
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: var(--grid-tc);
+}
+
+:is(x-subgrid,[x-subgrid]) { display: grid; grid-template-columns: subgrid; gap: inherit }
+
+:where(x-grid,[x-grid],x-subgrid,[x-subgrid]) {
+    img { object-fit: contain; max-width: 100% }
+    & > * { appearance: none; -webkit-appearance: none }
+}
+
+/* Container controls column count */
+[columns]         { --grid-tc-ln: attr(columns type(<integer>), 4) }
+[columns="fit"]   { --grid-tc-ln: auto-fit;  --grid-mm: 10rem, 1fr }
+[columns="fill"]  { --grid-tc-ln: auto-fill; --grid-mm: 10rem, 1fr }
+[columns="1f"]    { --grid-tc-ln: 1; & > * { grid-column: 1 / -1 } }
+[columns="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr }
+[columns="stack"] > * { position: relative; grid-row: 1; grid-column: 1; z-index: 0 }
+[columns="stack"] > *:first-child { z-index: 1 }
+
+/* ---------- Columns (X axis) ---------- */
+  /* span alone → length */
+  [span]:not([start]):not([end]):not([span="row"]) {
+    grid-column-end: span attr(span type(<custom-ident>), 1);
+  }
+
+[span*=".."] { grid-column-end: -1 }
+
+  /* explicit start (number or name) */
+  [span][start] {
+    grid-column-start: attr(start type(<custom-ident> | <integer>), auto);
+  }
+
+  /* start + span (no end) → length from start */
+  [span][start]:not([end]) {
+    grid-column-end: span attr(span type(<integer>), 1);
+  }
+
+  /* end present → it wins
+     positives use “column-index” model: end="5" ⇒ line 6 */
+  [span][end]:not([end^="-"]):not([end="end"]) {
+    grid-column-end: calc(attr(end type(<integer>), 1) + 1);
+  }
+  /* negatives are real line indices (e.g., -1 = last line) */
+  [span][end^="-"] {
+    grid-column-end: attr(end type(<integer>), auto);
+  }
+
+  /* friendly token */
+  [span][end="end"] { grid-column-end: -1; }
+
+  /* optional full width helper you already use */
+  [span="row"] { grid-column: 1 / -1; }
+
+/* ---------- Rows (Y axis) ---------- */
+[span-r]        { --grid-re: attr(span-y type(<integer>), 1) }    /* length by default */
+[span-r][start-r]  { --grid-rs: attr(span-y-start type(<integer>), auto) } /* row start line */
+[span-r][end-r]    { --grid-re: attr(span-y-end type(<integer>), auto) } /* absolute end line */
+
+[span-r]        { grid-row-end: span var(--grid-re) }   /* baseline: span length */
+[span-r][start-r]  { grid-row-start: var(--grid-rs) }
+[span-r][end-r]    { grid-row-end: calc(var(--grid-re) + 1) }   /* overrides span when present */
+[span-r][end-r],[span-y-end="end"] { grid-row-end: -1 }
+
+[span-y="full"] { grid-row: 1 / -1 } /* Full column-height helper */
+
+/* ------------ Examples ------------
+<x-grid columns="12">
+  <x-cell span="3"></x-cell>                         <!-- span 3 cols -->
+  <x-cell span-start="4" span="5"></x-cell>          <!-- start 4, span 5 -->
+  <x-cell span-start="1" span-end="12"></x-cell>     <!-- 1 / 12 -->
+  <x-cell span-y-start="2" span-y="3"></x-cell>      <!-- from row line 2, span 3 rows -->
+  <x-cell span-y-end="-1"></x-cell>                  <!-- end at last row line -->
+  <x-cell span="row" span-y="full"></x-cell>         <!-- full width & full height -->
+</x-grid>
+----------------------------------------------*/
+
+/* [S] for window width <= 777px */
+@media (width <= 777px) {
+
+
+}
+
+/* [M] for window width 778px <> 1024px */
+@media (778px <= width <= 1024px) {
+
+
+}
+
+@supports (x: attr(x type(*))) { 
+/* Flexbox */
+    [direction] { flex-direction: attr(direction type(<custom-ident>), column) }
+    [wrap] { flex-wrap: attr(wrap type(<custom-ident>), wrap) }
+
+/* Alignments */
+    [jc] { justify-content: attr(jc type(<custom-ident>), start) } /* F+G */
+    [ji] { justify-items: attr(ji type(<custom-ident>), start) }
+    [ai] { align-items: attr(ai type(<custom-ident>), start) }
+    [ac] { align-content: attr(ac type(<custom-ident>), start) }
+    [as] { align-self: attr(as type(<custom-ident>), start) }
+    [js] { justify-self: attr(js type(<custom-ident>), start) }
+
+    /* this cannot be done, attr() returns a single value - Even once implemented, attr(pi type(<custom-ident>)) would parse the attribute as a single custom identifier, not multiple space-separated tokens. The attribute value "end center" would be treated as the literal string "end center" (and likely fail since that's not a valid single keyword for place-items) */
+    [pi] { place-items: attr(pi type(<custom-ident>), start) attr(pi type(<custom-ident>), start) } /* place-items: align-items justify-items; */
+    [pc] { place-content: attr(pi type(<custom-ident>), start) } /* place-content: align-content justify-content */
+    [ps] { place-self: attr(pi type(<custom-ident>), start) }/* place-self: align-self justify-self; */
+
+/* Order */
+    [order="first"] { order: -1 }
+    [order] { order: attr(order type(<integer>), 1) }
+    [order="last"] { order: 9999 }
+}
+
+    </style>
+
+</head>
+<body class="a11y" style="padding:2rem" dark-mode>
+
+    <header></header>
+    <main>
+
+        <x-grid columns="1" class="debug fullwidth" pi="end center" style="height:50vh">
+            <x-cell>Zio</x-cell>
+        </x-grid>
+
+            <style>
+                x-cell, #cssgrid span:not(.text-hr) { color: var(--white); padding: var(--padding); border-radius: var(--radius); }
+            </style>
+
+            <fieldset id="cssgrid">
+                <legend>CSS Grid</legend>
+
+                <x-grid columns="12" class="debug">
+                  <x-cell span="row">row</x-cell>
+
+                  <x-cell span start="1" end="2">1-2</x-cell>
+                  <x-cell span start="3" end="end">3..</x-cell>
+
+                  <x-cell span start="1" end="4">1-4</x-cell>
+                  <x-cell span start="5" end="end">5..</x-cell>
+
+                  <x-cell span start="1" end="5">1-5</x-cell>
+                  <x-cell span start="6" end="end">6..</x-cell>
+
+                  <x-cell span start="1" end="6">1-6</x-cell>
+                  <x-cell span start="7" end="end">7..</x-cell>
+
+                  <x-cell span start="1" end="7">1-7</x-cell>
+                  <x-cell span start="8" end="end">8..</x-cell>
+
+                  <x-cell span start="1" end="8">1-8</x-cell>
+                  <x-cell span start="9" end="end">9..</x-cell>
+                </x-grid>
+
+                <span class="text-hr">8 columns</span>
+
+                <x-grid columns="8" class="debug">
+                  <x-cell></x-cell>
+                  <x-cell span="3">3</x-cell>
+                  <x-cell></x-cell>
+                  <x-cell span="7-8">7-8</x-cell>
+                  <x-cell span="2" start="2">2+2</x-cell>
+                  <x-cell span start="5" end="8">5-8</x-cell>
+                  <x-cell span="1-4">1-4</x-cell>
+                  <x-cell span start="6" end="end">6..</x-cell>
+                  <x-cell span="2..">2..</x-cell>
+                  <x-cell span="4..">4..</x-cell>
+                  <x-cell span="1-2">1-2</x-cell>
+                  <x-cell span="4-5">4-5</x-cell>
+                </x-grid>
+
+                <span class="text-hr">6 columns</span>
+
+                <x-grid columns="6" class="debug">
+                  <x-cell span="2" span-s="row">span 2</x-cell>
+                  <x-cell span="3-6" span-s="row">span 3-6</x-cell>
+                  <x-cell span="1-2" span-s="1">span 1-2</x-cell>
+                  <x-cell span="3.." span-s="2..">span 3..</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Auto grid &mdash; columns="fill"</span>
+                
+                <x-grid columns="fill" class="debug">
+                    <x-cell>Box 1</x-cell>
+                    <x-cell>Box 2</x-cell>
+                    <x-cell>Box 3</x-cell>
+                    <x-cell>Box 4</x-cell>
+                    <x-cell>Box 5</x-cell>
+                    <x-cell>Box 6</x-cell>
+                    <x-cell span="2">Box 7</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Auto grid &mdash; columns="fit"</span>
+                
+                <x-grid columns="fit" class="debug">
+                  <x-cell>Box 1</x-cell>
+                  <x-cell>Box 2</x-cell>
+                  <x-cell>Box 3</x-cell>
+                  <x-cell>Box 4</x-cell>
+                  <x-cell>Box 5</x-cell>
+                  <x-cell>Box 6</x-cell>
+                  <x-cell span="2">Box 7</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Site layout</span>
+
+                <x-grid columns="8" class="debug">
+                  <x-cell span="row">Head</x-cell>
+                  <x-cell span="5">Main</x-cell>
+                  <x-cell span start="6" end="end">Sidebar</x-cell>
+                  <x-cell span="row">Footer</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Multidimensional grid</span>
+
+                <x-grid class="debug" columns="10">
+                  <x-cell span start="1" end="2" >cell 1</x-cell>
+                  <x-cell span start="3" end="2">cell 2</x-cell>
+                  <x-cell span start="5" end="4">cell 3</x-cell>
+                  <x-cell span start="9" end="2">cell 4</x-cell>
+
+                  <x-cell span start="3" end="4">cell 5</x-cell>
+                  <x-cell span start="7" end="4" span-y="2-3">cell 6</x-cell>
+                  <x-cell span start="3" end="6">cell 7</x-cell>
+                </x-grid>
+
+                <span class="text-hr">Div with [x-grid] and spans instead of x-cell</span>
+                <div class="debug" x-grid align="stretch">
+                  <span span="2">Box 1</span>
+                  <span>Box 2</span>
+                  <span>Box 3</span>
+
+                  <span>Box 4</span>
+                  <span span="2">Box 5</span>
+                  <span>Box 6</span>
+
+                  <span span="row">Box 7</span>
+                </div>
+            </fieldset>
+
+
+
+        <x-grid columns="5" class="debug">
+            <x-cell span="4">1 Skelet.css</x-cell>
+            <x-cell span="row">2 Skelet.css</x-cell>
+            <x-cell span="2">3 Skelet.css</x-cell>
+            <x-cell span-start="2" span-end="5">4 Skelet.css</x-cell>
+            <x-cell>5 Skelet.css</x-cell>
+            <x-cell>6 Skelet.css</x-cell>
+        </x-grid>
+<hr>    
+        <x-grid columns="5" ji="center" class="debug ">
+            <x-cell order="last">1 Skelet.css</x-cell>
+            <x-cell>2 Skelet.css</x-cell>
+            <x-cell>3 Skelet.css</x-cell>
+            <x-cell order="20">4 Skelet.css</x-cell>
+            <x-cell>5 Skelet.css</x-cell>
+            <x-cell order="first">6 Skelet.css</x-cell>
+        </x-grid>
+
+        <x-grid columns="5" columns-m="8" columns-s="2" class="debug ">
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+        </x-grid>
+
+        <x-grid class="debug ">
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+            <x-cell>Skelet.css</x-cell>
+        </x-grid>
+
+    </main>
+    <footer></footer>
+
+</body>
+</html>
