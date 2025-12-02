@@ -76,7 +76,22 @@ interpolate-size: allow-keywords;
     --space-17: clamp(19.2rem, 19.2rem + ((1vw - 7.77rem) * 154.8387), 57.6rem);
     --space-18: clamp(20.8rem, 20.8rem + ((1vw - 7.77rem) * 174.1935), 64rem);
 
+    --space-19: clamp(22.4rem, 22.4rem + ((1vw - 7.77rem) * 193.5483), 70.4rem);
+    --space-20: clamp(24rem, 24rem + ((1vw - 7.77rem) * 212.9031), 76.8rem);
+    --space-21: clamp(25.6rem, 25.6rem + ((1vw - 7.77rem) * 232.2579), 83.2rem);
+    --space-22: clamp(27.2rem, 27.2rem + ((1vw - 7.77rem) * 251.6127), 89.6rem);
+    --space-23: clamp(28.8rem, 28.8rem + ((1vw - 7.77rem) * 270.9675), 96rem);
+    --space-24: clamp(30.4rem, 30.4rem + ((1vw - 7.77rem) * 290.3223), 102.4rem);
+
+    --space-25: clamp(32rem, 32rem + ((1vw - 7.77rem) * 309.6771), 108.8rem);
+    --space-26: clamp(33.6rem, 33.6rem + ((1vw - 7.77rem) * 329.0319), 115.2rem);
+    --space-27: clamp(35.2rem, 35.2rem + ((1vw - 7.77rem) * 348.3867), 121.6rem);
+    --space-28: clamp(36.8rem, 36.8rem + ((1vw - 7.77rem) * 367.7415), 128rem);
+    --space-29: clamp(38.4rem, 38.4rem + ((1vw - 7.77rem) * 387.0963), 134.4rem);
+    --space-30: clamp(40rem, 40rem + ((1vw - 7.77rem) * 406.4511), 140.8rem);
+
     /* Type scale system */
+    --type-0: 0rem;    /* 0px */
     --type-1: 1rem;    /* 10px */
     --type-2: 1.2rem;  /* 12px */
     --type-3: 1.4rem;  /* 14px */
@@ -97,6 +112,20 @@ interpolate-size: allow-keywords;
     --type-16: clamp(5.6rem, 5.6rem + ((1vw - 7.77rem) * 11.6129), 9.2rem);
     --type-17: clamp(6rem, 6rem + ((1vw - 7.77rem) * 12.9032), 10rem);
     --type-18: clamp(6.4rem, 6.4rem + ((1vw - 7.77rem) * 14.1935), 10.8rem);
+
+    --type-19: clamp(6.8rem, 6.8rem + ((1vw - 7.77rem) * 15.4838), 11.6rem);
+    --type-20: clamp(7.2rem, 7.2rem + ((1vw - 7.77rem) * 16.7742), 12.4rem);
+    --type-21: clamp(7.6rem, 7.6rem + ((1vw - 7.77rem) * 18.0645), 13.2rem);
+    --type-22: clamp(8rem, 8rem + ((1vw - 7.77rem) * 19.3548), 14rem);
+    --type-23: clamp(8.4rem, 8.4rem + ((1vw - 7.77rem) * 20.6451), 14.8rem);
+    --type-24: clamp(8.8rem, 8.8rem + ((1vw - 7.77rem) * 21.9354), 15.6rem);
+
+    --type-25: clamp(9.2rem, 9.2rem + ((1vw - 7.77rem) * 23.2258), 16.4rem);
+    --type-26: clamp(9.6rem, 9.6rem + ((1vw - 7.77rem) * 24.5161), 17.2rem);
+    --type-27: clamp(10rem, 10rem + ((1vw - 7.77rem) * 25.8064), 18rem);
+    --type-28: clamp(10.4rem, 10.4rem + ((1vw - 7.77rem) * 27.0967), 18.8rem);
+    --type-29: clamp(10.8rem, 10.8rem + ((1vw - 7.77rem) * 28.3870), 19.6rem);
+    --type-30: clamp(11.2rem, 11.2rem + ((1vw - 7.77rem) * 29.6774), 20.4rem);
 
     /* other */
     --padding: var(--space-3);
@@ -220,7 +249,6 @@ figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
 [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
 [type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0 }
-input[type="number"] { -moz-appearance: textfield }
 [type="search"]{-webkit-appearance:textfield;appearance:textfield;outline-offset:-2px}
 [type="search"]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
@@ -370,9 +398,9 @@ kbd {
 @media (max-width: 777px), (min-width: 1024px) { .medium-only { display: none!important } }
 @media (min-width: 777px) { .small-only  { display:none!important } }
 
-.no-scrollbars { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars::-webkit-scrollbar { display:none }
-@media (max-width: 777px)  { .no-scrollbars-s { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars-s::-webkit-scrollbar { display: none } }
-@media (min-width: 1024px) { .no-scrollbars-m { scrollbar-width:none; -ms-overflow-style:none } .no-scrollbars-m::-webkit-scrollbar { display: none } }
+.no-scrollbars { scrollbar-width:none } .no-scrollbars::-webkit-scrollbar { display:none }
+@media (max-width: 777px)  { .no-scrollbars-s { scrollbar-width:none } .no-scrollbars-s::-webkit-scrollbar { display: none } }
+@media (min-width: 1024px) { .no-scrollbars-m { scrollbar-width:none } .no-scrollbars-m::-webkit-scrollbar { display: none } }
 
 /** Scroll snap */
 :where(html) {
