@@ -239,7 +239,7 @@ interpolate-size: allow-keywords;
 *,*::before,*::after {box-sizing:border-box}
 :not(pre) > code,:not(pre) > kbd,:not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
 img,svg,canvas,video,embed,object,dd { display: block; box-sizing: border-box; max-width: 100%; height: auto }
-svg { overflow: visible; height: 100%; pointer-events: none!important }
+svg { overflow: visible; height: 100%; pointer-events: none!important; flex-shrink: 0 }
 iframe{display:block;border:0;max-width:100%}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
@@ -1341,7 +1341,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 :where(x-flex,[x-flex]) > * { flex: 0 1 auto; width: auto; appearance: none }
 :where(x-flex,[x-flex]).even > * { width: 100% }
 :where(x-flex,[x-flex]) img { object-fit: contain; max-width: 100% }
-:where(x-flex,[x-flex]) x-cell:has(svg) { flex-shrink: 0 } /* preventing svg from being cropped */
+:where(x-flex,[x-flex]):has(svg) { flex-shrink: 0 } /* preventing svg from being cropped */
 
 /* Flex Direction */
 [direction="column"] { flex-direction: column }
@@ -1976,7 +1976,8 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 .inline-block { display: inline-block; margin: 0 }
 .center { display: block; text-align: center; margin: 0 auto }
 .display-none { display: none }
-.overflow { overflow: hidden }
+:is(.display-none-empty,.hide-empty):empty { display: none }
+.overflow { overflow: clip }
 .contents { display: contents }
 .ac, .align-center { align-content: center }
 
@@ -2016,6 +2017,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .inline-block-s { display: inline-block; margin: 0 }
     .center-s { display: block; text-align: center; margin: 0 auto }
     .display-none-s { display: none }
+    :is(.display-none-empty-s,.hide-empty-s):empty { display: none }
     .overflow-s { overflow: hidden }
     .contents-s { display: contents }
     .ac-s, .align-center-s { align-content: center }
@@ -2057,6 +2059,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .inline-block-m { display: inline-block; margin: 0 }
     .center-m { display: block; text-align: center; margin: 0 auto }
     .display-none-m { display: none }
+    :is(.display-none-empty-m,.hide-empty-m):empty { display: none }
     .overflow-m { overflow: hidden }
     .contents-m { display: contents }
     .ac-m, .align-center-m { align-content: center }
