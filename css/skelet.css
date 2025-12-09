@@ -379,8 +379,8 @@ kbd {
     min-width: 3rem;
 }
 
-.is-green { border-color: var(--green)!important; --inputFocus: var(--green); --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
-.is-red, input:not(:placeholder-shown):user-invalid,[aria-invalid="true"] { border-color: var(--red)!important; --inputFocus: var(--red); --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
+.is-green:not(.is-custom):not(.is-blank) { border-color: var(--green)!important; --inputFocus: var(--green); --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
+.is-red:not(.is-custom):not(.is-blank), input:not(:placeholder-shown):user-invalid,[aria-invalid="true"] { border-color: var(--red)!important; --inputFocus: var(--red); --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
 
 /* Vertical and Horizontal align */
 .center-axyz { display: grid; place-items: center }
@@ -619,11 +619,11 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
 
     /* style */
     &.is-unset { all: unset }
-    &.is-link { --buttonBg: transparent; --buttonColor: currentColor; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: inherit; --buttonBorderWidth: 0 }
-    &.is-blank { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor }
-    &.is-custom { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor }
+    &.is-link { --buttonBg: transparent; --buttonColor: currentColor; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: inherit; --buttonBorderWidth: 0; --buttonShadow: none }
+    &.is-blank { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
+    &.is-custom { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
     &.is-outline { 
-        background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg); 
+        background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg); --buttonShadow: none;
         &:where(:hover,:focus-visible) { background: var(--buttonBg); --buttonColor: var(--buttonColorHover) }
     }
 
