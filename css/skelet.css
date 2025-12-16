@@ -236,15 +236,15 @@ interpolate-size: allow-keywords;
 /* ------------------
     resets
 ------------------ */
-*,*::before,*::after {box-sizing:border-box}
-:not(pre) > code,:not(pre) > kbd,:not(pre) > samp { font-size: 1.2rem; font-family: var(--fontMono); white-space: nowrap }
-img,svg,canvas,video,embed,object,dd { display: block; box-sizing: border-box; max-width: 100%; height: auto }
-svg { overflow: visible; height: 100%; pointer-events: none!important; flex-shrink: 0 }
+*,*::before,*::after {box-sizing:border-box; margin:0 }
+:not(pre) > code,:not(pre) > kbd,:not(pre) > samp {font-size:1.2rem;font-family:var(--fontMono);white-space:nowrap}
+img,svg,canvas,video,embed,object,dd {display:block;box-sizing:border-box;max-width:100%;height:auto}
+svg {overflow:visible;height:100%;pointer-events:none!important;flex-shrink:0}
 iframe{display:block;border:0;max-width:100%}
 dt {font-weight:bold}
 dd {margin-inline-start:4rem}
 figure {margin:0;width:fit-content}
-figcaption { text-align: center; padding: var(--padding); font-size: 0.8em; }
+figcaption {text-align:center;padding:var(--padding);font-size:0.8em}
 :where(button,input,optgroup,select,textarea){font-family:inherit;font-size:100%;line-height:1.15;margin:0}
 [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
 [type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}
@@ -315,7 +315,7 @@ main { flex: 1 }
     margin: var(--hMargin);
 }
 
-p { margin:var(--pMargin); text-wrap: pretty }
+p { margin:var(--pMargin); text-wrap: pretty; &:empty { display: none } }
 blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; text-wrap: pretty }
 
 :where(a,[role="link"]) {
@@ -1075,7 +1075,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 [columns="1f"] { --grid-tc-ln: 1 }
 [columns="1f"] > * { grid-column: 1 / -1 }
 
-[columns="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr }
+[columns="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr; isolation: isolate }
 [columns="stack"] > * { position: relative; grid-row: 1; grid-column: 1; z-index: 0 }
 [columns="stack"] > *:first-child { z-index: 1 }
 
@@ -1140,7 +1140,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 [span-y$="+11"], [span-y$="-10"], [span-y="11"] { --grid-re: 11 }
 [span-y$="+12"], [span-y$="-11"], [span-y="12"] { --grid-re: 12 }
 [span-y$="-12"] { --grid-re: 13 }
-    
+
 /* connect vars */
 [span-y] { grid-row-end: span var(--grid-re) }
 [span-y*="+"], [span-y*="-"] { grid-row-start: var(--grid-rs) }
@@ -1149,6 +1149,10 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 
 /* [S] for window width <= 777px */
 @media (max-width: 777px) {
+    :is(x-grid,[x-grid]) {
+        --gap-s: var(--rowGap-s, var(--rowGap)) var(--columnGap-s, var(--columnGap));
+        gap: var(--gap-s);
+    }
 
     [columns-s="1"] { --grid-tc-ln: 1 }
     [columns-s="2"] { --grid-tc-ln: 2 }
@@ -1166,8 +1170,8 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     [columns-s="fill"] { --grid-tc-ln: auto-fill; --grid-mm: 10rem, 1fr }
     [columns-s="1f"] { --grid-tc-ln: 1 }
     [columns-s="1f"] > * { grid-column: 1 / -1 }
-    [columns-s="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr }
-    [columns-s="stack"] > * { position: relative; grid-row: 1; grid-column: 1 }
+    [columns-s="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr; isolation: isolate }
+    [columns-s="stack"] > * { position: relative; grid-row: 1; grid-column: 1; z-index: 0 }
     [columns-s="stack"] > *:first-child { z-index: 1 }
         
     /*** Grid Column - X axis */
@@ -1242,6 +1246,10 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 
 /* [M] for window width 778px <> 1024px */
 @media (min-width: 778px) and (max-width: 1024px) {
+    :is(x-grid,[x-grid]) {
+        --gap-m: var(--rowGap-m, var(--rowGap)) var(--columnGap-m, var(--columnGap));
+        gap: var(--gap-m);
+    }
 
     [columns-m="1"] { --grid-tc-ln: 1 }
     [columns-m="2"] { --grid-tc-ln: 2 }
@@ -1259,8 +1267,8 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     [columns-m="fill"] { --grid-tc-ln: auto-fill; --grid-mm: 10rem, 1fr }
     [columns-m="1f"] { --grid-tc-ln: 1 }
     [columns-m="1f"] > * { grid-column: 1 / -1 }
-    [columns-m="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr }
-    [columns-m="stack"] > * { position: relative; grid-row: 1; grid-column: 1 }
+    [columns-m="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr; isolation: isolate }
+    [columns-m="stack"] > * { position: relative; grid-row: 1; grid-column: 1; z-index: 0 }
     [columns-m="stack"] > *:first-child { z-index: 1 }
         
     /*** Grid Column - X axis */
@@ -1341,7 +1349,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 :where(x-flex,[x-flex]) > * { flex: 0 1 auto; width: auto; appearance: none }
 :where(x-flex,[x-flex]).even > * { width: 100% }
 :where(x-flex,[x-flex]) img { object-fit: contain; max-width: 100% }
-:where(x-flex,[x-flex]):has(svg) { flex-shrink: 0 } /* preventing svg from being cropped */
+:where(x-flex,[x-flex]) x-cell:has(svg) { flex-shrink: 0 } /* preventing svg from being cropped */
 
 /* Flex Direction */
 [direction="column"] { flex-direction: column }
@@ -1361,6 +1369,11 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 
 /* for window width <= 777px */
 @media (max-width: 777px) {
+    :is(x-flex,[x-flex]) {
+        --gap-s: var(--rowGap-s, var(--rowGap)) var(--columnGap-s, var(--columnGap));
+        gap: var(--gap-s);
+    }
+
     /*  Flex Direction */
     [direction-s="column"] { flex-direction: column }
     [direction-s="column-reverse"] { flex-direction: column-reverse }
@@ -1379,6 +1392,11 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 
 /* for window width 778px <= width <= 1024px */
 @media (min-width: 778px) and (max-width: 1024px) {
+    :is(x-flex,[x-flex]) {
+        --gap-m: var(--rowGap-m, var(--rowGap)) var(--columnGap-m, var(--columnGap));
+        gap: var(--gap-m);
+    }
+
     /*  Flex Direction */
     [direction-m="column"] { flex-direction: column }
     [direction-m="column-reverse"] { flex-direction: column-reverse }
