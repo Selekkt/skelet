@@ -18,16 +18,15 @@ interpolate-size: allow-keywords;
     --black: #000;
     --light: #EFEFEF;
     --dark: #181818;
-    --shadow: rgb(10 10 10 / 0.1);
+    --shadow: rgb(0 0 0 / 0.12);
 
     --linkColor: var(--primary);
-    --linkHover: #2997ff;
+    --linkHover: hsl(from var(--primary) h s 65%);
 
     --bgColor: #FFF;
     --color: #000;
-    --colorInverse: #FFF;
 
-    --selectionBg: rgb(0 0 0 / .8);
+    --selectionBg: hsl(from var(--color) h s 15%);
     --selectionText: #FFF;
 
     --codeBg: #F8F8F8;
@@ -152,9 +151,9 @@ interpolate-size: allow-keywords;
     --inputColor: var(--color);
     --inputColorHover: var(--color);
     --inputColorActive: var(--color);
-    --inputPlaceholderColor: color-mix(in oklch, currentColor, transparent 40%);
+    --inputPlaceholderColor: hsl(from var(--color) h s 50%);
     --inputBorderColor: #E1E1E1;
-    --inputBorderHover: color-mix(in srgb, var(--inputBorderColor) 80%, var(--color) 12%);
+    --inputBorderHover: hsl(from var(--inputBorderColor) h s 70%);
     --inputBorderActive: var(--primary);
 
     --inputShadow: 0 0 0 0 rgb(0 0 0 / 0);
@@ -208,13 +207,12 @@ interpolate-size: allow-keywords;
 
     --bgColor: #000;
     --color: #FFF;
-    --colorInverse: #000;
 
     --inputBg: #181818;
     --inputBgHover: var(--inputBg);
     --inputBgActive: var(--inputBg);
     --inputBorderColor: #333;
-    --inputBorderHover: color-mix(in srgb, var(--inputBorderColor) 80%, var(--color) 12%);
+    --inputBorderHover: hsl(from var(--inputBorderColor) h s 30%);
     --inputActive: var(--primary);
     --inputColor: var(--color);
     --inputColorHover: var(--color);
@@ -223,14 +221,14 @@ interpolate-size: allow-keywords;
     --buttonBorderColor: transparent;
     --buttonBorderHover: transparent;
 
-    --selectionBg: rgb(255 255 255 / .8);
+    --selectionBg: hsl(from var(--color) h s 85%);
     --selectionText: #000;
 
     --codeColor: var(--green);
     --codeBg: #111;
 
     --hrColor: var(--inputBorderColor);
-    --hrGradient: rgb(0 0 0 / 0);
+    --hrGradient: transparent;
 }
 
 /* ------------------
@@ -687,7 +685,7 @@ textarea {
             appearance: none;
 
     /* Placeholder */
-    ::placeholder { color: var(--inputPlaceholderColor) }
+    &::placeholder { color: var(--inputPlaceholderColor) }
 
     /* Hover state */
     &:hover {
@@ -2147,20 +2145,26 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
   animations
 ------------------ */
 /**** Keyframes x Animations */
-@keyframes fadeIn { 0% { opacity: 0 } 100% { opacity: 1 } }
-@keyframes fadeInUp { 0% { opacity: 0; transform: translate3d(0, 20%, 0) } 100% { opacity: 1; transform: none } }
-@keyframes fadeInDown { 0% { opacity: 0; transform: translate3d(0, -20%, 0) } 100% { opacity: 1; transform: none } }
-@keyframes fadeInRight { 0% { opacity: 0; transform: translate3d(20%, 0, 0) } 100% { opacity: 1; transform: none } }
-@keyframes fadeInLeft { 0% { opacity: 0; transform: translate3d(-20%, 0, 0) } 100% { opacity: 1; transform: none } }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 20%, 0) } to { opacity: 1; transform: none } }
+@keyframes fadeInDown { from { opacity: 0; transform: translate3d(0, -20%, 0) } to { opacity: 1; transform: none } }
+@keyframes fadeInRight { from { opacity: 0; transform: translate3d(20%, 0, 0) } to { opacity: 1; transform: none } }
+@keyframes fadeInLeft { from { opacity: 0; transform: translate3d(-20%, 0, 0) } to { opacity: 1; transform: none } }
+
 @keyframes fadeOut { from { opacity: 1 } to { opacity: 0 } }
-@keyframes fadeOutDown { from { opacity: 1 } to { opacity: 0; transform: translate3d(0, 100%, 0) } }
-@keyframes fadeOutUp { from { opacity: 1 } to { opacity: 0; transform: translate3d(0, -100%, 0) } }
+@keyframes fadeOutUp   { from { opacity: 1; transform: none } to { opacity: 0; transform: translate3d(0, -100%, 0) } }
+@keyframes fadeOutDown { from { opacity: 1; transform: none } to { opacity: 0; transform: translate3d(0, 100%, 0) } }
+@keyframes fadeOutRight { from { opacity: 1; transform: none } to { opacity: 0; transform: translate3d(20%, 0, 0) } }
+@keyframes fadeOutLeft  { from { opacity: 1; transform: none } to { opacity: 0; transform: translate3d(-20%, 0, 0) } }
+
 @keyframes flash { from, 50%, to { opacity: 1 } 25%, 75% { opacity: 0 } }
 @keyframes loading { from { transform: rotate(0deg) } to { transform: rotate(359deg) } }
 @keyframes rollIn  { from { opacity: 0; transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg) } to { opacity: 1; transform: none } }
 @keyframes rollOut  { from { opacity: 1 } to { opacity: 0; transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg) } }
-@keyframes zoomIn  { from { opacity: 0; transform: scale3d(.3, .3, .3) } to { opacity: 1 } }
-@keyframes scaleIn { from { opacity: 0; transform: scale(3) } to { opacity: 1; transform: scale(1) } }
+@keyframes zoomIn { from { opacity: 0; transform: scale3d(.3, .3, .3) } to { opacity: 1; transform: none } }
+@keyframes zoomOut { from { opacity: 1; transform: none } to { opacity: 0; transform: scale3d(.3, .3, .3) } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(3) } to { opacity: 1; transform: none } }
+@keyframes scaleOut { from { opacity: 1; transform: scale(1) } to { opacity: 0; transform: scale(3) } }
 
 @keyframes pulse  { 
   0% { transform: scale3d(1,1,1) }
