@@ -2004,6 +2004,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 .text-justify { text-align: justify }
 .text-normal { font-weight: 400 }
 .text-bold { font-weight: 600 }
+.text-nonecase { text-transform:none }
 .text-uppercase { text-transform:uppercase }
 .text-lowercase { text-transform:lowercase }
 .text-capitalize { text-transform:capitalize }
@@ -2045,6 +2046,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .text-justify-s { text-align: justify }
     .text-normal-s { font-weight: 400 }
     .text-bold-s { font-weight: 600 }
+    .text-nonecase-s { text-transform:none }
     .text-uppercase-s { text-transform:uppercase }
     .text-lowercase-s { text-transform:lowercase }
     .text-capitalize-s { text-transform:capitalize }
@@ -2087,6 +2089,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
     .text-justify-m { text-align: justify }
     .text-normal-m { font-weight: 400 }
     .text-bold-m { font-weight: 600 }
+    .text-nonecase-m { text-transform:none }
     .text-uppercase-m { text-transform:uppercase }
     .text-lowercase-m { text-transform:lowercase }
     .text-capitalize-m { text-transform:capitalize }
