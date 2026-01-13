@@ -943,24 +943,23 @@ input[type="radio"] {
 /* ------------------
   lists
 ------------------ */
-ul, ol { padding-inline-start: 0; margin-block-start: 0 }
-ul ul, ul ol, ol ol, ol ul { margin: 1.5rem 0 1.5rem 3rem; font-size: 100% }
+:where(ul,ol) { padding-inline-start: 0; margin-block-start: 0 }
+:where(ul ul, ul ol, ol ol, ol ul) { margin: 1.5rem 0 1.5rem 3rem; font-size: 100% }
 li { margin-block-end: var(--liMargin, var(--margin)) }
+:where(ul,ol).inline li { display: inline-block; list-style: none; margin: 0; padding: 0 }
+:where(ul,ol).no-style { list-style: none; margin: 0; padding: 0 }
+:where(ul,ol).no-style :where(ul,ol) { list-style: none }
+:where(ul,ol).no-style.inside { --liMargin: 0 }
+:where(ul,ol).indent { margin: 1.5rem 0 1.5rem 3rem }
 
-.inline li { display: inline-block; list-style: none; margin: 0; padding: 0 }
-ul.no-style, ol.no-style { list-style: none; margin: 0; padding: 0 }
-ul.no-style.inside, ol.no-style.inside { --liMargin: 0 }
-ul.no-style ul, ol.no-style ol {list-style:none}
-ul.indent, ol.indent { margin: 1.5rem 0 1.5rem 3rem }
-
-ul.disc {list-style-type:disc}
-ul.circle {list-style-type:circle}
-ul.square {list-style-type:square}
-ol.roman {list-style-type:upper-roman}
-ol.alpha {list-style-type:lower-alpha}
-ol.decimal {list-style-type:decimal}
-ul.inside,ol.inside {list-style-position:inside}
-ul.outside,ol.outside {list-style-position:outside}
+ul.disc { list-style-type: disc }
+ul.circle { list-style-type: circle }
+ul.square { list-style-type: square }
+ol.roman { list-style-type: upper-roman }
+ol.alpha { list-style-type: lower-alpha }
+ol.decimal { list-style-type: decimal }
+:where(ul,ol).inside { list-style-position: inside }
+:where(ul,ol).outside { list-style-position: outside }
 
 /* ---------------------
   hr - horizontal rules
