@@ -5,6 +5,7 @@
 ------------------ */
 :where(html) {
 interpolate-size: allow-keywords;
+color-scheme: light;
 
 /** Colors */
     --primary: #006EF1;
@@ -18,23 +19,57 @@ interpolate-size: allow-keywords;
     --black: #000;
     --light: #EFEFEF;
     --dark: #181818;
-    --shadow: rgb(0 0 0 / 0.12);
+    --shadow: light-dark(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.35));
 
     --linkColor: var(--primary);
-    --linkHover: hsl(from var(--primary) h s 65%);
+    --linkHover: light-dark(hsl(from var(--primary) h s 65%), hsl(from var(--primary) h s 75%));
 
-    --bgColor: #FFF;
-    --color: #000;
+    --bgColor: light-dark(#FFF, #000);
+    --color: light-dark(#000, #FFF);
 
-    --selectionBg: hsl(from var(--color) h s 15%);
-    --selectionText: #FFF;
+    --selectionBg: light-dark(hsl(from var(--color) h s 15%), hsl(from var(--color) h s 85%));
+    --selectionText: light-dark(#FFF, #000);
 
-    --codeBg: #F8F8F8;
-    --codeColor: var(--blue);
+    --codeBg: light-dark(#F8F8F8, #111);
+    --codeColor: light-dark(var(--blue), var(--green));
+
+    /* inputs */
+    --inputBg: light-dark(#F8F8F8, #181818);
+    --inputBgHover: var(--inputBg);
+    --inputBgActive: var(--inputBg);
+
+    --inputColor: var(--color);
+    --inputColorHover: var(--color);
+    --inputColorActive: var(--color);
+    --inputPlaceholderColor: hsl(from var(--color) h s 50%);
+
+    --inputBorderColor: light-dark(#E1E1E1, #333);
+    --inputBorderHover: light-dark(hsl(from var(--inputBorderColor) h s 70%),hsl(from var(--inputBorderColor) h s 30%));
+    --inputBorderActive: var(--primary);
+
+    --inputShadow: 0 0 0 0 rgb(0 0 0 / 0);
+    --inputShadowHover: 0px 0px 5px 1px rgb(0 0 0 / 0.1);
+    --inputShadowActive: var(--inputShadowHover);
+
+    /* checkbox/radio/role=switch */
+    --inputActive: var(--primary);
+    --inputActiveInner: var(--white);
+    --inputFocus: rgb(41 145 248 / .7);
+
+    /* buttons */
+    --buttonBg: var(--primary);
+    --buttonBgHover: var(--linkHover);
+    --buttonColor: #FFF;
+    --buttonColorHover: var(--buttonColor);
+
+    --buttonBorderColor: transparent;
+    --buttonBorderHover: transparent;
+    --buttonShadow: 0 0 0 0 rgb(0 0 0 / 0);
 
     --hrColor: var(--inputBorderColor);
-    --hrGradient: rgb(255 255 255 / 0);
+    --hrGradient: light-dark(rgb(255 255 255 / 0), transparent);
 
+/** Structure */
     /* typography */
     --fontFallback: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, HelveticaNeue, "Helvetica Neue", "Helvetica", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --fontMono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -130,6 +165,7 @@ interpolate-size: allow-keywords;
     --padding: var(--space-3);
     --margin: var(--space-4);
     --radius: var(--space-5);
+    --radiusFull: 100vw;
     --borderWidth: 1px;
     --borderStyle: solid;
     --hrMargin: var(--margin);
@@ -144,28 +180,7 @@ interpolate-size: allow-keywords;
     --inputBorderStyle: var(--borderStyle);
     --inputFontSize: inherit;
     --inputHeight: var(--space-5);
-
-    --inputBg: #F8F8F8;
-    --inputBgHover: var(--inputBg);
-    --inputBgActive: var(--inputBg);
-    --inputColor: var(--color);
-    --inputColorHover: var(--color);
-    --inputColorActive: var(--color);
-    --inputPlaceholderColor: hsl(from var(--color) h s 50%);
-    --inputBorderColor: #E1E1E1;
-    --inputBorderHover: hsl(from var(--inputBorderColor) h s 70%);
-    --inputBorderActive: var(--primary);
-
-    --inputShadow: 0 0 0 0 rgb(0 0 0 / 0);
-    --inputShadowHover: 0px 0px 5px 1px rgb(0 0 0 / 0.1);
-    --inputShadowActive: var(--inputShadowHover);
-
     --inputTransition: none;
-
-    /* checkbox/radio/role=switch */
-    --inputActive: var(--primary);
-    --inputActiveInner: var(--white);
-    --inputFocus: rgb(41 145 248 / .7);
 
     /* buttons */
     --buttonPadding: 0.7em;
@@ -176,17 +191,9 @@ interpolate-size: allow-keywords;
     --buttonSize: inherit;
     --buttonWeight: 600;
     --buttonWidth: fit-content;
-
-    --buttonBg: var(--primary);
-    --buttonBgHover: var(--linkHover);
-    --buttonColor: #FFF;
-    --buttonColorHover: var(--buttonColor);
-    --buttonBorderColor: transparent;
-    --buttonBorderHover: transparent;
-    --buttonShadow: 0 0 0 0 rgb(0 0 0 / 0);
-    --iconSize: var(--fontSize);
-
     --buttonTransition: none;
+
+    --iconSize: var(--fontSize);
 
     /* x-grid /  */
     --rowGap: var(--space-3);
@@ -202,34 +209,7 @@ interpolate-size: allow-keywords;
 }
 
 /*** Dark Mode */
-.dark-mode, [dark-mode], [color-scheme="dark"] {
-    color-scheme: dark;
-
-    --bgColor: #000;
-    --color: #FFF;
-
-    --inputBg: #181818;
-    --inputBgHover: var(--inputBg);
-    --inputBgActive: var(--inputBg);
-    --inputBorderColor: #333;
-    --inputBorderHover: hsl(from var(--inputBorderColor) h s 30%);
-    --inputActive: var(--primary);
-    --inputColor: var(--color);
-    --inputColorHover: var(--color);
-    --inputColorActive: var(--color);
-
-    --buttonBorderColor: transparent;
-    --buttonBorderHover: transparent;
-
-    --selectionBg: hsl(from var(--color) h s 85%);
-    --selectionText: #000;
-
-    --codeColor: var(--green);
-    --codeBg: #111;
-
-    --hrColor: var(--inputBorderColor);
-    --hrGradient: transparent;
-}
+:where(.dark-mode,[dark-mode],[color-scheme="dark"]) { color-scheme: dark }
 
 /* ------------------
     resets
@@ -349,8 +329,8 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 code, samp {
     display: inline-block;
     overflow: clip;
-    padding: var(--space-1) var(--space-3);
-    margin: var(--inputMargin);
+    padding: 1px var(--space-3);
+    margin: var(--space-1);
     font-size: 90%;
     text-transform: none;
     white-space: nowrap;
@@ -584,7 +564,7 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
     user-select: none;
 
     /* Hover state */
-    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
+    &:where(:hover,:focus-visible) { background: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
 
     /* attribute */
     &.has-icon { 
@@ -705,8 +685,8 @@ textarea {
 
     /* blank */
     &.is-blank { 
-        border:none!important; background:transparent!important; color:currentColor; 
-        &:where(:hover,:focus-visible,:active) { border:none!important; background:transparent!important; color:currentColor }
+        border:none!important; background:transparent!important; color:currentColor; box-shadow:none!important;
+        &:where(:hover,:focus-visible,:active) { border:none!important; background:transparent!important; color:currentColor; box-shadow:none; }
     }
 
 }
@@ -1032,6 +1012,37 @@ table.has-borders { border: var(--tableBorder) }
 table.has-borders th { border-radius: 0; border:0 }
 table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) }
 
+/* ---------------------
+  misc elements
+--------------------- */
+:where(progress,meter) {
+    --barHeight: var(--space-2);
+    --barBg: light-dark(#F8F8F8, #181818);
+    --barRadius: var(--radiusFull);
+    appearance: none;
+    border: none;
+    overflow: hidden;
+    width: 100%;
+    height: var(--barHeight);
+    border-radius: var(--barRadius);
+    background: var(--barBg);
+
+/* progress */
+    &::-webkit-progress-bar { background-color: var(--muted); border-radius: var(--barRadius) }
+    &::-webkit-progress-value { background-color: var(--primary); border-radius: var(--barRadius); transition: width var(--transition) }
+    &::-moz-progress-bar { background-color: var(--primary); border-radius: var(--barRadius) }
+
+/* meter */
+    &::-webkit-meter-bar { background: var(--muted); border: none; border-radius: var(--barRadius); height: var(--barHeight) }
+    &::-webkit-meter-optimum-value,&::-webkit-meter-suboptimum-value,&::-webkit-meter-even-less-good-value { border-radius: var(--barRadius) }
+    &::-webkit-meter-optimum-value { background: var(--green) }
+    &::-webkit-meter-suboptimum-value { background: var(--orange) }
+    &::-webkit-meter-even-less-good-value { background: var(--red) }
+    &::-moz-meter-bar { background: var(--green); border-radius: var(--barRadius) }
+    &:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--orange) }
+    &:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--red) }
+}
+
 /* ------------------
   css grid
 ------------------ */
@@ -1147,8 +1158,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 /* [S] for window width <= 777px */
 @media (max-width: 777px) {
     :is(x-grid,[x-grid]) {
-        --gap-s: var(--rowGap-s, var(--rowGap)) var(--columnGap-s, var(--columnGap));
-        gap: var(--gap-s);
+        gap: var(--gap-s, var(--gap));
     }
 
     [columns-s="1"] { --grid-tc-ln: 1 }
@@ -1244,8 +1254,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 /* [M] for window width 778px <> 1024px */
 @media (min-width: 778px) and (max-width: 1024px) {
     :is(x-grid,[x-grid]) {
-        --gap-m: var(--rowGap-m, var(--rowGap)) var(--columnGap-m, var(--columnGap));
-        gap: var(--gap-m);
+        gap: var(--gap-m, var(--gap));
     }
 
     [columns-m="1"] { --grid-tc-ln: 1 }
@@ -1367,8 +1376,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 /* for window width <= 777px */
 @media (max-width: 777px) {
     :is(x-flex,[x-flex]) {
-        --gap-s: var(--rowGap-s, var(--rowGap)) var(--columnGap-s, var(--columnGap));
-        gap: var(--gap-s);
+        gap: var(--gap-s, var(--gap));
     }
 
     /*  Flex Direction */
@@ -1390,8 +1398,7 @@ table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) 
 /* for window width 778px <= width <= 1024px */
 @media (min-width: 778px) and (max-width: 1024px) {
     :is(x-flex,[x-flex]) {
-        --gap-m: var(--rowGap-m, var(--rowGap)) var(--columnGap-m, var(--columnGap));
-        gap: var(--gap-m);
+        gap: var(--gap-m, var(--gap));
     }
 
     /*  Flex Direction */
