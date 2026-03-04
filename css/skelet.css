@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.5.3 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.6.1 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -958,6 +958,11 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
   tables
 ------------------ */
 :where(html) {
+    --tableColor: var(--color);
+    --tableBg: var(--inputBg);
+    --tableStrip: var(--inputBg);
+    --tableBorderColor: var(--inputBorderColor);
+
     --tablePadding: var(--inputPadding);
     --tableMargin: var(--margin);
     --tableMinWidth: 10rem;
@@ -967,50 +972,54 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
 }
 
 table {
-    --tableColor: var(--color);
-    --tableBg: var(--inputBg);
-    --tableStrip: var(--inputBg);
-    --tableBorderColor: var(--inputBorderColor);
-
     overflow-x: auto;
     border-spacing: 0;
     font-size: var(--tableSize, var(--fontSize));
     margin: var(--tableMargin);
+
+    caption { margin: var(--tableMargin) }
+    tr {
+        td { padding: var(--tablePadding); min-width: var(--tableMinWidth); vertical-align: middle; border-block-end: var(--tableBorder) }
+        &:last-child td { border-block-end: 0 }
+    }
+
+    th {
+        position: relative;
+        color: var(--tableColor);
+        text-transform: var(--tableTextTransform);
+        padding: var(--tablePadding);
+        text-align: start;
+        vertical-align: middle;
+        border-block-start: var(--tableBorder);
+        border-block-end: var(--tableBorder);
+        overflow: hidden;
+        font-weight: 400
+    }
+
+    &:not(.has-borders) thead th { 
+        background: var(--tableBg); 
+        &:first-child { border-radius: var(--radius) 0 0 var(--radius); border-inline-start: var(--tableBorder) }
+        &:last-child { border-radius: 0 var(--radius) var(--radius) 0; border-inline-end: var(--tableBorder) }
+    }
+
+    &.is-striped {
+        tr { border:0 }
+        tbody tr:nth-child(2n) td { background: var(--tableStrip); }
+    }
+
+    &.is-hover tbody tr:hover { background: var(--tableBg); border-radius: var(--radius) }
+
+    &:where(.is-sticky-head,.is-sticky-foot) { overflow: unset }
+    &.is-sticky-head thead { position: sticky; inset-block-start: var(--sticky, .2rem); z-index: 2 }
+    &.is-sticky-foot tfoot { position: sticky; inset-block-end: var(--sticky, .2rem); z-index: 1; background: var(--bgColor) }
+
+    &.has-borders { 
+        border: var(--tableBorder); 
+        thead th { border-block-end: var(--tableBorder) }
+        th { border-radius: 0; border:0 }
+        td:not(:last-of-type) { border-inline-end: var(--tableBorder) }
+    }
 }
-
-table caption { margin: var(--tableMargin) }
-table tr td { padding: var(--tablePadding); min-width: var(--tableMinWidth); vertical-align: middle; border-block-end: var(--tableBorder) }
-table tr:last-child td { border-block-end: 0 }
-
-table th {
-    position: relative;
-    color: var(--tableColor);
-    text-transform: var(--tableTextTransform);
-    padding: var(--tablePadding);
-    text-align: start;
-    vertical-align: middle;
-    border-block-start: var(--tableBorder);
-    border-block-end: var(--tableBorder);
-    overflow: hidden;
-    font-weight: 400
-}
-
-table thead th { background: var(--tableBg) }
-table th:first-child { border-radius: var(--radius) 0 0 var(--radius); border-inline-start: var(--tableBorder) }
-table th:last-child { border-radius: 0 var(--radius) var(--radius) 0; border-inline-end: var(--tableBorder) }
-
-table.is-striped tr { border:0 }
-table.is-striped tbody tr:nth-child(2n) td { background: var(--tableStrip); }
-
-table.is-hover tbody tr:hover { background: var(--tableBg); border-radius: var(--radius) }
-
-table:where(.is-sticky-head,.is-sticky-foot) { overflow: unset }
-table.is-sticky-head thead { position: sticky; inset-block-start: var(--sticky, .2rem); z-index: 2 }
-table.is-sticky-foot tfoot { position: sticky; inset-block-end: var(--sticky, .2rem); z-index: 1; background: var(--bgColor) }
-
-table.has-borders { border: var(--tableBorder) }
-table.has-borders th { border-radius: 0; border:0 }
-table.has-borders td:not(:last-of-type) { border-inline-end: var(--tableBorder) }
 
 /* ---------------------
   misc elements
