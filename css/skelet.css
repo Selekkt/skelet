@@ -69,6 +69,9 @@ color-scheme: light;
     --hrColor: var(--inputBorderColor);
     --hrGradient: light-dark(rgb(255 255 255 / 0), transparent);
 
+    --codeBg: light-dark(#F8F8F8, #111);
+    --codeColor: light-dark(var(--blue), var(--green));
+
 /** Structure */
     /* typography */
     --fontFallback: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, HelveticaNeue, "Helvetica Neue", "Helvetica", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -597,9 +600,9 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
 
     /* style */
     &.is-unset { all: unset }
-    &.is-link { --buttonBg: transparent; --buttonColor: currentColor; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: inherit; --buttonBorderWidth: 0; --buttonShadow: none }
-    &.is-blank { background: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
-    &.is-custom { --buttonBg: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
+    &.is-link { --buttonBg: transparent; --buttonBgHover: transparent; --buttonColor: currentColor; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: inherit; --buttonBorderWidth: 0; --buttonShadow: none }
+    &.is-blank { background: transparent; --buttonBgHover: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
+    &.is-custom { --buttonBg: transparent; --buttonBgHover: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
     &.is-outline { 
         background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg); --buttonShadow: none;
         &:where(:hover,:focus-visible) { background: var(--buttonBg); --buttonColor: var(--buttonColorHover) }
