@@ -44,7 +44,7 @@ color-scheme: light;
     --inputPlaceholderColor: hsl(from var(--color) h s 50%);
 
     --inputBorderColor: light-dark(#E1E1E1, #333);
-    --inputBorderHover: light-dark(hsl(from var(--inputBorderColor) h s 70%),hsl(from var(--inputBorderColor) h s 30%));
+    --inputBorderHover: light-dark(hsl(from var(--inputBorderColor) h s 70%), hsl(from var(--inputBorderColor) h s 30%));
     --inputBorderActive: var(--primary);
 
     --inputShadow: 0 0 0 0 rgb(0 0 0 / 0);
@@ -58,7 +58,7 @@ color-scheme: light;
 
     /* buttons */
     --buttonBg: var(--primary);
-    --buttonBgHover: var(--linkHover);
+    --buttonBgHover: hsl(from var(--primary) h s 60%);
     --buttonColor: #FFF;
     --buttonColorHover: var(--buttonColor);
 
@@ -493,47 +493,51 @@ kbd {
 
 /** Group inputs */
 x-stack {
-    --buttonMargin: auto; 
-    --buttonHeight: 100%; 
+    --buttonMargin: auto;
+    --buttonHeight: 100%;
     --buttonWeight: 400;
 
-    display: var(--stackDisplay, inline-flex); 
-    justify-content: var(--stackJc, center); 
-    align-items: var(--stackAi, center); 
+    display: var(--stackDisplay, inline-flex);
+    justify-content: var(--stackJc, center);
+    align-items: var(--stackAi, center);
     height: var(--stackHeight, inherit);
     width: var(--stackWidth, inherit);
     overflow: var(--stackOverflow, initial);
+
+    &[presuffix] {
+        --buttonColor: currentColor;
+        background: var(--inputBg);
+        color: var(--inputColor);
+        border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
+        border-radius: var(--inputRadius);
+        margin: var(--inputMargin);
+        width: var(--inputWidth, auto);
+        max-width: 100%;
+
+        &:hover { background: var(--inputBgHover); color: var(--inputColorHover); border-color: var(--inputBorderHover) }
+
+        &:focus-within {
+            background-color: var(--inputBgActive);
+            color: var(--inputColorActive);
+            border-color: var(--inputBorderActive, inherit);
+
+            body:not(.a11y-inputs-off) & { outline: var(--a11yOutline); outline-offset: var(--a11yOffset) }
+        }
+
+        :is(input, button, select) { padding: var(--inputPadding); margin: 0!important; font-size: var(--stackFontSize, inherit) }
+
+        & > label { white-space: nowrap; font-weight: normal; margin: 0 }
+        & > *:first-child { border: 0; padding-inline-start: var(--buttonPadding) }
+        & > *:last-child { border: 0; padding-inline-end: var(--buttonPadding) }
+    }
+
+    &[no-style] {
+        :is(input, button, stack) { border: 0; margin: 0; height: auto; background: none!important; color: currentColor; font-size: var(--stackFontSize, inherit) }
+        input:is(:hover, :focus-visible, :active) { border: none }
+    }
+
+    &:is([no-style], [presuffix]) input:focus-visible { box-shadow: none; outline: none!important; border: none!important }
 }
-
-x-stack[presuffix] {
-    --buttonColor: currentColor;
-
-    background: var(--inputBg);
-    color: var(--inputColor);
-    border: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
-    border-radius: var(--inputRadius);
-    margin: var(--inputMargin);
-    width: var(--inputWidth, auto);
-    max-width: 100%;
-}
-
-x-stack[presuffix]:hover { background: var(--inputBgHover); color: var(--inputColorHover); border-color: var(--inputBorderHover) }
-x-stack[presuffix]:focus-within {
-    background-color: var(--inputBgActive);
-    color: var(--inputColorActive);
-    border-color: var(--inputBorderActive, inherit);
-}
-
-body:not(.a11y-inputs-off) x-stack[presuffix]:focus-within { outline: var(--a11yOutline); outline-offset: var(--a11yOffset) }
-
-x-stack[presuffix] :is(input,button) { padding: var(--inputPadding); margin: 0!important; font-size: var(--stackFontSize, inherit) }
-x-stack[presuffix] > label { white-space: nowrap; font-weight: normal; margin: 0 }
-x-stack[presuffix] > *:first-child { border: 0; padding-inline-start: var(--buttonPadding) }
-x-stack[presuffix] > *:last-child { border: 0; padding-inline-end: var(--buttonPadding) }
-
-x-stack[no-style] :is(input,button) { border: 0; margin: 0; height: auto; background: none!important; color: currentColor; font-size: var(--stackFontSize, inherit) }
-x-stack[no-style] input:is(:hover,:focus-visible,:active) { border: none }
-x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outline: none!important; border: none!important }
 
 /* ------------------
   buttons
@@ -577,10 +581,10 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
 
     /* size */
     &.is-small { --buttonSize: min(0.75em, 1.4rem) }
-    &.is-large { --buttonSize:1.45em }
+    &.is-large { --buttonSize: 1.3em; --buttonPadding: 0.5em 0.9em }
 
     /* shape */
-    &.is-pill { --buttonRadius:100vw }
+    &.is-pill { --buttonRadius: 100vw }
     &.is-circle { 
         --buttonRadius: 100vw; aspect-ratio: 1 / 1; 
         &:not(.has-icon) { padding: 1em; width: 1em; height: 1em }
@@ -588,15 +592,15 @@ x-stack:is([no-style],[presuffix]) input:focus-visible { box-shadow: none; outli
     &.is-square { --buttonRadius:0 }
 
     /* colors */
-    &.is-white { --buttonBg: var(--white); --buttonColor: var(--black); --buttonColorHover: var(--black) }
-    &.is-black { --buttonBg: var(--black); --buttonColor: var(--white); --buttonColorHover: var(--white) }
-    &.is-primary { --buttonBg: var(--primary); }
-    &.is-blue { --buttonBg: var(--blue); --buttonColor: var(--white); --buttonColorHover: var(--white) }
-    &.is-green { --buttonBg: var(--green); --buttonColor: var(--black); --buttonColorHover: var(--black) }
-    &.is-yellow { --buttonBg: var(--yellow); --buttonColor: var(--black); --buttonColorHover: var(--black) }
-    &.is-red { --buttonBg: var(--red); --buttonColor: var(--black); --buttonColorHover: var(--black) }
-    &.is-orange { --buttonBg: var(--orange); --buttonColor: var(--black); --buttonColorHover: var(--black) }
-    &.is-purple { --buttonBg: var(--purple); --buttonColor: var(--black); --buttonColorHover: var(--black) }
+    &.is-white { --buttonBg: var(--white); --buttonBgHover: var(--buttonBg); --buttonColor: var(--black); --buttonColorHover: var(--black) }
+    &.is-black { --buttonBg: var(--black); --buttonBgHover: var(--buttonBg); --buttonColor: var(--white); --buttonColorHover: var(--white) }
+    &.is-primary { --buttonBg: var(--primary); --buttonBgHover: var(--buttonBg); }
+    &.is-blue { --buttonBg: var(--blue); --buttonBgHover: var(--buttonBg); --buttonColor: var(--white); --buttonColorHover: var(--white) }
+    &.is-green { --buttonBg: var(--green); --buttonBgHover: var(--buttonBg); --buttonColor: var(--black); --buttonColorHover: var(--black) }
+    &.is-yellow { --buttonBg: var(--yellow); --buttonBgHover: var(--buttonBg); --buttonColor: var(--black); --buttonColorHover: var(--black) }
+    &.is-red { --buttonBg: var(--red); --buttonBgHover: var(--buttonBg); --buttonColor: var(--black); --buttonColorHover: var(--black) }
+    &.is-orange { --buttonBg: var(--orange); --buttonBgHover: var(--buttonBg); --buttonColor: var(--black); --buttonColorHover: var(--black) }
+    &.is-purple { --buttonBg: var(--purple); --buttonBgHover: var(--buttonBg); --buttonColor: var(--black); --buttonColorHover: var(--black) }
 
     /* style */
     &.is-unset { all: unset }
