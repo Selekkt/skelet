@@ -916,7 +916,10 @@
                   <button class="text-uppercase">button text-uppercase</button>
                   <button class="text-lowercase">button text-lowercase</button>
                   <hr>
+                  <button class="is-link">button is-link</button>
                   <button class="is-blank">button is-blank</button>
+                  <button class="is-custom">button is-custom</button>
+                  <button class="is-unset">button is-unset</button>
                   <button class="is-outline">button is-outline</button>
                   <button class="is-square">button is-square</button>
                   <button class="is-pill">button is-pill</button>
@@ -1016,6 +1019,17 @@ x-stack.my-style:focus-within { background: var(--inputBg); border-color: var(--
         <span>/skelet/v3</span>
     </x-stack>
     <code>x-stack presuffix</code>
+<br>
+    <x-stack no-style presuffix>
+        <label for="full-url">https://</label>
+        <input type="url" placeholder="subdomain" class="is-blank">
+        <select placeholder="Select" aria-label="Select a subdomain" class="is-blank">
+          <option>.example.com</option>
+          <option>.example.net</option>
+        </select>
+        <button>GO</button>
+    </x-stack>
+    <code>x-stack no-style presuffix</code>
 <br>
     <x-stack no-style presuffix>
         <label for="full-url">https://</label>
