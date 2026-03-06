@@ -571,7 +571,7 @@ x-stack {
     user-select: none;
 
     /* Hover state */
-    &:where(:hover,:focus-visible) { background: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
+    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBg); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
 
     /* attribute */
     &.has-icon { 
@@ -1035,7 +1035,8 @@ table {
     --barHeight: var(--space-2);
     --barBg: light-dark(#F8F8F8, #181818);
     --barRadius: var(--radiusFull);
-    appearance: none;
+    -webkit-appearance: none;
+            appearance: none;
     border: none;
     overflow: hidden;
     width: 100%;
