@@ -165,6 +165,7 @@
             </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
+
           <article id="text__tables">
             <header><h1>Tabular data</h1></header>
             <table>
@@ -218,7 +219,7 @@
                 </tr>
               </tbody>
             </table>
-
+<hr>
             <h3>Sticky head</h3>
             <p>If sticky head or foot is active the table will overflow on smaller screens.</p>
             <br>
@@ -315,8 +316,108 @@
                 </tbody>
               </table>
 
-            <h3>No head</h3>
+<hr>
 
+<div class="table-container">
+            <h3>Inside Container</h3>
+            <code>is-sticky-head is-striped is-hover has-borders</code>
+            <br>
+              <table class="is-sticky-head is-striped is-hover has-borders">
+                <thead>
+                  <tr>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                </tbody>
+              </table>
+</div>
+
+<hr>
+            <h3>No head</h3>
             <table>
               <tbody>
                 <tr>
@@ -349,9 +450,8 @@
                 </tr>
               </tbody>
             </table>
-
+<hr>
             <h3>No foot</h3>            
-
             <p>
             <table>
               <thead>
@@ -380,9 +480,8 @@
               </tbody>
             </table>
           </p>
-
+<hr>
             <h3>is-striped</h3>            
-
             <p>
             <table class="is-striped">
               <thead>
@@ -421,9 +520,8 @@
               </tbody>
             </table>
           </p>
-
-            <h3>is-hover</h3>            
-
+<hr>
+            <h3>is-hover</h3>        
             <p>
             <table class="is-hover">
               <thead>
@@ -452,12 +550,12 @@
               </tbody>
             </table>
           </p>
-
-            <h3>Column borders</h3>            
+<hr>
+            <h3>Borders</h3>
+            <code>has-borders</code>
 
             <p>
             <table class="has-borders">
-              <tbody>
               <thead>
                 <tr>
                   <th>First name</th>
@@ -465,6 +563,105 @@
                   <th>Email</th>
                 </tr>
               </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+<hr>
+            <h3>Column borders</h3>
+            <code>borders-inline</code> 
+            <p>
+            <table class="borders-inline">
+
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+<hr>
+            <h3>No borders</h3>
+            <code>borders-none</code> 
+            <p>
+            <table class="borders-none">
+
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+<hr>
+            <h3>Compact</h3>
+            <code>compact borders-inline</code> 
+            <p>
+            <table class="compact borders-inline">
+
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
                 <tr>
                   <td>John</td>
                   <td>Dorothy</td>

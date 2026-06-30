@@ -532,7 +532,7 @@ x-stack {
     }
 
     &[no-style] {
-        :is(input, button, stack) { border: 0; margin: 0; height: auto; background: none!important; color: currentColor; font-size: var(--stackFontSize, inherit) }
+        :is(input, button, stack) { border: 0; margin: 0; height: auto; background: none!important; color: currentColor; font-size: var(--stackFontSize, inherit); box-shadow: none!important }
         input:is(:hover, :focus-visible, :active) { border: none }
     }
 
@@ -571,7 +571,7 @@ x-stack {
     user-select: none;
 
     /* Hover state */
-    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBg); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
+    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
 
     /* attribute */
     &.has-icon { 
@@ -718,7 +718,7 @@ textarea {
 }
 
 label, legend { display: inline-flex; gap: 0.7rem; font-weight: var(--labelWeight, 600); align-items: center; color: var(--labelColor, currentColor) }
-fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--fieldsetRadius, var(--inputRadius)) }
+fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--fieldsetRadius, var(--inputRadius)); &.no-style { border: none } }
 legend { padding: var(--space-2); line-height: 1 }
 option { padding: var(--space-1); color: var(--inputColor) }
 
@@ -738,52 +738,68 @@ select:not([multiple]) {
 
 [dir="rtl"] select { padding-inline-start: 5.3rem }
 
-/** Radio checkbox switch */
-input:where([type="checkbox"],[type="radio"]):not([type="switch"]) {
+/** Radio / Checkbox / Switch */
+:where(html) {
+    --checkSize: var(--inputHeight);
+    --checkBg: var(--inputBg);
+    --checkBorderColor: var(--inputBorderColor);
+    --checkRadius: 0.3rem;
+    --checkActiveColor: var(--inputActive);
+    --checkInnerColor: var(--inputActiveInner);
+    --checkTransitionOpacity: 0.2s ease;
+    --checkTransitionTransform: 0.3s ease-in-out;
+
+    --radioDotSize: calc(var(--checkSize) * 0.45);
+
+    --switchWidth: calc(var(--checkSize) * 1.75);
+    --switchThumbSize: 1.5rem;
+    --switchThumbOffset: var(--space-1);
+    --switchThumbBg: var(--primary);
+    --switchThumbTravel: 1.7rem;
+}
+
+input:where([type="checkbox"], [type="radio"]) {
     -webkit-appearance: none;
     appearance: none;
-    height: var(--inputHeight);
-    width: var(--inputHeight);
-    aspect-ratio: 1 / 1;
-    outline: none;
-    display: inline-block;
-    vertical-align: top;
+    display: inline-grid;
+    place-items: center;
     position: relative;
+    height: var(--checkSize);
+    width: var(--checkSize);
+    aspect-ratio: 1;
+    vertical-align: top;
     margin: 0;
     cursor: pointer;
-    border: 1px solid var(--bc, var(--inputBorderColor));
-    border-radius: var(--br, var(--inputRadius));
-    background: var(--b, var(--inputBgColor));
+    border: 1px solid var(--checkBorderColor);
+    border-radius: var(--checkRadius);
+    background: var(--checkBg);
+    outline: none;
 
     &::after {
         content: "";
-        display: block;
-        position: absolute;
-        inset: 0.15rem;
-        transition: opacity var(--d-o, 0.2s), transform var(--d-t, 0.3s) var(--d-t-e, ease);
+        transition: opacity var(--checkTransitionOpacity),
+                    transform var(--checkTransitionTransform);
     }
 
     &:checked {
-        --b: var(--inputActive);
-        --bc: var(--inputActive);
-        --d-o: 100ms;
-        --d-t: 250ms;
-        --d-t-e: ease-in-out;
+        background: var(--checkActiveColor);
+        border-color: var(--checkActiveColor);
     }
 
-    /* Disabled */
-    &:disabled { filter: grayscale(100%); cursor: not-allowed; opacity: .7; 
+    &:hover:not(:checked):not(:disabled) { border-color: var(--inputBorderHover) }
+    &:focus-visible { box-shadow: 0 0 0 2px var(--inputFocus) }
+
+    &:disabled {
+        filter: grayscale(100%);
+        opacity: 0.7;
+        cursor: not-allowed;
         &:checked { filter: grayscale(100%) }
         & + label { cursor: not-allowed }
     }
 
-    /* Hover */
-    &:hover:not(:checked):not(:disabled) { border-color: var(--bcHover, var(--inputBorderHover)) }
-
-    /* Label */
     & + label {
         display: inline-block;
-        line-height: var(--inputHeight);
+        line-height: var(--checkSize);
         vertical-align: top;
         cursor: pointer;
         margin-inline-start: var(--space-1);
@@ -791,57 +807,63 @@ input:where([type="checkbox"],[type="radio"]):not([type="switch"]) {
     }
 }
 
-input:where([type="checkbox"],[type="radio"]):focus-visible { box-shadow: 0 0 0 2px var(--inputFocus) }  
-input:where([type="checkbox"],[type="radio"]):not([role="switch"])::after { opacity: var(--o, 0) }  
-input:where([type="checkbox"],[type="radio"]):not([role="switch"]):checked { --o: 1 }
-  
-input[type="checkbox"]:not([role="switch"]) { 
-    --br: 0.3rem; 
+/* Checkbox */
+input[type="checkbox"]:not([role="switch"]) {
     &::after {
+        opacity: 0;
         width: 0.6rem;
         height: 1rem;
-        border: 1px solid var(--inputActiveInner);
+        border: 1px solid var(--checkInnerColor);
         border-block-start: 0;
         border-inline-start: 0;
-        left: 0.8rem;
-        top: 0.45rem;
         transform: rotate(43deg);
+    }
+
+    &:checked::after { opacity: 1 }
+}
+
+/* Radio */
+input[type="radio"] {
+    --checkRadius: var(--radiusFull);
+
+    &::after {
+        width: var(--radioDotSize);
+        height: var(--radioDotSize);
+        opacity: 0;
+        border-radius: var(--radiusFull);
+        background: var(--checkInnerColor);
+        transform: scale(0.7);
+    }
+
+    &:checked::after {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 /* Switch */
-input[type="checkbox"][role="switch"] { 
-    width: 4rem; border-radius: 100vw; 
+input[type="checkbox"][role="switch"] {
+    width: var(--switchWidth);
+    --checkRadius: var(--radiusFull);
 
     &::after {
-        left: 0.3rem;
-        top: 0.3rem;
-        border-radius: 100vw;
-        width: 1.5rem;
-        height: 1.5rem;
-        background: var(--ab, var(--primary));
-        transform: translateX(var(--x, 0));
+        position: absolute;
+        opacity: 1;
+        inset-inline-start: var(--switchThumbOffset);
+        inset-block-start: var(--switchThumbOffset);
+        border-radius: var(--radiusFull);
+        width: var(--switchThumbSize);
+        height: var(--switchThumbSize);
+        background: var(--switchThumbBg);
+        transform: translateX(0);
     }
 
-    /* states */
-    &:checked { --ab: var(--inputActiveInner); --x: 1.7rem }
-    &:disabled:not(:checked)::after { opacity: .7 }
-}
-
-/* Radio */
-input[type="radio"] { 
-    border-radius: 100vw; 
-
-    &::after {
-        width: 1.9rem;
-        height: 1.9rem;
-        border-radius: 100vw;
-        background: var(--inputActiveInner);
-        transform: scale(var(--s, 0.7));
+    &:checked::after {
+        background: var(--checkInnerColor);
+        transform: translateX(var(--switchThumbTravel));
     }
 
-    /* state  */
-    &:checked { --s: 0.5 }
+    &:disabled:not(:checked)::after { opacity: 0.7 }
 }
 
 /**** 
@@ -896,16 +918,16 @@ input[type="radio"] {
     position: relative;
 }
  
-.toggle-token label:where(:hover,:focus-visible,:focus-within),
-.toggle-token input:where([type="radio"],[type="checkbox"]):is(:hover,:focus-visible) + label { 
+.toggle-token label:is(:hover,:has(:focus-visible)),
+.toggle-token input:where([type="radio"],[type="checkbox"]):is(:hover,:focus-visible) + label {
     background: var(--tokenBgHover); 
     color: var(--tokenColorHover); 
     border-color: var(--tokenBorderHover);
     text-decoration: var(--tokenDecorationHover);
 }
 
-.toggle-token label:where(:focus-visible,:focus-within),
-.toggle-token input:where([type="radio"],[type="checkbox"]):focus-visible + label { 
+.toggle-token label:has(:focus-visible),
+.toggle-token input:where([type="radio"],[type="checkbox"]):focus-visible + label {
     outline: var(--a11yOutline); 
     outline-offset: var(--a11yOffset) 
 }
@@ -930,9 +952,9 @@ input[type="radio"] {
 /* ------------------
   lists
 ------------------ */
-:where(ul,ol) { padding-inline-start: 0; margin-block-start: 0 }
+:where(ul,ol) { padding-inline-start: var(--space-3); margin-block-start: 0 }
 :where(ul ul, ul ol, ol ol, ol ul) { margin: 1.5rem 0 1.5rem 3rem; font-size: 100% }
-li { margin-block-end: var(--liMargin, var(--margin)) }
+li { margin-block-end: var(--liMargin, var(--space-1)) }
 :where(ul,ol).inline li { display: inline-block; list-style: none; margin: 0; padding: 0 }
 :where(ul,ol).no-style { list-style: none; margin: 0; padding: 0 }
 :where(ul,ol).no-style :where(ul,ol) { list-style: none }
@@ -965,66 +987,162 @@ hr.gradient { background-color: transparent; background-image: linear-gradient(t
   tables
 ------------------ */
 :where(html) {
-    --tableColor: var(--color);
     --tableBg: var(--inputBg);
+    --tableColor: var(--color);
     --tableStrip: var(--inputBg);
-    --tableBorderColor: var(--inputBorderColor);
 
-    --tablePadding: var(--inputPadding);
-    --tableMargin: var(--margin);
-    --tableMinWidth: 10rem;
+    --tableBorderColor: var(--inputBorderColor);
     --tableBorderWidth: var(--inputBorderWidth);
     --tableBorderStyle: var(--inputBorderStyle);
-    --tableBorder: var(--tableBorderWidth) var(--tableBorderStyle) var(--tableBorderColor);
+    --tableRadius: var(--space-2);
+
+    --tablePaddingBlock: var(--space-2);
+    --tablePaddingInline: var(--space-3);
+    --tablePadding: var(--tablePaddingBlock) var(--tablePaddingInline);
+
+    --tableMargin: var(--space-2);
+
+    --tableMinWidth: 10cqi;
+    --tableHeadWeight: 600;
+
+    --tableTextTransform: none;
+    --tableCaptionSide: start;
+    --tableCaptionAlign: center;
+    --tableStickyOffset: var(--space-2);
+}
+
+.table-container {
+    container: table / inline-size;
+    overflow-x: auto;
+    margin: var(--tableMargin);
+
+    &:has(.is-sticky-head, .is-sticky-foot) { overflow: visible }
+
+    &.is-scrollable {
+        overflow-x: auto;
+        table { width: max-content; min-width: 100% }
+    }
 }
 
 table {
-    overflow-x: auto;
+    --_tableBorder: var(
+        --tableBorder,
+        var(--tableBorderWidth, 1px)
+        var(--tableBorderStyle, solid)
+        var(--tableBorderColor, #e2e2e2)
+    );
+
+    width: var(--tableWidth, 100%);
+    border-collapse: separate;
     border-spacing: 0;
     font-size: var(--tableSize, var(--fontSize));
     margin: var(--tableMargin);
 
-    caption { margin: var(--tableMargin) }
-    tr {
-        td { padding: var(--tablePadding); min-width: var(--tableMinWidth); vertical-align: middle; border-block-end: var(--tableBorder) }
-        &:last-child td { border-block-end: 0 }
+    caption {
+        padding-block: var(--tablePaddingBlock);
+        caption-side: var(--tableCaptionSide);
+        text-align: var(--tableCaptionAlign);
     }
 
-    th {
-        position: relative;
-        color: var(--tableColor);
-        text-transform: var(--tableTextTransform);
-        padding: var(--tablePadding);
-        text-align: start;
+    /* ---- base cells ---- */
+    :where(td, th) {
+        min-width: var(--tableMinWidth, none);
         vertical-align: middle;
-        border-block-start: var(--tableBorder);
-        border-block-end: var(--tableBorder);
-        overflow: hidden;
-        font-weight: 400
+        text-align: start;
+        padding: var(--tablePadding);
+        border-block-end: var(--_tableBorder);
     }
 
-    &:not(.has-borders) thead th { 
-        background: var(--tableBg); 
-        &:first-child { border-radius: var(--radius) 0 0 var(--radius); border-inline-start: var(--tableBorder) }
-        &:last-child { border-radius: 0 var(--radius) var(--radius) 0; border-inline-end: var(--tableBorder) }
+    &:not(:has(tfoot)) > tbody > tr:last-child > :where(td, th) { border-block-end: none }
+
+    & > tfoot > tr:last-child > :where(td, th) { border-block-end: none }
+
+    &:not(.has-borders, .borders-inline, .is-hover, .is-striped) :where(tbody, tfoot) tr > :where(td, th) {
+        &:first-child { padding-inline-start: 0 }
+        &:last-child { padding-inline-end: 0 }
     }
 
-    &.is-striped {
-        tr { border:0 }
-        tbody tr:nth-child(2n) td { background: var(--tableStrip); }
+    :where(th) {
+        position: relative;
+        color: var(--tableColor, inherit);
+        font-weight: var(--tableHeadWeight);
+        text-transform: var(--tableTextTransform, none);
     }
 
-    &.is-hover tbody tr:hover { background: var(--tableBg); border-radius: var(--radius) }
+    /* ---- default look: pill-shaped header row ---- */
+    &:not(.has-borders) thead th {
+        background: var(--tableBg);
+        border-block: var(--_tableBorder);
 
-    &:where(.is-sticky-head,.is-sticky-foot) { overflow: unset }
-    &.is-sticky-head thead { position: sticky; inset-block-start: var(--sticky, .2rem); z-index: 2 }
-    &.is-sticky-foot tfoot { position: sticky; inset-block-end: var(--sticky, .2rem); z-index: 1; background: var(--bgColor) }
+        &:first-child {
+            border-start-start-radius: var(--tableRadius);
+            border-end-start-radius: var(--tableRadius);
+            border-inline-start: var(--_tableBorder);
+        }
 
-    &.has-borders { 
-        border: var(--tableBorder); 
-        thead th { border-block-end: var(--tableBorder) }
-        th { border-radius: 0; border:0 }
-        td:not(:last-of-type) { border-inline-end: var(--tableBorder) }
+        &:last-child {
+            border-start-end-radius: var(--tableRadius);
+            border-end-end-radius: var(--tableRadius);
+            border-inline-end: var(--_tableBorder);
+        }
+    }
+
+    /* ---- modifiers ---- */
+    &.is-striped tbody {
+        td { border-block-end: none }
+        tr:nth-child(even) td { background: var(--tableStrip) }
+    }
+
+    &.is-hover tbody tr:hover > td { background: var(--tableBg) }
+    &.is-striped.is-hover tbody:hover tr:nth-child(even):not(:hover) > td { background: color-mix(in srgb, var(--tableBg) 50%, transparent) }
+
+    /* sticky on the cells, not on <thead>/<tfoot> */
+    &.is-sticky-head thead th {
+        position: sticky;
+        inset-block-start: var(--tableStickyOffset);
+        z-index: 2;
+    }
+
+    &.is-sticky-foot tfoot :where(td, th) {
+        position: sticky;
+        inset-block-end: var(--tableStickyOffset);
+        z-index: 1;
+        background: var(--bgColor);
+    }
+
+    &.has-borders {
+        border: var(--_tableBorder);
+        border-radius: var(--tableRadius);
+        overflow: clip;
+
+        thead th {
+            background: var(--tableBg);
+            border-block-end: var(--_tableBorder);
+        }
+
+        :where(td, th):not(:last-child) {
+            border-inline-end: var(--_tableBorder);
+        }
+    }
+
+    &.borders-none :where(td, th) { border: none }
+    &.borders-inline :where(td, th):not(:last-child) { border-inline-end: var(--_tableBorder) }
+    &.borders-block :where(td, th) { border-block-end: var(--_tableBorder) }
+
+    &.compact {
+        --tablePaddingBlock: var(--space-1);
+        --tablePaddingInline: var(--space-2);
+        --tablePadding: var(--tablePaddingBlock) var(--tablePaddingInline);
+    }
+}
+
+/* ---- container-query hook: compact density on narrow containers ---- */
+@container table (inline-size < 500px) {
+    table {
+        --tablePaddingBlock: var(--space-1);
+        --tablePaddingInline: var(--space-2);
+        --tablePadding: var(--tablePaddingBlock) var(--tablePaddingInline);
+        max-width: 100cqi;
     }
 }
 
