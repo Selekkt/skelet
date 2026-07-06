@@ -94,7 +94,7 @@ color-scheme: light;
     --fontStyle: normal;
 
     /* Space System */
-    --space-0: 0rem;
+    --space-0: 0px;
     --space-1: 0.4rem; /* 4px */
     --space-2: 0.8rem; /* 8px */
     --space-3: 1.2rem; /* 12px */
