@@ -8,52 +8,17 @@
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="../css/skelet.css">
-<style>
-[popover].dialog {
-    /* Backdrop */
-    --popBackdropBg: rgb(255 255 255 / 0.5);
-    --popBackdropBlur: blur(3px);
-    --popBackdropAnimationIn: fadeIn 1s ease forwards;
-    --popBackdropAnimationOut: fadeOut 1s ease forwards;
+    <link rel="stylesheet" href="../css/skelet-overlay.css">
+    <!--
+        [popover] alone (no .dialog) only wires the open/close fade+scale
+        transition — no box styling — so it stays usable as a base for a
+        future tooltip-style popover skin.
 
-    min-width: var(--popMinW, 350px);
-    max-width: var(--popMaxW, 100%);
-    width: var(--popW, fit-content);
-    min-height: var(--popMinH);
-    max-height: var(--popMaxH, 100%);
-    height: var(--popH, fit-content);
-    margin: var(--popMargin, auto);
-    padding: var(--popPadding, var(--padding));
-    border: var(--popBorder, none);
-    border-radius: var(--popRadius, var(--radius));
-    background: var(--popBg, var(--bgColor));
-    color: var(--popColor, var(--color));
-
-    transition: opacity 0.25s, scale 0.25s, overlay 0.25s allow-discrete, display 0.25s allow-discrete;
-    opacity: 0;
-    scale: .5;
-    transform-origin: center;
-
-    &:popover-open {
-        opacity: 1; 
-        scale: 1;
-    }
-
-    @starting-style {
-        &:popover-open {
-          opacity: 0;
-          scale: .5;
-      }
-    }
-
-    &::backdrop {
-        background: var(--popBackdropBg);
-        backdrop-filter: var(--popBackdropBlur);
-        animation: var(--popBackdropAnimationIn);
-    }
-
-}
-</style>
+        [popover].dialog layers the modal-box look (sizing, padding,
+        border, background, backdrop) on top; that's what these examples
+        use below. Both are provided by core skelet.css now — no
+        page-level overrides needed.
+    -->
 
 </head>
 <body class="a11y" style="padding:2rem">

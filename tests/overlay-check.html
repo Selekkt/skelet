@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>overlay check</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+	<link rel="stylesheet" href="../css/skelet.css">
+    <link rel="stylesheet" href="../css/skelet-overlay.css">
+</head>
+<body style="padding:2rem">
+
+<h1>Dialog / Popover check</h1>
+
+<button id="open-modal">Open modal dialog</button>
+<button id="open-nonmodal">Open non-modal dialog</button>
+<button popovertarget="pop1">Open popover (auto)</button>
+<button id="open-modal-anim" class="">Open animated modal</button>
+
+<dialog id="modal">
+    <h2>Modal dialog</h2>
+    <p>Styled purely by core skelet.css, no page overrides.</p>
+    <form method="dialog"><button>Close</button></form>
+</dialog>
+
+<dialog id="nonmodal">
+    <h2>Non-modal dialog</h2>
+    <p>Opened via .show(), should be centered near top, not covering everything.</p>
+    <button id="close-nonmodal">Close</button>
+</dialog>
+
+<dialog id="modal-anim" class="is-animated">
+    <h2>Animated modal</h2>
+    <p>Should fade/scale in via @starting-style.</p>
+    <form method="dialog"><button>Close</button></form>
+</dialog>
+
+<div id="pop1" popover="auto" class="dialog">
+    <h2>Popover</h2>
+    <p>Native Popover API, styled by core skelet.css. Uses class="dialog" for the modal-box skin — bare [popover] only wires the transition, reserved for a future tooltip-style skin.</p>
+    <button popovertarget="pop1" popovertargetaction="hide">Close</button>
+</div>
+
+<h2>Positioned dialogs</h2>
+<button id="open-pos-top-left">top-left</button>
+<button id="open-pos-top">top</button>
+<button id="open-pos-top-right">top-right</button>
+<button id="open-pos-left">left</button>
+<button id="open-pos-right">right</button>
+<button id="open-pos-bottom-left">bottom-left</button>
+<button id="open-pos-bottom">bottom</button>
+<button id="open-pos-bottom-right">bottom-right</button>
+<button id="open-pos-nonmodal-bottom-right">non-modal bottom-right</button>
+
+<dialog id="pos-top-left" position="top left" class="is-animated"><h2>top-left</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-top" position="top" class="is-animated"><h2>top</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-top-right" position="top right" class="is-animated"><h2>top-right</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-left" position="left" class="is-animated"><h2>left</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-right" position="right" class="is-animated"><h2>right</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-bottom-left" position="bottom left" class="is-animated"><h2>bottom-left</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-bottom" position="bottom" class="is-animated"><h2>bottom</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-bottom-right" position="bottom right" class="is-animated"><h2>bottom-right</h2><form method="dialog"><button>Close</button></form></dialog>
+<dialog id="pos-nonmodal-bottom-right" position="bottom right"><h2>non-modal bottom-right</h2><button id="close-pos-nonmodal-bottom-right">Close</button></dialog>
+
+<h2>Positioned popovers</h2>
+<button popovertarget="pop-pos-top-left">top-left</button>
+<button popovertarget="pop-pos-top">top</button>
+<button popovertarget="pop-pos-top-right">top-right</button>
+<button popovertarget="pop-pos-bottom-left">bottom-left</button>
+<button popovertarget="pop-pos-bottom">bottom</button>
+<button popovertarget="pop-pos-bottom-right">bottom-right</button>
+
+<div id="pop-pos-top-left" popover="auto" class="dialog" position="top left"><h2>top-left</h2><button popovertarget="pop-pos-top-left" popovertargetaction="hide">Close</button></div>
+<div id="pop-pos-top" popover="auto" class="dialog" position="top"><h2>top</h2><button popovertarget="pop-pos-top" popovertargetaction="hide">Close</button></div>
+<div id="pop-pos-top-right" popover="auto" class="dialog" position="top right"><h2>top-right</h2><button popovertarget="pop-pos-top-right" popovertargetaction="hide">Close</button></div>
+<div id="pop-pos-bottom-left" popover="auto" class="dialog" position="bottom left"><h2>bottom-left</h2><button popovertarget="pop-pos-bottom-left" popovertargetaction="hide">Close</button></div>
+<div id="pop-pos-bottom" popover="auto" class="dialog" position="bottom"><h2>bottom</h2><button popovertarget="pop-pos-bottom" popovertargetaction="hide">Close</button></div>
+<div id="pop-pos-bottom-right" popover="auto" class="dialog" position="bottom right"><h2>bottom-right</h2><button popovertarget="pop-pos-bottom-right" popovertargetaction="hide">Close</button></div>
+
+<script>
+document.getElementById('open-modal').onclick = () => document.getElementById('modal').showModal();
+document.getElementById('open-nonmodal').onclick = () => document.getElementById('nonmodal').show();
+document.getElementById('close-nonmodal').onclick = () => document.getElementById('nonmodal').close();
+document.getElementById('open-modal-anim').onclick = () => document.getElementById('modal-anim').showModal();
+
+['top-left', 'top', 'top-right', 'left', 'right', 'bottom-left', 'bottom', 'bottom-right'].forEach((pos) => {
+    document.getElementById(`open-pos-${pos}`).onclick = () => document.getElementById(`pos-${pos}`).showModal();
+});
+document.getElementById('open-pos-nonmodal-bottom-right').onclick = () => document.getElementById('pos-nonmodal-bottom-right').show();
+document.getElementById('close-pos-nonmodal-bottom-right').onclick = () => document.getElementById('pos-nonmodal-bottom-right').close();
+</script>
+
+</body>
+</html>
