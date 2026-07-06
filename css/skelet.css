@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.6.1 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.7.0 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
     variables
@@ -20,6 +20,12 @@ color-scheme: light;
     --light: #EFEFEF;
     --dark: #181818;
     --shadow: light-dark(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.35));
+
+    /* semantic state (remap independently of the brand swatches above) */
+    --colorSuccess: var(--green);
+    --colorWarning: var(--orange);
+    --colorDanger: var(--red);
+    --colorInfo: var(--blue);
 
     --linkColor: var(--primary);
     --linkHover: light-dark(hsl(from var(--primary) h s 65%), hsl(from var(--primary) h s 75%));
@@ -68,9 +74,6 @@ color-scheme: light;
 
     --hrColor: var(--inputBorderColor);
     --hrGradient: light-dark(rgb(255 255 255 / 0), transparent);
-
-    --codeBg: light-dark(#F8F8F8, #111);
-    --codeColor: light-dark(var(--blue), var(--green));
 
 /** Structure */
     /* typography */
@@ -322,7 +325,8 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 .a11y-custom *:focus-visible { box-shadow: var(--a11yStyle) var(--a11yColor); outline: var(--a11yOutline); outline-offset: var(--a11yOffset); z-index: 1 }
 
 .visibility-hidden { visibility: hidden }
-.sr-only, .visually-hidden, .visually-hidden-focus:not(:focus-visible):not(:focus-within) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
+.sr-only, .visually-hidden, .visually-hidden-focus:not(:focus-visible):not(:focus-within),
+.toggle-token input:where([type="radio"],[type="checkbox"]) { position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; clip: rect(0,0,0,0)!important; white-space: nowrap!important; border: 0!important }
 .button.skipTo { position: fixed; z-index: 9999; inset-block-start: var(--padding); inset-inline-start: var(--padding) }
 
 /* if JS Active show el w/ .js -- if JS Disabled show el w/ .no-js -- if JS Disabled *hide* el /w .no-js-hidden */
@@ -360,19 +364,19 @@ kbd {
     min-width: 3rem;
 }
 
-.is-green:not(.is-custom):not(.is-blank) { border-color: var(--green)!important; --inputFocus: var(--green); --inputBorderColor: var(--green); --inputBorderHover: var(--green) }
-.is-red:not(.is-custom):not(.is-blank), input:not(:placeholder-shown):user-invalid,[aria-invalid="true"] { border-color: var(--red)!important; --inputFocus: var(--red); --inputBorderColor: var(--red); --inputBorderHover: var(--red) }
+.is-green:not(.is-custom):not(.is-blank) { border-color: var(--colorSuccess)!important; --inputFocus: var(--colorSuccess); --inputBorderColor: var(--colorSuccess); --inputBorderHover: var(--colorSuccess) }
+.is-red:not(.is-custom):not(.is-blank), input:not(:placeholder-shown):user-invalid,[aria-invalid="true"] { border-color: var(--colorDanger)!important; --inputFocus: var(--colorDanger); --inputBorderColor: var(--colorDanger); --inputBorderHover: var(--colorDanger) }
 
 /* Vertical and Horizontal align */
 .center-axyz { display: grid; place-items: center }
 .center-axyz.full { min-height: 100vh; width: 100% }
 @media (max-width: 777px) { .center-axyz-s { display: grid; place-items: center } .center-axyz-s.full-s  { min-height: 100vh; width: 100% } }
-@media (min-width: 1024px) { .center-axyz-m { display: grid; place-items: center } .center-axyz-m.full-m { min-height: 100vh; width: 100% } }
+@media (min-width: 778px) and (max-width: 1024px) { .center-axyz-m { display: grid; place-items: center } .center-axyz-m.full-m { min-height: 100vh; width: 100% } }
 
 .mob-scroller { display: flex; flex-wrap: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch }
 @media (max-width: 1024px) { .mob-scroller::-webkit-scrollbar { display:none } }
 
-@media (min-width: 1024px) { .small-medium { display: none!important } }
+@media (min-width: 778px) and (max-width: 1024px) { .small-medium { display: none!important } }
 @media (max-width: 1024px) { .medium-large { display: none!important } }
 
 @media (max-width: 777px) { .large-only  { display:none!important } }
@@ -381,7 +385,7 @@ kbd {
 
 .no-scrollbars { scrollbar-width:none } .no-scrollbars::-webkit-scrollbar { display:none }
 @media (max-width: 777px)  { .no-scrollbars-s { scrollbar-width:none } .no-scrollbars-s::-webkit-scrollbar { display: none } }
-@media (min-width: 1024px) { .no-scrollbars-m { scrollbar-width:none } .no-scrollbars-m::-webkit-scrollbar { display: none } }
+@media (min-width: 778px) and (max-width: 1024px) { .no-scrollbars-m { scrollbar-width:none } .no-scrollbars-m::-webkit-scrollbar { display: none } }
 
 /** Scroll snap */
 :where(html) {
@@ -893,7 +897,6 @@ input[type="checkbox"][role="switch"] {
 }
 
 .toggle-token, .toggle-token legend { all: unset }
-.toggle-token input:where([type="radio"],[type="checkbox"]) { clip: rect(0 0 0 0)!important; position: absolute!important; width: 1px!important; height: 1px!important; padding: 0!important; margin: -1px!important; overflow: hidden!important; white-space: nowrap!important; border: 0!important }
  
 .toggle-token legend { display: var(--tokenLegend, none) }
  
@@ -1163,19 +1166,19 @@ table {
     background: var(--barBg);
 
 /* progress */
-    &::-webkit-progress-bar { background-color: var(--muted); border-radius: var(--barRadius) }
+    &::-webkit-progress-bar { background-color: var(--muted, var(--barBg)); border-radius: var(--barRadius) }
     &::-webkit-progress-value { background-color: var(--primary); border-radius: var(--barRadius); transition: width var(--transition) }
     &::-moz-progress-bar { background-color: var(--primary); border-radius: var(--barRadius) }
 
 /* meter */
-    &::-webkit-meter-bar { background: var(--muted); border: none; border-radius: var(--barRadius); height: var(--barHeight) }
+    &::-webkit-meter-bar { background: var(--muted, var(--barBg)); border: none; border-radius: var(--barRadius); height: var(--barHeight) }
     &::-webkit-meter-optimum-value,&::-webkit-meter-suboptimum-value,&::-webkit-meter-even-less-good-value { border-radius: var(--barRadius) }
-    &::-webkit-meter-optimum-value { background: var(--green) }
-    &::-webkit-meter-suboptimum-value { background: var(--orange) }
-    &::-webkit-meter-even-less-good-value { background: var(--red) }
-    &::-moz-meter-bar { background: var(--green); border-radius: var(--barRadius) }
-    &:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--orange) }
-    &:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--red) }
+    &::-webkit-meter-optimum-value { background: var(--colorSuccess) }
+    &::-webkit-meter-suboptimum-value { background: var(--colorWarning) }
+    &::-webkit-meter-even-less-good-value { background: var(--colorDanger) }
+    &::-moz-meter-bar { background: var(--colorSuccess); border-radius: var(--barRadius) }
+    &:-moz-meter-sub-optimum::-moz-meter-bar { background: var(--colorWarning) }
+    &:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: var(--colorDanger) }
 }
 
 /* ------------------
