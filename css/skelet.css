@@ -81,8 +81,8 @@ color-scheme: light;
     --fontMono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --fontSerif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-    --fontFamily: "Inter", var(--fontFallback);
-    --fontFamilyVar: "Inter var", var(--fontFallback);
+    --fontFamily: "InterVariable", var(--fontFallback);
+    --fontFamilyVar: "InterVariable", var(--fontFallback);
     --hFontFamily: var(--fontFamily);
 
     --globalScale: 1.0;
@@ -2147,7 +2147,7 @@ table {
 .text-end { text-align: end }
 .text-justify { text-align: justify }
 .text-normal { font-weight: 400 }
-.text-bold { font-weight: 600 }
+.text-bold { font-weight: 700 }
 .text-nonecase { text-transform:none }
 .text-uppercase { text-transform:uppercase }
 .text-lowercase { text-transform:lowercase }
