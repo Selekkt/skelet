@@ -820,6 +820,7 @@
           <article id="embedded__dialog">
             <header><h2>Dialog</h2></header>
             <div>
+              <p><code>&lt;dialog&gt;</code> and <code>[popover]</code> styling lives in <code>skelet-overlay.css</code>, a separate add-on file — not part of core <code>skelet.css</code>. Load it alongside core if you use either element.</p>
               <button id="btn-dialog-modal">Open modal dialog</button>
               <button id="btn-dialog-modal-anim">Open animated modal dialog</button>
               <button id="btn-dialog-nonmodal">Open non-modal dialog</button>
@@ -887,6 +888,7 @@
           <article id="embedded__popover">
             <header><h2>Popover</h2></header>
             <div>
+              <p>Also styled by <code>skelet-overlay.css</code> (see the note under <a href="#embedded__dialog">Dialog</a> above).</p>
               <button popovertarget="popover-demo">Open popover</button>
 
               <div id="popover-demo" popover="auto" class="dialog">
@@ -1392,6 +1394,7 @@ x-stack.my-style:focus-within { background: var(--inputBg); border-color: var(--
 
            <div id="tooltips">
               <legend>Tooltips</legend>
+              <p><code>[data-tooltip]</code> styling lives in <code>skelet-tooltips.css</code>, a separate add-on file — not part of core <code>skelet.css</code>. Load it alongside core if you use tooltips.</p>
                   <fieldset>
                       <legend>Position</legend>
                       <button data-tooltip="ziooo" tooltip-pos="up">Up</button>
