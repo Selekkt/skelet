@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/skelet.css">
     <link rel="stylesheet" href="../css/skelet-tooltips.css">
+    <link rel="stylesheet" href="../css/skelet-overlay.css">
     <style>#top { max-width: 900px; margin: 0 auto; } article { margin-top: 5rem; }</style>
 
     <script>document.documentElement.className='js'</script>
@@ -52,6 +53,10 @@
                 <li><a href="#embedded__progress">Progress</a></li>
                 <li><a href="#embedded__svg">Inline SVG</a></li>
                 <li><a href="#embedded__iframe">IFrames</a></li>
+                <li><a href="#embedded__dialog">Dialog</a></li>
+                <li><a href="#embedded__dialog-position">Dialog positioning</a></li>
+                <li><a href="#embedded__popover">Popover</a></li>
+                <li><a href="#embedded__popover-position">Popover positioning</a></li>
               </ul>
             </li>
             <li>
@@ -63,7 +68,7 @@
                 <li><a href="#forms__checkbox">Radio buttons</a></li>
                 <li><a href="#forms__checkbox">Switch buttons</a></li>
                 <li><a href="#forms__checkbox">Toggle tokens</a></li>
-                <li><a href="#forms__textareas">Textareas</a></li>
+                <li><a href="#forms__textareas">Textarea</a></li>
                 <li><a href="#forms__html5">HTML5 inputs</a></li>
                 <li><a href="#forms__action">Action buttons</a></li>
               </ul>
@@ -165,6 +170,7 @@
             </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
+
           <article id="text__tables">
             <header><h1>Tabular data</h1></header>
             <table>
@@ -218,7 +224,7 @@
                 </tr>
               </tbody>
             </table>
-
+<hr>
             <h3>Sticky head</h3>
             <p>If sticky head or foot is active the table will overflow on smaller screens.</p>
             <br>
@@ -315,8 +321,108 @@
                 </tbody>
               </table>
 
-            <h3>No head</h3>
+<hr>
 
+<div class="table-container">
+            <h3>Inside Container</h3>
+            <code>is-sticky-head is-striped is-hover has-borders</code>
+            <br>
+              <table class="is-sticky-head is-striped is-hover has-borders">
+                <thead>
+                  <tr>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                    <th>Header Cell</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                    <th>Footer Cell</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                  <tr>
+                    <td>Row Header</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                    <td>Cell Data</td>
+                  </tr>
+                </tbody>
+              </table>
+</div>
+
+<hr>
+            <h3>No head</h3>
             <table>
               <tbody>
                 <tr>
@@ -349,9 +455,8 @@
                 </tr>
               </tbody>
             </table>
-
+<hr>
             <h3>No foot</h3>            
-
             <p>
             <table>
               <thead>
@@ -380,9 +485,8 @@
               </tbody>
             </table>
           </p>
-
+<hr>
             <h3>is-striped</h3>            
-
             <p>
             <table class="is-striped">
               <thead>
@@ -421,9 +525,8 @@
               </tbody>
             </table>
           </p>
-
-            <h3>is-hover</h3>            
-
+<hr>
+            <h3>is-hover</h3>        
             <p>
             <table class="is-hover">
               <thead>
@@ -452,12 +555,12 @@
               </tbody>
             </table>
           </p>
-
-            <h3>Column borders</h3>            
+<hr>
+            <h3>Borders</h3>
+            <code>has-borders</code>
 
             <p>
             <table class="has-borders">
-              <tbody>
               <thead>
                 <tr>
                   <th>First name</th>
@@ -465,6 +568,105 @@
                   <th>Email</th>
                 </tr>
               </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+<hr>
+            <h3>Column borders</h3>
+            <code>borders-inline</code> 
+            <p>
+            <table class="borders-inline">
+
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+<hr>
+            <h3>No borders</h3>
+            <code>borders-none</code> 
+            <p>
+            <table class="borders-none">
+
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Dorothy</td>
+                  <td>Baby</td>
+                </tr>
+                <tr>
+                  <td>Doe</td>
+                  <td>Boe</td>
+                  <td>Moe</td>
+                </tr>
+                <tr>
+                  <td>john@doe.com</td>
+                  <td>dorothy@boe.com</td>
+                  <td>baby@moe.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+
+<hr>
+            <h3>Compact</h3>
+            <code>compact borders-inline</code> 
+            <p>
+            <table class="compact borders-inline">
+
+              <thead>
+                <tr>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
                 <tr>
                   <td>John</td>
                   <td>Dorothy</td>
@@ -593,12 +795,16 @@
           </article>
           <article id="embedded__meter">
             <header><h2>Meter</h2></header>
-            <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
+            <div><meter value="0.8" min="0" max="1" low="0.3" high="0.7" optimum="1"></meter></div>
+            <div><meter value="0.5" min="0" max="1" low="0.3" high="0.7" optimum="1"></meter></div>
+            <div><meter value="0.2" min="0" max="1" low="0.3" high="0.7" optimum="1"></meter></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__progress">
             <header><h2>Progress</h2></header>
-            <div><progress>progress</progress></div>
+            <div><progress value="60" max="100"></progress></div>
+            <div><progress value="30" max="100"></progress></div>
+            <div><progress value="90" max="100"></progress></div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
           <article id="embedded__svg">
@@ -609,6 +815,128 @@
           <article id="embedded__iframe">
             <header><h2>IFrame</h2></header>
             <div><iframe src="index.html" height="300"></iframe></div>
+            <footer><p><a href="#top">[Top]</a></p></footer>
+          </article>
+          <article id="embedded__dialog">
+            <header><h2>Dialog</h2></header>
+            <div>
+              <p><code>&lt;dialog&gt;</code> and <code>[popover]</code> styling lives in <code>skelet-overlay.css</code>, a separate add-on file — not part of core <code>skelet.css</code>. Load it alongside core if you use either element.</p>
+              <button id="btn-dialog-modal">Open modal dialog</button>
+              <button id="btn-dialog-modal-anim">Open animated modal dialog</button>
+              <button id="btn-dialog-nonmodal">Open non-modal dialog</button>
+
+              <dialog id="dialog-modal">
+                <h2>Modal dialog</h2>
+                <p>Opened with <code>.showModal()</code>. Styled entirely by core <code>skelet.css</code> — no page-level overrides.</p>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+
+              <dialog id="dialog-modal-anim" class="is-animated">
+                <h2>Animated modal dialog</h2>
+                <p>Same as above, plus <code>class="is-animated"</code> for the fade/scale-in transition.</p>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+
+              <dialog id="dialog-nonmodal">
+                <h2>Non-modal dialog</h2>
+                <p>Opened with <code>.show()</code> — no backdrop, no top-layer, positioned near the top of the viewport.</p>
+                <button id="btn-dialog-nonmodal-close">Close</button>
+              </dialog>
+            </div>
+            <footer><p><a href="#top">[Top]</a></p></footer>
+          </article>
+          <article id="embedded__dialog-position">
+            <header><h2>Dialog positioning</h2></header>
+            <div>
+              <p><code>position</code> anchors a dialog to an edge or corner instead of dead-center. Works on both modal and non-modal dialogs.</p>
+              <x-flex wrap="wrap">
+                <button id="btn-dialog-pos-top-left">top-left</button>
+                <button id="btn-dialog-pos-top">top</button>
+                <button id="btn-dialog-pos-top-right">top-right</button>
+                <button id="btn-dialog-pos-bottom-left">bottom-left</button>
+                <button id="btn-dialog-pos-bottom">bottom</button>
+                <button id="btn-dialog-pos-bottom-right">bottom-right</button>
+              </x-flex>
+
+              <dialog id="dialog-pos-top-left" position="top left" class="is-animated">
+                <h2>top-left</h2>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+              <dialog id="dialog-pos-top" position="top" class="is-animated">
+                <h2>top</h2>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+              <dialog id="dialog-pos-top-right" position="top right" class="is-animated">
+                <h2>top-right</h2>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+              <dialog id="dialog-pos-bottom-left" position="bottom left" class="is-animated">
+                <h2>bottom-left</h2>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+              <dialog id="dialog-pos-bottom" position="bottom" class="is-animated">
+                <h2>bottom</h2>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+              <dialog id="dialog-pos-bottom-right" position="bottom right" class="is-animated">
+                <h2>bottom-right</h2>
+                <form method="dialog"><button class="fullwidth">Close</button></form>
+              </dialog>
+            </div>
+            <footer><p><a href="#top">[Top]</a></p></footer>
+          </article>
+          <article id="embedded__popover">
+            <header><h2>Popover</h2></header>
+            <div>
+              <p>Also styled by <code>skelet-overlay.css</code> (see the note under <a href="#embedded__dialog">Dialog</a> above).</p>
+              <button popovertarget="popover-demo">Open popover</button>
+
+              <div id="popover-demo" popover="auto" class="dialog">
+                <h2>Popover</h2>
+                <p>Native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API" target="_blank" rel="noopener">Popover API</a> element, styled entirely by core <code>skelet.css</code>. Uses <code>class="dialog"</code> for the modal-box look — bare <code>[popover]</code> only wires the open/close transition, reserved for a future tooltip-style skin.</p>
+                <button class="fullwidth" popovertarget="popover-demo" popovertargetaction="hide">Close</button>
+              </div>
+            </div>
+            <footer><p><a href="#top">[Top]</a></p></footer>
+          </article>
+          <article id="embedded__popover-position">
+            <header><h2>Popover positioning</h2></header>
+            <div>
+              <p>Same <code>position</code> attribute as dialogs, anchoring a <code>[popover].dialog</code> to an edge or corner instead of dead-center.</p>
+              <x-flex wrap="wrap">
+                <button popovertarget="popover-pos-top-left">top-left</button>
+                <button popovertarget="popover-pos-top">top</button>
+                <button popovertarget="popover-pos-top-right">top-right</button>
+                <button popovertarget="popover-pos-bottom-left">bottom-left</button>
+                <button popovertarget="popover-pos-bottom">bottom</button>
+                <button popovertarget="popover-pos-bottom-right">bottom-right</button>
+              </x-flex>
+
+              <div id="popover-pos-top-left" popover="auto" class="dialog" position="top left">
+                <h2>top-left</h2>
+                <button class="fullwidth" popovertarget="popover-pos-top-left" popovertargetaction="hide">Close</button>
+              </div>
+              <div id="popover-pos-top" popover="auto" class="dialog" position="top">
+                <h2>top</h2>
+                <button class="fullwidth" popovertarget="popover-pos-top" popovertargetaction="hide">Close</button>
+              </div>
+              <div id="popover-pos-top-right" popover="auto" class="dialog" position="top right">
+                <h2>top-right</h2>
+                <button class="fullwidth" popovertarget="popover-pos-top-right" popovertargetaction="hide">Close</button>
+              </div>
+              <div id="popover-pos-bottom-left" popover="auto" class="dialog" position="bottom left">
+                <h2>bottom-left</h2>
+                <button class="fullwidth" popovertarget="popover-pos-bottom-left" popovertargetaction="hide">Close</button>
+              </div>
+              <div id="popover-pos-bottom" popover="auto" class="dialog" position="bottom">
+                <h2>bottom</h2>
+                <button class="fullwidth" popovertarget="popover-pos-bottom" popovertargetaction="hide">Close</button>
+              </div>
+              <div id="popover-pos-bottom-right" popover="auto" class="dialog" position="bottom right">
+                <h2>bottom-right</h2>
+                <button class="fullwidth" popovertarget="popover-pos-bottom-right" popovertargetaction="hide">Close</button>
+              </div>
+            </div>
             <footer><p><a href="#top">[Top]</a></p></footer>
           </article>
         </section>
@@ -912,7 +1240,10 @@
                   <button class="text-uppercase">button text-uppercase</button>
                   <button class="text-lowercase">button text-lowercase</button>
                   <hr>
+                  <button class="is-link">button is-link</button>
                   <button class="is-blank">button is-blank</button>
+                  <button class="is-custom">button is-custom</button>
+                  <button class="is-unset">button is-unset</button>
                   <button class="is-outline">button is-outline</button>
                   <button class="is-square">button is-square</button>
                   <button class="is-pill">button is-pill</button>
@@ -949,23 +1280,25 @@
 
                   <hr>
                   <button class="is-white">button is-white</button>
-                  <button class="is-light">button is-light</button>
                   <button class="is-black">button is-black</button>
-                  <button class="is-dark">button is-dark</button>
                   <hr>
-                  <button class="is-primary">button primary</button>
+                  <button class="is-primary">button is-primary</button>
                   <button class="is-blue">button is-blue</button>
                   <button class="is-green">button is-green</button>
                   <button class="is-yellow">button is-yellow</button>
                   <button class="is-red">button is-red</button>
+                  <button class="is-orange">button is-orange</button>
+                  <button class="is-purple">button is-purple</button>
                   <hr>
                   <button class="is-outline is-white">button is-outline is-white</button>
                   <button class="is-outline is-black">button is-outline is-black</button>
                   <button class="is-outline is-primary">button is-outline is-primary</button>
                   <button class="is-outline is-blue">button is-outline is-blue</button>
-                  <button class="is-outline is-outline is-green">button is-outline is-green</button>
+                  <button class="is-outline is-green">button is-outline is-green</button>
                   <button class="is-outline is-yellow">button is-outline is-yellow</button>
                   <button class="is-outline is-red">button is-outline is-red</button>
+                  <button class="is-outline is-orange">button is-outline is-orange</button>
+                  <button class="is-outline is-purple">button is-outline is-purple</button>
                   <hr>
                   <a href="#" role="button">a[role="button"]</a>
                   <a href="#" role="button" disabled>a[role="button"][disabled]</a>
@@ -1013,6 +1346,17 @@ x-stack.my-style:focus-within { background: var(--inputBg); border-color: var(--
 <br>
     <x-stack no-style presuffix>
         <label for="full-url">https://</label>
+        <input type="url" placeholder="subdomain" class="is-blank">
+        <select placeholder="Select" aria-label="Select a subdomain" class="is-blank">
+          <option>.example.com</option>
+          <option>.example.net</option>
+        </select>
+        <button>GO</button>
+    </x-stack>
+    <code>x-stack no-style presuffix</code>
+<br>
+    <x-stack no-style presuffix>
+        <label for="full-url">https://</label>
         <input id="full-url" type="text" placeholder="selekkt.dk/skelet/v3" class="is-blank">
     </x-stack>
     <code>x-stack no-style presuffix</code>
@@ -1050,6 +1394,7 @@ x-stack.my-style:focus-within { background: var(--inputBg); border-color: var(--
 
            <div id="tooltips">
               <legend>Tooltips</legend>
+              <p><code>[data-tooltip]</code> styling lives in <code>skelet-tooltips.css</code>, a separate add-on file — not part of core <code>skelet.css</code>. Load it alongside core if you use tooltips.</p>
                   <fieldset>
                       <legend>Position</legend>
                       <button data-tooltip="ziooo" tooltip-pos="up">Up</button>
@@ -1277,4 +1622,14 @@ x-stack.my-style:focus-within { background: var(--inputBg); border-color: var(--
     <div id="light"></div>
   </body>
   <script>document.querySelector('#light').addEventListener("click", () => { document.body.toggleAttribute("dark-mode") }, false);</script>
+  <script>
+    document.querySelector('#btn-dialog-modal').addEventListener("click", () => document.querySelector('#dialog-modal').showModal());
+    document.querySelector('#btn-dialog-modal-anim').addEventListener("click", () => document.querySelector('#dialog-modal-anim').showModal());
+    document.querySelector('#btn-dialog-nonmodal').addEventListener("click", () => document.querySelector('#dialog-nonmodal').show());
+    document.querySelector('#btn-dialog-nonmodal-close').addEventListener("click", () => document.querySelector('#dialog-nonmodal').close());
+
+    ['top-left', 'top', 'top-right', 'bottom-left', 'bottom', 'bottom-right'].forEach((pos) => {
+      document.querySelector(`#btn-dialog-pos-${pos}`).addEventListener("click", () => document.querySelector(`#dialog-pos-${pos}`).showModal());
+    });
+  </script>
 </html>

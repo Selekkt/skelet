@@ -1,45 +1,44 @@
-/*** app.css */
-
-/*** CSS variables */
-:root { 
-	--focus: transparent; /* disable buttons outline:; or change its color */
-
-	--globalScale: 1.0; /* change body font size */
-	--hScale: 1.0; /* change headings font size */
-}
-
-/*** Dark mode */
-:where(.dark-mode, #dark-mode, [dark-mode], [data-mode="dark"]) {  }
-
-@supports (font-variation-settings: normal) { :root { --fontFamily: var(--fontFamilyVar); } } /* If Variable fonts are supported */
-a, a:hover { --linkDecoration: none; --linkDecorationHover: none } /* remove underline from links */
+/*** app.css — project styles & overrides.
+     Loaded after the framework and add-ons. Keep additions token-driven and
+     page-specific; specificity and !important still participate in the cascade. */
 
 /* ------------------
-  media query
+  token overrides
 ------------------ */
-@media (prefers-reduced-motion: reduce) {} /* User prefers NO motion-based animation */
+:root {
+	/* Scale knobs */
+	--globalScale: 1.0;              /* scales body font size */
+	--hScale: var(--globalScale);    /* headings follow the body unless decoupled */
 
-/*** Detect OS Dark/Light mode */
-@media (prefers-color-scheme: dark) {} /* if OS in DARK mode */
-@media (prefers-color-scheme: light) {} /* if OS in LIGHT mode */
+	/* Recolor focus without removing it. If you replace focus styling, keep it visible. */
+	/* --a11yColor: var(--primary); */
+}
 
-/*** Responsive */
-/** Skelet. BREAKING POINTS */
-@media (max-width: 777px) {} /* Grid SMALL becomes active */
-@media (min-width: 778px) and (max-width: 1024px) {} /* Grid MEDIUM becomes active */
+/* Remove the default underline from links (Skelet underlines via --linkDecoration) */
+a { --linkDecoration: none; --linkDecorationHover: none; }
 
-/** General breaking points */
-/* Device = Most of Mobile (Portrait) | Screen = b/w 0 to 480px */
-@media (max-width: 480px) {}
-/* Device = Low Resolution Tablet, Mobile (Landscape) | Screen = b/w 481px to 767px */
-@media (min-width: 481px) and (max-width: 767px) {}
-/* Device = Tablet, iPad (landscape) | Screen = b/w 768px to 1024px */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {}
-/* Device = Tablet, iPad (portrait) | Screen = b/w 768px to 1024px */
-@media (min-width: 768px) and (max-width: 1024px) {}
-/* Device = Laptop, Desktop | Screen = b/w 1025px to 1280px */
-@media (min-width: 1025px) and (max-width: 1280px) {}
-/* Device = Desktop | Screen = 1281px to higher resolution desktops */
-@media (min-width: 1281px) {}
-/* Device = Desktop | Screen = 1599px huge resolution desktops */
-@media (min-width: 1599px) {}
+/* ------------------
+  dark mode
+------------------ */
+/* Skelet flips color-scheme on .dark-mode / [dark-mode] / [color-scheme="dark"].
+   Example dark-only override (light-dark() tokens switch automatically):
+
+.dark-mode,
+[dark-mode],
+[color-scheme="dark"] {
+	--primary: #6f64fc;
+}
+*/
+
+/* Opt in to follow the OS setting (Skelet does not by default): */
+/* @media (prefers-color-scheme: dark) { html { color-scheme: dark } } */
+
+/* ------------------
+  media queries
+------------------ */
+/* Skelet already collapses animations under reduced motion. Add project-specific
+   overrides under: @media (prefers-reduced-motion: reduce), (update: slow) */
+
+/* Skelet responsive breakpoints — where the -s / -m utilities toggle:
+   small:  @media (max-width: 777px)
+   medium: @media (min-width: 778px) and (max-width: 1024px) */

@@ -1,0 +1,209 @@
+/* ---------------------
+  dialog & popover
+--------------------- */
+:where(html) {
+    --overlayMinW: 35rem;
+    --overlayMaxW: 650px;
+    --overlayW: fit-content;
+    --overlayMinH: auto;
+    --overlayMaxH: 100%;
+    --overlayH: fit-content;
+    --overlayMargin: auto;
+    --overlayPadding: var(--padding);
+    --overlayBorder: none;
+    --overlayRadius: var(--radius);
+    --overlayBg: var(--bgColor);
+    --overlayColor: var(--color);
+    --overlayShadow: 0 1rem 2rem var(--shadow);
+
+    --overlayBackdropBg: light-dark(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.5));
+    --overlayBackdropBlur: blur(0.3rem);
+
+    --overlayMove: var(--space-2);
+    --overlayScaleFrom: 0.95;
+    --overlayDuration: 190ms;
+    --overlayEasing: ease;
+    --overlayTransOrigin: center;
+    --overlayEdgeOffset: var(--margin);
+}
+
+/* ---- dialog (native <dialog>, both modal and non-modal) ----
+   sizing/shadow live on the bare selector, not gated behind &:modal — the
+   moment .close() runs, the dialog stops matching :modal (and loses [open])
+   synchronously, well before an .is-animated exit transition finishes; if
+   sizing depended on :modal, the box would collapse to fit-content mid-close. */
+dialog {
+    margin: var(--overlayMargin);
+    padding: var(--overlayPadding);
+    border: var(--overlayBorder);
+    border-radius: var(--overlayRadius);
+    background: var(--overlayBg);
+    color: var(--overlayColor);
+    min-width: var(--overlayMinW);
+    max-width: var(--overlayMaxW);
+    width: var(--overlayW);
+    min-height: var(--overlayMinH);
+    max-height: var(--overlayMaxH);
+    height: var(--overlayH);
+    box-shadow: var(--overlayShadow);
+
+    /* non-modal (opened via .show(), no ::backdrop, no top-layer) needs its own stacking + centering */
+    &:not(:modal)[open] {
+        position: fixed;
+        inset-block-start: var(--overlayTop, var(--space-5));
+        inset-inline-start: 50%;
+        transform: translateX(-50%);
+        z-index: var(--overlayZindex, 999);
+    }
+
+    /* entry/exit transition (opt-in via .is-animated so plain <dialog> keeps native instant show/hide) */
+    &.is-animated {
+        transition: opacity var(--overlayDuration) var(--overlayEasing),
+                    scale var(--overlayDuration) var(--overlayEasing),
+                    overlay var(--overlayDuration) var(--overlayEasing) allow-discrete,
+                    display var(--overlayDuration) var(--overlayEasing) allow-discrete;
+        opacity: 1;
+        scale: 1;
+        transform-origin: var(--overlayTransOrigin);
+
+        &:not([open]) {
+            opacity: 0;
+            scale: var(--overlayScaleFrom);
+        }
+
+        @starting-style {
+            &[open] { opacity: 0; scale: var(--overlayScaleFrom) }
+        }
+
+        &::backdrop {
+            transition: background-color var(--overlayDuration) var(--overlayEasing),
+                        overlay var(--overlayDuration) var(--overlayEasing) allow-discrete,
+                        display var(--overlayDuration) var(--overlayEasing) allow-discrete;
+            background: var(--overlayBackdropBg);
+
+            @starting-style { background: transparent }
+        }
+    }
+
+    &::backdrop {
+        background: var(--overlayBackdropBg);
+        -webkit-backdrop-filter: var(--overlayBackdropBlur);
+                backdrop-filter: var(--overlayBackdropBlur);
+    }
+
+    /* non-modal dialogs are already pinned via inset-block-start/inset-inline-start
+       (see &:not(:modal)[open] above); [position] just needs a clean slate to place from */
+    &[position]:not(:modal)[open] {
+        inset-inline-start: auto;
+        inset-block-start: auto;
+        transform: none;
+    }
+
+    @media (max-width: 777px) {
+        &[position] { --overlayEdgeOffset: var(--space-3) }
+    }
+}
+
+/* ---- [position]: anchor dialog/popover to an edge or corner instead of dead-center ----
+   the value is one or two space-separated keywords (block side, inline side), e.g.
+   position="top", position="left", position="top right" — each keyword is matched with
+   [position~="..."] independently and sets only its own axis, so 2 keywords compose into
+   a corner for free instead of needing all 8 combinations spelled out. Shared by dialog
+   (top-layer :modal, centered via inset:0 + margin:auto) and [popover].dialog (same
+   top-layer mechanics), so the rules are written once. */
+:is(dialog, [popover].dialog) {
+    &[position~="top"]    { inset-block-start: var(--overlayEdgeOffset); margin-block-start: 0 }
+    &[position~="bottom"] { inset-block-end: var(--overlayEdgeOffset); margin-block-end: 0 }
+    &[position~="left"]   { inset-inline-start: var(--overlayEdgeOffset); margin-inline-start: 0 }
+    &[position~="right"]  { inset-inline-end: var(--overlayEdgeOffset); margin-inline-end: 0 }
+
+    &[position~="top"]:not([position~="left"]):not([position~="right"])       { --overlayTransOrigin: top center }
+    &[position~="bottom"]:not([position~="left"]):not([position~="right"])    { --overlayTransOrigin: bottom center }
+    &[position~="left"]:not([position~="top"]):not([position~="bottom"])     { --overlayTransOrigin: center left }
+    &[position~="right"]:not([position~="top"]):not([position~="bottom"])    { --overlayTransOrigin: center right }
+    &[position~="top"][position~="left"]     { --overlayTransOrigin: top left }
+    &[position~="top"][position~="right"]    { --overlayTransOrigin: top right }
+    &[position~="bottom"][position~="left"]  { --overlayTransOrigin: bottom left }
+    &[position~="bottom"][position~="right"] { --overlayTransOrigin: bottom right }
+}
+
+/* dialog's :not(:modal)[open] path uses insets instead of margin:auto centering (see above),
+   so top/bottom also need to claim the full inline axis (and vice versa) to stay centered
+   on the axis they're not anchoring */
+dialog[position]:not(:modal)[open] {
+    &[position~="top"]:not([position~="left"]):not([position~="right"]),
+    &[position~="bottom"]:not([position~="left"]):not([position~="right"]) { inset-inline: 0; margin-inline: auto }
+
+    &[position~="left"]:not([position~="top"]):not([position~="bottom"]),
+    &[position~="right"]:not([position~="top"]):not([position~="bottom"]) { inset-block: 0; margin-block: auto }
+}
+
+/* ---- popover (Popover API) ----
+   [popover] alone only wires the open/close transition — no visual
+   opinion, so it's equally usable as a base for a future tooltip-style
+   skin. [popover].dialog layers the modal-box look on top. */
+[popover] {
+    transition: opacity var(--overlayDuration) var(--overlayEasing),
+                scale var(--overlayDuration) var(--overlayEasing),
+                overlay var(--overlayDuration) var(--overlayEasing) allow-discrete,
+                display var(--overlayDuration) var(--overlayEasing) allow-discrete;
+    opacity: 1;
+    scale: 1;
+    transform-origin: var(--overlayTransOrigin);
+
+    &:not(:popover-open) {
+        opacity: 0;
+        scale: var(--overlayScaleFrom);
+    }
+
+    @starting-style {
+        &:popover-open { opacity: 0; scale: var(--overlayScaleFrom) }
+    }
+
+    &::backdrop {
+        transition: background-color var(--overlayDuration) var(--overlayEasing),
+                    overlay var(--overlayDuration) var(--overlayEasing) allow-discrete,
+                    display var(--overlayDuration) var(--overlayEasing) allow-discrete;
+        background: transparent;
+
+        @starting-style { background: transparent }
+    }
+}
+
+[popover].dialog {
+    inset: 0;
+    margin: var(--overlayMargin);
+    padding: var(--overlayPadding);
+    border: var(--overlayBorder);
+    border-radius: var(--overlayRadius);
+    background: var(--overlayBg);
+    color: var(--overlayColor);
+    box-shadow: var(--overlayShadow);
+
+    min-width: var(--overlayMinW);
+    max-width: var(--overlayMaxW);
+    width: var(--overlayW);
+    min-height: var(--overlayMinH);
+    max-height: var(--overlayMaxH);
+    height: var(--overlayH);
+
+    &::backdrop {
+        background: var(--overlayBackdropBg);
+        -webkit-backdrop-filter: var(--overlayBackdropBlur);
+                backdrop-filter: var(--overlayBackdropBlur);
+
+        @starting-style { background: transparent }
+    }
+
+    @media (max-width: 777px) {
+        &[position] { --overlayEdgeOffset: var(--space-3) }
+    }
+}
+
+/* ---- shared: close controls & a11y ---- */
+:is(dialog, [popover]) [autofocus] { outline: none }
+:is(dialog, [popover]) :is(button, [role="button"]):focus-visible { outline: var(--a11yOutline); outline-offset: var(--a11yOffset) }
+
+@supports not (backdrop-filter: blur(1px)) {
+    :is(dialog, [popover])::backdrop { --overlayBackdropBg: light-dark(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0.7)) }
+}

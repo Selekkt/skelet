@@ -1,115 +1,73 @@
 <!doctype html>
 <html class="no-js" lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>Project Title</title>
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/">
 
-    <meta name="theme-color" content="#FFFFFF">
+    <!-- Before launch: replace the title, description, robots policy, theme color, and icons. -->
+    <title>Project title</title>
+    <meta name="description" content="Project description">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="theme-color" content="#ffffff">
 
-    <meta name="description" content="">
-    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-    
-    <!-- Facebook OG Tags -->
+    <!-- Replace and uncomment the canonical/social metadata before launch. -->
+    <!--
+    <link rel="canonical" href="https://example.com/">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:site_name" content="">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="">
-
-    <!-- Twitter Card Tags -->
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:site_name" content="Project name">
+    <meta property="og:title" content="Project title">
+    <meta property="og:description" content="Project description">
+    <meta property="og:image" content="https://example.com/img/social-card.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    
-    <link rel="canonical" href="">
+    <meta name="twitter:title" content="Project title">
+    <meta name="twitter:description" content="Project description">
+    <meta name="twitter:image" content="https://example.com/img/social-card.png">
+    -->
 
-    <!-- Target iOS browsers -->
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <!-- Target Safari on macOS -->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <!-- The classic favicon displayed in tabs -->
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <!-- Used for Safari pinned tabs -->
-    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#24d05a">
+    <link rel="apple-touch-icon" href="img/touch.png">
+    <link rel="icon" type="image/png" href="img/touch.png">
 
-    <script>document.documentElement.className='js'</script>
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
 
+    <!-- Optional font. Skelet falls back to the system sans-serif stack without it. -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-    <link rel="stylesheet" href="css/skelet.css"> <!-- include Skelet -->
+    <!-- Optional icon library. Uncomment only when the project uses Font Awesome. -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"> -->
+
+    <link rel="stylesheet" href="css/skelet.css">
+
+    <!-- Optional Skelet add-ons. Load after core and before app.css. -->
     <!-- <link rel="stylesheet" href="css/skelet-tooltips.css"> -->
-    <link rel="stylesheet" href="css/app.css">  <!-- write all of your CSS styles here -->
+    <!-- <link rel="stylesheet" href="css/skelet-overlay.css"> -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <!-- browse the icons: https://fontawesome.com/search?o=r&m=free -->
-
-    <style></style>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<a href="#mainContent" class="button is-primary visually-hidden-focus skipTo">Skip to content</a>
+    <a href="#mainContent" class="button is-primary visually-hidden-focus skipTo">
+        Skip to content
+    </a>
 
-<div id="app">
-    <header>
-        <!-- Remove this -->
-        <div style="max-width: 900px; margin: 0 auto; padding: var(--padding)" x-flex ai="center" jc="between">
-            <h1 class="logo">Skelet.css</h1>
+    <div id="app">
+        <header>
+            <!-- Site header -->
+        </header>
 
-            <nav>
-                <ul class="inline">
-                    <li>&nbsp;</li>
-                </ul>
-            </nav>
-        </div>
-        <!-- / -->
-    </header>
+        <main id="mainContent" tabindex="-1">
+            <!-- Page content -->
+        </main>
 
-    <main id="mainContent">
-        <!-- Remove this -->
-        <x-flex direction="column" style="max-width: 900px; margin: 0 auto; padding: var(--padding)">
-            <x-cell><h2 class="h1">We're thrilled you've chosen Skelet.css to kickstart your next big idea!</h2></x-cell>
-            <x-cell><h3 class="h2">Skelet. aims to empower your creativity to bring any vision to life.</h3></x-cell>
-            <x-cell>
-                <h4 class="h5 text-normal">Be sure to explore the in-depth documentation for guides, references, options, and more as you build out your next project.</h4>
-                <a href="https://selekkt.dk/skelet/" class="button is-black is-pill" target="_blank">Documentation</a>
-                <a href="tests/html-elements.html" class="button is-outline is-black is-pill is-small" target="_blank">HTML elements</a>
-            <x-cell>
-        </x-flex>
-        <!-- / -->
-    </main>
+        <footer>
+            <!-- Site footer -->
+        </footer>
+    </div>
 
-    <footer>
-        <!-- Remove this -->
-        <div style="max-width: 900px; margin: 0 auto; padding: var(--margin); padding: var(--padding)">
-            <ul class="inline">
-                <li>
-                    <a href="https://selekkt.dk/" class="button is-black is-pill" target="_blank">Sēlekkt.</a>
-                </li>
-                <li>
-                    <a href="https://selekkt.dk/skelet/" class="button is-outline is-pill is-black" target="_blank">Documentation</a>
-                </li>
-                <li>
-                    <a href="https://selekkt.dk/git/skelet/" class="button is-outline is-pill is-black" target="_blank">GitHub</a></li>
-            </ul>
-            <p>&nbsp;</p>
-        </div>
-        <!-- / -->
-    </footer>
-</div>
-
-<script src="js/modules.js"></script>
-<script src="js/app.js"></script>
-
-<script>
-// on DOM ready
-document.addEventListener("DOMContentLoaded", () => { 
-    // JS code
-});
-</script>
-
+    <!-- Optional project scripts; uncomment only when the project uses them. -->
+    <!-- <script src="js/modules.js" defer></script> -->
+    <!-- <script src="js/app.js" defer></script> -->
 </body>
 </html>

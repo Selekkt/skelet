@@ -55,7 +55,7 @@ dialog:modal {
 </head>
 <body class="a11y" style="padding:2rem">
 
-<dialog>
+<dialog closedby="any"> <!-- closedby="none | closedrequest | any" -->
     <h1>👋 Hej!</h1>
     <p>Dialogs in Skelet.css</p>
     <form method="dialog">
@@ -76,9 +76,9 @@ showButton.addEventListener("click", () => {
 });
 
 // "Close" button closes the dialog
-closeButton.addEventListener("click", () => {
-  dialog.close();
-});
+// closeButton.addEventListener("click", () => {
+//   dialog.close();
+// });
 
 </script>
 

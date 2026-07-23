@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HTML Inputs Showcase</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="../css/skelet.css">
+</head>
+<body>
+  <h1>HTML Input Playground</h1>
+
+  <form>
+    <!-- BASIC INPUTS -->
+    <section>
+      <h2>Basic Inputs</h2>
+      <table>
+        <tr>
+          <th><code>&lt;input type="text"&gt;</code></th>
+          <td><input type="text" placeholder="Enter text" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="search"&gt;</code></th>
+          <td><input type="search" placeholder="Search..." /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="password"&gt;</code></th>
+          <td><input type="password" placeholder="Password" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="number"&gt;</code></th>
+          <td><input type="number" min="0" max="10" value="3" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="range"&gt;</code></th>
+          <td><input type="range" min="0" max="100" value="40" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="radio"&gt;</code></th>
+          <td>
+            <label>
+              <input type="radio" name="rad-demo" value="a" checked /> Option A
+            </label>
+            &nbsp;&nbsp;
+            <label>
+              <input type="radio" name="rad-demo" value="b" /> Option B
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="checkbox"&gt;</code></th>
+          <td>
+            <label>
+              <input type="checkbox" checked /> I agree
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="file"&gt;</code></th>
+          <td><input type="file" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="color"&gt;</code></th>
+          <td><input type="color" value="#ff4081" /></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- VALIDATION INPUTS -->
+    <section>
+      <h2>Validation</h2>
+      <table>
+        <tr>
+          <th><code>&lt;input type="email"&gt;</code></th>
+          <td><input type="email" placeholder="your@mail.com" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="tel"&gt;</code></th>
+          <td><input type="tel" placeholder="+1 555 1234" /></td>
+        </tr>
+        <tr>
+          <th>
+            <code>
+              &lt;input type="text" pattern="\w{6,16}"&gt;
+            </code>
+          </th>
+          <td>
+            <input
+              type="text"
+              pattern="\w{6,16}"
+              placeholder="6–16 word chars"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <code>
+              &lt;input type="text" minlength="3" maxlength="8"&gt;
+            </code>
+          </th>
+          <td>
+            <input
+              type="text"
+              minlength="3"
+              maxlength="8"
+              placeholder="3–8 chars"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="text" required&gt;</code></th>
+          <td>
+            <input
+              type="text"
+              required
+              placeholder="Required field"
+              style="border: 2px solid #e57373"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="text" spellcheck="true"&gt;</code></th>
+          <td><input type="text" spellcheck="true" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="text" readonly&gt;</code></th>
+          <td><input type="text" value="Read-only value" readonly /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="text" disabled&gt;</code></th>
+          <td><input type="text" value="Disabled" disabled /></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- DATE & TIME INPUTS -->
+    <section>
+      <h2>Date &amp; Time Inputs</h2>
+      <table>
+        <tr>
+          <th><code>&lt;input type="date"&gt;</code></th>
+          <td><input type="date" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="time"&gt;</code></th>
+          <td><input type="time" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="datetime-local"&gt;</code></th>
+          <td><input type="datetime-local" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="month"&gt;</code></th>
+          <td><input type="month" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="week"&gt;</code></th>
+          <td><input type="week" /></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- SELECTS, TEXTAREA, DATALIST -->
+    <section>
+      <h2>Select, Textarea &amp; Datalist</h2>
+      <table>
+        <tr>
+          <th><code>&lt;select&gt;</code></th>
+          <td>
+            <select>
+              <option value="">Choose one…</option>
+              <option>First option</option>
+              <option>Second option</option>
+              <option>Third option</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th><code>&lt;select multiple&gt;</code></th>
+          <td>
+            <select multiple size="3">
+              <option>Option A</option>
+              <option>Option B</option>
+              <option>Option C</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th><code>&lt;textarea&gt;</code></th>
+          <td><textarea placeholder="Type multiple lines here…"></textarea></td>
+        </tr>
+        <tr>
+          <th>
+            <code>
+              &lt;input list="fruits"&gt;<br />
+              &lt;datalist&gt;
+            </code>
+          </th>
+          <td>
+            <input list="fruits" placeholder="Start typing…" />
+            <datalist id="fruits">
+              <option value="Apple"></option>
+              <option value="Banana"></option>
+              <option value="Cherry"></option>
+              <option value="Orange"></option>
+            </datalist>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- BUTTONS -->
+    <section>
+      <h2>Buttons</h2>
+      <table>
+        <tr>
+          <th><code>&lt;input type="submit"&gt;</code></th>
+          <td><input type="submit" value="Submit" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="reset"&gt;</code></th>
+          <td><input type="reset" value="Reset form" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="button"&gt;</code></th>
+          <td><input type="button" value="Click me" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;button type="submit"&gt;</code></th>
+          <td><button type="submit">Submit (button)</button></td>
+        </tr>
+        <tr>
+          <th><code>&lt;button type="button"&gt;</code></th>
+          <td><button type="button">Plain button</button></td>
+        </tr>
+        <tr>
+          <th><code>&lt;button type="reset"&gt;</code></th>
+          <td><button type="reset">Reset (button)</button></td>
+        </tr>
+      </table>
+    </section>
+  </form>
+</body>
+</html>

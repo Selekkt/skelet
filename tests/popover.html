@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="../css/skelet.css">
+    <link rel="stylesheet" href="../css/skelet-overlay.css">
+    <!--
+        [popover] alone (no .dialog) only wires the open/close fade+scale
+        transition — no box styling — so it stays usable as a base for a
+        future tooltip-style popover skin.
+
+        [popover].dialog layers the modal-box look (sizing, padding,
+        border, background, backdrop) on top; that's what these examples
+        use below. Both are provided by core skelet.css now — no
+        page-level overrides needed.
+    -->
+
+</head>
+<body class="a11y" style="padding:2rem">
+
+<div id="skeletpopover" popover="auto" class="dialog">
+    <h1>👋 Hej!</h1>
+    <p>Dialogs in Skelet.css</p>
+    <p>Click backdrop to close</p>
+    <code>popover="auto"</code>
+    <button class="fullwidth" popovertarget="skeletpopover" popovertargetaction="hide">Nice!</button>
+</div>
+<button popovertarget="skeletpopover">Open popover 1</button>
+
+<div id="skeletpopover-manual" popover="manual" class="dialog">
+    <h1>👋 Hej!</h1>
+    <p>Dialogs in Skelet.css</p>
+    <button class="fullwidth" popovertarget="skeletpopover-manual" popovertargetaction="hide">Nice!</button>
+</div>
+<button popovertarget="skeletpopover-manual">Open popover 2</button>
+
+</body>
+</html>

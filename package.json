@@ -1,6 +1,6 @@
 {
   "name": "selekkt-skelet",
-  "version": "6.0.0",
+  "version": "6.7.0",
   "description": "Skelet.css a contemporary CSS framework.",
   "repository": {
     "type": "git",
@@ -16,10 +16,17 @@
   "style": "css/skelet.css",
   "main": "css/skelet.css",
   "filename": "skelet.css",
+  "files": [
+    "css",
+    "docs/using",
+    "img",
+    "js",
+    "skelet.html"
+  ],
   "author": "Sēlekkt. studio <https://selekkt.dk/>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Selekkt/skelet/issues"
   },
-  "homepage": "https://selekkt.dk/skelet/v3/"
+  "homepage": "https://selekkt.dk/skelet/"
 }
