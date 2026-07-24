@@ -1,15 +1,10 @@
-# Skelet.css
+# Skelet.css &mdash; a contemporary CSS framework that combines modern design principles with a forward-thinking approach.
 
-Skelet.css is a lightweight, classless-first CSS framework for modern browsers. It styles
-selected native HTML elements, provides a token-driven component layer, and uses
-attribute-based grid and flex primitives instead of a large utility-class API.
+> Skelet styles selected native HTML elements, provides a token-driven component layer, and uses attribute-based grid and flex primitives instead of a large utility-class API.
+> 
+> Core is plain CSS with no build step, JavaScript runtime, or npm dependencies.
 
-Core is plain CSS with no build step, JavaScript runtime, or npm dependencies.
-
-> **Checkout note:** the CSS banner and `package.json#version` are not currently aligned.
-> The checked-in stylesheet is authoritative for this checkout's behavior, while npm and
-> jsDelivr use the package version. Verify a published package before using these docs or
-> pinning a CDN URL.
+---
 
 ## Features
 
