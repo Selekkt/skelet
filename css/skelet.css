@@ -238,7 +238,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 :is([hidden],[type="hidden"],.hidden) {display:none!important;outline:0}
 :is([disabled],[disabled]:hover,.disabled) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: not-allowed }
-:is([inert],[inert] *) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: default; user-select: none; pointer-events: none }
+:where([inert]) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7) }
+:is([inert],[inert] *) { cursor: default; user-select: none; pointer-events: none }
 :where(html:has(dialog:modal[open])) { overflow: clip }
 i svg { display: inline; height: var(--iconSizeH, var(--iconSize)); width: var(--iconSizeW, var(--iconSize)) }
 i:has(svg) { display: block; line-height: 0 }

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inert subtree — Skelet.css fixture</title>
+    <link rel="stylesheet" href="../css/skelet.css">
+    <style>
+        body { padding: var(--space-6); background: var(--bgColor); color: var(--color) }
+        main { width: min(100%, 90rem); margin-inline: auto }
+        .panel { padding: var(--space-5); border: 1px solid var(--inputBorderColor); border-radius: var(--radius); background: var(--inputBg) }
+        .nested { padding: var(--space-5); background: var(--primary); color: var(--white) }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Inert subtree</h1>
+        <p>The inert root should have reduced opacity and grayscale once. Its nested panel should retain computed <code>opacity: 1</code> rather than compounding the root opacity.</p>
+        <button type="button" id="toggle-inert">Toggle inert</button>
+        <p id="status" role="status"></p>
+
+        <section class="panel" id="inert-panel" inert>
+            <h2>Inert root</h2>
+            <div class="nested" id="inert-child">
+                <p>Nested content</p>
+                <button type="button">This button must not be interactive while inert</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const panel = document.querySelector('#inert-panel');
+        const child = document.querySelector('#inert-child');
+        const status = document.querySelector('#status');
+
+        function updateStatus() {
+            status.textContent = `Inert: ${panel.inert}; root opacity: ${getComputedStyle(panel).opacity}; child opacity: ${getComputedStyle(child).opacity}`;
+        }
+
+        document.querySelector('#toggle-inert').addEventListener('click', () => {
+            panel.inert = !panel.inert;
+            updateStatus();
+        });
+
+        updateStatus();
+    </script>
+</body>
+</html>

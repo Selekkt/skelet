@@ -1338,7 +1338,8 @@ A correctly positioned skip link needs the compound button class and focus-revea
 ### Disabled/inert behavior
 
 - Prefer native `disabled` for controls.
-- Use `inert` when an entire subtree must be non-interactive.
+- Use `inert` when an entire subtree must be non-interactive. Core applies disabled
+  opacity/filtering once to the inert root while blocking interaction throughout its subtree.
 - Do not rely on `.disabled` for behavior.
 - Skelet has no built-in `[aria-disabled="true"]` style.
 
