@@ -41,4 +41,4 @@ a { --linkDecoration: none; --linkDecorationHover: none; }
 
 /* Skelet responsive breakpoints — where the -s / -m utilities toggle:
    small:  @media (width <= 777px)
-   medium: @media (778px <= width <= 1024px) */
+   medium: @media (777px < width <= 1024px) */

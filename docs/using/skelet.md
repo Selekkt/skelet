@@ -611,7 +611,7 @@ width; small and medium attributes override the same property inside their range
 | Suffix | Core range |
 |---|---|
 | `-s` | `@media (width <= 777px)` |
-| `-m` | `@media (778px <= width <= 1024px)` |
+| `-m` | `@media (777px < width <= 1024px)` |
 | none | Always active unless a suffixed declaration overrides it |
 
 There is no large suffix.
@@ -638,21 +638,18 @@ Not every utility has responsive forms. In particular, `.field-sizing`, `.flow`,
 </x-grid>
 ```
 
-### Visibility helper reality
+### Visibility helpers
 
-The named visibility helpers do **not** all match the core suffix ranges. Their current
-implemented behavior is:
+The named visibility helpers follow the same continuous small, medium, and large ranges as
+the responsive API:
 
-| Helper | Current visible range |
+| Helper | Visible range |
 |---|---|
-| `.small-only` | Below 777px; hidden at exactly 777px and above. |
-| `.medium-only` | Above 777px and below 1024px; approximately 778–1023 integer CSS pixels. |
-| `.large-only` | Above 777px, including the medium range. |
-| `.small-medium` | Small and large ranges; hidden only from 778–1024px. |
-| `.medium-large` | Above 1024px only. |
-
-These names are misleading in the current source. Do not infer behavior from the name;
-prefer explicit responsive attributes/utilities or verify in a browser.
+| `.small-only` | Small only: `width <= 777px`. |
+| `.medium-only` | Medium only: `777px < width <= 1024px`. |
+| `.large-only` | Large only: `width > 1024px`. |
+| `.small-medium` | Small and medium: `width <= 1024px`. |
+| `.medium-large` | Medium and large: `width > 777px`. |
 
 ### Current responsive quirks
 
@@ -661,8 +658,6 @@ Treat these as implementation facts, not patterns to copy:
 - `.text-bold` uses weight 700, while `.text-bold-s` and `.text-bold-m` use 600.
 - `.overflow` uses `overflow: clip`, while responsive forms use `overflow: hidden`.
 - `.sticky-bottom` supplies a z-index; responsive forms omit it.
-- Media queries leave a fractional interval between 777px and 778px where neither small
-  nor medium rules match.
 
 When exact responsive parity matters, inspect the source and add the smallest deliberate
 override in `css/app.css`.
@@ -1290,7 +1285,7 @@ items; alignment and stop behavior are applied to those children.
 Responsive activation uses the same token-list API:
 
 - `[scroll-snap-s]` activates at the small breakpoint (`width <= 777px`).
-- `[scroll-snap-m]` activates in the medium range (`778px` through `1024px`).
+- `[scroll-snap-m]` activates in the medium range (above `777px` through `1024px`).
 
 Responsive attributes can stand alone or override a base configuration:
 

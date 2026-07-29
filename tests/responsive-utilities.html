@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive utilities — Skelet.css fixture</title>
+    <link rel="stylesheet" href="../css/skelet.css">
+    <style>
+        body { padding: var(--space-6); background: var(--bgColor); color: var(--color) }
+        main { width: min(100%, 90rem); margin-inline: auto }
+        .probes { display: grid; gap: var(--space-3) }
+        .probe { padding: var(--space-4); border: 1px solid var(--inputBorderColor); border-radius: var(--radius); background: var(--inputBg) }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Responsive visibility utilities</h1>
+        <p>Resize across small (<code>width &lt;= 777px</code>), medium (<code>777px &lt; width &lt;= 1024px</code>), and large (<code>width &gt; 1024px</code>).</p>
+
+        <div class="probes">
+            <p class="probe small-only"><code>.small-only</code> — small only</p>
+            <p class="probe medium-only"><code>.medium-only</code> — medium only</p>
+            <p class="probe large-only"><code>.large-only</code> — large only</p>
+            <p class="probe small-medium"><code>.small-medium</code> — small and medium</p>
+            <p class="probe medium-large"><code>.medium-large</code> — medium and large</p>
+        </div>
+    </main>
+</body>
+</html>
