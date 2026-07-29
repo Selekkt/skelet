@@ -2401,9 +2401,5 @@ table {
 /* Accessibility :: Disabling motion if user prefers reduced motion */
 @media (prefers-reduced-motion: reduce), (update: slow) {
     *, *::before, *::after, *::backdrop { animation-duration:0.001ms!important; animation-iteration-count:1!important; transition-duration:0.001ms!important; animation-delay:0.001ms!important; transition-property:none }
-
-    .mob-scroller,
-    [scroll-snap],
-    [scroll-snap-s],
-    [scroll-snap-m] { scroll-behavior: auto }
+    .mob-scroller,[scroll-snap],[scroll-snap-s],[scroll-snap-m] { scroll-behavior: auto }
 }
