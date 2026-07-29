@@ -1005,14 +1005,14 @@ rule.
 
 ### Code and keyboard input
 
-- Inline `code` and `samp` are inline-block, padded, single-line, and clipped by default.
-- `code:hover` becomes scrollable.
+- Inline `code` and `samp` are inline-block, padded, and single-line. Content wider than the
+  available space scrolls horizontally without requiring hover.
 - `kbd` gets a keycap skin.
 - Block code requires the direct-child form `<pre><code>…</code></pre>`.
 - A bare `<pre>` has no dedicated Skelet card skin.
 
-Do not rely on hover as the only way to expose essential clipped code; add a project-level
-keyboard/touch-friendly overflow treatment for long snippets.
+For a code or sample region expected to overflow, add `tabindex="0"` so keyboard users can
+reliably focus and scroll it.
 
 ### Horizontal rules
 

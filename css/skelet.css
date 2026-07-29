@@ -336,7 +336,9 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 
 code, samp {
     display: inline-block;
-    overflow: clip;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 1px var(--space-3);
     margin: var(--space-1);
     font-size: 90%;
@@ -349,7 +351,6 @@ code, samp {
     border-radius: var(--inputRadius);
 }
 
-code:hover { overflow:auto }
 pre > code { display: block; padding: var(--inputPadding); white-space: pre }
 
 kbd {
