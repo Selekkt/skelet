@@ -80,7 +80,7 @@ footer { margin: 3rem; }
         <x-col>
         <!-- slider -->
         <div class="otSlider">
-            <ul class="scroll-snap no-style">
+            <ul scroll-snap class="no-style">
                 <li class="slide"><img src="https://picsum.photos/1201.jpg" alt="Img"></li>
                 <li class="slide"><img src="https://picsum.photos/1202.jpg" alt="Img"></li>
                 <li class="slide"><img src="https://picsum.photos/1203.jpg" alt="Img"></li>
@@ -96,7 +96,7 @@ footer { margin: 3rem; }
         <x-col>
         <!-- slider -->
         <div class="otSlider">
-            <ul class="scroll-snap no-style">
+            <ul scroll-snap class="no-style">
                 <li class="slide"><img src="https://picsum.photos/1205.webp" alt=""></li>
                 <li class="slide"><img src="https://picsum.photos/1204.webp" alt=""></li>
                 <li class="slide"><img src="https://picsum.photos/1203.webp" alt=""></li>
@@ -115,7 +115,7 @@ footer { margin: 3rem; }
     <x-grid columns="2" columns-s="1" ai="center">
         <x-col><h1>CSS Slider</h1></x-col>
         <x-col>
-            <p>A quick css slider built using Skelet.css <code>.scroll-snap</code> and some JS for the buttons (buttons visible on desktop).</p>
+            <p>A quick css slider built using Skelet.css <code>[scroll-snap]</code> and some JS for the buttons (buttons visible on desktop).</p>
             <p>Safari doesn't support <code>scroll-behavior: smooth</code> so scroll is not  smooth when using the buttons.</p>
         </x-col>
     </x-grid>
@@ -126,7 +126,7 @@ function otSlider() {
     const slider = '.otSlider';
 
     document.querySelectorAll(slider).forEach(el => {
-        const scroller = el.querySelector('.scroll-snap');
+        const scroller = el.querySelector('[scroll-snap]');
         const nextBtn = el.querySelector('.ot-next');
         const prevBtn = el.querySelector('.ot-prev');
         const itemWidth = el.querySelector('.slide').clientWidth;

@@ -1,13 +1,13 @@
-/*! Skelet.css - v6.7.0 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.8.0 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
-    variables
+  variables
 ------------------ */
 :where(html) {
 interpolate-size: allow-keywords;
 color-scheme: light;
 
-/** Colors */
+/* Colors */
     --primary: #006EF1;
     --red: #ff6961;
     --orange: #FFB340;
@@ -75,7 +75,7 @@ color-scheme: light;
     --hrColor: var(--inputBorderColor);
     --hrGradient: light-dark(rgb(255 255 255 / 0), transparent);
 
-/** Structure */
+/* Structure */
     /* typography */
     --fontFallback: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, HelveticaNeue, "Helvetica Neue", "Helvetica", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --fontMono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -214,11 +214,11 @@ color-scheme: light;
     --a11yOffset: 2px;
 }
 
-/*** Dark Mode */
+/* Dark Mode */
 :where(.dark-mode,[dark-mode],[color-scheme="dark"]) { color-scheme: dark }
 
 /* ------------------
-    resets
+  resets
 ------------------ */
 *,*::before,*::after {box-sizing:border-box; margin:0 }
 :not(pre) > code,:not(pre) > kbd,:not(pre) > samp {font-size:1.2rem;font-family:var(--fontMono);white-space:nowrap}
@@ -244,7 +244,7 @@ i svg { display: inline; height: var(--iconSizeH, var(--iconSize)); width: var(-
 i:has(svg) { display: block; line-height: 0 }
 
 /* ------------------
-    basics
+  basics
 ------------------ */
 [dir="rtl"] { direction: rtl }
 
@@ -288,7 +288,7 @@ main { flex: 1 }
 :where(h5,.h5) { font-size: var(--hSize, var(--h5Size)); line-height: var(--h5Line, var(--hLine, var(--fontLine))); letter-spacing: var(--hSpace, var(--h5Space)) }
 :where(h6,.h6) { font-size: var(--hSize, var(--h6Size)); line-height: var(--h6Line, var(--hLine, var(--fontLine))); letter-spacing: var(--hSpace, var(--h6Space)) }
 
-:where(h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.hx) { 
+:where(h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.hx) {
     font-family: var(--hFontFamily);
     font-weight: var(--hWeight);
     font-style: var(--hStyle);
@@ -304,8 +304,8 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 
 :where(a,[role="link"]) {
     &:not([href]) { cursor: not-allowed }
-    &:not(.button,[role="button"]) { 
-        color: var(--linkColor); cursor: pointer; text-decoration: var(--linkDecoration, auto); text-underline-offset: var(--linkDecorationOffset, inherit); 
+    &:not(.button,[role="button"]) {
+        color: var(--linkColor); cursor: pointer; text-decoration: var(--linkDecoration, auto); text-underline-offset: var(--linkDecorationOffset, inherit);
         &:hover { color: var(--linkHover); text-decoration: var(--linkDecorationHover, auto) }
     }
 }
@@ -318,7 +318,7 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 
 :where(a,[role="link"]).no-style { text-decoration: none }
 
-/*** Accessibility */
+/* Accessibility */
 *:focus-visible { outline-color: var(--a11yColor); outline-offset: var(--a11yOffset); z-index: 1 }
 .a11y-off *:focus-visible { outline: 0; box-shadow: none }
 .a11y-inputs-off :where(input:not([type="checkbox"],[type="radio"],[type="submit"],[type="button"],[type="reset"],[type="range"]),select,textarea):focus-visible { outline: 0; box-shadow: none }
@@ -330,7 +330,7 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 .button.skipTo { position: fixed; z-index: 9999; inset-block-start: var(--padding); inset-inline-start: var(--padding) }
 
 /* if JS Active show el w/ .js -- if JS Disabled show el w/ .no-js -- if JS Disabled *hide* el /w .no-js-hidden */
-:is(html.js .js, html.no-js .no-js):not(html) { display: var(--jsDisplay, inherit)!important } 
+:is(html.js .js, html.no-js .no-js):not(html) { display: var(--jsDisplay, inherit)!important }
 :is(html.js .no-js, html.no-js .js, html.no-js .no-js-hidden):not(html) { display: none!important }
 
 code, samp {
@@ -370,24 +370,26 @@ kbd {
 /* Vertical and Horizontal align */
 .center-axyz { display: grid; place-items: center }
 .center-axyz.full { min-height: 100vh; width: 100% }
-@media (max-width: 777px) { .center-axyz-s { display: grid; place-items: center } .center-axyz-s.full-s  { min-height: 100vh; width: 100% } }
-@media (min-width: 778px) and (max-width: 1024px) { .center-axyz-m { display: grid; place-items: center } .center-axyz-m.full-m { min-height: 100vh; width: 100% } }
+@media (width <= 777px) { .center-axyz-s { display: grid; place-items: center } .center-axyz-s.full-s  { min-height: 100vh; width: 100% } }
+@media (778px <= width <= 1024px) { .center-axyz-m { display: grid; place-items: center } .center-axyz-m.full-m { min-height: 100vh; width: 100% } }
 
 .mob-scroller { display: flex; flex-wrap: nowrap; overflow: hidden; overflow-x: auto; height: auto; width: 100%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch }
-@media (max-width: 1024px) { .mob-scroller::-webkit-scrollbar { display:none } }
+@media (width <= 1024px) { .mob-scroller::-webkit-scrollbar { display:none } }
 
-@media (min-width: 778px) and (max-width: 1024px) { .small-medium { display: none!important } }
-@media (max-width: 1024px) { .medium-large { display: none!important } }
+@media (778px <= width <= 1024px) { .small-medium { display: none!important } }
+@media (width <= 1024px) { .medium-large { display: none!important } }
 
-@media (max-width: 777px) { .large-only  { display:none!important } }
-@media (max-width: 777px), (min-width: 1024px) { .medium-only { display: none!important } }
-@media (min-width: 777px) { .small-only  { display:none!important } }
+@media (width <= 777px) { .large-only  { display:none!important } }
+@media (width <= 777px), (width >= 1024px) { .medium-only { display: none!important } }
+@media (width >= 777px) { .small-only  { display:none!important } }
 
 .no-scrollbars { scrollbar-width:none } .no-scrollbars::-webkit-scrollbar { display:none }
-@media (max-width: 777px)  { .no-scrollbars-s { scrollbar-width:none } .no-scrollbars-s::-webkit-scrollbar { display: none } }
-@media (min-width: 778px) and (max-width: 1024px) { .no-scrollbars-m { scrollbar-width:none } .no-scrollbars-m::-webkit-scrollbar { display: none } }
+@media (width <= 777px)  { .no-scrollbars-s { scrollbar-width:none } .no-scrollbars-s::-webkit-scrollbar { display: none } }
+@media (778px <= width <= 1024px) { .no-scrollbars-m { scrollbar-width:none } .no-scrollbars-m::-webkit-scrollbar { display: none } }
 
-/** Scroll snap */
+/* ------------------
+  scroll snap
+------------------ */
 :where(html) {
     --scrollDirection: x;
     --scrollType: mandatory;
@@ -398,6 +400,7 @@ kbd {
     --scrollJustifyContent: start;
     --scrollAlignItems: center;
     --scrollFlexFlow: row nowrap;
+    --scrollHeight: auto;
     --scrollChildHeight: auto;
     --scrollChildWidth: 100%;
     --scrollChildMinWidth: fit-content;
@@ -406,7 +409,7 @@ kbd {
     --scrollOverflowY: hidden;
 }
 
-.scroll-snap {
+:where([scroll-snap]) {
     display: flex;
     flex-flow: var(--scrollFlexFlow);
     gap: var(--scrollMargin);
@@ -422,26 +425,28 @@ kbd {
     scroll-behavior: smooth;
     scroll-margin: var(--scrollMargin);
     scroll-padding: var(--scrollPadding);
-    scroll-snap-stop: var(--scrollStop);
     scroll-snap-type: var(--scrollDirection) var(--scrollType);
+
+    > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); max-width: var(--scrollChildMaxWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign); scroll-snap-stop: var(--scrollStop) }
+    &:where([scroll-snap~="x"]) { --scrollDirection: x; --scrollFlexFlow: row nowrap; --scrollAlignItems: center; --scrollHeight: auto; --scrollOverflowX: scroll; --scrollOverflowY: hidden }
+    &:where([scroll-snap~="y"]) { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll }
+    &:where([scroll-snap~="mandatory"]) { --scrollType: mandatory }
+    &:where([scroll-snap~="proximity"]) { --scrollType: proximity }
+    &:where([scroll-snap~="align-start"]) { --scrollAlign: start }
+    &:where([scroll-snap~="align-center"]) { --scrollAlign: center }
+    &:where([scroll-snap~="align-end"]) { --scrollAlign: end }
+    &:where([scroll-snap~="stop-normal"]) { --scrollStop: normal }
+    &:where([scroll-snap~="stop-always"]) { --scrollStop: always }
 }
 
-.scroll-snap > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); max-width: var(--scrollChildMaxWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign) }
-.scroll-snap.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll; } 
-.scroll-snap.mandatory { --scrollType: mandatory } /* default */
-.scroll-snap.proximity { --scrollType: proximity }
-.scroll-snap.align-start { --scrollAlign: start }
-.scroll-snap.align-center { --scrollAlign: center }
-.scroll-snap.align-end { --scrollAlign: end }
-.scroll-snap.stop-always { --scrollStop: always } /* default */
-
-@media (max-width: 777px)  {
-    .scroll-snap-s {
+@media (width <= 777px) {
+    :where([scroll-snap-s]) {
         display: flex;
         flex-flow: var(--scrollFlexFlow);
         gap: var(--scrollMargin);
         justify-content: var(--scrollJustifyContent);
         align-items: var(--scrollAlignItems);
+        contain: content;
         height: 100%;
         min-height: var(--scrollHeight);
         overflow-x: var(--scrollOverflowX);
@@ -451,27 +456,29 @@ kbd {
         scroll-behavior: smooth;
         scroll-margin: var(--scrollMargin);
         scroll-padding: var(--scrollPadding);
-        scroll-snap-stop: var(--scrollStop);
         scroll-snap-type: var(--scrollDirection) var(--scrollType);
-    }
 
-    .scroll-snap-s > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); max-width: var(--scrollChildMaxWidth); height: var(--scrollChildHeight); max-width: var(--scrollChildMaxWidth); scroll-snap-align: var(--scrollAlign) }
-    .scroll-snap-s.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll; } 
-    .scroll-snap-s.mandatory { --scrollType: mandatory } /* default */
-    .scroll-snap-s.proximity { --scrollType: proximity }
-    .scroll-snap-s.align-start { --scrollAlign: start }
-    .scroll-snap-s.align-center { --scrollAlign: center }
-    .scroll-snap-s.align-end { --scrollAlign: end }
-    .scroll-snap-s.stop-always { --scrollStop: always } /* default */
+        > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); max-width: var(--scrollChildMaxWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign); scroll-snap-stop: var(--scrollStop) }
+        &:where([scroll-snap-s~="x"]) { --scrollDirection: x; --scrollFlexFlow: row nowrap; --scrollAlignItems: center; --scrollHeight: auto; --scrollOverflowX: scroll; --scrollOverflowY: hidden }
+        &:where([scroll-snap-s~="y"]) { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll }
+        &:where([scroll-snap-s~="mandatory"]) { --scrollType: mandatory }
+        &:where([scroll-snap-s~="proximity"]) { --scrollType: proximity }
+        &:where([scroll-snap-s~="align-start"]) { --scrollAlign: start }
+        &:where([scroll-snap-s~="align-center"]) { --scrollAlign: center }
+        &:where([scroll-snap-s~="align-end"]) { --scrollAlign: end }
+        &:where([scroll-snap-s~="stop-normal"]) { --scrollStop: normal }
+        &:where([scroll-snap-s~="stop-always"]) { --scrollStop: always }
+    }
 }
 
-@media (min-width: 1024px) {
-    .scroll-snap-m {
+@media (778px <= width <= 1024px) {
+    :where([scroll-snap-m]) {
         display: flex;
         flex-flow: var(--scrollFlexFlow);
         gap: var(--scrollMargin);
         justify-content: var(--scrollJustifyContent);
         align-items: var(--scrollAlignItems);
+        contain: content;
         height: 100%;
         min-height: var(--scrollHeight);
         overflow-x: var(--scrollOverflowX);
@@ -481,21 +488,24 @@ kbd {
         scroll-behavior: smooth;
         scroll-margin: var(--scrollMargin);
         scroll-padding: var(--scrollPadding);
-        scroll-snap-stop: var(--scrollStop);
         scroll-snap-type: var(--scrollDirection) var(--scrollType);
-    }
 
-    .scroll-snap-m > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); max-width: var(--scrollChildMaxWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign) }
-    .scroll-snap-m.y { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll; } 
-    .scroll-snap-m.mandatory { --scrollType: mandatory } /* default */
-    .scroll-snap-m.proximity { --scrollType: proximity }
-    .scroll-snap-m.align-start { --scrollAlign: start }
-    .scroll-snap-m.align-center { --scrollAlign: center }
-    .scroll-snap-m.align-end { --scrollAlign: end }
-    .scroll-snap-m.stop-always { --scrollStop: always } /* default */
+        > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); max-width: var(--scrollChildMaxWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign); scroll-snap-stop: var(--scrollStop) }
+        &:where([scroll-snap-m~="x"]) { --scrollDirection: x; --scrollFlexFlow: row nowrap; --scrollAlignItems: center; --scrollHeight: auto; --scrollOverflowX: scroll; --scrollOverflowY: hidden }
+        &:where([scroll-snap-m~="y"]) { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll }
+        &:where([scroll-snap-m~="mandatory"]) { --scrollType: mandatory }
+        &:where([scroll-snap-m~="proximity"]) { --scrollType: proximity }
+        &:where([scroll-snap-m~="align-start"]) { --scrollAlign: start }
+        &:where([scroll-snap-m~="align-center"]) { --scrollAlign: center }
+        &:where([scroll-snap-m~="align-end"]) { --scrollAlign: end }
+        &:where([scroll-snap-m~="stop-normal"]) { --scrollStop: normal }
+        &:where([scroll-snap-m~="stop-always"]) { --scrollStop: always }
+    }
 }
 
-/** Group inputs */
+/* ------------------
+  group inputs
+------------------ */
 x-stack {
     --buttonMargin: auto;
     --buttonHeight: 100%;
@@ -578,8 +588,8 @@ x-stack {
     &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
 
     /* attribute */
-    &.has-icon { 
-        gap: var(--buttonGap, var(--buttonPadding)); 
+    &.has-icon {
+        gap: var(--buttonGap, var(--buttonPadding));
         i { display: grid; place-items: center; font-size: max(15px, var(--buttonSize)); pointer-events: none }
     }
 
@@ -589,8 +599,8 @@ x-stack {
 
     /* shape */
     &.is-pill { --buttonRadius: 100vw }
-    &.is-circle { 
-        --buttonRadius: 100vw; aspect-ratio: 1 / 1; 
+    &.is-circle {
+        --buttonRadius: 100vw; aspect-ratio: 1 / 1;
         &:not(.has-icon) { padding: 1em; width: 1em; height: 1em }
     }
     &.is-square { --buttonRadius:0 }
@@ -611,7 +621,7 @@ x-stack {
     &.is-link { --buttonBg: transparent; --buttonBgHover: transparent; --buttonColor: currentColor; --buttonPadding: 0; --buttonMargin: 0; --buttonWeight: var(--fontWeight); --buttonSize: inherit; --buttonBorderWidth: 0; --buttonShadow: none }
     &.is-blank { background: transparent; --buttonBgHover: transparent; --buttonBorderColor: transparent; --buttonBorderHover: var(--buttonBorderColor); --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
     &.is-custom { --buttonBg: transparent; --buttonBgHover: transparent; --buttonBorderColor: transparent; --buttonBorderHover: transparent; --buttonColor: currentColor; --buttonColorHover: currentColor; --buttonShadow: none }
-    &.is-outline { 
+    &.is-outline {
         background: transparent; --buttonColor: var(--buttonBg); --buttonBorderColor: var(--buttonBg); --buttonShadow: none;
         &:where(:hover,:focus-visible) { background: var(--buttonBg); --buttonColor: var(--buttonColorHover) }
     }
@@ -695,7 +705,7 @@ textarea {
     }
 
     /* blank */
-    &.is-blank { 
+    &.is-blank {
         border:none!important; background:transparent!important; color:currentColor; box-shadow:none!important;
         &:where(:hover,:focus-visible,:active) { border:none!important; background:transparent!important; color:currentColor; box-shadow:none; }
     }
@@ -714,8 +724,8 @@ input[type="range"]::-webkit-slider-runnable-track { width: 100%; height: 0.5rem
 input[type="range"]::-moz-range-thumb     { border: 1px solid rgb(0 0 0 / .5); height: 1.8rem; width: 1.8rem; border-radius: 2.5rem; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-block-start: -0.7rem }
 input[type="range"]::-webkit-slider-thumb { border: 1px solid rgb(0 0 0 / .5); height: 1.8rem; width: 1.8rem; border-radius: 2.5rem; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-block-start: -0.7rem }
 
-textarea { 
-    min-height: 6lh; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius)); 
+textarea {
+    min-height: 6lh; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius));
     &.resize-block { resize: vertical }
     &.resize-inline { resize: horizontal }
     &.resize-none { resize: none }
@@ -742,16 +752,18 @@ select:not([multiple]) {
 
 [dir="rtl"] select { padding-inline-start: 5.3rem }
 
-/** Radio / Checkbox / Switch */
+/* ------------------
+  radio / checkbox / switch
+------------------ */
 :where(html) {
     --checkSize: var(--inputHeight);
     --checkBg: var(--inputBg);
     --checkBorderColor: var(--inputBorderColor);
-    --checkRadius: 0.3rem;
-    --checkActiveColor: var(--inputActive);
+    --checkRadius: var(--radiusFull, 100vw);
+    --checkActiveColor: color-mix(in srgb, var(--inputActive) 80%, transparent);
     --checkInnerColor: var(--inputActiveInner);
-    --checkTransitionOpacity: 0.2s ease;
-    --checkTransitionTransform: 0.3s ease-in-out;
+    --checkTransitionOpacity: 100ms;
+    --checkTransitionTransform: 150ms;
 
     --radioDotSize: calc(var(--checkSize) * 0.45);
 
@@ -769,8 +781,7 @@ input:where([type="checkbox"], [type="radio"]) {
     place-items: center;
     position: relative;
     height: var(--checkSize);
-    width: var(--checkSize);
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
     vertical-align: top;
     margin: 0;
     cursor: pointer;
@@ -804,6 +815,7 @@ input:where([type="checkbox"], [type="radio"]) {
     & + label {
         display: inline-block;
         line-height: var(--checkSize);
+        font-weight: var(--labelWeight);
         vertical-align: top;
         cursor: pointer;
         margin-inline-start: var(--space-1);
@@ -820,7 +832,7 @@ input[type="checkbox"]:not([role="switch"]) {
         border: 1px solid var(--checkInnerColor);
         border-block-start: 0;
         border-inline-start: 0;
-        transform: rotate(43deg);
+        transform: rotate(43deg) translate(-1px, -1px);
     }
 
     &:checked::after { opacity: 1 }
@@ -828,34 +840,31 @@ input[type="checkbox"]:not([role="switch"]) {
 
 /* Radio */
 input[type="radio"] {
-    --checkRadius: var(--radiusFull);
-
     &::after {
         width: var(--radioDotSize);
-        height: var(--radioDotSize);
+        aspect-ratio: 1 / 1;
         opacity: 0;
-        border-radius: var(--radiusFull);
+        border-radius: var(--checkRadius);
         background: var(--checkInnerColor);
-        transform: scale(0.7);
+        transform: scale(0.75);
     }
 
     &:checked::after {
         opacity: 1;
-        transform: scale(1);
+        transform: none;
     }
 }
 
 /* Switch */
 input[type="checkbox"][role="switch"] {
     width: var(--switchWidth);
-    --checkRadius: var(--radiusFull);
 
     &::after {
         position: absolute;
         opacity: 1;
         inset-inline-start: var(--switchThumbOffset);
         inset-block-start: var(--switchThumbOffset);
-        border-radius: var(--radiusFull);
+        border-radius: var(--checkRadius);
         width: var(--switchThumbSize);
         height: var(--switchThumbSize);
         background: var(--switchThumbBg);
@@ -870,9 +879,9 @@ input[type="checkbox"][role="switch"] {
     &:disabled:not(:checked)::after { opacity: 0.7 }
 }
 
-/**** 
- * Toggle token
- * */
+/* ------------------
+  toggle token
+------------------ */
 :where(html) {
     --tokenBg: var(--buttonBg);
     --tokenColor: var(--buttonColor);
@@ -897,9 +906,9 @@ input[type="checkbox"][role="switch"] {
 }
 
 .toggle-token, .toggle-token legend { all: unset }
- 
+
 .toggle-token legend { display: var(--tokenLegend, none) }
- 
+
 .toggle-token label,
 .toggle-token input:where([type="radio"],[type="checkbox"]) + label {
     display: var(--tokenDisplay, inline-flex);
@@ -914,39 +923,39 @@ input[type="checkbox"][role="switch"] {
     text-decoration: var(--tokenDecoration);
     border: var(--tokenBorder) var(--tokenBorderColor);
     border-radius: var(--tokenRadius);
-    padding: var(--tokenPadding); 
+    padding: var(--tokenPadding);
     margin: var(--tokenMargin);
     user-select: none;
     cursor: pointer;
     position: relative;
 }
- 
+
 .toggle-token label:is(:hover,:has(:focus-visible)),
 .toggle-token input:where([type="radio"],[type="checkbox"]):is(:hover,:focus-visible) + label {
-    background: var(--tokenBgHover); 
-    color: var(--tokenColorHover); 
+    background: var(--tokenBgHover);
+    color: var(--tokenColorHover);
     border-color: var(--tokenBorderHover);
     text-decoration: var(--tokenDecorationHover);
 }
 
 .toggle-token label:has(:focus-visible),
 .toggle-token input:where([type="radio"],[type="checkbox"]):focus-visible + label {
-    outline: var(--a11yOutline); 
-    outline-offset: var(--a11yOffset) 
+    outline: var(--a11yOutline);
+    outline-offset: var(--a11yOffset)
 }
 
 .toggle-token label:has(input:where([type="radio"],[type="checkbox"]):is(:checked,[checked])),
-.toggle-token input:where([type="radio"],[type="checkbox"]):is(:checked,[checked]) + label { 
-    background: var(--tokenBgActive); 
-    color: var(--tokenColorActive); 
-    border-color: var(--tokenBorderActive); 
+.toggle-token input:where([type="radio"],[type="checkbox"]):is(:checked,[checked]) + label {
+    background: var(--tokenBgActive);
+    color: var(--tokenColorActive);
+    border-color: var(--tokenBorderActive);
     font-weight: var(--tokenWeightActive);
     text-decoration: var(--tokenDecorationActive);
 }
- 
+
 .toggle-token label:has(input:where([type="radio"],[type="checkbox"]):where(:disabled,.disabled)),
 .toggle-token input:where([type="radio"],[type="checkbox"]):where(:disabled,.disabled) + label {
-    filter: var(--tokenDisabledFilter, grayscale(100%)); 
+    filter: var(--tokenDisabledFilter, grayscale(100%));
     cursor: not-allowed;
     opacity: var(--tokenOpacity, 0.3);
     text-decoration: var(--tokenTextDec, line-through) !important;
@@ -973,9 +982,9 @@ ol.decimal { list-style-type: decimal }
 :where(ul,ol).inside { list-style-position: inside }
 :where(ul,ol).outside { list-style-position: outside }
 
-/* ---------------------
+/* ------------------
   hr - horizontal rules
---------------------- */
+------------------ */
 hr { width: 100%; margin: var(--hrMargin) auto; background-color: var(--hrColor); border: 0 none }
 hr:not([size]) { height: 0.1rem }
 hr.gradient { background-color: transparent; background-image: linear-gradient(to right, var(--hrGradient) 0%, var(--hrColor) 50%, var(--hrGradient) 100%) }
@@ -1047,7 +1056,7 @@ table {
         text-align: var(--tableCaptionAlign);
     }
 
-    /* ---- base cells ---- */
+    /* base cells */
     :where(td, th) {
         min-width: var(--tableMinWidth, none);
         vertical-align: middle;
@@ -1072,7 +1081,7 @@ table {
         text-transform: var(--tableTextTransform, none);
     }
 
-    /* ---- default look: pill-shaped header row ---- */
+    /* default look: pill-shaped header row */
     &:not(.has-borders) thead th {
         background: var(--tableBg);
         border-block: var(--_tableBorder);
@@ -1090,7 +1099,7 @@ table {
         }
     }
 
-    /* ---- modifiers ---- */
+    /* modifiers */
     &.is-striped tbody {
         td { border-block-end: none }
         tr:nth-child(even) td { background: var(--tableStrip) }
@@ -1139,7 +1148,7 @@ table {
     }
 }
 
-/* ---- container-query hook: compact density on narrow containers ---- */
+/* container-query hook: compact density on narrow containers */
 @container table (inline-size < 500px) {
     table {
         --tablePaddingBlock: var(--space-1);
@@ -1149,9 +1158,9 @@ table {
     }
 }
 
-/* ---------------------
+/* ------------------
   misc elements
---------------------- */
+------------------ */
 :where(progress,meter) {
     --barHeight: var(--space-2);
     --barBg: light-dark(#F8F8F8, #181818);
@@ -1195,7 +1204,7 @@ table {
 
     display: grid;
     gap: var(--gap);
-    grid-template-columns: var(--grid-tc); /* default columns */ 
+    grid-template-columns: var(--grid-tc); /* default columns */
 }
 
 :is(x-subgrid,[x-subgrid]) { display: grid; grid-template-columns: subgrid; gap: inherit }
@@ -1225,7 +1234,7 @@ table {
 [columns="stack"] > * { position: relative; grid-row: 1; grid-column: 1; z-index: 0 }
 [columns="stack"] > *:first-child { z-index: 1 }
 
-/*** Grid Column - X axis */
+/* Grid Column - X axis */
 [span^="1"] { --grid-cs: 1 }
 [span^="2"] { --grid-cs: 2 }
 [span^="3"] { --grid-cs: 3 }
@@ -1252,14 +1261,14 @@ table {
 [span$="+11"], [span$="-10"], [span="11"] { --grid-ce: 11 }
 [span$="+12"], [span$="-11"], [span="12"] { --grid-ce: 12 }
 [span$="-12"] { --grid-ce: 13 }
-    
+
 /* connect vars */
 [span] { grid-column-end: span var(--grid-ce) }
 [span*="+"], [span*="-"], [span*=".."] { grid-column-start: var(--grid-cs) }
 [span*="-"], [span*=".."] { grid-column-end: var(--grid-ce) }
 [span="row"] { grid-column: 1 / -1 }
-    
-/*** Grid Row - Y axis */
+
+/* Grid Row - Y axis */
 [span-y^="1"] { --grid-rs: 1 }
 [span-y^="2"] { --grid-rs: 2 }
 [span-y^="3"] { --grid-rs: 3 }
@@ -1272,7 +1281,7 @@ table {
 [span-y^="10"] { --grid-rs: 10 }
 [span-y^="11"] { --grid-rs: 11 }
 [span-y^="12"] { --grid-rs: 12 }
-    
+
 [span-y$="+1"], [span-y="1"] { --grid-re: 1 }
 [span-y$="+2"], [span-y$="-1"], [span-y="2"] { --grid-re: 2 }
 [span-y$="+3"], [span-y$="-2"], [span-y="3"] { --grid-re: 3 }
@@ -1293,8 +1302,8 @@ table {
 [span-y*="-"] { grid-row-end: var(--grid-re) }
 [span-y="1f"]  { grid-row: 1 / -1 }
 
-/* [S] for window width <= 777px */
-@media (max-width: 777px) {
+/* [S] width <= 777px */
+@media (width <= 777px) {
     :is(x-grid,[x-grid]) {
         gap: var(--gap-s, var(--gap));
     }
@@ -1318,8 +1327,8 @@ table {
     [columns-s="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr; isolation: isolate }
     [columns-s="stack"] > * { position: relative; grid-row: 1; grid-column: 1; z-index: 0 }
     [columns-s="stack"] > *:first-child { z-index: 1 }
-        
-    /*** Grid Column - X axis */
+
+    /* Grid Column - X axis */
     [span-s^="1"] { --grid-cs: 1 }
     [span-s^="2"] { --grid-cs: 2 }
     [span-s^="3"] { --grid-cs: 3 }
@@ -1346,14 +1355,14 @@ table {
     [span-s$="+11"], [span-s$="-10"], [span-s="11"] { --grid-ce: 11 }
     [span-s$="+12"], [span-s$="-11"], [span-s="12"] { --grid-ce: 12 }
     [span-s$="-12"] { --grid-ce: 13 }
-        
+
     /* connect vars */
     [span-s] { grid-column-end: span var(--grid-ce) }
     [span-s*="+"], [span-s*="-"], [span-s*=".."] { grid-column-start: var(--grid-cs) }
     [span-s*="-"], [span-s*=".."] { grid-column-end: var(--grid-ce) }
     [span-s="row"] { grid-column: 1 / -1 }
-        
-    /*** Grid Row - Y axis */
+
+    /* Grid Row - Y axis */
     [span-y-s^="1"] { --grid-rs: 1 }
     [span-y-s^="2"] { --grid-rs: 2 }
     [span-y-s^="3"] { --grid-rs: 3 }
@@ -1366,7 +1375,7 @@ table {
     [span-y-s^="10"] { --grid-rs: 10 }
     [span-y-s^="11"] { --grid-rs: 11 }
     [span-y-s^="12"] { --grid-rs: 12 }
-        
+
     [span-y-s$="+1"], [span-y-s="1"] { --grid-re: 1 }
     [span-y-s$="+2"], [span-y-s$="-1"], [span-y-s="2"] { --grid-re: 2 }
     [span-y-s$="+3"], [span-y-s$="-2"], [span-y-s="3"] { --grid-re: 3 }
@@ -1380,7 +1389,7 @@ table {
     [span-y-s$="+11"], [span-y-s$="-10"], [span-y-s="11"] { --grid-re: 11 }
     [span-y-s$="+12"], [span-y-s$="-11"], [span-y-s="12"] { --grid-re: 12 }
     [span-y-s$="-12"] { --grid-re: 13 }
-        
+
     /* connect vars */
     [span-y-s] { grid-row-end: span var(--grid-re) }
     [span-y-s*="+"], [span-y-s*="-"] { grid-row-start: var(--grid-rs) }
@@ -1389,8 +1398,8 @@ table {
 
 }
 
-/* [M] for window width 778px <> 1024px */
-@media (min-width: 778px) and (max-width: 1024px) {
+/* [M] 778px <= width <= 1024px */
+@media (778px <= width <= 1024px) {
     :is(x-grid,[x-grid]) {
         gap: var(--gap-m, var(--gap));
     }
@@ -1414,8 +1423,8 @@ table {
     [columns-m="stack"] { display: grid; grid-template-rows: 1fr; grid-template-columns: 1fr; isolation: isolate }
     [columns-m="stack"] > * { position: relative; grid-row: 1; grid-column: 1; z-index: 0 }
     [columns-m="stack"] > *:first-child { z-index: 1 }
-        
-    /*** Grid Column - X axis */
+
+    /* Grid Column - X axis */
     [span-m^="1"] { --grid-cs: 1 }
     [span-m^="2"] { --grid-cs: 2 }
     [span-m^="3"] { --grid-cs: 3 }
@@ -1442,14 +1451,14 @@ table {
     [span-m$="+11"], [span-m$="-10"], [span-m="11"] { --grid-ce: 11 }
     [span-m$="+12"], [span-m$="-11"], [span-m="12"] { --grid-ce: 12 }
     [span-m$="-12"] { --grid-ce: 13 }
-        
+
     /* connect vars */
     [span-m] { grid-column-end: span var(--grid-ce) }
     [span-m*="+"], [span-m*="-"], [span-m*=".."] { grid-column-start: var(--grid-cs) }
     [span-m*="-"], [span-m*=".."] { grid-column-end: var(--grid-ce) }
     [span-m="row"] { grid-column: 1 / -1 }
-        
-    /*** Grid Row - Y axis */
+
+    /* Grid Row - Y axis */
     [span-y-m^="1"] { --grid-rs: 1 }
     [span-y-m^="2"] { --grid-rs: 2 }
     [span-y-m^="3"] { --grid-rs: 3 }
@@ -1462,7 +1471,7 @@ table {
     [span-y-m^="10"] { --grid-rs: 10 }
     [span-y-m^="11"] { --grid-rs: 11 }
     [span-y-m^="12"] { --grid-rs: 12 }
-        
+
     [span-y-m$="+1"], [span-y-m="1"] { --grid-re: 1 }
     [span-y-m$="+2"], [span-y-m$="-1"], [span-y-m="2"] { --grid-re: 2 }
     [span-y-m$="+3"], [span-y-m$="-2"], [span-y-m="3"] { --grid-re: 3 }
@@ -1476,7 +1485,7 @@ table {
     [span-y-m$="+11"], [span-y-m$="-10"], [span-y-m="11"] { --grid-re: 11 }
     [span-y-m$="+12"], [span-y-m$="-11"], [span-y-m="12"] { --grid-re: 12 }
     [span-y-m$="-12"] { --grid-re: 13 }
-        
+
     /* connect vars */
     [span-y-m] { grid-row-end: span var(--grid-re) }
     [span-y-m*="+"], [span-y-m*="-"] { grid-row-start: var(--grid-rs) }
@@ -1488,7 +1497,7 @@ table {
 /* ------------------
   flexbox
 ------------------ */
-/*  Flex Container */
+/* Flex Container */
 :is(x-flex,[x-flex]) { --jsDisplay: flex; display: flex; gap: var(--gap) }
 :where(x-flex,[x-flex]) > * { flex: 0 1 auto; width: auto; appearance: none }
 :where(x-flex,[x-flex]).even > * { width: 100% }
@@ -1511,13 +1520,13 @@ table {
 :where(x-flex,[x-flex]) > [span="full"] { flex: 1 1 auto } /* full flex */
 :where(x-flex,[x-flex]) > [span="row"] { flex-basis: 100% } /* wrap=wrap to function! */
 
-/* for window width <= 777px */
-@media (max-width: 777px) {
+/* [S] width <= 777px */
+@media (width <= 777px) {
     :is(x-flex,[x-flex]) {
         gap: var(--gap-s, var(--gap));
     }
 
-    /*  Flex Direction */
+    /* Flex Direction */
     [direction-s="column"] { flex-direction: column }
     [direction-s="column-reverse"] { flex-direction: column-reverse }
     [direction-s="row"] { flex-direction: row }
@@ -1533,13 +1542,13 @@ table {
     :where(x-flex,[x-flex]) > [span-s="row"] { flex-basis: 100% }
 }
 
-/* for window width 778px <= width <= 1024px */
-@media (min-width: 778px) and (max-width: 1024px) {
+/* [M] 778px <= width <= 1024px */
+@media (778px <= width <= 1024px) {
     :is(x-flex,[x-flex]) {
         gap: var(--gap-m, var(--gap));
     }
 
-    /*  Flex Direction */
+    /* Flex Direction */
     [direction-m="column"] { flex-direction: column }
     [direction-m="column-reverse"] { flex-direction: column-reverse }
     [direction-m="row"] { flex-direction: row }
@@ -1555,9 +1564,9 @@ table {
     :where(x-flex,[x-flex]) > [span-m="row"] { flex-basis: 100% }
 }
 
-/* ------------------------
-  Grid & Flexbox Utilities
------------------------- */
+/* ------------------
+  grid & flexbox utilities
+------------------ */
 /* Justify CONTENT - F+G */
 [jc="start"] { justify-content: start }
 [jc="center"] { justify-content: center }
@@ -1738,12 +1747,12 @@ table {
 [order="16"] { order: 16 }
 [order="last"] { order: 99 }
 
-/*** [S] for window width <= 777px */
-@media (max-width: 777px) {
+/* [S] width <= 777px */
+@media (width <= 777px) {
     /* Justify CONTENT */
-    [jc-s="start"] { justify-content: start } 
+    [jc-s="start"] { justify-content: start }
     [jc-s="center"] { justify-content: center }
-    [jc-s="end"] { justify-content: end } 
+    [jc-s="end"] { justify-content: end }
     [jc-s="stretch"] { justify-content: stretch }
     [jc-s="around"] { justify-content: space-around }
     [jc-s="between"] { justify-content: space-between }
@@ -1778,18 +1787,18 @@ table {
     [ai-s="last baseline"] { align-items: last baseline }
 
     /* Align CONTENT */
-    [ac-s="start"] { align-content: start } 
+    [ac-s="start"] { align-content: start }
     [ac-s="center"] { align-content: center }
-    [ac-s="end"] { align-content: end } 
+    [ac-s="end"] { align-content: end }
     [ac-s="stretch"] { align-content: stretch }
     [ac-s="around"] { align-content: space-around }
     [ac-s="between"] { align-content: space-between }
     [ac-s="evenly"] { align-content: space-evenly }
 
     /* Align SELF */
-    [as-s="start"] { align-self: start } 
+    [as-s="start"] { align-self: start }
     [as-s="center"] { align-self: center }
-    [as-s="end"] { align-self: end } 
+    [as-s="end"] { align-self: end }
     [as-s="stretch"] { align-self: stretch }
 
     /* Justify SELF */
@@ -1921,12 +1930,12 @@ table {
     [order-s="last"] { order: 99 }
 }
 
-/*** [M] for window width 778px <> 1024px */
-@media (min-width: 778px) and (max-width: 1024px) {
+/* [M] 778px <= width <= 1024px */
+@media (778px <= width <= 1024px) {
     /* Justify CONTENT */
-    [jc-m="start"] { justify-content: start } 
+    [jc-m="start"] { justify-content: start }
     [jc-m="center"] { justify-content: center }
-    [jc-m="end"] { justify-content: end } 
+    [jc-m="end"] { justify-content: end }
     [jc-m="stretch"] { justify-content: stretch }
     [jc-m="around"] { justify-content: space-around }
     [jc-m="between"] { justify-content: space-between }
@@ -1961,18 +1970,18 @@ table {
     [ai-m="last baseline"] { align-items: last baseline }
 
     /* Align CONTENT */
-    [ac-m="start"] { align-content: start } 
+    [ac-m="start"] { align-content: start }
     [ac-m="center"] { align-content: center }
-    [ac-m="end"] { align-content: end } 
+    [ac-m="end"] { align-content: end }
     [ac-m="stretch"] { align-content: stretch }
     [ac-m="around"] { align-content: space-around }
     [ac-m="between"] { align-content: space-between }
     [ac-m="evenly"] { align-content: space-evenly }
 
     /* Align SELF */
-    [as-m="start"] { align-self: start } 
+    [as-m="start"] { align-self: start }
     [as-m="center"] { align-self: center }
-    [as-m="end"] { align-self: end } 
+    [as-m="end"] { align-self: end }
     [as-m="stretch"] { align-self: stretch }
 
     /* Justify SELF */
@@ -2162,7 +2171,7 @@ table {
 .sticky-bottom { position: sticky; inset-block-end: var(--sticky, 0); z-index: var(--stickyZindex, 1) }
 .sticky-none { position: inherit }
 
-@media (max-width: 777px) { 
+@media (width <= 777px) {
     .fullwidth-s { --buttonWidth: 100%; --inputWidth: 100%; width: 100% }
     .fullwidth-max-s { max-width: 100% }
     .fullheight-s { height: 100% }
@@ -2205,7 +2214,7 @@ table {
     .sticky-none-s { position: inherit }
 }
 
-@media (min-width: 778px) and (max-width: 1024px) {
+@media (778px <= width <= 1024px) {
     .fullwidth-m { --buttonWidth: 100%; --inputWidth: 100%; width: 100% }
     .fullwidth-max-m { max-width: 100% }
     .fullheight-m { height: 100% }
@@ -2249,11 +2258,9 @@ table {
 }
 
 /* ------------------
-  Cubic Beziers
+  cubic beziers
 ------------------ */
-/*
- * examples at: https://easings.net/
-*/
+/* Examples: https://easings.net/ */
 :where(html) {
     --easeInSine: cubic-bezier(0.12, 0, 0.39, 0);
     --easeOutSine: cubic-bezier(0.61, 1, 0.88, 1);
@@ -2291,7 +2298,7 @@ table {
 /* ------------------
   animations
 ------------------ */
-/**** Keyframes x Animations */
+/* Keyframes x Animations */
 @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 @keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 20%, 0) } to { opacity: 1; transform: none } }
 @keyframes fadeInDown { from { opacity: 0; transform: translate3d(0, -20%, 0) } to { opacity: 1; transform: none } }
@@ -2313,31 +2320,31 @@ table {
 @keyframes scaleIn { from { opacity: 0; transform: scale(3) } to { opacity: 1; transform: none } }
 @keyframes scaleOut { from { opacity: 1; transform: scale(1) } to { opacity: 0; transform: scale(3) } }
 
-@keyframes pulse  { 
+@keyframes pulse  {
   0% { transform: scale3d(1,1,1) }
   50% { transform: scale3d(1.05,1.05,1.05) }
   100% { transform: scale3d(1,1,1) }
 }
 
-@keyframes shake  { 
+@keyframes shake  {
   0%, 100% { transform: translate3d(0,0,0) }
   10%, 30%, 50%, 70%, 90% { transform: translate3d(-10px,0,0) }
   20%, 40%, 60%, 80% { transform: translate3d(10px,0,0) }
 }
 
-@keyframes zoomInDown  { 
+@keyframes zoomInDown  {
   0% { opacity: 0; transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0); animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190) }
   60% { opacity: 1; transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0); animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1) }
 }
 
-@keyframes bounce  { 
+@keyframes bounce  {
   from, 20%, 53%, 80%, to { --ease: cubic-bezier(0.215, 0.610, 0.355, 1.000); transform: translate3d(0, 0, 0) }
   40%, 43% { --ease: cubic-bezier(0.755, 0.050, 0.855, 0.060); transform: translate3d(0, -30px, 0) }
   70% { --ease: cubic-bezier(0.755, 0.050, 0.855, 0.060); transform: translate3d(0, -15px, 0) }
   90% { transform: translate3d(0, -4px, 0) }
 }
 
-@keyframes flip  { 
+@keyframes flip  {
   from { transform: perspective(400px) rotate3d(0, 1, 0, -360deg); animation-timing-function: ease-out }
   40% { transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg); animation-timing-function: ease-out }
   50% { transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg); animation-timing-function: ease-in }
@@ -2345,7 +2352,7 @@ table {
   to { transform: perspective(400px); animation-timing-function: ease-in }
 }
 
-@keyframes flipInX  { 
+@keyframes flipInX  {
   from { transform: perspective(400px) rotate3d(1, 0, 0, 90deg); animation-timing-function: ease-in; opacity: 0 }
   40% { transform: perspective(400px) rotate3d(1, 0, 0, -20deg); animation-timing-function: ease-in }
   60% { transform: perspective(400px) rotate3d(1, 0, 0, 10deg); opacity: 1 }
@@ -2353,13 +2360,13 @@ table {
   to { transform: perspective(400px) }
 }
 
-@keyframes flipOutX  { 
+@keyframes flipOutX  {
   from { transform: perspective(400px) }
   30% { transform: perspective(400px) rotate3d(1, 0, 0, -20deg); opacity: 1 }
   to { transform: perspective(400px) rotate3d(1, 0, 0, 90deg); opacity: 0 }
 }
 
-@keyframes flipInY  { 
+@keyframes flipInY  {
   from { transform: perspective(400px) rotate3d(0, 1, 0, 90deg); animation-timing-function: ease-in; opacity: 0 }
   40% { transform: perspective(400px) rotate3d(0, 1, 0, -20deg); animation-timing-function: ease-in }
   60% { transform: perspective(400px) rotate3d(0, 1, 0, 10deg); opacity: 1 }
@@ -2367,7 +2374,7 @@ table {
   to { transform: perspective(400px) }
 }
 
-@keyframes flipOutY  { 
+@keyframes flipOutY  {
   from { transform: perspective(400px) }
   30% { transform: perspective(400px) rotate3d(0, 1, 0, -15deg); opacity: 1 }
   to { transform: perspective(400px) rotate3d(0, 1, 0, 90deg); opacity: 0 }
@@ -2393,5 +2400,5 @@ table {
   to { opacity: 1; transform: scale3d(1, 1, 1) }
 }
 
-/*** Accessibility :: Disabling animations if user prefers-reduced-motion */
+/* Accessibility :: Disabling animations if user prefers-reduced-motion */
 @media screen and (prefers-reduced-motion: reduce), (update: slow) { *, *::before, *::after, *::backdrop { animation-duration:0.001ms!important; animation-iteration-count:1!important; transition-duration:0.001ms!important; animation-delay:0.001ms!important; transition-property:none } }

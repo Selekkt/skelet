@@ -40,5 +40,5 @@ a { --linkDecoration: none; --linkDecorationHover: none; }
    overrides under: @media (prefers-reduced-motion: reduce), (update: slow) */
 
 /* Skelet responsive breakpoints — where the -s / -m utilities toggle:
-   small:  @media (max-width: 777px)
-   medium: @media (min-width: 778px) and (max-width: 1024px) */
+   small:  @media (width <= 777px)
+   medium: @media (778px <= width <= 1024px) */

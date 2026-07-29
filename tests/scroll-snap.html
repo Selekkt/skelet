@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scroll snap attributes — Skelet.css fixture</title>
+    <link rel="stylesheet" href="../css/skelet.css">
+
+    <style>
+        body { padding: var(--space-6); background: var(--bgColor); color: var(--color) }
+        header, main { width: min(100%, 110rem); margin-inline: auto }
+        header { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between; margin-block-end: var(--space-8) }
+        section + section { margin-block-start: var(--space-8) }
+        code { overflow-wrap: anywhere }
+
+        .snap-demo {
+            --scrollChildFlex: 0 0 auto;
+            --scrollChildWidth: min(75vw, 32rem);
+            --scrollChildMinWidth: min(75vw, 32rem);
+            --scrollChildMaxWidth: min(75vw, 32rem);
+            --scrollChildHeight: 16rem;
+            padding: var(--space-3);
+            border: 1px solid var(--inputBorderColor);
+            border-radius: var(--radius);
+            background: var(--inputBg);
+        }
+
+        .snap-demo > * {
+            display: grid;
+            place-items: center;
+            margin: 0;
+            padding: var(--space-4);
+            border: 1px solid var(--inputBorderColor);
+            border-radius: var(--radius);
+            background: light-dark(#e7f0ff, #10213d);
+            font-size: var(--h4Size);
+            font-weight: 700;
+        }
+
+        .vertical-demo {
+            max-height: 10rem;
+            --scrollHeight: 24rem;
+            --scrollChildWidth: 100%;
+            --scrollChildMinWidth: 100%;
+            --scrollChildMaxWidth: 100%;
+            --scrollChildHeight: 18rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Scroll snap attributes</h1>
+            <p>Resize through small (≤777px), medium (778–1024px), and large widths.</p>
+        </div>
+        <button type="button" id="theme-toggle">Toggle dark mode</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>Base horizontal</h2>
+            <p><code>scroll-snap="x proximity align-center stop-always"</code></p>
+            <ol class="snap-demo no-style" scroll-snap="x proximity align-center stop-always" tabindex="0" aria-label="Horizontal scroll snap example">
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+                <li>Four</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Base vertical</h2>
+            <p><code>scroll-snap="y mandatory align-center"</code></p>
+            <ol class="snap-demo vertical-demo no-style" scroll-snap="y mandatory align-center" tabindex="0" aria-label="Vertical scroll snap example">
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Responsive override</h2>
+            <p>Vertical on large screens, horizontal proximity snapping on small screens, and horizontal mandatory snapping on medium screens.</p>
+            <ol
+                class="snap-demo vertical-demo no-style"
+                scroll-snap="y mandatory align-start stop-always"
+                scroll-snap-s="x proximity align-center stop-normal"
+                scroll-snap-m="x mandatory align-end stop-always"
+                tabindex="0"
+                aria-label="Responsive scroll snap override example"
+            >
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+                <li>Four</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Responsive-only activation</h2>
+            <p>The first list snaps only on small screens. The second snaps only in the medium range.</p>
+            <h3>Small only</h3>
+            <ol class="snap-demo no-style" scroll-snap-s="x mandatory align-start stop-always" tabindex="0" aria-label="Small-only scroll snap example">
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ol>
+
+            <h3>Medium only</h3>
+            <ol class="snap-demo no-style" scroll-snap-m="x mandatory align-start stop-always" tabindex="0" aria-label="Medium-only scroll snap example">
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ol>
+        </section>
+    </main>
+
+    <script>
+        document.querySelector('#theme-toggle').addEventListener('click', () => {
+            document.documentElement.toggleAttribute('dark-mode');
+        });
+    </script>
+</body>
+</html>

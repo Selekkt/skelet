@@ -610,8 +610,8 @@ width; small and medium attributes override the same property inside their range
 
 | Suffix | Core range |
 |---|---|
-| `-s` | `@media (max-width: 777px)` |
-| `-m` | `@media (min-width: 778px) and (max-width: 1024px)` |
+| `-s` | `@media (width <= 777px)` |
+| `-m` | `@media (778px <= width <= 1024px)` |
 | none | Always active unless a suffixed declaration overrides it |
 
 There is no large suffix.
@@ -658,8 +658,6 @@ prefer explicit responsive attributes/utilities or verify in a browser.
 
 Treat these as implementation facts, not patterns to copy:
 
-- `.scroll-snap-m` is currently inside `@media (min-width: 1024px)`, not the normal medium
-  range.
 - `.text-bold` uses weight 700, while `.text-bold-s` and `.text-bold-m` use 600.
 - `.overflow` uses `overflow: clip`, while responsive forms use `overflow: hidden`.
 - `.sticky-bottom` supplies a z-index; responsive forms omit it.
@@ -1270,22 +1268,46 @@ Do not hide scrollbars when doing so makes scrollability undiscoverable.
 
 ### Scroll snap
 
-Base classes:
+Scroll snap uses space-separated values in an activation attribute:
 
-- `.scroll-snap`
-- `.y`
-- `.mandatory`, `.proximity`
-- `.align-start`, `.align-center`, `.align-end`
-- `.stop-always` exists, but is currently a no-op because core applies
-  `scroll-snap-stop` to the container instead of its snap-item children.
+```html
+<ul scroll-snap="x mandatory align-start stop-always">
+  <li>First item</li>
+  <li>Second item</li>
+</ul>
+```
 
-Customize through `--scroll*` tokens. Direct children become snap items.
+Choose one value from each group as needed:
 
-`.scroll-snap-s` follows the small breakpoint. `.scroll-snap-m` currently activates at
-`min-width: 1024px`, not the normal medium range; verify before using it.
+- Direction: `x` (default) or `y`
+- Strictness: `mandatory` (default) or `proximity`
+- Item alignment: `align-start` (default), `align-center`, or `align-end`
+- Item stopping: `stop-normal` (default) or `stop-always`
 
-The base default for `--scrollStop` is `normal`. Do not rely on `.stop-always` until core
-moves `scroll-snap-stop` to the direct snap items.
+The empty boolean form, `<div scroll-snap>`, uses all defaults. Direct children become snap
+items; alignment and stop behavior are applied to those children.
+
+Responsive activation uses the same token-list API:
+
+- `[scroll-snap-s]` activates at the small breakpoint (`width <= 777px`).
+- `[scroll-snap-m]` activates in the medium range (`778px` through `1024px`).
+
+Responsive attributes can stand alone or override a base configuration:
+
+```html
+<div
+  scroll-snap="y mandatory align-start stop-always"
+  scroll-snap-s="x proximity align-center stop-normal"
+>
+  ...
+</div>
+```
+
+In this example the scroller is vertical by default and becomes a horizontal proximity
+scroller on small screens. Customize further through the inherited `--scroll*` tokens.
+
+The former `.scroll-snap`, `.scroll-snap-s`, `.scroll-snap-m`, and modifier-class API has
+been replaced by these attributes.
 
 ---
 
@@ -1407,23 +1429,23 @@ animations and transitions to one near-instant iteration. It does not remove ani
 names with `animation: none`, but the practical effect is near-instant motion. The rule also
 covers pseudo-elements and backdrops, including animations added later in `css/app.css`.
 
-Current caveat: `.mob-scroller` and `.scroll-snap*` hard-code `scroll-behavior: smooth`, and
-the final reduced-motion rule does not reset scrolling behavior. For motion-sensitive
-interfaces using those utilities, add a preference-aware override:
+Current caveat: `.mob-scroller` and the scroll-snap attributes hard-code
+`scroll-behavior: smooth`, and the final reduced-motion rule does not reset scrolling
+behavior. For motion-sensitive interfaces using those utilities, add a preference-aware
+override:
 
 ```css
 @media (prefers-reduced-motion: reduce), (update: slow) {
   .mob-scroller,
-  .scroll-snap,
-  .scroll-snap-s,
-  .scroll-snap-m {
+  [scroll-snap],
+  [scroll-snap-s],
+  [scroll-snap-m] {
     scroll-behavior: auto;
   }
 }
 ```
 
-Do not wrap this selector list in `:where()`: its zero specificity would lose to the core
-class selectors even though `app.css` loads later.
+These selectors can live in `css/app.css`, which loads after the core stylesheet.
 
 ---
 

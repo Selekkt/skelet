@@ -40,7 +40,7 @@ x-scroll {
     timeline-scope: --carousel;
     max-width: 100vw;
 
-        .scroll-snap { 
+        [scroll-snap] {
             --scrollChildHeight: 600px;
             scroll-timeline: --carousel inline;
             
@@ -61,13 +61,13 @@ x-scroll {
 <div id="app">
     <header x-grid columns="2" style="padding: var(--margin)">
         <h1 style="--hMargin:0">Skelet.css</h1>
-        <x-cell>.scroll-snap + web component.</x-cell>
+        <x-cell>[scroll-snap] + web component.</x-cell>
     </header>
 
     <main class="center-axyz">
         <h2>Skelet version</h2>
         <x-scroll>
-            <ul class="scroll-snap no-style">
+            <ul scroll-snap class="no-style">
                 <li class="card">
                     <img src="https://placehold.co/950x1397/711DB0/FFF/?text=Skelet.css" alt="">
                 </li>
@@ -105,7 +105,7 @@ x-scroll {
 
                 scroll-nav { display: block; padding-block: var(--padding) }
                 scroll-pagination { display: block; margin-inline: auto;z-index: 9;}
-                .scroll-snap { --scrollMargin: .3rem; border-radius: 2rem }
+                [scroll-snap] { --scrollMargin: .3rem; border-radius: 2rem }
 
                 .card {
                     &.dark { color: black }
@@ -134,7 +134,7 @@ x-scroll {
 
             <scroll-pagination></scroll-pagination>
 
-            <ul class="scroll-snap align-start no-scrollbars no-style inside">
+            <ul scroll-snap="align-start" class="no-scrollbars no-style inside">
                 <li class="card">
                     <x-grid columns="stack">
                         <x-flex direction="column" class="meta">
@@ -190,7 +190,7 @@ export default class xScroll extends HTMLElement {
     constructor() {
         super();
 
-        this.scroller = this.querySelector('.scroll-snap');
+        this.scroller = this.querySelector('[scroll-snap]');
         this.buttonPrev = this.querySelector('button[data-previous]');
         this.buttonNext = this.querySelector('button[data-next]');
     }

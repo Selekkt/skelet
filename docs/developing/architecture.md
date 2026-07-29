@@ -51,6 +51,26 @@ component they configure. Preserve the existing comment-banner order when editin
 
 Tooltips and overlays form a separate opt-in layer in their own stylesheets.
 
+## Source comment hierarchy
+
+Use one banner style for top-level sections:
+
+```css
+/* ------------------
+  section name
+------------------ */
+```
+
+Inside a top-level section, use a plain block comment for subsection labels:
+
+```css
+/* Subsection name */
+```
+
+Do not introduce `/**`, `/***`, `/****`, or decorative dashed subsection variants. The
+leading `/*! ... */` license banner is the only exception. Keep explanatory inline comments
+short and use the same plain `/* ... */` form.
+
 ## Cascade strategy — no `@layer`
 
 Skelet does **not** use `@layer`. The cascade is managed with:
