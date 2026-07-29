@@ -10,6 +10,9 @@
         main { width: min(100%, 90rem); margin-inline: auto }
         .probes { display: grid; gap: var(--space-3) }
         .probe { padding: var(--space-4); border: 1px solid var(--inputBorderColor); border-radius: var(--radius); background: var(--inputBg) }
+        .scroll-box { height: 18rem; overflow: auto; margin-block: var(--space-4); border: 1px solid var(--inputBorderColor); isolation: isolate }
+        .scroll-content { min-height: 42rem; padding: var(--space-3) }
+        .sticky-probe { --stickyZindex: 7; background: var(--primary); color: var(--white) }
     </style>
 </head>
 <body>
@@ -23,6 +26,23 @@
             <p class="probe large-only"><code>.large-only</code> — large only</p>
             <p class="probe small-medium"><code>.small-medium</code> — small and medium</p>
             <p class="probe medium-large"><code>.medium-large</code> — medium and large</p>
+        </div>
+
+        <h2>Responsive sticky bottom</h2>
+        <p>At the matching width, each sticky footer should render with <code></code>z-index: 7</code>.</p>
+
+        <div class="scroll-box">
+            <div class="scroll-content">
+                <p>Small-range scroll content</p>
+                <p class="probe sticky-probe sticky-bottom-s">Small sticky footer</p>
+            </div>
+        </div>
+
+        <div class="scroll-box">
+            <div class="scroll-content">
+                <p>Medium-range scroll content</p>
+                <p class="probe sticky-probe sticky-bottom-m">Medium sticky footer</p>
+            </div>
         </div>
     </main>
 </body>

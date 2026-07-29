@@ -2206,7 +2206,7 @@ table {
     .text-pretty-s { text-wrap: pretty }
 
     .sticky-s { position: sticky; inset-block-start: var(--sticky, 0); z-index: var(--stickyZindex, 1) }
-    .sticky-bottom-s { position: sticky; inset-block-end: var(--sticky, 0) }
+    .sticky-bottom-s { position: sticky; inset-block-end: var(--sticky, 0); z-index: var(--stickyZindex, 1) }
     .sticky-none-s { position: inherit }
 }
 
@@ -2249,7 +2249,7 @@ table {
     .text-pretty-m { text-wrap: pretty }
 
     .sticky-m { position: sticky; inset-block-start: var(--sticky, 0); z-index: var(--stickyZindex, 1) }
-    .sticky-bottom-m { position: sticky; inset-block-end: var(--sticky, 0) }
+    .sticky-bottom-m { position: sticky; inset-block-end: var(--sticky, 0); z-index: var(--stickyZindex, 1) }
     .sticky-none-m { position: inherit }
 }
 

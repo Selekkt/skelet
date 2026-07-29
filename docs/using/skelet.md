@@ -657,7 +657,7 @@ Treat these as implementation facts, not patterns to copy:
 
 - `.text-bold` uses weight 700, while `.text-bold-s` and `.text-bold-m` use 600.
 - `.overflow` uses `overflow: clip`, while responsive forms use `overflow: hidden`.
-- `.sticky-bottom` supplies a z-index; responsive forms omit it.
+
 
 When exact responsive parity matters, inspect the source and add the smallest deliberate
 override in `css/app.css`.
@@ -1242,8 +1242,8 @@ Neither has responsive variants.
 - `.sticky-none`
 - Responsive `-s`/`-m` forms
 
-Use `--sticky` for the inset and `--stickyZindex` for base sticky z-index. Responsive
-`.sticky-bottom-*` currently omits the base z-index declaration.
+Use `--sticky` for the inset and `--stickyZindex` for the stacking level. Base and
+responsive top/bottom sticky utilities use the same tokens.
 
 ### Mobile horizontal scroller
 
