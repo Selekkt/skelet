@@ -915,10 +915,9 @@ Behavior:
 - Tokens retain individual margins/radii; this is not automatically a fused segmented
   control.
 
-Current source caveat: the active selector matches both `:checked` and `[checked]`. Because
-the HTML `checked` attribute can remain present after the live state changes, an initially
-checked, user-editable token may retain stale active styling. Test interactive groups
-carefully; do not assume the fixture's initial state remains visually correct after input.
+Active token styling follows the live `:checked` state. The initial HTML `checked` attribute
+can set the default choice, but changing a radio or checkbox immediately updates the visual
+state.
 
 ---
 

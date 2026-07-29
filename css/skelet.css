@@ -939,8 +939,8 @@ input[type="checkbox"][role="switch"] {
     outline-offset: var(--a11yOffset)
 }
 
-.toggle-token label:has(input:where([type="radio"],[type="checkbox"]):is(:checked,[checked])),
-.toggle-token input:where([type="radio"],[type="checkbox"]):is(:checked,[checked]) + label {
+.toggle-token label:has(input:where([type="radio"],[type="checkbox"]):checked),
+.toggle-token input:where([type="radio"],[type="checkbox"]):checked + label {
     background: var(--tokenBgActive);
     color: var(--tokenColorActive);
     border-color: var(--tokenBorderActive);
