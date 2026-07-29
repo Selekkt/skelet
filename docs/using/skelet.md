@@ -1424,23 +1424,9 @@ animations and transitions to one near-instant iteration. It does not remove ani
 names with `animation: none`, but the practical effect is near-instant motion. The rule also
 covers pseudo-elements and backdrops, including animations added later in `css/app.css`.
 
-Current caveat: `.mob-scroller` and the scroll-snap attributes hard-code
-`scroll-behavior: smooth`, and the final reduced-motion rule does not reset scrolling
-behavior. For motion-sensitive interfaces using those utilities, add a preference-aware
-override:
-
-```css
-@media (prefers-reduced-motion: reduce), (update: slow) {
-  .mob-scroller,
-  [scroll-snap],
-  [scroll-snap-s],
-  [scroll-snap-m] {
-    scroll-behavior: auto;
-  }
-}
-```
-
-These selectors can live in `css/app.css`, which loads after the core stylesheet.
+`.mob-scroller` and the scroll-snap attributes use smooth scrolling normally. Under
+`prefers-reduced-motion: reduce` or `update: slow`, core resets their `scroll-behavior` to
+`auto`; no project-level override is required.
 
 ---
 

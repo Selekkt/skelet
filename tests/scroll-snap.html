@@ -45,6 +45,8 @@
             --scrollChildMaxWidth: 100%;
             --scrollChildHeight: 18rem;
         }
+
+        .mob-demo > * { flex: 0 0 24rem; padding: var(--space-4); background: var(--inputBg) }
     </style>
 </head>
 <body>
@@ -97,6 +99,16 @@
         </section>
 
         <section>
+            <h2>Reduced motion</h2>
+            <p id="motion-status" role="status"></p>
+            <div class="mob-scroller mob-demo" aria-label="Mobile scroller reduced-motion example">
+                <span>One</span>
+                <span>Two</span>
+                <span>Three</span>
+            </div>
+        </section>
+
+        <section>
             <h2>Responsive-only activation</h2>
             <p>The first list snaps only on small screens. The second snaps only in the medium range.</p>
             <h3>Small only</h3>
@@ -119,6 +131,18 @@
         document.querySelector('#theme-toggle').addEventListener('click', () => {
             document.documentElement.toggleAttribute('dark-mode');
         });
+
+        const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+        const motionStatus = document.querySelector('#motion-status');
+
+        function updateMotionStatus() {
+            const snapBehavior = getComputedStyle(document.querySelector('[scroll-snap]')).scrollBehavior;
+            const mobileBehavior = getComputedStyle(document.querySelector('.mob-scroller')).scrollBehavior;
+            motionStatus.textContent = `Reduced motion: ${motionPreference.matches}; scroll snap: ${snapBehavior}; mobile scroller: ${mobileBehavior}`;
+        }
+
+        motionPreference.addEventListener('change', updateMotionStatus);
+        updateMotionStatus();
     </script>
 </body>
 </html>
