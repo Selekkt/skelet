@@ -823,10 +823,8 @@ Use an actual checkbox with `role="switch"`:
 The switch selector is exact: a radio with `role="switch"` does not receive switch styling.
 If changing switch dimensions through tokens, verify `--switchThumbTravel` as well.
 
-RTL caveat: the thumb starts from logical `inset-inline-start`, but checked movement uses a
-physical positive `translateX()`. Core does not reverse that movement under `[dir="rtl"]`;
-add and test an RTL-specific negative translation in `css/app.css` when switches are used
-in RTL interfaces.
+The thumb moves through logical `inset-inline-start`, so checked movement automatically
+reverses in right-to-left interfaces.
 
 ### Disabled and readonly
 

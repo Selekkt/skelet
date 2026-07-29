@@ -863,12 +863,13 @@ input[type="checkbox"][role="switch"] {
         width: var(--switchThumbSize);
         height: var(--switchThumbSize);
         background: var(--switchThumbBg);
-        transform: translateX(0);
+        transition: opacity var(--checkTransitionOpacity),
+                    inset-inline-start var(--checkTransitionTransform);
     }
 
     &:checked::after {
+        inset-inline-start: calc(var(--switchThumbOffset) + var(--switchThumbTravel));
         background: var(--checkInnerColor);
-        transform: translateX(var(--switchThumbTravel));
     }
 
     &:disabled:not(:checked)::after { opacity: 0.7 }
