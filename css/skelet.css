@@ -1641,8 +1641,8 @@ table {
 [pi="center stretch"] { place-items: center stretch }
 
 [pi="end start"] { place-items: end start }
-[pi="end center"] { place-items: flex-end center }
-[pi="end stretch"] { place-items: flex-end stretch }
+[pi="end center"] { place-items: end center }
+[pi="end stretch"] { place-items: end stretch }
 
 [pi="stretch start"] { place-items: stretch start }
 [pi="stretch center"] { place-items: stretch center }
