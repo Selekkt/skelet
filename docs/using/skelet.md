@@ -83,15 +83,19 @@ modern browser only after checking the project's actual support matrix.
 6. **Use responsive suffixes for supported framework behavior.** Reach for `columns-s`,
    `span-m`, `direction-s`, `text-center-m`, and similar forms before custom media queries.
    Not every utility has suffix variants, so verify the exact selector first.
-7. **Do not confuse appearance with semantics.** `.button`, `[role="button"]`,
+7. **Use modern range query syntax.** When custom breakpoints are necessary, write
+   dimensional media and container queries with range comparisons, such as
+   `@media (width <= 777px)` or `@container (width <= 777px)`, instead of legacy
+   `max-width` / `min-width` syntax.
+8. **Do not confuse appearance with semantics.** `.button`, `[role="button"]`,
    `.disabled`, and `.is-loading` do not create native keyboard behavior or disable
    activation.
-8. **Preserve accessibility.** Keep focus indication, document order, labels, native
+9. **Preserve accessibility.** Keep focus indication, document order, labels, native
    control semantics, and reduced-motion behavior. Visual reordering does not change
    reading or focus order.
-9. **Verify uncertain APIs in the CSS.** Attribute selectors are exact and finite; an
-   intuitive value is not necessarily implemented.
-10. **Test the relevant modes.** At minimum, inspect small/medium/base widths, keyboard
+10. **Verify uncertain APIs in the CSS.** Attribute selectors are exact and finite; an
+    intuitive value is not necessarily implemented.
+11. **Test the relevant modes.** At minimum, inspect small/medium/base widths, keyboard
     focus, dark mode if used, and reduced motion for interaction-heavy work.
 
 ---

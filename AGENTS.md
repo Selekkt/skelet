@@ -60,14 +60,17 @@ skelet.html             Accessible HTML starter (ships to consumers).
    `:has()`, container queries, `field-sizing`, subgrid, `@starting-style`, Popover API,
    logical properties. No transpilation or polyfills — a browser-baseline change is a
    deliberate decision, not an incidental one.
-5. **Add-ons stay separate and opt-in.** Tooltip and overlay behavior lives in its own
+5. **Use modern range query syntax.** Write dimensional media and container queries with
+   range comparisons, such as `@media (width <= 777px)` or `@container (width <= 777px)`,
+   instead of legacy `max-width` / `min-width` syntax.
+6. **Add-ons stay separate and opt-in.** Tooltip and overlay behavior lives in its own
    core-dependent file; don't fold it into core.
-6. **Every component change gets a fixture.** Add or update the matching file in `tests/` and
+7. **Every component change gets a fixture.** Add or update the matching file in `tests/` and
    verify it in a browser (small / medium / base widths, keyboard focus, dark mode, reduced
    motion). Fixtures are how this repo is validated.
-7. **Bump the version deliberately.** The CSS banner is the canonical framework/API
+8. **Bump the version deliberately.** The CSS banner is the canonical framework/API
    version; `package.json#version` controls npm/jsDelivr and the git tag identifies the source
    release. Don't publish until all three agree; read
    [releasing](docs/developing/releasing.md).
-8. **Keep the consumer doc in sync.** If you change a public API, update
+9. **Keep the consumer doc in sync.** If you change a public API, update
    [`docs/using/skelet.md`](docs/using/skelet.md) in the same change.
