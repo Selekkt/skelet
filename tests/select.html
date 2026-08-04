@@ -3,22 +3,68 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
+	<title>Select and label scaling</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"> <!-- browse the icons: https://fontawesome.com/icons?d=listing&m=free -->
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="../css/skelet.css">
 <style>
-
+    .scale-samples { display: flex; flex-wrap: wrap; gap: var(--space-5) }
+    .scale-samples fieldset { flex: 1 1 24rem }
+    .scale-small { font-size: 0.75em }
+    .scale-large { font-size: 1.5em }
 </style>
 </head>
 <body class="a11y" style="padding:2rem">
 
-<select class="fullwidth" id="exampleRecipientInput">
-    <option selected="" disabled="" value="Option 1">-- Select --</option>
-    <option value="Option 2">Sarude</option>
-    <option value="Option 3">Dancestorm</option>
-</select>
+<h1>Select and label scaling</h1>
+<p>The indicator, reserved inline padding, and label gap should follow each sample's font size.</p>
+
+<div class="scale-samples">
+    <fieldset class="scale-small">
+        <legend>Small context — 0.75em</legend>
+        <label for="select-small">Small select</label>
+        <select id="select-small">
+            <option selected>Choose one…</option>
+            <option>First option</option>
+            <option>Second option</option>
+        </select>
+        <label><input type="checkbox" checked> Small label gap</label>
+    </fieldset>
+
+    <fieldset>
+        <legend>Default context</legend>
+        <label for="select-default">Default select</label>
+        <select id="select-default">
+            <option selected>Choose one…</option>
+            <option>First option</option>
+            <option>Second option</option>
+        </select>
+        <label><input type="checkbox" checked> Default label gap</label>
+    </fieldset>
+
+    <fieldset class="scale-large">
+        <legend>Large context — 1.5em</legend>
+        <label for="select-large">Large select</label>
+        <select id="select-large">
+            <option selected>Choose one…</option>
+            <option>First option</option>
+            <option>Second option</option>
+        </select>
+        <label><input type="checkbox" checked> Large label gap</label>
+    </fieldset>
+
+    <fieldset dir="rtl">
+        <legend>RTL context</legend>
+        <label for="select-rtl">RTL select</label>
+        <select id="select-rtl">
+            <option selected>Choose one…</option>
+            <option>First option</option>
+            <option>Second option</option>
+        </select>
+    </fieldset>
+</div>
 
 <hr>
 

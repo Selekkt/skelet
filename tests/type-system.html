@@ -61,6 +61,8 @@
 .type-1,.type-2 {
     line-height: 1
 }
+
+#underline-offset { margin-block-start: var(--space-8) }
 </style>
 
 </head>
@@ -112,6 +114,13 @@
         <div class="type-2" style="font-size: var(--type-16)">The quick brown fox jumps over the lazy dog</div>
         <div class="type-2" style="font-size: var(--type-17)">The quick brown fox jumps over the lazy dog</div>
         <div class="type-2" style="font-size: var(--type-18)">The quick brown fox jumps over the lazy dog</div>
+
+        <section id="underline-offset">
+            <h1>Font-relative underline offset</h1>
+            <p style="font-size: var(--type-2)"><a href="#">Small underlined link</a></p>
+            <p><a href="#">Default underlined link</a></p>
+            <p style="font-size: var(--type-8)"><a href="#">Large underlined link</a></p>
+        </section>
 
     </main>
     <footer></footer>
