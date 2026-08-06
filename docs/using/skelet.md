@@ -1276,7 +1276,7 @@ Scroll snap uses space-separated values in an activation attribute:
 Choose one value from each group as needed:
 
 - Direction: `x` (default) or `y`
-- Strictness: `mandatory` (default) or `proximity`
+- Strictness: `mandatory` (default), `free`, or `proximity`
 - Item alignment: `align-start` (default), `align-center`, or `align-end`
 - Item stopping: `stop-normal` (default) or `stop-always`
 
@@ -1293,7 +1293,7 @@ Responsive attributes can stand alone or override a base configuration:
 ```html
 <div
   scroll-snap="y mandatory align-start stop-always"
-  scroll-snap-s="x proximity align-center stop-normal"
+  scroll-snap-s="x free align-center stop-normal"
 >
   ...
 </div>

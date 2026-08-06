@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.8.0 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.8.1 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
   variables
@@ -430,6 +430,7 @@ kbd {
     > * { flex: var(--scrollChildFlex, 1); width: var(--scrollChildWidth); min-width: var(--scrollChildMinWidth); max-width: var(--scrollChildMaxWidth); height: var(--scrollChildHeight); scroll-snap-align: var(--scrollAlign); scroll-snap-stop: var(--scrollStop) }
     &:where([scroll-snap~="x"]) { --scrollDirection: x; --scrollFlexFlow: row nowrap; --scrollAlignItems: center; --scrollHeight: auto; --scrollOverflowX: scroll; --scrollOverflowY: hidden }
     &:where([scroll-snap~="y"]) { --scrollDirection: y; --scrollFlexFlow: column nowrap; --scrollAlignItems: start; --scrollHeight: 100vh; --scrollOverflowX: hidden; --scrollOverflowY: scroll }
+    &:where([scroll-snap~="free"]) { --scrollType: none }   
     &:where([scroll-snap~="mandatory"]) { --scrollType: mandatory }
     &:where([scroll-snap~="proximity"]) { --scrollType: proximity }
     &:where([scroll-snap~="align-start"]) { --scrollAlign: start }
