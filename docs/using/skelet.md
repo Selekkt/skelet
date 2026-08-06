@@ -4,7 +4,7 @@ The implementation reference for building a site **with** Skelet.css. Read it be
 generating or changing HTML or CSS in a project that consumes the framework. Framework
 contributors should follow the Skelet source repository's root `AGENTS.md` instead.
 
-**Reference snapshot: Skelet.css v6.7.0.** Match this guide to the banner in the
+**Reference snapshot: Skelet.css v6.8.1.** Match this guide to the banner in the
 `css/skelet.css` your project actually loads.
 
 > **Drop this file into your own project** so your coding agent knows Skelet's conventions.
@@ -315,6 +315,7 @@ Common structural aliases:
 Prefer the relevant family rather than overriding a broad selector:
 
 - Inputs: `--input*`
+- Range inputs: `--range*`, including `--rangeTrack*` and `--rangeThumb*`
 - Buttons: `--button*`
 - Checkboxes/radios/switches: `--check*`, `--radio*`, `--switch*`
 - Toggle tokens: `--token*`
@@ -760,6 +761,36 @@ Built-in special cases include:
 - Removed WebKit number spinners
 - Search-field normalization
 - Textarea minimum height of `6lh`
+
+### Range inputs
+
+`input[type="range"]` exposes separate tokens for the control box, track, and thumb. Override
+them globally or on an individual range input:
+
+```css
+.volume-range {
+  --rangeTrackHeight: 0.8rem;
+  --rangeTrackBg: var(--green);
+  --rangeThumbBorder: 2px solid var(--color);
+  --rangeThumbSize: 2.2rem;
+  --rangeThumbBg: var(--bgColor);
+  --rangeThumbRadius: var(--space-1);
+}
+```
+
+Available tokens and defaults:
+
+- Control: `--rangeHeight: 2.5rem`, `--rangeWidth: 100%`, `--rangeMargin: 1rem 0`,
+  `--rangeBg: transparent`
+- Track: `--rangeTrackWidth: 100%`, `--rangeTrackHeight: 0.5rem`,
+  `--rangeTrackBg: var(--primary)`, `--rangeTrackRadius: 100vw`
+- Thumb: `--rangeThumbBorder: 1px solid rgb(0 0 0 / .5)`,
+  `--rangeThumbSize: 1.5rem`, `--rangeThumbBg: var(--primary)`, and
+  `--rangeThumbRadius: 2.5rem`
+
+Firefox centers the thumb on its track natively. WebKit alignment is calculated automatically
+from `--rangeTrackHeight` and `--rangeThumbSize`, so changing either token does not require a
+separate offset override.
 
 ### Labels, fieldsets, and legends
 

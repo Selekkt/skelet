@@ -7,6 +7,16 @@
   
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="../css/skelet.css">
+  <style>
+    .custom-range {
+      --rangeTrackHeight: 0.8rem;
+      --rangeTrackBg: var(--green);
+      --rangeThumbBorder: 2px solid var(--color);
+      --rangeThumbSize: 2.2rem;
+      --rangeThumbBg: var(--bgColor);
+      --rangeThumbRadius: var(--space-1);
+    }
+  </style>
 </head>
 <body>
   <h1>HTML Input Playground</h1>
@@ -35,6 +45,10 @@
         <tr>
           <th><code>&lt;input type="range"&gt;</code></th>
           <td><input type="range" min="0" max="100" value="40" /></td>
+        </tr>
+        <tr>
+          <th><code>&lt;input type="range"&gt;</code> with local tokens</th>
+          <td><input class="custom-range" type="range" min="0" max="100" value="60" /></td>
         </tr>
         <tr>
           <th><code>&lt;input type="radio"&gt;</code></th>

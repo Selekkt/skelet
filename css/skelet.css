@@ -715,12 +715,29 @@ input[type="color"] { height:4rem; min-width:6em; padding:calc(.25rem - 1px) 0.5
 input[type="file"] { --inputBorderWidth: 0.2rem; --inputBorderStyle: dashed; display:block; padding: 0; line-height: 2.4; cursor:pointer; width: fit-content; height: auto }
 input[type="file"]::file-selector-button { border: 0; border-inline-end: 1px solid var(--inputBorderColor); padding: .2em .4em; margin-inline-end: var(--padding); border-radius: 0; background: var(--inputBgActive); color: currentColor; display: inline-block; height: 100% }
 
-input[type="range"] { height: 2.5rem; margin: 1rem 0; width: 100%; background: transparent; -webkit-appearance: none; appearance: none }
-input[type="range"]::-moz-range-track              { width: 100%; height: 0.5rem; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
-input[type="range"]::-webkit-slider-runnable-track { width: 100%; height: 0.5rem; cursor: pointer; transition: all 0.2s ease-in-out; background: var(--primary); border-radius: 100vw }
+:where(html) {
+    --rangeHeight: 2.5rem;
+    --rangeWidth: 100%;
+    --rangeMargin: 1rem 0;
+    --rangeBg: transparent;
 
-input[type="range"]::-moz-range-thumb     { border: 1px solid rgb(0 0 0 / .5); height: 1.8rem; width: 1.8rem; border-radius: 2.5rem; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-block-start: -0.7rem }
-input[type="range"]::-webkit-slider-thumb { border: 1px solid rgb(0 0 0 / .5); height: 1.8rem; width: 1.8rem; border-radius: 2.5rem; background: var(--primary); cursor: pointer; -webkit-appearance: none; appearance: none; margin-block-start: -0.7rem }
+    --rangeTrackWidth: 100%;
+    --rangeTrackHeight: 0.5rem;
+    --rangeTrackBg: var(--primary);
+    --rangeTrackRadius: 100vw;
+
+    --rangeThumbBorder: 1px solid rgb(0 0 0 / .5);
+    --rangeThumbSize: 1.5rem;
+    --rangeThumbBg: var(--primary);
+    --rangeThumbRadius: 2.5rem;
+}
+
+input[type="range"] { -webkit-appearance: none; appearance: none; height: var(--rangeHeight); width: var(--rangeWidth); margin: var(--rangeMargin); background: var(--rangeBg) }
+input[type="range"]::-moz-range-track              { width: var(--rangeTrackWidth); height: var(--rangeTrackHeight); cursor: pointer; transition: all 0.2s ease-in-out; background: var(--rangeTrackBg); border-radius: var(--rangeTrackRadius) }
+input[type="range"]::-webkit-slider-runnable-track { width: var(--rangeTrackWidth); height: var(--rangeTrackHeight); cursor: pointer; transition: all 0.2s ease-in-out; background: var(--rangeTrackBg); border-radius: var(--rangeTrackRadius) }
+
+input[type="range"]::-moz-range-thumb     { -webkit-appearance: none; appearance: none; border: var(--rangeThumbBorder); width: var(--rangeThumbSize); height: var(--rangeThumbSize); border-radius: var(--rangeThumbRadius); background: var(--rangeThumbBg); cursor: pointer }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; border: var(--rangeThumbBorder); width: var(--rangeThumbSize); height: var(--rangeThumbSize); border-radius: var(--rangeThumbRadius); background: var(--rangeThumbBg); cursor: pointer; margin-block-start: calc((var(--rangeTrackHeight) - var(--rangeThumbSize)) / 2) }
 
 textarea {
     min-height: 6lh; padding: var(--inputPadding); border-radius: var(--textareaRadius, var(--inputRadius));
