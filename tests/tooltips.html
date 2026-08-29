@@ -2,63 +2,72 @@
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Skelet.css tests</title>
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="Skelet." property="Sēlekkt. Studio" content="https://selekkt.dk/skelet/v3/">
-
     <meta name="theme-color" content="#FFFFFF">
+    <title>Skelet.css tooltip tests</title>
 
-    <link rel="stylesheet" href="../css/skelet.css"> 
+    <link rel="stylesheet" href="../css/skelet.css">
+    <link rel="stylesheet" href="../css/skelet-tooltips.css">
     <style>
-        
+        main { display: grid; gap: var(--space-5); padding: var(--space-6) }
+        fieldset { min-width: 0 }
+        .tooltip-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); padding: var(--space-6) var(--space-3) }
+        label[data-tooltip] { display: inline-flex; align-items: center; gap: var(--space-2) }
     </style>
 </head>
 <body>
 <div id="app">
-<h1>Tests</h1>
+    <main>
+        <h1>Tooltip tests</h1>
+        <p>Test each trigger with hover and keyboard focus in a browser with CSS Anchor Positioning. Also check narrow widths, dark mode, and reduced motion.</p>
 
-<main>
-<fieldset>
-    <legend>Position</legend>
-    <button data-tooltip="ziooo" tooltip-pos="up">Up</button>
-    <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
-    <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
-    <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
+        <fieldset>
+            <legend>Positions</legend>
+            <div class="tooltip-row">
+                <button type="button" data-tooltip="Defaults to up">Default</button>
+                <button type="button" data-tooltip="Up" tooltip-pos="up">Up</button>
+                <button type="button" data-tooltip="Up left" tooltip-pos="up-left">Up left</button>
+                <button type="button" data-tooltip="Up right" tooltip-pos="up-right">Up right</button>
+                <button type="button" data-tooltip="Down" tooltip-pos="down">Down</button>
+                <button type="button" data-tooltip="Down left" tooltip-pos="down-left">Down left</button>
+                <button type="button" data-tooltip="Down right" tooltip-pos="down-right">Down right</button>
+                <button type="button" data-tooltip="Left" tooltip-pos="left">Left</button>
+                <button type="button" data-tooltip="Right" tooltip-pos="right">Right</button>
+            </div>
+        </fieldset>
 
-    <button data-tooltip="ziooo" tooltip-pos="up-left">Up left</button>
-    <button data-tooltip="ziooo" tooltip-pos="down-left">Down left</button>
-</fieldset>
+        <fieldset>
+            <legend>Lengths and wrapping</legend>
+            <div class="tooltip-row">
+                <button type="button" data-tooltip="Content-sized tooltip with a deliberately long sentence that must remain inside the viewport." tooltip-pos="down">Default</button>
+                <button type="button" data-tooltip="Small tooltip content" tooltip-pos="down" tooltip-length="small">Small</button>
+                <button type="button" data-tooltip="Medium tooltip content with enough words to wrap." tooltip-pos="down" tooltip-length="medium">Medium</button>
+                <button type="button" data-tooltip="Large tooltip content with enough words to demonstrate the configured width without forcing the tooltip beyond a narrow viewport." tooltip-pos="down" tooltip-length="large">Large</button>
+                <button type="button" data-tooltip="Extra-large tooltip content stays capped at its configured width and shrinks to the viewport instead of expanding at tablet widths." tooltip-pos="down" tooltip-length="xlarge">Extra large</button>
+                <button type="button" data-tooltip="Fit content must stay on one line" tooltip-pos="down" tooltip-length="fit">Fit</button>
+                <button type="button" data-tooltip="First line&#10;Second line remains medium width and can wrap normally." tooltip-pos="down" tooltip-length="medium" tooltip-break>Break + medium</button>
+                <button type="button" data-tooltip="AnUnbrokenTooltipValueThatMustWrapInsteadOfOverflowingTheViewport" tooltip-pos="down" tooltip-length="small">Long token</button>
+            </div>
+        </fieldset>
 
-<fieldset>
-    <legend>Lenght</legend>
+        <fieldset>
+            <legend>Focus and visibility</legend>
+            <div class="tooltip-row">
+                <button type="button" data-tooltip="Direct :focus-visible trigger" aria-describedby="copy-help">Copy</button>
+                <span id="copy-help" class="visually-hidden">Copies the current page link</span>
 
-    <span data-tooltip="Lorem ipsum dolor sit amet, consectetur adipiscing elit." tooltip-length="medium" tooltip-pos="up">Medium Tooltip</span>
+                <label data-tooltip="Visible when the wrapped switch has keyboard focus" tooltip-pos="up">
+                    <input type="checkbox" role="switch">
+                    Wrapped switch
+                </label>
 
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down">N/A</button>
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="small">small</button>
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="medium">medium</button>
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="large">large</button>
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="xlarge">xlarge</button>
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit">Fit</button>
-</fieldset>
-
-<fieldset>
-    <legend>Other</legend>
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length="fit" tooltip-blunt>No animation</button>
-    <button data-tooltip="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam exercitationem tempore excepturi inventore ea deleniti natus hic necessitatibus dolorum maxime." tooltip-pos="down" tooltip-length tooltip-break>Break</button>
-</fieldset>
-
-<fieldset>
-    <legend>Visible by default</legend>
-    <button data-tooltip="ziooo" tooltip-pos="down-right">Top</button>
-    <button data-tooltip="ziooo" tooltip-pos="down">Down</button>
-    <button data-tooltip="ziooo" tooltip-pos="left">Left</button>
-    <button data-tooltip="ziooo" tooltip-pos="right">Right</button>
-</fieldset>
-
-</main>
-
+                <button type="button" data-tooltip="Hover only; keyboard focus must not reveal this" tooltip-pos="up" tooltip-nofocus>No focus tooltip</button>
+                <button type="button" data-tooltip="Forced visible" tooltip-pos="down-right" tooltip-visible>Forced visible</button>
+                <button type="button" data-tooltip="No transition" tooltip-pos="down" tooltip-blunt>No transition</button>
+                <button type="button" data-tooltip="">Empty tooltip</button>
+            </div>
+        </fieldset>
+    </main>
 </div>
 </body>
 </html>

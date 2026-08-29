@@ -1090,11 +1090,14 @@ Load `css/skelet-tooltips.css` after core and before `app.css`.
 <span id="copy-help" class="visually-hidden">Copies this page's link</span>
 ```
 
-The add-on creates `::before`/`::after` tooltip content from `data-tooltip`.
+The add-on creates `::before`/`::after` tooltip content from `data-tooltip`. It uses CSS
+Anchor Positioning (`anchor-name`, `anchor-scope`, `position-anchor`, and `anchor()`) with
+fixed-positioned pseudo-elements, so it requires a browser that supports those features.
 
 ### Position
 
-Always provide `tooltip-pos`; no useful default geometry is defined.
+Tooltips default to `up` when `tooltip-pos` is omitted. Set `tooltip-pos` when another
+placement is needed.
 
 Supported forms:
 
@@ -1104,22 +1107,42 @@ Supported forms:
 
 ### Width and behavior
 
-- `tooltip-length` accepts `small`, `medium`, `large`, `xlarge`, or `fit`.
-- `tooltip-break` preserves line breaks; with a length it uses wrapping `pre-line` behavior.
+- `tooltip-length` accepts `small`, `medium`, `large`, `xlarge`, or `fit`. Named lengths are
+  capped by `--tooltipMaxWidth`, including `xlarge` at narrow viewport widths. `fit` uses the
+  tooltip's intrinsic max-content width and is capped by the same maximum.
+- `tooltip-break` preserves line breaks; with a length it uses wrapping `pre-line` behavior
+  without replacing the selected length.
 - `tooltip-visible` forces the tooltip visible.
-- `tooltip-nofocus` suppresses focus-triggered display.
+- Keyboard focus reveals the tooltip when either the trigger itself or a descendant matches
+  `:focus-visible`. The descendant form supports patterns such as a tooltip-bearing `<label>`
+  that wraps an `<input>` without pinning the tooltip open after an ordinary mouse click.
+- `tooltip-nofocus` suppresses both direct and descendant focus-triggered display.
 - `tooltip-blunt` removes the transition.
 - `.font-awesome` switches generated tooltip text to a Font Awesome font stack and needs
   that font asset.
 
+The public customization tokens are `--tooltipBg`, `--tooltipColor`, `--tooltipRadius`,
+`--tooltipFontSize`, `--tooltipPadding`, `--tooltipGap`, `--tooltipArrowSize`,
+`--tooltipLineHeight`, `--tooltipMove`, `--tooltipDuration`, `--tooltipDelay`,
+`--tooltipEase`, `--tooltipMaxWidth`, `--tooltipZIndex`, `--tooltipLengthSmall`,
+`--tooltipLengthMedium`, `--tooltipLengthLarge`, and `--tooltipLengthXlarge`.
+
 ### Accessibility and layout limits
 
-- Use a focusable trigger for keyboard access.
+- Use a focusable trigger or place a focusable control inside the tooltip trigger for
+  keyboard access.
 - Do not put essential information only in `data-tooltip`; CSS-generated content is not a
   reliable accessible description. Provide real DOM text and connect it with
   `aria-describedby` when appropriate.
-- These are pseudo-elements, not top-layer UI. They can be clipped by ancestors, overflow
-  the viewport, and are unreliable as hover-only interaction on touch devices.
+- These are fixed, anchor-positioned pseudo-elements rather than top-layer UI. They avoid
+  ordinary trigger-relative containing-block constraints, but containment/clipping ancestors
+  can still affect them and an unsuitable viewport-edge position can still overflow.
+- `tooltip-pos` remains authoritative. The add-on does not currently use automatic
+  `position-try-fallbacks`, because independently flipping the bubble and arrow can put them
+  on different sides of the trigger.
+- Hover-only interaction remains unreliable on touch devices.
+- Tooltips consume both `::before` and `::after`; do not combine them with component states
+  that use the same pseudo-elements, such as a tooltip-bearing `.is-loading` button.
 - Use native visible help text for critical instructions and errors.
 
 ---
@@ -1502,13 +1525,13 @@ Useful starting points:
   with some legacy examples that must be checked against core.
 - `tests/overlay-check.html` — current dialog/popover positions and animation.
 - `tests/popover.html` — auto/manual popover behavior.
+- `tests/tooltips.html` — tooltip positions, widths, wrapping, visibility, and direct or
+  descendant keyboard focus.
 
 Known fixture caveats:
 
 - `tests/dialog.html` is a legacy inline dialog implementation, not the current overlay
   add-on.
-- `tests/tooltips.html` does not currently load `css/skelet-tooltips.css`; do not use it as
-  standalone proof that the add-on works.
 - Demo prose occasionally calls add-on behavior “core.” Trust the stylesheet imports and
   selectors instead.
 

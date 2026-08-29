@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.8.1 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.8.2 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
   variables
@@ -733,8 +733,8 @@ input[type="file"]::file-selector-button { border: 0; border-inline-end: 1px sol
 }
 
 input[type="range"] { -webkit-appearance: none; appearance: none; height: var(--rangeHeight); width: var(--rangeWidth); margin: var(--rangeMargin); background: var(--rangeBg) }
-input[type="range"]::-moz-range-track              { width: var(--rangeTrackWidth); height: var(--rangeTrackHeight); cursor: pointer; transition: all 0.2s ease-in-out; background: var(--rangeTrackBg); border-radius: var(--rangeTrackRadius) }
-input[type="range"]::-webkit-slider-runnable-track { width: var(--rangeTrackWidth); height: var(--rangeTrackHeight); cursor: pointer; transition: all 0.2s ease-in-out; background: var(--rangeTrackBg); border-radius: var(--rangeTrackRadius) }
+input[type="range"]::-moz-range-track              { width: var(--rangeTrackWidth); height: var(--rangeTrackHeight); cursor: pointer; background: var(--rangeTrackBg); border-radius: var(--rangeTrackRadius) }
+input[type="range"]::-webkit-slider-runnable-track { width: var(--rangeTrackWidth); height: var(--rangeTrackHeight); cursor: pointer; background: var(--rangeTrackBg); border-radius: var(--rangeTrackRadius) }
 
 input[type="range"]::-moz-range-thumb     { -webkit-appearance: none; appearance: none; border: var(--rangeThumbBorder); width: var(--rangeThumbSize); height: var(--rangeThumbSize); border-radius: var(--rangeThumbRadius); background: var(--rangeThumbBg); cursor: pointer }
 input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; border: var(--rangeThumbBorder); width: var(--rangeThumbSize); height: var(--rangeThumbSize); border-radius: var(--rangeThumbRadius); background: var(--rangeThumbBg); cursor: pointer; margin-block-start: calc((var(--rangeTrackHeight) - var(--rangeThumbSize)) / 2) }
@@ -746,7 +746,7 @@ textarea {
     &.resize-none { resize: none }
 }
 
-label, legend { display: inline-flex; gap: 0.7rem; font-weight: var(--labelWeight, 600); align-items: center; color: var(--labelColor, currentColor) }
+label, legend { display: inline-flex; gap: 0.7rem; font-size: var(--labelSize, smaller); font-weight: var(--labelWeight, 600); align-items: center; color: var(--labelColor, currentColor) }
 fieldset { border: 1px solid var(--inputBorderColor); border-radius: var(--fieldsetRadius, var(--inputRadius)); &.no-style { border: none } }
 legend { padding: var(--space-2); line-height: 1 }
 option { padding: var(--space-1); color: var(--inputColor) }
@@ -830,7 +830,8 @@ input:where([type="checkbox"], [type="radio"]) {
     & + label {
         display: inline-block;
         line-height: var(--checkSize);
-        font-weight: var(--labelWeight);
+        font-size: var(--labelSize, smaller);
+        font-weight: var(--labelWeight, 600);
         vertical-align: top;
         cursor: pointer;
         margin-inline-start: var(--space-1);
@@ -931,7 +932,7 @@ input[type="checkbox"][role="switch"] {
     flex-direction: var(--tokenDirection, row);
     background: var(--tokenBg);
     color: var(--tokenColor);
-    font-size: inherit;
+    font-size: var(--tokenSize, inherit);
     text-wrap: nowrap;
     font-weight: var(--tokenWeight);
     letter-spacing: var(--tokenSpace);
