@@ -12,6 +12,13 @@
         main { display: grid; gap: var(--space-5); padding: var(--space-6) }
         fieldset { min-width: 0 }
         .tooltip-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); padding: var(--space-6) var(--space-3) }
+        .regression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: var(--space-3) }
+        .regression-case { display: flex; justify-content: center; min-width: 0; min-height: 12rem; padding: var(--space-3) }
+        .hover-lift:hover { transform: translateY(-2px) }
+        .transformed { transform: translateZ(0) }
+        .filtered { filter: grayscale(100%) }
+        .will-change { will-change: transform }
+        .contained { contain: content }
         label[data-tooltip] { display: inline-flex; align-items: center; gap: var(--space-2) }
     </style>
 </head>
@@ -19,7 +26,7 @@
 <div id="app">
     <main>
         <h1>Tooltip tests</h1>
-        <p>Test each trigger with hover and keyboard focus in a browser with CSS Anchor Positioning. Also check narrow widths, dark mode, and reduced motion.</p>
+        <p>Test each trigger with hover and keyboard focus. Also check narrow widths, dark mode, and reduced motion.</p>
 
         <fieldset>
             <legend>Positions</legend>
@@ -47,6 +54,31 @@
                 <button type="button" data-tooltip="Fit content must stay on one line" tooltip-pos="down" tooltip-length="fit">Fit</button>
                 <button type="button" data-tooltip="First line&#10;Second line remains medium width and can wrap normally." tooltip-pos="down" tooltip-length="medium" tooltip-break>Break + medium</button>
                 <button type="button" data-tooltip="AnUnbrokenTooltipValueThatMustWrapInsteadOfOverflowingTheViewport" tooltip-pos="down" tooltip-length="small">Long token</button>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Containing-block regressions</legend>
+            <p>Each forced-visible tooltip must stay attached to its trigger and render its full text. Hover the lift case and verify that its tooltip moves with the button.</p>
+            <div class="regression-grid">
+                <div class="regression-case">
+                    <button type="button" class="transformed" data-tooltip="Transformed trigger" tooltip-pos="down" tooltip-visible>Transform</button>
+                </div>
+                <div class="regression-case">
+                    <button type="button" class="hover-lift" data-tooltip="Hover lift stays attached" tooltip-pos="down" tooltip-visible>Hover lift</button>
+                </div>
+                <div class="regression-case">
+                    <button type="button" class="will-change" data-tooltip="Will-change trigger" tooltip-pos="down" tooltip-visible>Will change</button>
+                </div>
+                <div class="regression-case">
+                    <button type="button" class="filtered" data-tooltip="Filtered trigger" tooltip-pos="down" tooltip-visible>Filter</button>
+                </div>
+                <div class="regression-case">
+                    <button type="button" data-tooltip="Disabled reason remains attached" tooltip-pos="down" tooltip-visible disabled>Disabled</button>
+                </div>
+                <div class="regression-case contained">
+                    <button type="button" data-tooltip="Overcast clouds" tooltip-pos="down" tooltip-visible>Contained ancestor</button>
+                </div>
             </div>
         </fieldset>
 

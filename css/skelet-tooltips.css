@@ -26,15 +26,14 @@
 
 :where([data-tooltip]:not([data-tooltip=""])) {
     --_tooltipShift: var(--tooltipMove);
-    anchor-name: --_tooltipAnchor;
-    anchor-scope: --_tooltipAnchor;
+    position: relative;
+    overflow: visible;
 
     &::before,
     &::after {
         opacity: 0;
         pointer-events: none;
-        position: fixed;
-        position-anchor: --_tooltipAnchor;
+        position: absolute;
         z-index: var(--tooltipZIndex);
         transition:
             opacity var(--tooltipDuration) var(--tooltipEase),
@@ -99,7 +98,7 @@
     &:where(:not([tooltip-pos]), [tooltip-pos="up"], [tooltip-pos="up-left"], [tooltip-pos="up-right"]) {
         &::before,
         &::after {
-            bottom: anchor(top);
+            bottom: 100%;
             translate: 0 var(--_tooltipShift);
         }
 
@@ -110,25 +109,25 @@
     &:where(:not([tooltip-pos]), [tooltip-pos="up"]) {
         &::before,
         &::after {
-            left: anchor(center);
+            left: 50%;
             translate: -50% var(--_tooltipShift);
         }
     }
 
     &:where([tooltip-pos="up-left"]) {
-        &::after { left: anchor(left) }
-        &::before { left: calc(anchor(left) + var(--tooltipArrowSize)) }
+        &::after { left: 0 }
+        &::before { left: var(--tooltipArrowSize) }
     }
 
     &:where([tooltip-pos="up-right"]) {
-        &::after { right: anchor(right) }
-        &::before { right: calc(anchor(right) + var(--tooltipArrowSize)) }
+        &::after { right: 0 }
+        &::before { right: var(--tooltipArrowSize) }
     }
 
     &:where([tooltip-pos="down"], [tooltip-pos="down-left"], [tooltip-pos="down-right"]) {
         &::before,
         &::after {
-            top: anchor(bottom);
+            top: 100%;
             translate: 0 calc(-1 * var(--_tooltipShift));
         }
 
@@ -139,26 +138,26 @@
     &:where([tooltip-pos="down"]) {
         &::before,
         &::after {
-            left: anchor(center);
+            left: 50%;
             translate: -50% calc(-1 * var(--_tooltipShift));
         }
     }
 
     &:where([tooltip-pos="down-left"]) {
-        &::after { left: anchor(left) }
-        &::before { left: calc(anchor(left) + var(--tooltipArrowSize)) }
+        &::after { left: 0 }
+        &::before { left: var(--tooltipArrowSize) }
     }
 
     &:where([tooltip-pos="down-right"]) {
-        &::after { right: anchor(right) }
-        &::before { right: calc(anchor(right) + var(--tooltipArrowSize)) }
+        &::after { right: 0 }
+        &::before { right: var(--tooltipArrowSize) }
     }
 
     &:where([tooltip-pos="left"]) {
         &::before,
         &::after {
-            right: anchor(left);
-            top: anchor(center);
+            right: 100%;
+            top: 50%;
             translate: var(--_tooltipShift) -50%;
         }
 
@@ -169,8 +168,8 @@
     &:where([tooltip-pos="right"]) {
         &::before,
         &::after {
-            left: anchor(right);
-            top: anchor(center);
+            left: 100%;
+            top: 50%;
             translate: calc(-1 * var(--_tooltipShift)) -50%;
         }
 

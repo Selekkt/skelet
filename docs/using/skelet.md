@@ -1090,9 +1090,10 @@ Load `css/skelet-tooltips.css` after core and before `app.css`.
 <span id="copy-help" class="visually-hidden">Copies this page's link</span>
 ```
 
-The add-on creates `::before`/`::after` tooltip content from `data-tooltip`. It uses CSS
-Anchor Positioning (`anchor-name`, `anchor-scope`, `position-anchor`, and `anchor()`) with
-fixed-positioned pseudo-elements, so it requires a browser that supports those features.
+The add-on creates `::before`/`::after` tooltip content from `data-tooltip`. The trigger
+establishes a containing block and the tooltip pseudo-elements are positioned absolutely
+against it. This keeps placement stable when the trigger uses `transform`, `filter`, or
+`will-change`, and does not require CSS Anchor Positioning support.
 
 ### Position
 
@@ -1134,12 +1135,14 @@ The public customization tokens are `--tooltipBg`, `--tooltipColor`, `--tooltipR
 - Do not put essential information only in `data-tooltip`; CSS-generated content is not a
   reliable accessible description. Provide real DOM text and connect it with
   `aria-describedby` when appropriate.
-- These are fixed, anchor-positioned pseudo-elements rather than top-layer UI. They avoid
-  ordinary trigger-relative containing-block constraints, but containment/clipping ancestors
-  can still affect them and an unsuitable viewport-edge position can still overflow.
-- `tooltip-pos` remains authoritative. The add-on does not currently use automatic
-  `position-try-fallbacks`, because independently flipping the bubble and arrow can put them
-  on different sides of the trigger.
+- These are trigger-relative pseudo-elements rather than top-layer UI. They cannot escape an
+  ancestor's `overflow` clipping or paint containment, and an unsuitable viewport-edge
+  position can still overflow.
+- The add-on sets tooltip triggers to `position: relative` and `overflow: visible`. If a
+  trigger needs another positioned value, override `position` after the add-on; absolute,
+  fixed, and sticky triggers still establish the required containing block.
+- `tooltip-pos` remains authoritative; placement does not flip automatically near viewport
+  edges.
 - Hover-only interaction remains unreliable on touch devices.
 - Tooltips consume both `::before` and `::after`; do not combine them with component states
   that use the same pseudo-elements, such as a tooltip-bearing `.is-loading` button.
