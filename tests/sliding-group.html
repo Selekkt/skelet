@@ -1,14 +1,18 @@
 <!doctype html>
     <html lang="en">
 
-    <head>
+    <head></head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sliding Group</title>
         <link rel="stylesheet" href="../css/skelet.css">
+        <style>
+        main { margin: var(--margin) }
+        </style>
     </head>
     <body>
-
+<div id="app">
+<main>
 <h2>Navigation</h2>
 <nav sliding-group aria-label="Sections">
     <a href="/" aria-current="page">Home</a>
@@ -16,25 +20,51 @@
     <a href="/about">About</a>
 </nav>
 
-<h2>Radio/form control (separate mode)</h2>
-<fieldset sliding-group mode="separate">
+<hr>
+
+<h2>Radio/form control</h2>
+<fieldset sliding-group>
     <legend class="visually-hidden">Size</legend>
 
     <label>
         <input type="radio" name="size" value="small" checked>
-        Small
+        <span>Small</span>
     </label>
 
     <label>
         <input type="radio" name="size" value="medium">
-        Medium
+        <span>Medium</span>
     </label>
 
     <label>
         <input type="radio" name="size" value="large">
+        <span>Large</span>
+    </label>
+</fieldset>
+
+<hr>
+    
+<h2>Radio/form control <code>mode="separate"</code></h2>
+<fieldset sliding-group mode="separate">
+    <legend class="visually-hidden">Size</legend>
+
+    <label>
+        <input type="radio" name="xsize" value="xsmall" checked>
+        Small
+    </label>
+
+    <label>
+        <input type="radio" name="xsize" value="xmedium">
+        Medium
+    </label>
+
+    <label>
+        <input type="radio" name="xsize" value="xlarge">
         Large
     </label>
 </fieldset>
+
+<hr>
 
 <h2>ARIA selected state:</h2>
 <div sliding-group>
@@ -67,6 +97,8 @@
   </button>
 </sliding-group>
 
+<hr>
+
 <h2>Single highlight (default)</h2>
 <p>Hover moves the selected-style pill; moving away returns it to the selection.</p>
 <sliding-group id="shared-group">
@@ -93,6 +125,8 @@
         });
     }
 </script>
+</main>
+</div>
 
 </body>
 </html>

@@ -988,7 +988,8 @@ input[type="checkbox"][role="switch"] {
     --slidingGroupMargin: var(--margin);
 
     /* Pills */
-    --slidingGroupPillTrans: inset 250ms var(--easeOutBack);
+    --slidingGroupPillWeight: normal;
+    --slidingGroupPillAnime: inset 320ms var(--easeOutExpo);
     --slidingGroupPillPadding: 0.65rem 1.3rem;
     --slidingGroupPillBgHover: var(--inputBg);
     --slidingGroupPillBgActive: var(--inputBgActive);
@@ -1015,7 +1016,7 @@ input[type="checkbox"][role="switch"] {
         position: absolute;
         border-radius: inherit;
         pointer-events: none;
-        transition: var(--slidingGroupPillTrans);
+        transition: var(--slidingGroupPillAnime);
 
         inset:
             calc(anchor(start) + var(--slidingGroupPadding))
@@ -1045,6 +1046,9 @@ input[type="checkbox"][role="switch"] {
         --buttonBorder: none;
         --buttonRadius: inherit;
         --buttonMargin: 0px;
+        --buttonWeight: var(--slidingGroupPillWeight);
+        --inputWeight: var(--slidingGroupPillWeight);
+        --labelWeight: var(--slidingGroupPillWeight);
 
         anchor-name: var(--anchor-name-1, --a), var(--anchor-name-2, --b);
 
