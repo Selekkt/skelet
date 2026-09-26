@@ -144,3 +144,27 @@ HTML starter are **not** synchronized by this workflow.
 
 Because `app.css` propagates downstream, keep it a safe, minimal starter rather than a
 scratchpad.
+
+## Tests and manual validation
+
+There is no test command in `package.json`. Files in `tests/` are browser fixtures, not
+assertion-based tests, and some contain stale class names or inline prototype CSS.
+
+## Implementation workflow for agents
+
+Use this sequence for new UI:
+
+1. **Identify semantics.** Choose landmarks, heading levels, links, buttons, controls,
+   lists, tables, dialogs, and popovers correctly.
+2. **Choose layout primitives.** Use `<x-grid>` for two-dimensional placement and
+   `<x-flex>` for one-dimensional distribution.
+3. **Add responsive attributes.** Define base behavior, then only the necessary `-m` and
+   `-s` overrides.
+4. **Use native component styling.** Add only documented `is-*` modifiers and wrappers.
+5. **Customize with tokens.** Override globally or locally depending on intended scope.
+6. **Add minimal page CSS.** Put genuine design-specific rules in `css/app.css`.
+7. **Check source quirks.** Verify visibility helpers, responsive scroll snap, grouped
+   controls, and interactive toggle tokens instead of assuming their names.
+8. **Validate accessibility and browser behavior.**
+9. **Remove scaffolding/debug code.** Delete `.debug`, sample metadata/content, inline
+   prototype styles, and unused dependencies.

@@ -1,46 +1,19 @@
 # Building with Skelet.css
 
 The implementation reference for building a site **with** Skelet.css. Read it before
-generating or changing HTML or CSS in a project that consumes the framework. Framework
-contributors should follow the Skelet source repository's root `AGENTS.md` instead.
+generating or changing HTML or CSS in a project that consumes the framework.
 
 **Reference snapshot: Skelet.css v6.8.5**. Match this guide to the banner in the
 `css/skelet.css` your project actually loads.
 
 > **Drop this file into your own project** so your coding agent knows Skelet's conventions.
 > Copy it in as `skelet.md`, then point your agent config at it — add a line to your
-> project's `AGENTS.md` / `CLAUDE.md` like `Follow the Skelet.css conventions in skelet.md.`
-> Agents auto-load those standard instruction filenames, not arbitrary files. Keep the copy
-> and its reference-version marker in sync when you upgrade Skelet. Paths such as `tests/`
-> and `skelet.html` refer to the Skelet source checkout and can be ignored when they are not
-> part of your application.
-
-Skelet is classless-first, not classless-only. Core styles selected native elements,
-provides token-driven components, and supplies attribute-based grid/flex layouts. Use that
-system before adding project CSS.
+> project's `AGENTS.md` / `CLAUDE.md` like `Read skelet.md before writing or changing any CSS or HTML.`
+> Agents auto-load those standard instruction filenames, not arbitrary files. Keep the copy and its reference-version marker in sync when you upgrade Skelet.
 
 ---
 
-## 1. API authority
-
-The stylesheet loaded by your application is authoritative for behavior. Match core and
-add-ons from the same release; do not assume an add-on path or API exists in an older npm
-package.
-
-When sources disagree, use this order:
-
-1. The exact `css/skelet.css` loaded by the application.
-2. Matching `css/skelet-overlay.css` and `css/skelet-tooltips.css` files, when used.
-3. Documentation explicitly versioned for those files.
-4. Source-repository fixtures and starters, which may lag.
-
-npm and jsDelivr versions come from `package.json#version`, not from the CSS banner. Pin and
-inspect a published package instead of constructing a release URL from this document's
-snapshot version.
-
----
-
-## 2. Mental model
+## 1. Mental model
 
 Skelet's design has five layers:
 
@@ -55,10 +28,8 @@ Skelet's design has five layers:
 5. **Small utilities and optional add-ons** — sizing, text, visibility, scrolling,
    tooltips, dialogs, and popovers.
 
-Core is plain, untranspiled CSS. It has no JavaScript runtime and no npm dependencies.
-Inter and Font Awesome in `skelet.html` are optional starter assets, not framework
-requirements. Dialogs and popovers use native browser APIs; Skelet only supplies their
-visual treatment.
+Core is plain, untranspiled CSS. It has no JavaScript runtime and no npm dependencies. Inter and Font Awesome in `skelet.html` are optional starter assets, not framework
+requirements. Dialogs and popovers use native browser APIs; Skelet only supplies their visual treatment.
 
 Skelet intentionally uses modern platform features, including CSS nesting,
 `light-dark()`, relative colors, `:has()`, container queries, `field-sizing`, subgrid,
@@ -67,7 +38,7 @@ modern browser only after checking the project's actual support matrix.
 
 ---
 
-## 3. Rules of engagement
+## 2. Rules of engagement
 
 1. **Use semantic HTML first.** Choose the correct native element before considering a
    class or ARIA role.
@@ -100,119 +71,7 @@ modern browser only after checking the project's actual support matrix.
 
 ---
 
-## 4. Install and load order
-
-### Local files
-
-Load styles in this order:
-
-1. Optional external fonts and icon libraries.
-2. `css/skelet.css`.
-3. Optional Skelet add-ons used by the page.
-4. `css/app.css` last, so project overrides win.
-
-```html
-<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<link rel="stylesheet" href="css/skelet.css">
-
-<!-- Optional: uncomment only what the page uses. -->
-<!-- <link rel="stylesheet" href="css/skelet-tooltips.css"> -->
-<!-- <link rel="stylesheet" href="css/skelet-overlay.css"> -->
-
-<link rel="stylesheet" href="css/app.css">
-```
-
-Without Inter, `--fontFamily` falls back to Skelet's system sans-serif stack. Font Awesome
-is required only when the project actually uses Font Awesome classes or the tooltip
-`.font-awesome` option.
-
-### npm
-
-```sh
-npm i selekkt-skelet
-```
-
-The unversioned command installs the latest published release, which may lag this reference
-snapshot. Inspect `node_modules/selekkt-skelet/css/skelet.css` and confirm optional files
-exist before using the APIs documented here.
-
-With a CSS-aware bundler, import explicit paths only when the installed release contains
-them:
-
-```js
-import "selekkt-skelet/css/skelet.css";
-import "selekkt-skelet/css/skelet-tooltips.css"; // optional, release-dependent
-import "selekkt-skelet/css/skelet-overlay.css";  // optional, release-dependent
-import "./app.css";
-```
-
-The package `main`/`style` entry points expose core CSS, not an all-add-ons bundle.
-
-### CDN
-
-Do not use an `@latest` URL in production. Pin the exact npm package version, inspect its
-contents, and use only paths present in that release. npm and jsDelivr use
-`package.json#version`; the CSS banner alone is not a valid CDN version.
-
----
-
-## 5. Starting a page
-
-Use `skelet.html` as a scaffold, not as production-ready content. A safe minimal page is:
-
-```html
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Page title</title>
-  <meta name="description" content="Page description">
-
-  <script>
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
-  </script>
-
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link rel="stylesheet" href="css/skelet.css">
-  <link rel="stylesheet" href="css/app.css">
-</head>
-<body>
-- Sliding groups: `--slidingGroup*`
-  <a href="#mainContent" class="button is-primary visually-hidden-focus skipTo">
-    Skip to content
-  </a>
-
-  <div id="app">
-    <header>…</header>
-    <main id="mainContent" tabindex="-1">…</main>
-    <footer>…</footer>
-  </div>
-</body>
-</html>
-```
-
-Important scaffold details:
-
-- Keep the skip link and focusable matching target.
-- The checked-in starter defaults to `noindex,nofollow`; replace its title, description,
-  robots policy, canonical/social metadata, theme color, and icons before launch.
-- Include only the external fonts, icons, scripts, and add-ons the project needs.
-- `js/modules.js` and `js/app.js` are optional project placeholders, not Skelet dependencies.
-- Core CSS works without JavaScript. The early inline script only switches `.no-js` state
-  helpers to `.js`; under a strict Content Security Policy, authorize it with a nonce/hash or
-  move equivalent code to an allowed early script. If it is blocked, `.js`-only content
-  stays hidden and `.no-js` content remains visible.
-- Use `classList` as shown instead of assigning `document.documentElement.className = 'js'`;
-  assigning `className` removes unrelated root classes such as `.dark-mode`.
-
-`#app` is a flex column with `min-height: 100vh`, and `main` has `flex: 1`, producing a
-sticky footer. Note that the `main { flex: 1 }` rule is global, not scoped to `#app`.
-
----
-
-## 6. Token system and customization
+## 3. Token system and customization
 
 Most framework configuration lives on `:where(html)`, which has zero selector specificity.
 Override tokens in `css/app.css` on `:root`, a theme wrapper, a section, or one component.
@@ -320,6 +179,7 @@ Prefer the relevant family rather than overriding a broad selector:
 - Buttons: `--button*`
 - Checkboxes/radios/switches: `--check*`, `--radio*`, `--switch*`
 - Toggle tokens: `--token*`
+- Sliding groups: `--slidingGroup*`
 - Tables: `--table*`
 - Scroll snap: `--scroll*`
 - Accessibility/focus: `--a11y*`
@@ -344,36 +204,7 @@ These are definitions, not animation utility classes. Apply them from `css/app.c
 
 ---
 
-## 7. Base and reset behavior
-
-Understand the baseline before overriding it:
-
-- All elements plus `::before` and `::after` use `box-sizing: border-box` and start with
-  `margin: 0`.
-- `html` has stable scrollbar gutters and preference-aware smooth document scrolling.
-- `body` receives background, text color, and fluid font tokens.
-- `img`, `svg`, `canvas`, `video`, `embed`, `object`, and `dd` become block-level and
-  responsive.
-- All `svg` elements receive `height: 100%`, `flex-shrink: 0`, and
-  `pointer-events: none !important`. Do not use a directly targeted SVG as an interactive
-  pointer surface without an intentional override.
-- `[dir="rtl"]` sets RTL direction, and most framework placement uses logical properties.
-- `[hidden]`, `[type="hidden"]`, and `.hidden` force `display: none !important`.
-- `[disabled]` and `.disabled` apply grayscale, opacity, and a not-allowed cursor.
-- `[inert]` and its descendants are dimmed, non-selectable, and non-interactive.
-- An open modal `<dialog>` clips root page overflow even when the overlay add-on is absent.
-- `p:empty` is hidden; paragraphs use `text-wrap: pretty`.
-- Headings use `text-wrap: balance`.
-- `figure`, `figcaption`, `dt`, `dd`, `iframe`, selection colors, and inline code receive
-  base treatment.
-
-A visual `.disabled` class does not prevent clicks, form submission, or navigation. Use the
-native `disabled` attribute on supported controls; for non-native patterns, implement
-semantics and interaction intentionally.
-
----
-
-## 8. Typography and links
+## 4. Typography and links
 
 ### Headings
 
@@ -417,7 +248,7 @@ behavior, and `[role="button"]` does not gain native button behavior. Prefer `<a
 
 ---
 
-## 9. Grid — `<x-grid>` / `[x-grid]`
+## 5. Grid — `<x-grid>` / `[x-grid]`
 
 The primary page-layout primitive is `<x-grid>`. A plain element with the `x-grid`
 attribute is equivalent:
@@ -519,7 +350,7 @@ names for unrelated application behavior.
 
 ---
 
-## 10. Flexbox — `<x-flex>` / `[x-flex]`
+## 6. Flexbox — `<x-flex>` / `[x-flex]`
 
 `<x-flex>` and `[x-flex]` use `display: flex` and `gap: var(--gap)`. `<x-cell>` is a
 convention; any direct child works.
@@ -566,7 +397,7 @@ selectors. Avoid name collisions with unrelated application attributes.
 
 ---
 
-## 11. Alignment, placement, and order
+## 7. Alignment, placement, and order
 
 Attributes map to exact CSS declarations. Only listed values are implemented.
 
@@ -609,7 +440,7 @@ combinations at the widths the page supports.
 
 ---
 
-## 12. Responsive behavior
+## 8. Responsive behavior
 
 Skelet is base-first rather than mobile-first. Unsuffixed declarations apply at every
 width; small and medium attributes override the same property inside their ranges.
@@ -670,7 +501,7 @@ override in `css/app.css`.
 
 ---
 
-## 13. Buttons
+## 9. Buttons
 
 These receive the button skin:
 
@@ -733,7 +564,7 @@ the application intentionally changes behavior and communicates `aria-disabled`.
 
 ---
 
-## 14. Forms
+## 10. Forms
 
 ### Styled fields
 
@@ -749,50 +580,6 @@ Always write the input type. Although HTML treats a missing type as text semanti
 Skelet's selector does not style a plain `<input>` without `type`, `inputmode`, or `list`.
 
 ```html
-### Sliding groups
-
-A sliding group is a row of choices with a pill-shaped highlight that follows hover
-and/or selection. Use `<sliding-group>` or add `sliding-group` to a semantic container
-such as `<nav>` or `<fieldset>`. Its direct children are the choices (excluding
-`<legend>`). Use links for navigation and radio inputs for a native single-choice form
-control; `<sliding-group>` is a visual wrapper, not an interactive custom element.
-
-A choice is selected when it has `data-active`, `aria-current`, `aria-selected="true"`,
-or contains a checked input. There are two visual modes:
-
-- **Default:** one selected-style pill follows the hovered choice and returns to the
-  selected choice on mouseout. Hover never changes the selection itself.
-- **`mode="separate"`:** hover and selection use separate pills, so both can be visible
-  at once.
-
-```html
-<nav sliding-group aria-label="Sections">
-  <a href="/" aria-current="page">Home</a>
-  <a href="/shop">Shop</a>
-</nav>
-
-<fieldset sliding-group>
-  <legend class="visually-hidden">Size</legend>
-  <label><input type="radio" name="size" checked> Small</label>
-  <label><input type="radio" name="size"> Medium</label>
-</fieldset>
-
-<!-- To show separate hover and selection pills instead: -->
-<fieldset sliding-group mode="separate">
-  <legend class="visually-hidden">View</legend>
-  <label><input type="radio" name="view" checked> Grid</label>
-  <label><input type="radio" name="view"> List</label>
-</fieldset>
-```
-
-CSS handles the highlights; button-based groups must update their selection state
-(e.g. `data-active`) in application code. Customize the shell with `--slidingGroupBorder`,
-`--slidingGroupPadding`, `--slidingGroupRadius`, and `--slidingGroupMargin`; customize
-the pills with `--slidingGroupPillPadding`, `--slidingGroupPillBgHover`,
-`--slidingGroupPillBgActive`, `--slidingGroupPillShadow`, and
-`--slidingGroupPillTrans`. Browsers without CSS anchor positioning show static hover
-and selection styles instead of a sliding pill.
-
 <label for="email">Email</label>
 <input id="email" name="email" type="email" autocomplete="email" required>
 ```
@@ -914,7 +701,7 @@ reverses in right-to-left interfaces.
 
 ---
 
-## 15. Grouped controls — `<x-stack>`
+## 11. Grouped controls — `<x-stack>`
 
 `<x-stack>` is an inline-flex wrapper for grouped controls.
 
@@ -962,9 +749,53 @@ needed.
 focus-within outline. Bare `<x-stack>` supplies inline-flex layout and also changes inherited
 button defaults (`--buttonMargin`, `--buttonHeight`, and `--buttonWeight`).
 
+### Sliding groups
+
+A sliding group is a row of choices with a pill-shaped highlight that follows hover
+and/or selection. Use `<sliding-group>` or add `sliding-group` to a semantic container
+such as `<nav>` or `<fieldset>`. Its direct children are the choices (excluding
+`<legend>`). Use links for navigation and radio inputs for a native single-choice form
+control; `<sliding-group>` is a visual wrapper, not an interactive custom element.
+
+A choice is selected when it has `data-active`, `aria-current`, `aria-selected="true"`,
+or contains a checked input. There are two visual modes:
+
+- **Default:** one selected-style pill follows the hovered choice and returns to the
+  selected choice on mouseout. Hover never changes the selection itself.
+- **`mode="separate"`:** hover and selection use separate pills, so both can be visible
+  at once.
+
+```html
+<nav sliding-group aria-label="Sections">
+  <a href="/" aria-current="page">Home</a>
+  <a href="/shop">Shop</a>
+</nav>
+
+<fieldset sliding-group>
+  <legend class="visually-hidden">Size</legend>
+  <label><input type="radio" name="size" checked> Small</label>
+  <label><input type="radio" name="size"> Medium</label>
+</fieldset>
+
+<!-- To show separate hover and selection pills instead: -->
+<fieldset sliding-group mode="separate">
+  <legend class="visually-hidden">View</legend>
+  <label><input type="radio" name="view" checked> Grid</label>
+  <label><input type="radio" name="view"> List</label>
+</fieldset>
+```
+
+CSS handles the highlights; button-based groups must update their selection state
+(e.g. `data-active`) in application code. Customize the shell with `--slidingGroupBorder`,
+`--slidingGroupPadding`, `--slidingGroupRadius`, and `--slidingGroupMargin`; customize
+the pills with `--slidingGroupPillPadding`, `--slidingGroupPillBgHover`,
+`--slidingGroupPillBgActive`, `--slidingGroupPillShadow`, and
+`--slidingGroupPillTrans`. Browsers without CSS anchor positioning show static hover
+and selection styles instead of a sliding pill.
+
 ---
 
-## 16. Toggle tokens
+## 12. Toggle tokens
 
 `.toggle-token` turns radio/checkbox choices into button-like tokens. It supports both
 wrapping-label and adjacent-label markup.
@@ -991,15 +822,39 @@ Behavior:
   legend while keeping it available to assistive technology.
 - Disabled tokens default to grayscale, low opacity, and line-through text.
 - Tokens retain individual margins/radii; this is not automatically a fused segmented
-  control.
+  control. For a single-select grouped control, use `<fieldset segmented>` instead.
 
 Active token styling follows the live `:checked` state. The initial HTML `checked` attribute
 can set the default choice, but changing a radio or checkbox immediately updates the visual
 state.
 
+### Segmented choices
+
+Use the `segmented` attribute on a `<fieldset>` with a named radio group. Wrap each
+radio in a direct-child `<label>`; keep the `<legend>` for the group's accessible name.
+This is a radio choice, not an ARIA tablist or a content-panel switcher.
+
+```html
+<fieldset segmented>
+  <legend>View</legend>
+  <label><input type="radio" name="view" value="day" checked> Day</label>
+  <label><input type="radio" name="view" value="week"> Week</label>
+  <label><input type="radio" name="view" value="month"> Month</label>
+</fieldset>
+```
+
+The selection follows the live `:checked` state. Where CSS anchor positioning is
+supported, its highlight glides between labels; otherwise, the checked label receives
+a static highlight. Keyboard arrow keys work through native radio behavior, and focus
+remains visible on the label. To keep the legend available to screen readers without
+displaying it, add `class="visually-hidden"` to the legend. Use separate `name` values
+for separate groups. The control reuses `--inputBg`, `--inputBgHover`,
+`--inputBgActive`, `--inputBorderColor`, `--buttonPadding`, and `--buttonRadius`;
+override these on a particular fieldset to customize it.
+
 ---
 
-## 17. Tables
+## 13. Tables
 
 Use semantic table markup. Wrap tables in `.table-container` when they may overflow:
 
@@ -1063,7 +918,7 @@ surface override for a fully filled row treatment.
 
 ---
 
-## 18. Lists, code, rules, and native media
+## 14. Lists, code, rules, and native media
 
 ### Lists
 
@@ -1119,7 +974,7 @@ base section.
 
 ---
 
-## 19. Optional add-on: tooltips
+## 15. Optional add-on: tooltips
 
 Load `css/skelet-tooltips.css` after core and before `app.css`.
 
@@ -1195,7 +1050,7 @@ The public customization tokens are `--tooltipBg`, `--tooltipColor`, `--tooltipR
 
 ---
 
-## 20. Optional add-on: dialog and popover overlays
+## 16. Optional add-on: dialog and popover overlays
 
 Load `css/skelet-overlay.css` after core and before `app.css`.
 
@@ -1286,7 +1141,7 @@ test a replacement focus style in `css/app.css`.
 
 ---
 
-## 21. Utility reference
+## 17. Utility reference
 
 Utilities are intentionally small. Prefer layout attributes and component tokens when they
 better express the intent.
@@ -1409,7 +1264,7 @@ been replaced by these attributes.
 
 ---
 
-## 22. Accessibility helpers
+## 18. Accessibility helpers
 
 ### Focus
 
@@ -1457,7 +1312,7 @@ keyboard interactions for any custom widget.
 
 ---
 
-## 23. JavaScript state helpers
+## 19. JavaScript state helpers
 
 The expected root starts as `<html class="no-js">`, then project JavaScript changes it to
 `.js`.
@@ -1487,7 +1342,7 @@ locally.
 
 ---
 
-## 24. Dark mode
+## 20. Dark mode
 
 Core defaults to `color-scheme: light`. Any of these switches a subtree to dark scheme:
 
@@ -1518,7 +1373,7 @@ preserves the theme class.
 
 ---
 
-## 25. Motion and scrolling
+## 21. Motion and scrolling
 
 Document smooth scrolling is enabled only under `prefers-reduced-motion: no-preference` and
 can be changed through `--scrollBehavior`.
@@ -1534,7 +1389,7 @@ covers pseudo-elements and backdrops, including animations added later in `css/a
 
 ---
 
-## 26. Browser baseline
+## 22. Browser baseline
 
 Skelet has no transpilation or polyfills. Verify target browsers for the features actually
 used.
@@ -1558,67 +1413,7 @@ acceptable only when the fallback remains usable.
 
 ---
 
-## 27. Tests and manual validation
-
-There is no test command in `package.json`. Files in `tests/` are browser fixtures, not
-assertion-based tests, and some contain stale class names or inline prototype CSS.
-
-Useful starting points:
-
-- `tests/html-elements.html` — broad integrated native elements/components/add-ons.
-- `tests/skelet-grids.html` — grid API.
-- `tests/grid-flex.html` and `tests/grid-align.html` — layout/alignment.
-- `tests/test-subgrid.html` and `tests/test-subgrid-layout.html` — subgrid.
-- `tests/space-system.html` and `tests/type-system.html` — token scales.
-- `tests/buttons.html`, `tests/html-inputs.html`, `tests/toggle-token.html` — controls,
-  with some legacy examples that must be checked against core.
-- `tests/overlay-check.html` — current dialog/popover positions and animation.
-- `tests/popover.html` — auto/manual popover behavior.
-- `tests/tooltips.html` — tooltip positions, widths, wrapping, visibility, and direct or
-  descendant keyboard focus.
-
-Known fixture caveats:
-
-- `tests/dialog.html` is a legacy inline dialog implementation, not the current overlay
-  add-on.
-- Demo prose occasionally calls add-on behavior “core.” Trust the stylesheet imports and
-  selectors instead.
-
-For a changed page or component, manually verify:
-
-1. Base, small, and medium widths at the actual boundaries.
-2. Keyboard tab order and visible focus.
-3. Labels, names, roles, and error communication.
-4. Hover, focus, active, disabled, busy, invalid, and empty states where relevant.
-5. Light and dark schemes if supported.
-6. Reduced motion.
-7. Long content, zoom, and narrow containers.
-8. Native dialog/popover close, dismissal, and focus behavior.
-
----
-
-## 28. Implementation workflow for agents
-
-Use this sequence for new UI:
-
-1. **Identify semantics.** Choose landmarks, heading levels, links, buttons, controls,
-   lists, tables, dialogs, and popovers correctly.
-2. **Choose layout primitives.** Use `<x-grid>` for two-dimensional placement and
-   `<x-flex>` for one-dimensional distribution.
-3. **Add responsive attributes.** Define base behavior, then only the necessary `-m` and
-   `-s` overrides.
-4. **Use native component styling.** Add only documented `is-*` modifiers and wrappers.
-5. **Customize with tokens.** Override globally or locally depending on intended scope.
-6. **Add minimal page CSS.** Put genuine design-specific rules in `css/app.css`.
-7. **Check source quirks.** Verify visibility helpers, responsive scroll snap, grouped
-   controls, and interactive toggle tokens instead of assuming their names.
-8. **Validate accessibility and browser behavior.** Use the checklist above.
-9. **Remove scaffolding/debug code.** Delete `.debug`, sample metadata/content, inline
-   prototype styles, and unused dependencies.
-
----
-
-## 29. Anti-patterns
+## 23. Anti-patterns
 
 Do not:
 
@@ -1640,10 +1435,6 @@ Do not:
 - Hand-roll a JavaScript modal or tooltip dependency before evaluating native
   `<dialog>`, Popover, and the optional add-ons.
 - Assume all native HTML elements have a bespoke Skelet skin; verify the selector.
-
-Skelet does not include a generic card component. A page-specific card is legitimate when
-the design needs it, but implement it minimally in `css/app.css` with existing surface,
-space, border, and radius tokens rather than inventing a parallel component system.
 
 When the framework cannot express a real requirement, add the smallest intentional rule,
 document any non-obvious constraint, and keep the native/token/layout model intact.
