@@ -1,0 +1,98 @@
+<!doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sliding Group</title>
+        <link rel="stylesheet" href="../css/skelet.css">
+    </head>
+    <body>
+
+<h2>Navigation</h2>
+<nav sliding-group aria-label="Sections">
+    <a href="/" aria-current="page">Home</a>
+    <a href="/shop">Shop</a>
+    <a href="/about">About</a>
+</nav>
+
+<h2>Radio/form control (separate mode)</h2>
+<fieldset sliding-group mode="separate">
+    <legend class="visually-hidden">Size</legend>
+
+    <label>
+        <input type="radio" name="size" value="small" checked>
+        Small
+    </label>
+
+    <label>
+        <input type="radio" name="size" value="medium">
+        Medium
+    </label>
+
+    <label>
+        <input type="radio" name="size" value="large">
+        Large
+    </label>
+</fieldset>
+
+<h2>ARIA selected state:</h2>
+<div sliding-group>
+    <button type="button" aria-selected="true">Grid</button>
+    <button type="button" aria-selected="false">List</button>
+</div>
+
+<h2>Generic application state:</h2>
+<sliding-group>
+    <button type="button" data-active>Daily</button>
+    <button type="button">Weekly</button>
+    <button type="button">Monthly</button>
+</sliding-group>
+
+<h2>Separate hover and selected highlights</h2>
+<sliding-group id="interactive-group" mode="separate">
+  <button
+    class="slidingGroupItem"
+    type="button"
+    data-active
+  >
+    Grid
+  </button>
+
+  <button
+    class="slidingGroupItem"
+    type="button"
+  >
+    List
+  </button>
+</sliding-group>
+
+<h2>Single highlight (default)</h2>
+<p>Hover moves the selected-style pill; moving away returns it to the selection.</p>
+<sliding-group id="shared-group">
+    <button class="slidingGroupItem" type="button" data-active>Grid</button>
+    <button class="slidingGroupItem" type="button">List</button>
+    <button class="slidingGroupItem" type="button">Detail</button>
+</sliding-group>
+
+<fieldset sliding-group>
+    <legend class="visually-hidden">Default mode size</legend>
+    <label><input type="radio" name="shared-size" checked> Small</label>
+    <label><input type="radio" name="shared-size"> Medium</label>
+    <label><input type="radio" name="shared-size"> Large</label>
+</fieldset>
+
+<script>
+    for (const group of document.querySelectorAll('#interactive-group, #shared-group')) {
+        group.addEventListener('click', (event) => {
+            const selectedItem = event.target.closest('.slidingGroupItem');
+            if (!selectedItem || !group.contains(selectedItem)) return;
+            for (const item of group.querySelectorAll('.slidingGroupItem')) {
+                item.toggleAttribute('data-active', item === selectedItem);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

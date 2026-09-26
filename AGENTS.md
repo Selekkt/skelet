@@ -69,8 +69,9 @@ skelet.html             Accessible HTML starter (ships to consumers).
    verify it in a browser (small / medium / base widths, keyboard focus, dark mode, reduced
    motion). Fixtures are how this repo is validated.
 8. **Bump the version deliberately.** The CSS banner is the canonical framework/API
-   version; `package.json#version` controls npm/jsDelivr and the git tag identifies the source
-   release. Don't publish until all three agree; read
+   version; always keep the `Reference snapshot` version in `docs/using/skelet.md` equal
+   to that banner. `package.json#version` controls npm/jsDelivr and the git tag identifies
+   the source release. Don't publish until all three agree; read
    [releasing](docs/developing/releasing.md).
 9. **Keep the consumer doc in sync.** If you change a public API, update
    [`docs/using/skelet.md`](docs/using/skelet.md) in the same change.

@@ -4,7 +4,7 @@ The implementation reference for building a site **with** Skelet.css. Read it be
 generating or changing HTML or CSS in a project that consumes the framework. Framework
 contributors should follow the Skelet source repository's root `AGENTS.md` instead.
 
-**Reference snapshot: Skelet.css v6.8.1.** Match this guide to the banner in the
+**Reference snapshot: Skelet.css v6.8.5**. Match this guide to the banner in the
 `css/skelet.css` your project actually loads.
 
 > **Drop this file into your own project** so your coding agent knows Skelet's conventions.
@@ -179,6 +179,7 @@ Use `skelet.html` as a scaffold, not as production-ready content. A safe minimal
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+- Sliding groups: `--slidingGroup*`
   <a href="#mainContent" class="button is-primary visually-hidden-focus skipTo">
     Skip to content
   </a>
@@ -748,6 +749,50 @@ Always write the input type. Although HTML treats a missing type as text semanti
 Skelet's selector does not style a plain `<input>` without `type`, `inputmode`, or `list`.
 
 ```html
+### Sliding groups
+
+A sliding group is a row of choices with a pill-shaped highlight that follows hover
+and/or selection. Use `<sliding-group>` or add `sliding-group` to a semantic container
+such as `<nav>` or `<fieldset>`. Its direct children are the choices (excluding
+`<legend>`). Use links for navigation and radio inputs for a native single-choice form
+control; `<sliding-group>` is a visual wrapper, not an interactive custom element.
+
+A choice is selected when it has `data-active`, `aria-current`, `aria-selected="true"`,
+or contains a checked input. There are two visual modes:
+
+- **Default:** one selected-style pill follows the hovered choice and returns to the
+  selected choice on mouseout. Hover never changes the selection itself.
+- **`mode="separate"`:** hover and selection use separate pills, so both can be visible
+  at once.
+
+```html
+<nav sliding-group aria-label="Sections">
+  <a href="/" aria-current="page">Home</a>
+  <a href="/shop">Shop</a>
+</nav>
+
+<fieldset sliding-group>
+  <legend class="visually-hidden">Size</legend>
+  <label><input type="radio" name="size" checked> Small</label>
+  <label><input type="radio" name="size"> Medium</label>
+</fieldset>
+
+<!-- To show separate hover and selection pills instead: -->
+<fieldset sliding-group mode="separate">
+  <legend class="visually-hidden">View</legend>
+  <label><input type="radio" name="view" checked> Grid</label>
+  <label><input type="radio" name="view"> List</label>
+</fieldset>
+```
+
+CSS handles the highlights; button-based groups must update their selection state
+(e.g. `data-active`) in application code. Customize the shell with `--slidingGroupBorder`,
+`--slidingGroupPadding`, `--slidingGroupRadius`, and `--slidingGroupMargin`; customize
+the pills with `--slidingGroupPillPadding`, `--slidingGroupPillBgHover`,
+`--slidingGroupPillBgActive`, `--slidingGroupPillShadow`, and
+`--slidingGroupPillTrans`. Browsers without CSS anchor positioning show static hover
+and selection styles instead of a sliding pill.
+
 <label for="email">Email</label>
 <input id="email" name="email" type="email" autocomplete="email" required>
 ```
@@ -1498,7 +1543,8 @@ used.
 |---|---|---|
 | Native CSS nesting | Throughout core and add-ons | Older parsers may drop nested rules. |
 | `light-dark()` and relative colors | Theme, hover, and surface tokens | Colors may fail rather than merely lose dark mode. |
-| `:has()` and `:modal` | modal scroll lock, tables, toggle tokens | Conditional styling is lost. |
+| `:has()` and `:modal` | modal scroll lock, tables, toggle tokens, sliding groups | Conditional styling is lost. |
+| CSS anchor positioning | sliding-group pills | Highlights use static fallback styles instead of sliding. |
 | Container queries and `cqi` | narrow table density | Table remains at base density. |
 | CSS subgrid | `<x-subgrid>` | Subgrid layout does not work. |
 | `field-sizing` | `.field-sizing` | Controls do not auto-size to content. |

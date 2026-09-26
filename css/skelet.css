@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.8.2 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.8.5 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
   variables
@@ -976,6 +976,111 @@ input[type="checkbox"][role="switch"] {
     cursor: not-allowed;
     opacity: var(--tokenOpacity, 0.3);
     text-decoration: var(--tokenTextDec, line-through) !important;
+}
+
+/* ------------------
+  sliding group
+------------------ */
+:where(html) {
+    --slidingGroupBorder: var(--inputBorderWidth) var(--inputBorderStyle) var(--inputBorderColor);
+    --slidingGroupPadding: 0.25rem;
+    --slidingGroupRadius: 100vw;
+    --slidingGroupMargin: var(--margin);
+
+    /* Pills */
+    --slidingGroupPillTrans: inset 250ms var(--easeOutBack);
+    --slidingGroupPillPadding: 0.65rem 1.3rem;
+    --slidingGroupPillBgHover: var(--inputBg);
+    --slidingGroupPillBgActive: var(--inputBgActive);
+    --slidingGroupPillShadow:
+        0 0 0 1px var(--inputBorderColor),
+        0 1px 3px 0 rgb(0 0 0 / 0.1),
+        0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+:is(sliding-group, [sliding-group]) {
+    anchor-name: --sliding-group-hover;
+
+    display: flex;
+    position: relative;
+    width: fit-content;
+    overflow: clip;
+    padding: var(--slidingGroupPadding);
+    margin-block: var(--slidingGroupMargin);
+    border-radius: var(--slidingGroupRadius);
+    border: var(--slidingGroupBorder);
+
+    &::before,&::after {
+        content: "";
+        position: absolute;
+        border-radius: inherit;
+        pointer-events: none;
+        transition: var(--slidingGroupPillTrans);
+
+        inset:
+            calc(anchor(start) + var(--slidingGroupPadding))
+            calc(anchor(end) + var(--slidingGroupPadding))
+            calc(anchor(end) + var(--slidingGroupPadding))
+            calc(anchor(start) + var(--slidingGroupPadding));
+    }
+
+    &::before { display: none; position-anchor: --sliding-group-hover; background: var(--slidingGroupPillBgHover); opacity: 0 }
+    &::after { position-anchor: --sliding-group-active; background: var(--slidingGroupPillBgActive); box-shadow: var(--slidingGroupPillShadow) }
+
+    /* By default, the selected pill follows hover and returns to the selection. */
+    &:not([mode="separate"]) {
+        & > :not(legend):hover { --anchor-name-2: --sliding-group-active }
+        &:has(> :not(legend):hover) > :not(legend):where(:has(:checked), [aria-current], [aria-selected="true"], [data-active]):not(:hover) { --anchor-name-2: --b }
+    }
+
+    &[mode="separate"] {
+        &::before { display: block }
+        &:has(> :not(legend):hover)::before { opacity: 1 }
+    }
+
+    & > :not(legend) {
+        --linkColor: currentColor;
+        --linkHover: currentColor;
+        --buttonBg: transparent;
+        --buttonBorder: none;
+        --buttonRadius: inherit;
+        --buttonMargin: 0px;
+
+        anchor-name: var(--anchor-name-1, --a), var(--anchor-name-2, --b);
+
+        padding: var(--slidingGroupPillPadding);
+        font-size: inherit;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        z-index: 1;
+
+        &:hover { --anchor-name-1: --sliding-group-hover }
+        &:where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]) { --anchor-name-2: --sliding-group-active }
+        &:where(:focus-visible, :has(:focus-visible)) { outline: var(--a11yOutline) }
+
+        input:where([type="radio"], [type="checkbox"]) {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    }
+}
+
+/* Fallback */
+@supports not (anchor-name: --a) {
+    :is(sliding-group, [sliding-group])::before,
+    :is(sliding-group, [sliding-group])::after { display: none }
+    :is(sliding-group, [sliding-group]) > :not(legend):where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]) { background-color: var(--slidingGroupPillBgActive); box-shadow: var(--slidingGroupPillShadow) }
+    :is(sliding-group, [sliding-group]) > :not(legend):hover { background-color: var(--slidingGroupPillBgActive); box-shadow: var(--slidingGroupPillShadow) }
+    :is(sliding-group, [sliding-group]):not([mode="separate"]):has(> :not(legend):hover) > :not(legend):where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]):not(:hover) { background-color: transparent; box-shadow: none }
+    :is(sliding-group, [sliding-group])[mode="separate"] > :not(legend):hover:not(:where(:has(:checked),[aria-current],[aria-selected="true"],[data-active])) { background-color: var(--slidingGroupPillBgHover); box-shadow: none }
 }
 
 /* ------------------
