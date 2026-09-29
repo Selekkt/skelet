@@ -4,10 +4,10 @@
   variables
 ------------------ */
 :where(html) {
-interpolate-size: allow-keywords;
-color-scheme: light;
+    interpolate-size: allow-keywords;
+    color-scheme: light;
 
-/* Colors */
+    /* Colors */
     --primary: #006EF1;
     --red: #ff6961;
     --orange: #FFB340;
@@ -989,10 +989,10 @@ input[type="checkbox"][role="switch"] {
 
     /* Pills */
     --slidingGroupPillWeight: normal;
-    --slidingGroupPillAnime: inset 320ms var(--easeOutExpo);
     --slidingGroupPillPadding: 0.65rem 1.3rem;
     --slidingGroupPillBgHover: var(--inputBg);
     --slidingGroupPillBgActive: var(--inputBgActive);
+    --slidingGroupPillAnime: inset 320ms var(--easeOutExpo);
     --slidingGroupPillShadow:
         0 0 0 1px var(--inputBorderColor),
         0 1px 3px 0 rgb(0 0 0 / 0.1),
@@ -1004,12 +1004,16 @@ input[type="checkbox"][role="switch"] {
 
     display: flex;
     position: relative;
-    width: fit-content;
-    overflow: clip;
     padding: var(--slidingGroupPadding);
     margin-block: var(--slidingGroupMargin);
     border-radius: var(--slidingGroupRadius);
     border: var(--slidingGroupBorder);
+
+    overflow: hidden; 
+    overflow-x: auto; 
+    width: fit-content; 
+    max-width: 100%; 
+    scroll-behavior: smooth;
 
     &::before,&::after {
         content: "";
