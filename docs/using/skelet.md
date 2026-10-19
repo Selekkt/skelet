@@ -3,7 +3,7 @@
 The implementation reference for building a site **with** Skelet.css. Read it before
 generating or changing HTML or CSS in a project that consumes the framework.
 
-**Reference snapshot: Skelet.css v6.8.5**. Match this guide to the banner in the
+**Reference snapshot: Skelet.css v6.8.7**. Match this guide to the banner in the
 `css/skelet.css` your project actually loads.
 
 > **Drop this file into your own project** so your coding agent knows Skelet's conventions.
@@ -189,7 +189,12 @@ Prefer the relevant family rather than overriding a broad selector:
 ### Easing and keyframes
 
 Skelet defines 24 cubic-bezier tokens: In/Out/InOut variants for Sine, Quad, Cubic,
-Quart, Quint, Expo, Circ, and Back. Elastic and Bounce easing tokens are not included.
+Quart, Quint, Expo, Circ, and Back. It also defines nine piecewise `linear()` easing
+tokens: In/Out/InOut variants of Spring, Bounce, and Elastic (for example,
+`--easeInOutBounce`). Use them as `transition-timing-function` or
+`animation-timing-function` values (for example,
+`transition: transform 800ms var(--easeOutSpring)`). Their overshoot/rebound is best
+seen on properties such as `transform`; `opacity` is clamped to its valid range.
 
 Named keyframes include:
 
@@ -751,19 +756,20 @@ button defaults (`--buttonMargin`, `--buttonHeight`, and `--buttonWeight`).
 
 ### Sliding groups
 
-A sliding group is a row of choices with a pill-shaped highlight that follows hover
-and/or selection. Use `<sliding-group>` or add `sliding-group` to a semantic container
-such as `<nav>` or `<fieldset>`. Its direct children are the choices (excluding
+A sliding group is a row of choices with a pill-shaped highlight that follows hover,
+keyboard focus, and/or selection. Use `<sliding-group>` or add `sliding-group` to a
+semantic container such as `<nav>` or `<fieldset>`. Its direct children are the choices (excluding
 `<legend>`). Use links for navigation and radio inputs for a native single-choice form
 control; `<sliding-group>` is a visual wrapper, not an interactive custom element.
 
 A choice is selected when it has `data-active`, `aria-current`, `aria-selected="true"`,
 or contains a checked input. There are two visual modes:
 
-- **Default:** one selected-style pill follows the hovered choice and returns to the
-  selected choice on mouseout. Hover never changes the selection itself.
-- **`mode="separate"`:** hover and selection use separate pills, so both can be visible
-  at once.
+- **Default:** one selected-style pill follows the hovered or keyboard-focused choice
+  and returns to the selected choice when neither hovered nor keyboard-focused.
+  Hover and focus never change the selection themselves.
+- **`mode="separate"`:** hover or keyboard focus and selection use separate pills, so
+  both can be visible at once.
 
 ```html
 <nav sliding-group aria-label="Sections">

@@ -14,6 +14,7 @@
 <div id="app">
 <main>
 <h2>Navigation</h2>
+<p>Tab through the links: the pill should follow keyboard focus, even if the pointer is resting over a different link. Move the pointer away and Tab out to return it to Home.</p>
 <nav sliding-group aria-label="Sections">
     <a href="/" aria-current="page">Home</a>
     <a href="/shop">Shop</a>
@@ -23,6 +24,7 @@
 <hr>
 
 <h2>Radio/form control</h2>
+<p>Tab to the checked radio, then use arrow keys: the highlight and focus outline should follow the newly checked option.</p>
 <fieldset sliding-group>
     <legend class="visually-hidden">Size</legend>
 
@@ -45,6 +47,7 @@
 <hr>
     
 <h2>Radio/form control <code>mode="separate"</code></h2>
+<p>Use arrow keys here too: the focus pill should follow the radio while the selection pill remains visible.</p>
 <fieldset sliding-group mode="separate">
     <legend class="visually-hidden">Size</legend>
 
@@ -79,6 +82,17 @@
     <button type="button">Monthly</button>
 </sliding-group>
 
+<h2>Links nested inside choices</h2>
+<p>Move the pointer away and</p> Tab through the links in both groups. The pill should follow the focused link's wrapper; in separate mode, the focus pill must be visible alongside the selected pill.</p>
+<div sliding-group aria-label="Nested links, default mode">
+    <div data-active><a href="#nested-links">Home</a></div>
+    <div><a href="#nested-links">Driftnote</a></div>
+</div>
+<div sliding-group mode="separate" id="nested-links" aria-label="Nested links, separate mode">
+    <div data-active><a href="#nested-links">Home</a></div>
+    <div><a href="#nested-links">Driftnote</a></div>
+</div>
+
 <h2>Separate hover and selected highlights</h2>
 <sliding-group id="interactive-group" mode="separate">
   <button
@@ -100,7 +114,7 @@
 <hr>
 
 <h2>Single highlight (default)</h2>
-<p>Hover moves the selected-style pill; moving away returns it to the selection.</p>
+<p>Hover or Tab moves the selected-style pill; moving away or tabbing out returns it to the selection.</p>
 <sliding-group id="shared-group">
     <button class="slidingGroupItem" type="button" data-active>Grid</button>
     <button class="slidingGroupItem" type="button">List</button>

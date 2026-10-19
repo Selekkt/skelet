@@ -67,7 +67,9 @@ skelet.html             Accessible HTML starter (ships to consumers).
    core-dependent file; don't fold it into core.
 7. **Every component change gets a fixture.** Add or update the matching file in `tests/` and
    verify it in a browser (small / medium / base widths, keyboard focus, dark mode, reduced
-   motion). Fixtures are how this repo is validated.
+   motion). Fixtures are how this repo is validated. **Browser testing MUST use Chrome
+   MCP, not Playwright.** If Chrome MCP is unavailable, report browser validation as
+   blocked and ask for it to be enabled; do not substitute another browser automation tool.
 8. **Bump the version deliberately.** The CSS banner is the canonical framework/API
    version; always keep the `Reference snapshot` version in `docs/using/skelet.md` equal
    to that banner. `package.json#version` controls npm/jsDelivr and the git tag identifies
@@ -75,3 +77,7 @@ skelet.html             Accessible HTML starter (ships to consumers).
    [releasing](docs/developing/releasing.md).
 9. **Keep the consumer doc in sync.** If you change a public API, update
    [`docs/using/skelet.md`](docs/using/skelet.md) in the same change.
+
+## Git
+
+- Never add yourself (or any AI agent) as a co-author in commit messages: no `Co-Authored-By` trailers.

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Piecewise easing tokens</title>
+    <link rel="stylesheet" href="../css/skelet.css">
+    <style>
+        main { max-width: 50rem; margin-inline: auto; padding: 2rem 1rem }
+        .demos { display: flex; flex-wrap: wrap; gap: 2rem; margin-block: 3rem }
+        .demo { display: grid; gap: 1rem; flex: 1 1 12rem; min-width: 0 }
+        .track { height: 6rem; display: grid; place-items: end center; border-block-end: 1px solid currentColor }
+        .demo button { transition: transform 900ms var(--timing); }
+        .demo button:hover, .demo button:focus-visible { transform: translateY(-3rem) }
+        .spring-in { --timing: var(--easeInSpring) }
+        .spring { --timing: var(--easeOutSpring) }
+        .spring-in-out { --timing: var(--easeInOutSpring) }
+        .bounce-in { --timing: var(--easeInBounce) }
+        .bounce { --timing: var(--easeOutBounce) }
+        .bounce-in-out { --timing: var(--easeInOutBounce) }
+        .elastic-in { --timing: var(--easeInElastic) }
+        .elastic { --timing: var(--easeOutElastic) }
+        .elastic-in-out { --timing: var(--easeInOutElastic) }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Piecewise easing tokens</h1>
+        <p>Hover or focus a button to preview the transition. Release hover or focus to see the return.</p>
+        <div class="demos">
+            <div class="demo spring-in">
+                <strong>Spring in</strong>
+                <div class="track"><button type="button">Spring in</button></div>
+                <code>--easeInSpring</code>
+            </div>
+            <div class="demo spring">
+                <strong>Spring out</strong>
+                <div class="track"><button type="button">Spring out</button></div>
+                <code>--easeOutSpring</code>
+            </div>
+            <div class="demo spring-in-out">
+                <strong>Spring in/out</strong>
+                <div class="track"><button type="button">Spring in/out</button></div>
+                <code>--easeInOutSpring</code>
+            </div>
+            <div class="demo bounce-in">
+                <strong>Bounce in</strong>
+                <div class="track"><button type="button">Bounce in</button></div>
+                <code>--easeInBounce</code>
+            </div>
+            <div class="demo bounce">
+                <strong>Bounce out</strong>
+                <div class="track"><button type="button">Bounce out</button></div>
+                <code>--easeOutBounce</code>
+            </div>
+            <div class="demo bounce-in-out">
+                <strong>Bounce in/out</strong>
+                <div class="track"><button type="button">Bounce in/out</button></div>
+                <code>--easeInOutBounce</code>
+            </div>
+            <div class="demo elastic-in">
+                <strong>Elastic in</strong>
+                <div class="track"><button type="button">Elastic in</button></div>
+                <code>--easeInElastic</code>
+            </div>
+            <div class="demo elastic">
+                <strong>Elastic out</strong>
+                <div class="track"><button type="button">Elastic out</button></div>
+                <code>--easeOutElastic</code>
+            </div>
+            <div class="demo elastic-in-out">
+                <strong>Elastic in/out</strong>
+                <div class="track"><button type="button">Elastic in/out</button></div>
+                <code>--easeInOutElastic</code>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

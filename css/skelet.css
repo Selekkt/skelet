@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.8.5 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.8.8 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
   variables
@@ -1034,14 +1034,18 @@ input[type="checkbox"][role="switch"] {
 
     /* By default, the selected pill follows hover and returns to the selection. */
     &:not([mode="separate"]) {
-        & > :not(legend):hover { --anchor-name-2: --sliding-group-active }
-        &:has(> :not(legend):hover) > :not(legend):where(:has(:checked), [aria-current], [aria-selected="true"], [data-active]):not(:hover) { --anchor-name-2: --b }
+        &:not(:has(> :not(legend):focus-visible, > :not(legend) :focus-visible)) > :not(legend):hover,
+        & > :not(legend):where(:focus-visible, :has(:focus-visible)) { --anchor-name-2: --sliding-group-active }
+        &:has(> :not(legend):where(:hover, :focus-visible), > :not(legend) :focus-visible) > :not(legend):where(:has(:checked), [aria-current], [aria-selected="true"], [data-active]):not(:where(:hover, :focus-visible, :has(:focus-visible))) { --anchor-name-2: --b }
+        &:has(> :not(legend):focus-visible, > :not(legend) :focus-visible) > :not(legend):where(:has(:checked), [aria-current], [aria-selected="true"], [data-active]):not(:where(:focus-visible, :has(:focus-visible))) { --anchor-name-2: --b }
     }
 
     &[mode="separate"] {
         &::before { display: block }
-        &:has(> :not(legend):hover)::before { opacity: 1 }
+        &:has(> :not(legend):where(:hover, :focus-visible), > :not(legend) :focus-visible)::before { opacity: 1 }
     }
+
+    &:has(> :not(legend):focus-visible, > :not(legend) :focus-visible) > :not(legend):hover:not(:where(:focus-visible, :has(:focus-visible))) { --anchor-name-1: --a }
 
     & > :not(legend) {
         --linkColor: currentColor;
@@ -1063,7 +1067,7 @@ input[type="checkbox"][role="switch"] {
         cursor: pointer;
         z-index: 1;
 
-        &:hover { --anchor-name-1: --sliding-group-hover }
+        &:where(:hover, :focus-visible, :has(:focus-visible)) { --anchor-name-1: --sliding-group-hover }
         &:where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]) { --anchor-name-2: --sliding-group-active }
         &:where(:focus-visible, :has(:focus-visible)) { outline: var(--a11yOutline) }
 
@@ -1086,9 +1090,11 @@ input[type="checkbox"][role="switch"] {
     :is(sliding-group, [sliding-group])::before,
     :is(sliding-group, [sliding-group])::after { display: none }
     :is(sliding-group, [sliding-group]) > :not(legend):where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]) { background-color: var(--slidingGroupPillBgActive); box-shadow: var(--slidingGroupPillShadow) }
-    :is(sliding-group, [sliding-group]) > :not(legend):hover { background-color: var(--slidingGroupPillBgActive); box-shadow: var(--slidingGroupPillShadow) }
-    :is(sliding-group, [sliding-group]):not([mode="separate"]):has(> :not(legend):hover) > :not(legend):where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]):not(:hover) { background-color: transparent; box-shadow: none }
-    :is(sliding-group, [sliding-group])[mode="separate"] > :not(legend):hover:not(:where(:has(:checked),[aria-current],[aria-selected="true"],[data-active])) { background-color: var(--slidingGroupPillBgHover); box-shadow: none }
+    :is(sliding-group, [sliding-group]) > :not(legend):where(:hover, :focus-visible, :has(:focus-visible)) { background-color: var(--slidingGroupPillBgActive); box-shadow: var(--slidingGroupPillShadow) }
+    :is(sliding-group, [sliding-group]):has(> :not(legend):focus-visible, > :not(legend) :focus-visible) > :not(legend):hover:not(:where(:focus-visible, :has(:focus-visible))):not(:where(:has(:checked),[aria-current],[aria-selected="true"],[data-active])) { background-color: transparent; box-shadow: none }
+    :is(sliding-group, [sliding-group]):not([mode="separate"]):has(> :not(legend):where(:hover, :focus-visible), > :not(legend) :focus-visible) > :not(legend):where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]):not(:where(:hover, :focus-visible, :has(:focus-visible))) { background-color: transparent; box-shadow: none }
+    :is(sliding-group, [sliding-group]):not([mode="separate"]):has(> :not(legend):focus-visible, > :not(legend) :focus-visible) > :not(legend):where(:has(:checked),[aria-current],[aria-selected="true"],[data-active]):not(:where(:focus-visible, :has(:focus-visible))) { background-color: transparent; box-shadow: none }
+    :is(sliding-group, [sliding-group])[mode="separate"] > :not(legend):where(:hover, :focus-visible, :has(:focus-visible)):not(:where(:has(:checked),[aria-current],[aria-selected="true"],[data-active])) { background-color: var(--slidingGroupPillBgHover); box-shadow: none }
 }
 
 /* ------------------
@@ -2423,6 +2429,19 @@ table {
     --easeInBack: cubic-bezier(0.36, 0, 0.66, -0.56);
     --easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
     --easeInOutBack: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    /* Piecewise easings for motion that changes direction. */
+    --easeInSpring: linear(0, 0.02 22%, -0.08 42%, 0.12 60%, 0.52 80%, 1);
+    --easeOutSpring: linear(0, 0.48 20%, 0.88 40%, 1.08 58%, 0.98 78%, 1);
+    --easeInOutSpring: linear(0, 0.01 11%, -0.04 21%, 0.06 30%, 0.26 40%, 0.5 50%, 0.74 60%, 0.94 70%, 1.04 79%, 0.99 89%, 1);
+
+    --easeInBounce: linear(0, 0.03 16%, 0 25%, 0.14 38%, 0 50%, 0.35 70%, 1);
+    --easeOutBounce: linear(0, 0.65 30%, 1 50%, 0.86 62%, 1 75%, 0.97 84%, 1);
+    --easeInOutBounce: linear(0, 0.015 8%, 0 12.5%, 0.07 19%, 0 25%, 0.175 35%, 0.5 50%, 0.825 65%, 1 75%, 0.93 81%, 1 87.5%, 0.985 92%, 1);
+
+    --easeInElastic: linear(0, -0.044 55%, 0.125 70%, -0.125 80%, -0.37 86%, -0.25 90%, 1);
+    --easeOutElastic: linear(0, 0.75 28%, 1.22 48%, 0.87 65%, 1.06 80%, 0.98 92%, 1);
+    --easeInOutElastic: linear(0, -0.022 27.5%, 0.0625 35%, -0.0625 40%, -0.185 43%, -0.125 45%, 0.5 50%, 0.875 64%, 1.11 74%, 0.935 82.5%, 1.03 90%, 0.99 96%, 1);
 }
 
 /* ------------------
