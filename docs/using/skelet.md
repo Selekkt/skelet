@@ -1278,7 +1278,8 @@ Default `*:focus-visible` preserves the browser outline while setting Skelet's o
 color and offset.
 
 - `.a11y-custom` on an ancestor applies the full token-driven outline/shadow to focused
-  descendants.
+  descendants. Customize `--a11yShadow` independently of `--a11yOutline`, or set it to
+  `none` to keep only the outline.
 - `.a11y-inputs-off` removes the outline and box shadow from text-like input descendants.
 - `.a11y-off` removes the outline and box shadow from focused descendants. Component
   hover/focus surface or border changes may still remain.

@@ -15,6 +15,13 @@
 </head>
 <body class="a11y--custom">
 <h1>Buttons</h1>
+<section class="a11y-custom">
+    <h2>Custom focus shadow</h2>
+    <p>Tab through these buttons. The first uses the default shadow; the second must show only the outline; the third must use the primary color for its shadow.</p>
+    <button type="button">Default focus shadow</button>
+    <button type="button" style="--a11yShadow: none">Outline only</button>
+    <button type="button" style="--a11yShadow: var(--a11yStyle) var(--primary)">Primary focus shadow</button>
+</section>
 <hr class="gradient">
 <button tabindex="1">Normal</button>
 <a href="#" class="button">Normal</a>

@@ -323,7 +323,7 @@ blockquote { max-width: 90%; margin: var(--space-4) auto; font-style: italic; te
 *:focus-visible { outline-color: var(--a11yColor); outline-offset: var(--a11yOffset); z-index: 1 }
 .a11y-off *:focus-visible { outline: 0; box-shadow: none }
 .a11y-inputs-off :where(input:not([type="checkbox"],[type="radio"],[type="submit"],[type="button"],[type="reset"],[type="range"]),select,textarea):focus-visible { outline: 0; box-shadow: none }
-.a11y-custom *:focus-visible { box-shadow: var(--a11yStyle) var(--a11yColor); outline: var(--a11yOutline); outline-offset: var(--a11yOffset); z-index: 1 }
+.a11y-custom *:focus-visible { box-shadow: var(--a11yShadow); outline: var(--a11yOutline); outline-offset: var(--a11yOffset); z-index: 1 }
 
 .visibility-hidden { visibility: hidden }
 .sr-only, .visually-hidden, .visually-hidden-focus:not(:focus-visible):not(:focus-within),
