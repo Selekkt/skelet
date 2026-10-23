@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Disabled colors — Skelet.css fixture</title>
+    <link rel="stylesheet" href="../css/skelet.css">
+    <style>
+        body { padding: var(--space-6); background: var(--bgColor); color: var(--color) }
+        main { max-width: 90rem; margin-inline: auto }
+        section { margin-block: var(--space-6) }
+        .samples {
+            --primary: var(--red);
+            --checkActiveColor: var(--red);
+            --buttonBg: var(--red);
+            --tokenBgActive: var(--red);
+            --tokenBorderActive: var(--red);
+        }
+        .grayscale { --disabledFilter: grayscale(100%) }
+        .color-tokens { --tokenDisabledFilter: none }
+        .muted { --disabledOpacity: 0.4 }
+        .inert-panel { padding: var(--space-4); background: var(--red); color: var(--black) }
+    </style>
+</head>
+<body class="a11y">
+    <main>
+        <h1>Disabled colors</h1>
+        <p>At small, medium, and base widths, check light/dark mode, reduced motion, and keyboard navigation. Default disabled samples should stay red, including on hover. Native disabled controls and inert content must be skipped by Tab; enabled controls should retain visible focus.</p>
+        <button type="button" id="theme">Toggle light/dark mode</button>
+        <div id="samples"></div>
+        <p><button type="button">Keyboard focus end</button></p>
+    </main>
+    <template id="sample">
+        <section class="samples">
+            <h2></h2>
+            <p>
+                <button type="button">Enabled red</button>
+                <button type="button" disabled>Disabled red</button>
+                <span class="disabled" style="color: var(--red)">Visual-only .disabled</span>
+            </p>
+            <p>
+                <label><input type="checkbox" checked> Enabled checkbox</label>
+                <label><input type="checkbox" checked disabled> Disabled checked checkbox</label>
+                <label><input type="checkbox" disabled> Disabled unchecked checkbox</label>
+            </p>
+            <p>
+                <label><input type="radio" checked disabled> Disabled checked radio</label>
+                <label><input type="radio" disabled> Disabled unchecked radio</label>
+                <label><input type="checkbox" role="switch" checked disabled> Disabled checked switch</label>
+                <label><input type="checkbox" role="switch" disabled> Disabled unchecked switch</label>
+            </p>
+            <fieldset class="toggle-token" style="--tokenLegend: block">
+                <legend>Wrapping labels</legend>
+                <label><input type="checkbox" checked> Enabled token</label>
+                <label><input type="checkbox" checked disabled> Disabled checked token</label>
+                <label><input type="checkbox" disabled> Disabled unchecked token</label>
+            </fieldset>
+            <fieldset class="toggle-token adjacent" style="--tokenLegend: block">
+                <legend>Adjacent label</legend>
+                <input type="checkbox" checked disabled>
+                <label>Disabled checked token</label>
+            </fieldset>
+            <div class="inert-panel" inert>
+                <p>Inert red panel: colors should follow the section's filter setting.</p>
+                <button type="button">Inert child</button>
+            </div>
+        </section>
+    </template>
+    <script>
+        const examples = [
+            ['', 'Default: preserve colors'],
+            ['grayscale', 'Opt-in: global grayscale'],
+            ['grayscale color-tokens', 'Global grayscale with token color override'],
+            ['muted', 'Custom disabled opacity: 0.4']
+        ];
+        examples.forEach(([className, title], index) => {
+            const fragment = document.querySelector('#sample').content.cloneNode(true);
+            const section = fragment.querySelector('section');
+            if (className) section.classList.add(...className.split(' '));
+            section.querySelector('h2').textContent = title;
+            const input = section.querySelector('.adjacent input');
+            input.id = `adjacent-${index}`;
+            section.querySelector('.adjacent label').htmlFor = input.id;
+            document.querySelector('#samples').append(fragment);
+        });
+        document.querySelector('#theme').addEventListener('click', () => {
+            const root = document.documentElement;
+            root.style.colorScheme = getComputedStyle(root).colorScheme === 'dark' ? 'light' : 'dark';
+        });
+    </script>
+</body>
+</html>

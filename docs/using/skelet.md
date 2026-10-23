@@ -3,7 +3,7 @@
 The implementation reference for building a site **with** Skelet.css. Read it before
 generating or changing HTML or CSS in a project that consumes the framework.
 
-**Reference snapshot: Skelet.css v6.8.7**. Match this guide to the banner in the
+**Reference snapshot: Skelet.css v6.8.8**. Match this guide to the banner in the
 `css/skelet.css` your project actually loads.
 
 > **Drop this file into your own project** so your coding agent knows Skelet's conventions.
@@ -826,7 +826,9 @@ Behavior:
 - The legend is hidden with `display: none` by default, which also removes the group's
   accessible name. The example sets `--tokenLegend: block` and then visually hides the
   legend while keeping it available to assistive technology.
-- Disabled tokens default to grayscale, low opacity, and line-through text.
+- Disabled tokens retain their colors with low opacity and line-through text. Customize
+  filtering with `--tokenDisabledFilter`, which falls back to `--disabledFilter` and then
+  `none`.
 - Tokens retain individual margins/radii; this is not automatically a fused segmented
   control. For a single-select grouped control, use `<fieldset segmented>` instead.
 
@@ -1310,6 +1312,22 @@ A correctly positioned skip link needs the compound button class and focus-revea
   opacity/filtering once to the inert root while blocking interaction throughout its subtree.
 - Do not rely on `.disabled` for behavior.
 - Skelet has no built-in `[aria-disabled="true"]` style.
+
+Disabled controls and inert roots preserve their colors by default (`--disabledFilter:
+none`) and use reduced opacity (`--disabledOpacity`, default `0.7`). Checkboxes, radios,
+and switches share these hooks. Toggle tokens retain their separate opacity and
+line-through treatment.
+
+To opt into grayscale globally, including disabled toggle tokens:
+
+```css
+:root {
+  --disabledFilter: grayscale(100%);
+}
+```
+
+Set `--tokenDisabledFilter: none` to keep token colors when global grayscale is enabled,
+or set it to `grayscale(100%)` to desaturate only disabled tokens.
 
 ### ARIA and roles
 

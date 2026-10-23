@@ -237,8 +237,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 [type="search"]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 :is([hidden],[type="hidden"],.hidden) {display:none!important;outline:0}
-:is([disabled],[disabled]:hover,.disabled) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7); cursor: not-allowed }
-:where([inert]) { filter: var(--disabledFilter, grayscale(100%)); opacity: var(--disabledOpacity, 0.7) }
+:is([disabled],[disabled]:hover,.disabled) { filter: var(--disabledFilter, none); opacity: var(--disabledOpacity, 0.7); cursor: not-allowed }
+:where([inert]) { filter: var(--disabledFilter, none); opacity: var(--disabledOpacity, 0.7) }
 :is([inert],[inert] *) { cursor: default; user-select: none; pointer-events: none }
 :where(html:has(dialog:modal[open])) { overflow: clip }
 i svg { display: inline; height: var(--iconSizeH, var(--iconSize)); width: var(--iconSizeW, var(--iconSize)) }
@@ -582,7 +582,7 @@ x-stack {
     user-select: none;
 
     /* Hover state */
-    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover) }
+    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover); --buttonShadow: var(--buttonShadowHover) }
 
     /* attribute */
     &.has-icon {
@@ -820,10 +820,9 @@ input:where([type="checkbox"], [type="radio"]) {
     &:focus-visible { box-shadow: 0 0 0 2px var(--inputFocus) }
 
     &:disabled {
-        filter: grayscale(100%);
-        opacity: 0.7;
+        filter: var(--disabledFilter, none);
+        opacity: var(--disabledOpacity, 0.7);
         cursor: not-allowed;
-        &:checked { filter: grayscale(100%) }
         & + label { cursor: not-allowed }
     }
 
@@ -972,7 +971,7 @@ input[type="checkbox"][role="switch"] {
 
 .toggle-token label:has(input:where([type="radio"],[type="checkbox"]):where(:disabled,.disabled)),
 .toggle-token input:where([type="radio"],[type="checkbox"]):where(:disabled,.disabled) + label {
-    filter: var(--tokenDisabledFilter, grayscale(100%));
+    filter: var(--tokenDisabledFilter, var(--disabledFilter, none));
     cursor: not-allowed;
     opacity: var(--tokenOpacity, 0.3);
     text-decoration: var(--tokenTextDec, line-through) !important;
