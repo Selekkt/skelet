@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.8.8 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.8.9 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
   variables
@@ -582,7 +582,13 @@ x-stack {
     user-select: none;
 
     /* Hover state */
-    &:where(:hover,:focus-visible) { --buttonBg: var(--buttonBgHover); --buttonColor: var(--buttonColorHover); --buttonBorderColor: var(--buttonBorderHover); --buttonDecoration: var(--buttonDecorationHover); --buttonShadow: var(--buttonShadowHover) }
+    &:where(:hover,:focus-visible) { 
+        background: var(--buttonBgHover); 
+        color: var(--buttonColorHover); 
+        border-color: var(--buttonBorderHover); 
+        text-decoration: var(--buttonDecorationHover); 
+        box-shadow: var(--buttonShadowHover)
+    }
 
     /* attribute */
     &.has-icon {
