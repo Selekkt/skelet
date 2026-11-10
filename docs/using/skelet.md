@@ -573,7 +573,7 @@ the application intentionally changes behavior and communicates `aria-disabled`.
 
 ### Styled fields
 
-The full field skin applies to explicit types:
+The full field skin applies to inputs without a `type` attribute and to explicit types:
 
 - `color`, `date`, `datetime`, `datetime-local`
 - `email`, `file`, `month`, `number`, `password`
@@ -581,8 +581,8 @@ The full field skin applies to explicit types:
 - Any input with `inputmode` or `list`
 - `<select>` and `<textarea>`
 
-Always write the input type. Although HTML treats a missing type as text semantically,
-Skelet's selector does not style a plain `<input>` without `type`, `inputmode`, or `list`.
+A plain `<input>` receives the same styling as `type="text"`. Fields also retain the base
+input font size and normal weight when nested inside a styled `<label>`.
 
 ```html
 <label for="email">Email</label>

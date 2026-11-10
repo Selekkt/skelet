@@ -1,4 +1,4 @@
-/*! Skelet.css - v6.8.9 | MIT License | (c) 2026 Selekkt. | https://selekkt.dk/skelet/ */
+/*! Skelet.css - v6.8.10 | MIT License | (c) 2027 Selekkt. | https://selekkt.dk/skelet/ */
 
 /* ------------------
   variables
@@ -184,7 +184,7 @@
     --inputRadius: var(--radius);
     --inputBorderWidth: var(--borderWidth);
     --inputBorderStyle: var(--borderStyle);
-    --inputFontSize: inherit;
+    --inputFontSize: var(--fontSize);
     --inputHeight: var(--space-5);
     --inputTransition: none;
 
@@ -653,6 +653,7 @@ x-stack {
   forms
 ------------------ */
 input:where(
+    :not([type]),
     [type="color"],
     [type="date"],
     [type="datetime"],
@@ -682,8 +683,8 @@ textarea {
     box-shadow: var(--inputShadow);
     background-color: var(--inputBg);
     color: var(--inputColor);
-    font-size: var(--inputFontSize);
-    font-weight: var(--inputFontWeight);
+    font-size: var(--inputFontSize, var(--fontSize));
+    font-weight: var(--inputFontWeight, normal);
     text-align: var(--inputAlign, start);
     transition: var(--inputTransition);
     -webkit-appearance: none;
@@ -1056,6 +1057,7 @@ input[type="checkbox"][role="switch"] {
         --linkColor: currentColor;
         --linkHover: currentColor;
         --buttonBg: transparent;
+        --buttonBgHover: transparent;
         --buttonBorder: none;
         --buttonRadius: inherit;
         --buttonMargin: 0px;
