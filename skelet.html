@@ -28,10 +28,7 @@
     <link rel="apple-touch-icon" href="img/touch.png">
     <link rel="icon" type="image/png" href="img/touch.png">
 
-    <script>
-        document.documentElement.classList.remove('no-js');
-        document.documentElement.classList.add('js');
-    </script>
+    <script>document.documentElement.classList.replace('no-js','js')</script>
 
     <!-- Optional font. Skelet falls back to the system sans-serif stack without it. -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -48,16 +45,14 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-    <a href="#mainContent" class="button is-primary visually-hidden-focus skipTo">
-        Skip to content
-    </a>
+    <a href="#mainContent" class="button is-primary visually-hidden-focus skipTo">Skip to content</a>
 
     <div id="app">
         <header>
             <!-- Site header -->
         </header>
 
-        <main id="mainContent" tabindex="-1">
+        <main id="mainContent">
             <!-- Page content -->
         </main>
 
