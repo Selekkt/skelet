@@ -778,7 +778,7 @@ select:not([multiple]) {
   radio / checkbox / switch
 ------------------ */
 :where(html) {
-    --checkSize: var(--inputHeight);
+    --checkSize: 1.5em;
     --checkBg: var(--inputBg);
     --checkBorderColor: var(--inputBorderColor);
     --checkRadius: var(--radiusFull, 100vw);
@@ -790,10 +790,10 @@ select:not([multiple]) {
     --radioDotSize: calc(var(--checkSize) * 0.45);
 
     --switchWidth: calc(var(--checkSize) * 1.75);
-    --switchThumbSize: 1.5rem;
-    --switchThumbOffset: var(--space-1);
+    --switchThumbSize: calc(var(--checkSize) * 0.625);
+    --switchThumbOffset: calc(var(--checkSize) / 6);
     --switchThumbBg: var(--primary);
-    --switchThumbTravel: 1.7rem;
+    --switchThumbTravel: calc(var(--checkSize) * 0.7083);
 }
 
 input:where([type="checkbox"], [type="radio"]) {
@@ -849,12 +849,12 @@ input:where([type="checkbox"], [type="radio"]) {
 input[type="checkbox"]:not([role="switch"]) {
     &::after {
         opacity: 0;
-        width: 0.6rem;
-        height: 1rem;
+        width: calc(var(--checkSize) * 0.25);
+        height: calc(var(--checkSize) * 0.4167);
         border: 1px solid var(--checkInnerColor);
         border-block-start: 0;
         border-inline-start: 0;
-        transform: rotate(43deg) translate(-1px, -1px);
+        transform: rotate(43deg) translate(calc(var(--checkSize) / -24), calc(var(--checkSize) / -24));
     }
 
     &:checked::after { opacity: 1 }
