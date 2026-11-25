@@ -355,15 +355,15 @@ pre > code { display: block; padding: var(--inputPadding); white-space: pre }
 
 kbd {
     display: inline-block;
-    margin: var(--inputMargin);
-    padding: var(--space-1) var(--space-3);
     background: var(--inputBg);
-    box-shadow: 0px 0px 10px 0 var(--shadow), 0 0.2rem 0 var(--inputBorderColor);
-    border: 1px solid var(--inputBorderColor);
-    border-radius: var(--inputRadius);
     color: var(--inputColor);
-    text-align: center;
-    min-width: 3rem;
+    border: 1px solid var(--inputBorderColor);
+    box-shadow: 0px 0px 10px 0 var(--shadow), 0 0.2rem 0 var(--inputBorderColor);
+    min-width: 2rem;
+    margin: var(--kbdMargin, var(--space-1));
+    padding: var(--kbdPadding, var(--space-1) var(--space-3));
+    border-radius: var(--kbdRadius, 1rem);
+    text-align: center
 }
 
 .is-green:not(.is-custom):not(.is-blank) { border-color: var(--colorSuccess)!important; --inputFocus: var(--colorSuccess); --inputBorderColor: var(--colorSuccess); --inputBorderHover: var(--colorSuccess) }
